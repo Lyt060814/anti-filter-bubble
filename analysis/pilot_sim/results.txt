@@ -1,0 +1,60 @@
+=== 1. Calibration (Phase 0 only, 20-exposure blocks) ===
+KuaiRand target: algorithmic top-tag share 0.312 vs random 0.215 (ratio 1.45); distinct 9.49 vs 11.87 (ratio 0.80)
+random recommender: top share 0.181, distinct 12.00   (1.4s)
+X-like lam=0.25: top 0.200 (ratio 1.11), distinct 10.70 (ratio 0.89), loss 0.352
+X-like lam=0.4: top 0.241 (ratio 1.33), distinct 9.49 (ratio 0.79), loss 0.094
+X-like lam=0.5: top 0.270 (ratio 1.49), distinct 8.88 (ratio 0.74), loss 0.106
+X-like lam=0.75: top 0.365 (ratio 2.02), distinct 7.42 (ratio 0.62), loss 0.618
+X-like lam=1.0: top 0.490 (ratio 2.71), distinct 5.83 (ratio 0.49), loss 1.260
+greedy (lam=0.5): top 0.565 (ratio 3.12), distinct 4.62 (ratio 0.38)
+X no DPP (lam=0.5): top 0.534 (ratio 2.95), distinct 4.73 (ratio 0.39)
+-> chosen lam = 0.4
+
+=== 2. Escape strategies (X-like full pipeline) ===
+H1|S0|B    cocooned 1.00 peak 0.45 | escape steps 60.0±0.0 (escaped 0%) actions 0.0±0.0 | end2 0.36 end3 0.27 relapse R 0.57 relapsed 100% | util 0.55 | s~ 1.08/1.00/1.01/1.02 (10.7s)
+H1|S1|A    cocooned 1.00 peak 0.45 | escape steps 7.9±0.2 (escaped 100%) actions 21.8±0.3 | end2 0.01 end3 0.04 relapse R 0.03 relapsed 0% | util 0.85 | s~ 1.09/1.01/1.12/1.05 (11.8s)
+H1|S1|B    cocooned 1.00 peak 0.45 | escape steps 4.3±0.1 (escaped 100%) actions 10.5±0.1 | end2 0.00 end3 0.04 relapse R 0.02 relapsed 0% | util 0.90 | s~ 1.08/1.00/1.06/1.03 (11.0s)
+H1|S1|C    cocooned 1.00 peak 0.45 | escape steps 4.5±0.1 (escaped 100%) actions 11.2±0.2 | end2 0.00 end3 0.03 relapse R 0.00 relapsed 0% | util 0.84 | s~ 1.08/1.01/1.06/1.04 (33.9s)
+H1|S2|B    cocooned 1.00 peak 0.45 | escape steps 49.3±0.8 (escaped 100%) actions 100.6±1.6 | end2 0.06 end3 0.04 relapse R 0.01 relapsed 0% | util 0.72 | s~ 1.08/1.00/1.09/1.04 (10.6s)
+H1|S3|B    cocooned 1.00 peak 0.45 | escape steps 59.8±0.3 (escaped 2%) actions 10.0±0.0 | end2 0.33 end3 0.21 relapse R 0.43 relapsed 100% | util 0.58 | s~ 1.08/1.00/1.01/1.02 (10.4s)
+H1|S4|B    cocooned 1.00 peak 0.45 | escape steps 1.9±0.1 (escaped 100%) actions 1.0±0.0 | end2 0.05 end3 0.26 relapse R 0.56 relapsed 100% | util 0.33 | s~ 1.08/1.00/1.27/1.04 (9.5s)
+H1|S5|A    cocooned 1.00 peak 0.45 | escape steps 7.6±0.2 (escaped 100%) actions 46.5±0.7 | end2 0.01 end3 0.03 relapse R -0.01 relapsed 0% | util 0.92 | s~ 1.09/1.01/1.08/1.05 (10.2s)
+H1|S5|B    cocooned 1.00 peak 0.45 | escape steps 4.0±0.1 (escaped 100%) actions 24.8±0.4 | end2 0.00 end3 0.02 relapse R -0.03 relapsed 0% | util 0.95 | s~ 1.08/1.00/1.05/1.02 (10.4s)
+H1|S5|C    cocooned 1.00 peak 0.45 | escape steps 4.3±0.1 (escaped 100%) actions 26.2±0.5 | end2 0.00 end3 0.02 relapse R -0.03 relapsed 0% | util 0.92 | s~ 1.08/1.01/1.05/1.03 (31.3s)
+H2|S0|B    cocooned 1.00 peak 0.40 | escape steps 19.7±0.2 (escaped 100%) actions 0.0±0.0 | end2 0.03 end3 0.12 relapse R 0.24 relapsed 20% | util 0.84 | s~ 1.13/1.08/1.14/1.12 (10.4s)
+H2|S1|A    cocooned 1.00 peak 0.39 | escape steps 7.6±0.2 (escaped 100%) actions 19.4±0.3 | end2 0.02 end3 0.11 relapse R 0.21 relapsed 16% | util 0.90 | s~ 1.14/1.09/1.15/1.14 (10.1s)
+H2|S1|B    cocooned 1.00 peak 0.40 | escape steps 2.9±0.0 (escaped 100%) actions 5.4±0.1 | end2 0.00 end3 0.11 relapse R 0.21 relapsed 16% | util 0.93 | s~ 1.13/1.08/1.12/1.12 (10.1s)
+H2|S1|C    cocooned 1.00 peak 0.40 | escape steps 3.0±0.1 (escaped 100%) actions 5.8±0.1 | end2 0.00 end3 0.11 relapse R 0.21 relapsed 14% | util 0.91 | s~ 1.14/1.08/1.12/1.13 (31.9s)
+H2|S2|B    cocooned 1.00 peak 0.40 | escape steps 15.7±0.2 (escaped 100%) actions 33.4±0.5 | end2 0.02 end3 0.10 relapse R 0.20 relapsed 14% | util 0.91 | s~ 1.13/1.08/1.13/1.13 (10.4s)
+H2|S3|B    cocooned 1.00 peak 0.40 | escape steps 17.8±0.3 (escaped 100%) actions 10.0±0.0 | end2 0.03 end3 0.09 relapse R 0.16 relapsed 5% | util 0.88 | s~ 1.13/1.08/1.12/1.11 (10.4s)
+H2|S4|B    cocooned 1.00 peak 0.40 | escape steps 1.8±0.1 (escaped 100%) actions 1.0±0.0 | end2 0.05 end3 0.13 relapse R 0.27 relapsed 34% | util 0.35 | s~ 1.13/1.08/1.27/1.13 (9.3s)
+H2|S5|A    cocooned 1.00 peak 0.39 | escape steps 7.3±0.2 (escaped 100%) actions 43.3±0.8 | end2 0.01 end3 0.08 relapse R 0.14 relapsed 4% | util 0.96 | s~ 1.14/1.09/1.13/1.13 (10.6s)
+H2|S5|B    cocooned 1.00 peak 0.40 | escape steps 2.8±0.1 (escaped 100%) actions 16.6±0.2 | end2 0.00 end3 0.08 relapse R 0.13 relapsed 2% | util 0.99 | s~ 1.13/1.08/1.10/1.12 (10.4s)
+H2|S5|C    cocooned 1.00 peak 0.40 | escape steps 2.9±0.1 (escaped 100%) actions 17.4±0.2 | end2 0.00 end3 0.08 relapse R 0.13 relapsed 4% | util 0.97 | s~ 1.14/1.08/1.11/1.13 (31.4s)
+
+--- replication, seeds 1-2 (H1, variant B): escape steps / relapse R
+S0: esc 59.8, 59.6 (seed0 60.0); R 0.55, 0.58 (seed0 0.57)
+S1: esc 4.5, 4.2 (seed0 4.3); R 0.02, 0.02 (seed0 0.02)
+S2: esc 49.6, 50.1 (seed0 49.3); R 0.03, 0.01 (seed0 0.01)
+S3: esc 59.6, 59.3 (seed0 59.8); R 0.40, 0.45 (seed0 0.43)
+S4: esc 2.0, 2.0 (seed0 1.9); R 0.50, 0.56 (seed0 0.56)
+S5: esc 4.1, 4.1 (seed0 4.0); R -0.03, -0.04 (seed0 -0.03)
+
+=== 3. Ablation & sensitivity (H1; escape via S1-B and S2) ===
+X full                   peak 0.45 reach>.5 66% ttc 35.3 s~1 1.00 | S1 esc 4.3 (100%) R 0.02 | S2 esc 49.3 (100%) R 0.01 (20.7s)
+no author-div            peak 0.49 reach>.5 84% ttc 33.7 s~1 0.95 | S1 esc 4.2 (100%) R 0.02 | S2 esc 50.4 (100%) R 0.01 (19.6s)
+no OON 0.75              peak 0.49 reach>.5 86% ttc 32.7 s~1 0.95 | S1 esc 4.2 (100%) R -0.01 | S2 esc 51.2 (100%) R -0.02 (21.1s)
+no DPP                   peak 1.00 reach>.5 100% ttc 19.5 s~1 0.00 | S1 esc 3.1 (100%) R -0.01 | S2 esc 59.5 (16%) R 0.07 (16.9s)
+no DPP/AD/OON            peak 1.00 reach>.5 100% ttc 17.2 s~1 0.00 | S1 esc 3.1 (100%) R -0.01 | S2 esc 59.9 (5%) R 0.13 (15.5s)
+DPP theta 0.5            peak 0.21 reach>.5 0% ttc 40.0 s~1 1.30 | S1 esc 5.5 (100%) R 0.15 | S2 esc 36.6 (100%) R 0.21 (20.4s)
+DPP theta 0.8            peak 0.92 reach>.5 100% ttc 20.7 s~1 0.18 | S1 esc 3.3 (100%) R -0.01 | S2 esc 58.3 (44%) R 0.01 (20.6s)
+greedy p_eng             peak 1.00 reach>.5 100% ttc 17.7 s~1 0.00 | S1 esc 23.7 (100%) R -0.01 | S2 esc 59.9 (6%) R 0.12 (15.2s)
+M = 50                   peak 0.35 reach>.5 11% ttc 38.4 s~1 1.14 | S1 esc 2.4 (100%) R 0.23 | S2 esc 13.1 (100%) R 0.27 (20.9s)
+M = 400                  peak 0.30 reach>.5 0% ttc 40.0 s~1 1.00 | S1 esc 4.6 (100%) R -0.09 | S2 esc 59.0 (4%) R 0.46 (21.2s)
+lam 0.25                 peak 0.31 reach>.5 2% ttc 40.0 s~1 1.18 | S1 esc 3.6 (100%) R 0.09 | S2 esc 39.0 (100%) R 0.11 (20.8s)
+lam 1.0                  peak 0.98 reach>.5 100% ttc 17.4 s~1 0.05 | S1 esc 4.0 (100%) R -0.01 | S2 esc 60.0 (2%) R 0.08 (20.5s)
+emb noise .15 (cos .87)  peak 0.20 reach>.5 0% ttc 40.0 s~1 1.30 | S1 esc 6.3 (100%) R 0.26 | S2 esc 37.2 (100%) R 0.21 (20.1s)
+emb noise .8 (cos .57)   peak 0.77 reach>.5 100% ttc 23.1 s~1 0.48 | S1 esc 3.6 (100%) R -0.01 | S2 esc 56.1 (78%) R -0.01 (20.1s)
+relapse h = 0            peak 0.45 reach>.5 66% ttc 35.3 s~1 1.00 | S1 esc 4.3 (100%) R -0.00 | S2 esc 49.3 (100%) R -0.02 (20.4s)
+
+Total runtime 724s
