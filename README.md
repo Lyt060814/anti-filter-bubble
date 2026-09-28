@@ -2,7 +2,10 @@
 
 COMP1110 (HKU, 2026/27 Sem 1) group project on information cocoons / filter bubbles (信息茧房).
 
-**Status: exploration phase — topic not yet decided.** We are collecting resources (papers, code, data, tools) first, then deciding what to study. Candidate directions are in `docs/01_topic_candidates.md` and `docs/resources/README.md` §4; `docs/project-plan/project_plan_draft.md` is an early draft for one candidate only.
+**Current question (pending final team confirmation):**
+*How early can a user notice — from what is visible on their own screen — that their feed is narrowing into an information cocoon, and how much effort does it take to escape and stay out, under the feed-ranking mechanisms that X open-sourced in 2026?*
+
+Project Plan: `docs/project-plan/Project_Plan.pdf` (source: `project_plan.md`; Word: `Project_Plan.docx`).
 
 ## Repository layout
 
@@ -13,7 +16,7 @@ COMP1110 (HKU, 2026/27 Sem 1) group project on information cocoons / filter bubb
 | `docs/research/` | 第一轮调研笔记（文献、政策、审计方法、模型）+ 文献核对清单 |
 | `docs/resources/` | 第二轮资源清单（数据集、代码、X 算法代码地图、自采数据、破茧方案）— **从 `docs/resources/README.md` 开始看** |
 | `analysis/` | 探索性分析脚本（数据不入库，见脚本注释的下载地址） |
-| `docs/project-plan/project_plan_draft.md` | Project Plan 英文草稿（due Oct 4） |
+| `docs/project-plan/` | Project Plan（PDF / Word / Markdown 源文件）、核实过的参考文献、旧草稿存档 |
 
 ## Key dates (tentative — confirm on Moodle)
 
