@@ -1,0 +1,29 @@
+== (a) KuaiRec: Spearman correlation of screen signals with full-information entropy (same day)
+   user-days n>=20 (136111): D20~H_day 0.474, S20~H_day -0.468, D20~R3 0.383
+   user-days n>=60 (63510): D20~H_day 0.400, S20~H_day -0.397, D20~R3 0.322
+   user-days n>=100 (32019): D20~H_day 0.330, S20~H_day -0.318, D20~R3 0.270
+
+== (b) KuaiRec pooled segment entropy vs baseline (days 0-6)
+segment B (days 27-36): users 5794, median relative change +0.034 (null +0.002)
+   drop >= 5%: observed 0.0161  null 0.0293
+   drop >= 10%: observed 0.0022  null 0.0024
+   drop >= 15%: observed 0.0003  null 0.0000
+   drop >= 25%: observed 0.0000  null 0.0000
+   rise >= 10%: observed 0.1191
+segment C (days 53-62): users 5459, median relative change +0.025 (null +0.002)
+   drop >= 5%: observed 0.0429  null 0.0456
+   drop >= 10%: observed 0.0108  null 0.0033
+   drop >= 15%: observed 0.0026  null 0.0002
+   drop >= 25%: observed 0.0002  null 0.0000
+   rise >= 10%: observed 0.0791
+
+== (c) KuaiRand-Pure standard (non-random) logs
+   rows 1400833, users 27076, distinct first-tags 43
+   exposures per user-day: median 2, p90 9; share user-days n>=20: 0.030
+   users with >=60 exposures in 04-08..04-21: 6232; Spearman D20~H_all 0.610, S20~H_all -0.579
+KuaiRand later (04-15..05-08) vs week0: users 1040, median relative change +0.039 (null -0.013)
+   drop >= 5%: observed 0.1875  null 0.2923
+   drop >= 10%: observed 0.0788  null 0.1231
+   drop >= 15%: observed 0.0337  null 0.0413
+   drop >= 25%: observed 0.0029  null 0.0019
+   rise >= 10%: observed 0.2731

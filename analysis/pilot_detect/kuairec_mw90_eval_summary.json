@@ -1,0 +1,198 @@
+[
+ {
+  "tag": 15,
+  "rows": 33981,
+  "rows_test": 10150,
+  "users": 5132,
+  "base_rate": 0.0035019569759571524,
+  "positives_test": 35,
+  "coef_LR_screen": {
+   "D20": -0.599,
+   "S20": 0.878,
+   "A20": 0.051,
+   "NOV20": 0.102,
+   "rD20": 0.32,
+   "rS20": -0.374,
+   "dD20": 0.152,
+   "dS20": -0.104
+  },
+  "best_single_screen": "S20 (high = alarm)",
+  "gap_LR": 0.006253795635901338,
+  "gap_single": 0.06165242567615281,
+  "CI95": {
+   "LR screen": [
+    0.831,
+    0.946
+   ],
+   "LR platform": [
+    0.834,
+    0.957
+   ],
+   "gap": [
+    -0.048,
+    0.068
+   ]
+  },
+  "spearman_dRW_next": {
+   "D20": -0.134,
+   "S20": 0.15,
+   "A20": 0.073,
+   "NOV20": -0.004,
+   "rD20": -0.148,
+   "rS20": 0.176,
+   "dD20": 0.01,
+   "dS20": 0.006,
+   "H_day": -0.279,
+   "RW": -0.517,
+   "relRW": -0.441,
+   "dH_day": 0.039,
+   "n": 0.001
+  },
+  "R2_dRW_next_screen": 0.08,
+  "R2_dRW_next_platform": 0.299,
+  "lead": {
+   "al_single": {
+    "events": 37,
+    "detected_share": 0.432,
+    "lead_median": 1.5,
+    "lead_mean": 1.56,
+    "lead_hist": {
+     "1": 8,
+     "2": 7,
+     "3": 1
+    },
+    "false_alarm_segments": 0.094,
+    "alarm_rate_userdays": 0.012
+   },
+   "al_LR screen": {
+    "events": 37,
+    "detected_share": 0.405,
+    "lead_median": 2.0,
+    "lead_mean": 2.4,
+    "lead_hist": {
+     "1": 6,
+     "2": 4,
+     "4": 4,
+     "6": 1
+    },
+    "false_alarm_segments": 0.062,
+    "alarm_rate_userdays": 0.012
+   },
+   "al_LR platform": {
+    "events": 37,
+    "detected_share": 0.514,
+    "lead_median": 2.0,
+    "lead_mean": 1.68,
+    "lead_hist": {
+     "1": 9,
+     "2": 8,
+     "3": 1,
+     "4": 1
+    },
+    "false_alarm_segments": 0.031,
+    "alarm_rate_userdays": 0.007
+   }
+  },
+  "rule_best_single": {
+   "feature": "S20",
+   "sign": 1,
+   "threshold": 0.55
+  }
+ },
+ {
+  "tag": 25,
+  "rows": 34010,
+  "rows_test": 10161,
+  "users": 5134,
+  "base_rate": 0.0006468685680682153,
+  "positives_test": 9,
+  "coef_LR_screen": {
+   "D20": -0.216,
+   "S20": 1.169,
+   "A20": -0.076,
+   "NOV20": 0.247,
+   "rD20": 0.676,
+   "rS20": -0.044,
+   "dD20": 0.186,
+   "dS20": -0.307
+  },
+  "best_single_screen": "S20 (high = alarm)",
+  "gap_LR": 0.021714385780579715,
+  "gap_single": 0.05940810787146489,
+  "CI95": {
+   "LR screen": [
+    0.913,
+    0.996
+   ],
+   "LR platform": [
+    0.973,
+    1.0
+   ],
+   "gap": [
+    0.002,
+    0.061
+   ]
+  },
+  "spearman_dRW_next": {
+   "D20": -0.135,
+   "S20": 0.152,
+   "A20": 0.073,
+   "NOV20": -0.004,
+   "rD20": -0.148,
+   "rS20": 0.177,
+   "dD20": 0.01,
+   "dS20": 0.006,
+   "H_day": -0.281,
+   "RW": -0.518,
+   "relRW": -0.442,
+   "dH_day": 0.04,
+   "n": -0.001
+  },
+  "R2_dRW_next_screen": 0.082,
+  "R2_dRW_next_platform": 0.3,
+  "lead": {
+   "al_single": {
+    "events": 5,
+    "detected_share": 0.6,
+    "lead_median": 2.0,
+    "lead_mean": 2.67,
+    "lead_hist": {
+     "2": 2,
+     "4": 1
+    },
+    "false_alarm_segments": 0.047,
+    "alarm_rate_userdays": 0.006
+   },
+   "al_LR screen": {
+    "events": 5,
+    "detected_share": 0.6,
+    "lead_median": 4.0,
+    "lead_mean": 5.0,
+    "lead_hist": {
+     "4": 2,
+     "7": 1
+    },
+    "false_alarm_segments": 0.042,
+    "alarm_rate_userdays": 0.008
+   },
+   "al_LR platform": {
+    "events": 5,
+    "detected_share": 0.8,
+    "lead_median": 4.0,
+    "lead_mean": 4.25,
+    "lead_hist": {
+     "2": 1,
+     "4": 2,
+     "7": 1
+    },
+    "false_alarm_segments": 0.068,
+    "alarm_rate_userdays": 0.016
+   }
+  },
+  "rule_best_single": {
+   "feature": "S20",
+   "sign": 1,
+   "threshold": 0.6
+  }
+ }
+]

@@ -1,0 +1,74 @@
+
+===== kuairec_mw90: X=15%  rows=33981 users=5132 base_rate=0.0035 test positives=35
+                   model     group   kind   AUC    AP  precision  recall  alarm_rate  AUC_n>=50
+       D20 (low = alarm)    screen single 0.733 0.017      0.057   0.200       0.012        NaN
+      S20 (high = alarm)    screen single 0.845 0.031      0.048   0.229       0.016        NaN
+      A20 (high = alarm)    screen single 0.602 0.012      0.039   0.086       0.008        NaN
+    NOV20 (high = alarm)    screen single 0.504 0.004      0.005   0.029       0.021        NaN
+      rD20 (low = alarm)    screen single 0.575 0.006      0.013   0.086       0.023        NaN
+     rS20 (high = alarm)    screen single 0.641 0.012      0.021   0.057       0.009        NaN
+      dD20 (low = alarm)    screen single 0.559 0.006      0.012   0.086       0.024        NaN
+     dS20 (high = alarm)    screen single 0.599 0.010      0.000   0.000       0.005        NaN
+     H_day (low = alarm)  platform single 0.907 0.111      0.208   0.286       0.005        NaN
+        RW (low = alarm)  platform single 0.891 0.179      0.196   0.286       0.005        NaN
+     relRW (low = alarm)  platform single 0.595 0.058      0.132   0.200       0.005        NaN
+    dH_day (low = alarm)  platform single 0.675 0.025      0.055   0.086       0.005        NaN
+         n (low = alarm) reference single 0.784 0.013      0.011   0.257       0.078        NaN
+               LR screen    screen     LR 0.898 0.062      0.065   0.314       0.017      0.881
+             LR platform  platform     LR 0.904 0.195      0.224   0.371       0.006      0.916
+      LR screen+platform  platform     LR 0.878 0.216      0.246   0.400       0.006      0.859
+LR activity only (log n) reference     LR 0.784 0.013      0.011   0.257       0.078      0.789
+       LR screen + log n    screen     LR 0.897 0.077      0.154   0.229       0.005      0.862
+     LR platform + log n  platform     LR 0.902 0.197      0.220   0.371       0.006      0.915
+rows : 33981
+rows_test : 10150
+users : 5132
+base_rate : 0.0035019569759571524
+positives_test : 35
+coef_LR_screen : {'D20': np.float64(-0.599), 'S20': np.float64(0.878), 'A20': np.float64(0.051), 'NOV20': np.float64(0.102), 'rD20': np.float64(0.32), 'rS20': np.float64(-0.374), 'dD20': np.float64(0.152), 'dS20': np.float64(-0.104)}
+best_single_screen : S20 (high = alarm)
+gap_LR : 0.006253795635901338
+gap_single : 0.06165242567615281
+CI95 : {'LR screen': [0.831, 0.946], 'LR platform': [0.834, 0.957], 'gap': [-0.048, 0.068]}
+spearman_dRW_next : {'D20': np.float64(-0.134), 'S20': np.float64(0.15), 'A20': np.float64(0.073), 'NOV20': np.float64(-0.004), 'rD20': np.float64(-0.148), 'rS20': np.float64(0.176), 'dD20': np.float64(0.01), 'dS20': np.float64(0.006), 'H_day': np.float64(-0.279), 'RW': np.float64(-0.517), 'relRW': np.float64(-0.441), 'dH_day': np.float64(0.039), 'n': np.float64(0.001)}
+R2_dRW_next_screen : 0.08
+R2_dRW_next_platform : 0.299
+lead : {'al_single': {'events': 37, 'detected_share': 0.432, 'lead_median': 1.5, 'lead_mean': 1.56, 'lead_hist': {1: 8, 2: 7, 3: 1}, 'false_alarm_segments': np.float64(0.094), 'alarm_rate_userdays': 0.012}, 'al_LR screen': {'events': 37, 'detected_share': 0.405, 'lead_median': 2.0, 'lead_mean': 2.4, 'lead_hist': {1: 6, 2: 4, 4: 4, 6: 1}, 'false_alarm_segments': np.float64(0.062), 'alarm_rate_userdays': 0.012}, 'al_LR platform': {'events': 37, 'detected_share': 0.514, 'lead_median': 2.0, 'lead_mean': 1.68, 'lead_hist': {1: 9, 2: 8, 3: 1, 4: 1}, 'false_alarm_segments': np.float64(0.031), 'alarm_rate_userdays': 0.007}}
+rule_best_single : {'feature': 'S20', 'sign': 1, 'threshold': 0.55}
+
+===== kuairec_mw90: X=25%  rows=34010 users=5134 base_rate=0.0006 test positives=9
+                   model     group   kind   AUC    AP  precision  recall  alarm_rate  AUC_n>=50
+       D20 (low = alarm)    screen single 0.796 0.025      0.024   0.333       0.012        NaN
+      S20 (high = alarm)    screen single 0.933 0.040      0.031   0.222       0.006        NaN
+      A20 (high = alarm)    screen single 0.523 0.003      0.005   0.222       0.041        NaN
+    NOV20 (high = alarm)    screen single 0.603 0.004      0.005   0.111       0.021        NaN
+     rD20 (high = alarm)    screen single 0.395 0.001      0.000   0.000       0.030        NaN
+     rS20 (high = alarm)    screen single 0.702 0.005      0.005   0.111       0.021        NaN
+     dD20 (high = alarm)    screen single 0.452 0.001      0.001   0.111       0.161        NaN
+     dS20 (high = alarm)    screen single 0.576 0.003      0.000   0.000       0.005        NaN
+     H_day (low = alarm)  platform single 0.973 0.147      0.096   0.556       0.005        NaN
+        RW (low = alarm)  platform single 0.992 0.496      0.068   0.889       0.012        NaN
+     relRW (low = alarm)  platform single 0.832 0.276      0.051   0.333       0.006        NaN
+    dH_day (low = alarm)  platform single 0.569 0.007      0.000   0.000       0.005        NaN
+         n (low = alarm) reference single 0.816 0.003      0.004   0.333       0.078        NaN
+               LR screen    screen     LR 0.968 0.111      0.043   0.444       0.009        NaN
+             LR platform  platform     LR 0.990 0.429      0.049   0.889       0.016        NaN
+      LR screen+platform  platform     LR 0.993 0.404      0.103   0.667       0.006        NaN
+LR activity only (log n) reference     LR 0.816 0.003      0.004   0.333       0.078        NaN
+       LR screen + log n    screen     LR 0.971 0.160      0.058   0.333       0.005        NaN
+     LR platform + log n  platform     LR 0.989 0.443      0.049   0.889       0.016        NaN
+rows : 34010
+rows_test : 10161
+users : 5134
+base_rate : 0.0006468685680682153
+positives_test : 9
+coef_LR_screen : {'D20': np.float64(-0.216), 'S20': np.float64(1.169), 'A20': np.float64(-0.076), 'NOV20': np.float64(0.247), 'rD20': np.float64(0.676), 'rS20': np.float64(-0.044), 'dD20': np.float64(0.186), 'dS20': np.float64(-0.307)}
+best_single_screen : S20 (high = alarm)
+gap_LR : 0.021714385780579715
+gap_single : 0.05940810787146489
+CI95 : {'LR screen': [0.913, 0.996], 'LR platform': [0.973, 1.0], 'gap': [0.002, 0.061]}
+spearman_dRW_next : {'D20': np.float64(-0.135), 'S20': np.float64(0.152), 'A20': np.float64(0.073), 'NOV20': np.float64(-0.004), 'rD20': np.float64(-0.148), 'rS20': np.float64(0.177), 'dD20': np.float64(0.01), 'dS20': np.float64(0.006), 'H_day': np.float64(-0.281), 'RW': np.float64(-0.518), 'relRW': np.float64(-0.442), 'dH_day': np.float64(0.04), 'n': np.float64(-0.001)}
+R2_dRW_next_screen : 0.082
+R2_dRW_next_platform : 0.3
+lead : {'al_single': {'events': 5, 'detected_share': 0.6, 'lead_median': 2.0, 'lead_mean': 2.67, 'lead_hist': {2: 2, 4: 1}, 'false_alarm_segments': np.float64(0.047), 'alarm_rate_userdays': 0.006}, 'al_LR screen': {'events': 5, 'detected_share': 0.6, 'lead_median': 4.0, 'lead_mean': 5.0, 'lead_hist': {4: 2, 7: 1}, 'false_alarm_segments': np.float64(0.042), 'alarm_rate_userdays': 0.008}, 'al_LR platform': {'events': 5, 'detected_share': 0.8, 'lead_median': 4.0, 'lead_mean': 4.25, 'lead_hist': {2: 1, 4: 2, 7: 1}, 'false_alarm_segments': np.float64(0.068), 'alarm_rate_userdays': 0.016}}
+rule_best_single : {'feature': 'S20', 'sign': 1, 'threshold': 0.6}

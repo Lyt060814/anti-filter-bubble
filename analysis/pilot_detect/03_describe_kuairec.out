@@ -1,0 +1,53 @@
+== kuairec: users 7176, user-days 188321
+exposures per user-day quantiles: {0.1: 10.0, 0.25: 18.0, 0.5: 39.0, 0.75: 76.0, 0.9: 134.0}
+share user-days with n>=20: 0.723 | n>=10: 0.905
+screen signals (user-days with n>=20) mean/median:
+         D20    S20    A20  NOV20
+mean  11.494  0.266  0.016  0.035
+25%   10.000  0.200  0.000  0.000
+50%   12.000  0.250  0.000  0.000
+75%   13.000  0.316  0.000  0.050
+baseline entropy B: valid users 5830 {'count': 5830.0, 'mean': 0.801, 'std': 0.046, 'min': 0.495, '25%': 0.789, '50%': 0.812, '75%': 0.83, 'max': 0.893}
+mean R_W by day (population trend):
+day
+2     0.779
+3     0.787
+4     0.794
+5     0.788
+6     0.786
+7     0.769
+29    0.822
+30    0.826
+31    0.829
+32    0.825
+33    0.819
+34    0.811
+35    0.809
+36    0.808
+55    0.802
+56    0.806
+57    0.802
+58    0.794
+59    0.776
+60    0.780
+61    0.796
+62    0.806
+
+Event state share of post-baseline user-days: X=15%: 0.0204 X=25%: 0.0035
+Sampling-noise null event rate (same n, baseline mix): X=15%: 0.0107 X=25%: 0.0008
+Share of users with >=1 event day: X=15%: 0.1681 X=25%: 0.0364 (n users 5830 )
+X=15%: first event day distribution (days since baseline start): {'count': 980.0, 'mean': 48.0, 'std': 17.3, 'min': 7.0, '25%': 35.0, '50%': 58.0, '75%': 59.0, 'max': 62.0}
+   first event in which segment: {2: 683, 1: 197, 0: 100}
+   persistence P(event at t+1 | event at t) = 0.419
+X=25%: first event day distribution (days since baseline start): {'count': 212.0, 'mean': 53.2, 'std': 13.2, 'min': 7.0, '25%': 56.0, '50%': 59.0, '75%': 59.0, 'max': 62.0}
+   first event in which segment: {2: 178, 1: 24, 0: 10}
+   persistence P(event at t+1 | event at t) = 0.331
+
+Event-ever share by baseline activity quartile:
+            ev15   ev25  mean_daily_exposures
+q_act                                       
+Q1 light  0.296  0.059                  21.6
+Q2        0.147  0.039                  37.5
+Q3        0.113  0.021                  49.0
+Q4 heavy  0.117  0.027                  63.7
+share of all X=15% event user-days from Q4 heavy users: 0.15

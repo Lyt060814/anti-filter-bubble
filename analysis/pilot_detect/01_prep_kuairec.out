@@ -1,0 +1,37 @@
+raw rows 12530806
+rows with timestamp+date 12530806
+dup user-video pairs 2229837 | exact dup (user,video,timestamp) 968005
+gap between repeated plays of same pair (hours): quantiles {0.1: 0.0, 0.25: 0.0, 0.5: 0.0, 0.75: 507.54, 0.9: 619.78}
+after exact dedupe 11562801 | after same-day dedupe 11200823
+known categories 38
+final exposures 11200823 | UNKNOWN/missing cat share 0.0015 | missing author share 0.0
+exposures per day index:
+ day
+0     181680
+1     213203
+2     249672
+3     270965
+4     295817
+5     308674
+6     292546
+7     304296
+27    625593
+28    625163
+29    654076
+30    628305
+31    657148
+32    653166
+33    588220
+34    625968
+35    573600
+36    557942
+53    359058
+54    369545
+55    387216
+56    350007
+57    329858
+58    286036
+59    258317
+60    225380
+61    175252
+62    154120
