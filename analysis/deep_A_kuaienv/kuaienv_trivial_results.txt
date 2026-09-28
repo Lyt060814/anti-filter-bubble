@@ -1,0 +1,20 @@
+number of items: 10728
+env loaded in 3.5s; mat shape (1411, 3327)
+big-matrix positive threshold watch_ratio>=1.314; 10 dominant categories of 31: [5, 6, 7, 8, 9, 11, 17, 25, 26, 28]
+                         setting         policy  cum_reward  length  single_round   MCD  n_categories
+CIRS setting (N=1,thr=0,max=100)         random       7.078    8.03         0.909 0.865          6.73
+CIRS setting (N=1,thr=0,max=100)     pop_greedy      15.274    6.00         2.546 0.833          4.00
+CIRS setting (N=1,thr=0,max=100)  oracle_greedy      28.352    6.38         4.628 0.909          5.33
+CIRS setting (N=1,thr=0,max=100)     eps_greedy      28.533    6.95         4.220 0.902          5.78
+CIRS setting (N=1,thr=0,max=100) pop_greedy_big      12.537    5.00         2.507 0.800          4.00
+CIRS setting (N=1,thr=0,max=100)    pop_div_big     172.776  100.00         1.728 0.910         18.00
+CIRS setting (N=1,thr=0,max=100)        pop_div     177.788  100.00         1.778 0.890         19.00
+CIRS setting (N=1,thr=0,max=100)     oracle_div     291.658  100.00         2.917 0.874         19.68
+   DORL setting (N=4,M=0,max=30)         random       4.186    4.71         0.881 0.880          4.96
+   DORL setting (N=4,M=0,max=30)     pop_greedy      12.865    5.00         2.573 0.800          4.00
+   DORL setting (N=4,M=0,max=30)  oracle_greedy      19.345    4.13         4.718 0.902          4.27
+   DORL setting (N=4,M=0,max=30)     eps_greedy      17.106    4.10         4.317 0.925          4.10
+   DORL setting (N=4,M=0,max=30) pop_greedy_big      12.537    5.00         2.507 0.800          4.00
+   DORL setting (N=4,M=0,max=30)    pop_div_big      64.128   30.00         2.138 0.800         15.00
+   DORL setting (N=4,M=0,max=30)        pop_div      65.511   30.00         2.184 0.800         16.00
+   DORL setting (N=4,M=0,max=30)     oracle_div     110.500   30.00         3.683 0.827         15.00

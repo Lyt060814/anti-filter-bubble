@@ -1,0 +1,9 @@
+                              setting         policy  cum_reward  length  single_round   MCD  n_categories
+CIRS len30 setting (N=1,thr=0,max=30)         random       7.078    8.03         0.909 0.865          6.73
+CIRS len30 setting (N=1,thr=0,max=30)     pop_greedy      15.274    6.00         2.546 0.833          4.00
+CIRS len30 setting (N=1,thr=0,max=30)  oracle_greedy      28.352    6.38         4.628 0.909          5.33
+CIRS len30 setting (N=1,thr=0,max=30)     eps_greedy      28.533    6.95         4.220 0.902          5.78
+CIRS len30 setting (N=1,thr=0,max=30) pop_greedy_big      12.537    5.00         2.507 0.800          4.00
+CIRS len30 setting (N=1,thr=0,max=30)    pop_div_big      64.486   30.00         2.150 0.833         15.00
+CIRS len30 setting (N=1,thr=0,max=30)        pop_div      65.973   30.00         2.199 0.833         15.00
+CIRS len30 setting (N=1,thr=0,max=30)     oracle_div     112.300   30.00         3.743 0.862         14.40

@@ -1,0 +1,5 @@
+standard: global top-1 tag share 0.257, top-5 0.583, entropy 4.08 bits, distinct 43
+random: global top-1 tag share 0.184, top-5 0.514, entropy 4.35 bits, distinct 43
+users compared: 11176; distinct tags in 20 exposures: standard 9.49 vs random 11.87; top-tag share: standard 0.312 vs random 0.215; share users with standard more concentrated: 0.697
+standard click 0.460 long_view 0.332 like 0.0185 hate 0.00049
+random click 0.176 long_view 0.085 like 0.0048 hate 0.00114

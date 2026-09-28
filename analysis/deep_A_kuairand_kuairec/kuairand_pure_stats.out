@@ -1,0 +1,16 @@
+random rows 1186059 users 27285 videos 7583 dates 20220422 20220508 is_rand==1 1186059 is_hate 1351 hate_rate 0.00114 click 0.1762 like 0.00480 long_view 0.0850
+   tab dist {1: 1178025, 2: 764, 11: 6755, 14: 515}
+std_0408_0421 rows 1141112 users 26210 videos 7538 dates 20220409 20220421 is_rand==1 0 is_hate 480 hate_rate 0.00042 click 0.4634 like 0.01868 long_view 0.3366
+   tab dist {0: 150013, 1: 834876, 2: 39291, 3: 3574, 4: 75524, 5: 3402, 6: 29671, 7: 333, 8: 2551, 9: 252, 10: 80, 11: 417, 12: 834, 13: 283, 14: 11}
+std_0422_0508 rows 295497 users 25877 videos 6618 dates 20220422 20220508 is_rand==1 0 is_hate 230 hate_rate 0.00078 click 0.4450 like 0.01771 long_view 0.3134
+   tab dist {0: 28074, 1: 223513, 2: 9073, 3: 440, 4: 17641, 5: 767, 6: 13114, 7: 171, 8: 1358, 9: 192, 10: 72, 11: 308, 12: 638, 13: 116, 14: 20}
+ALL rows 2622668 users 27285 videos 7583 share is_rand 0.4522 hate 2061
+hate in rand 1351 hate in non-rand 710
+users with >=1 hate 722
+videos in basic 7583 tag null 96
+n tags per video {1: 5696, 2: 1759, 3: 32}
+distinct tags 46 top [('39', 1446), ('3', 732), ('20', 675), ('12', 606), ('62', 489), ('43', 428), ('68', 428), ('9', 419), ('6', 400), ('7', 383)]
+{'NORMAL': 7506, 'AD': 76, 'UNKNOWN': 1}
+user feat rows 27285 {'full_active': 17959, 'high_active': 6158, 'middle_active': 2133, '2_14_day_new': 635, 'low_active': 300, 'single_low_active': 68, '30day_retention': 15, 'day_new': 11, 'UNKNOWN': 6}
+interactions per user: median 73.0 mean 96.1
+random per user: median 22.0 min 10 max 1580

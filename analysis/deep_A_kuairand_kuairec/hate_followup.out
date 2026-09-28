@@ -1,0 +1,5 @@
+HATE events (all): n=1102 mean pre=0.0940 post=0.0871 diff=-0.0069 (se 0.0034); median #std before 53.0, after 16.0
+HATE on random-exposed video: n=515 mean pre=0.0687 post=0.0712 diff=+0.0025 (se 0.0051); median #std before 60.0, after 9.0
+HATE on standard video: n=587 mean pre=0.1161 post=0.1010 diff=-0.0151 (se 0.0045); median #std before 45.0, after 35.0
+CONTROL: not clicked, not hated (5000 sampled): n=2713 mean pre=0.1122 post=0.1065 diff=-0.0057 (se 0.0021); median #std before 50.0, after 22.0
+CONTROL2: long_view (5000 sampled): n=3574 mean pre=0.1510 post=0.1384 diff=-0.0127 (se 0.0019); median #std before 35.0, after 33.0
