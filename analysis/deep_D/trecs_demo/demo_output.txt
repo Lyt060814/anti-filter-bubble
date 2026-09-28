@@ -1,0 +1,7 @@
+trecs 0.2.1
+content    time= 2.54s steps=61 Jaccard(last)=0.1349 RecSim(last)=0.033 MSE(last)=0.0119 usercos before=0.580 after=0.574
+popularity time= 1.36s steps=61 Jaccard(last)=0.7741 RecSim(last)=0.438 MSE(last)=1042.6355 usercos before=0.580 after=0.984
+random     time= 1.46s steps=61 Jaccard(last)=0.0709 RecSim(last)=0.010 MSE(last)=0.0447 usercos before=0.580 after=0.860
+/tmp/claude-0/-home-user-anti-info-bubble/1f4c2ddc-5a5f-5603-ba08-ecece8726e00/scratchpad/deep_D/venv38/lib/python3.8/site-packages/trecs/models/mf.py:253: UserWarning: train_between_steps is set to True. Note that, at each step, this overwrites the MF model with a model fit only to the latest interaction. To avoid this behavior, set train_between_steps to False.
+mf         time=26.00s steps=61 Jaccard(last)=0.1331 RecSim(last)=0.070 MSE(last)=0.1977 usercos before=0.580 after=0.844
+['interaction_similarity', 'interaction_spread', 'mse', 'rec_similarity', 'timesteps']
