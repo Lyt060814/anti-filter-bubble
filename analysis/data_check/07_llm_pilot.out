@@ -1,0 +1,19 @@
+150 users, 0 calls to make; already spent 0.433 CNY (budget 1.0)
+calls ok 304; tokens in 378,818 (cache hit 0), out 13,445; cost 0.433 CNY
+         prompt_tokens  completion_tokens
+cond                                     
+history         1910.0               42.0
+persona          582.0               47.0
+
+== 150 users, 2,275 test exposures, positive rate 0.549
+B1 user x category pref    GAUC 0.531  [0.496, 0.566]  | global AUC 0.662
+B3 + title embedding       GAUC 0.512  [0.473, 0.546]  | global AUC 0.665
+B4 gradient boosting       GAUC 0.503  [0.470, 0.535]  | global AUC 0.658
+LLM persona only           GAUC 0.532  [0.498, 0.564]  | global AUC 0.493
+LLM persona + history      GAUC 0.533  [0.496, 0.570]  | global AUC 0.614
+diff LLM persona + history - B4 gradient boosting: +0.030  95% CI [-0.012, +0.072]
+diff LLM persona + history - LLM persona only: +0.001  95% CI [-0.035, +0.040]
+diff LLM persona only - B1 user x category pref: +0.000  95% CI [-0.048, +0.049]
+
+mean predicted P(watch): persona 47.3, history 36.4  vs actual 54.9
+share of identical probabilities within a user (no ranking signal): persona 0.16, history 0.23

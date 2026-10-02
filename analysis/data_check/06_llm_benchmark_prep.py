@@ -73,3 +73,7 @@ hgb = HistGradientBoostingClassifier(max_iter=300, learning_rate=0.05, random_st
 te['B4 gradient boosting, all features'] = hgb.predict_proba(Fte[allc])[:, 1]
 print(f'B4 gradient boosting, all features       AUC {roc_auc_score(te.y, te["B4 gradient boosting, all features"]):.3f} | '
       f'per-user GAUC {gauc(te, "B4 gradient boosting, all features")[0]:.3f}')
+
+# keep test predictions so the LLM pilot (07) is scored on exactly the same rows
+te.drop(columns=['_f']).to_parquet(SV_DIR / 'llm_benchmark_test_with_baselines.parquet')
+tr.to_parquet(SV_DIR / 'llm_benchmark_train.parquet')
