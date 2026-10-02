@@ -1,6 +1,6 @@
 eligible users 686 (both labels, >=10 random exposures); sampled 150
 0 calls to make; already spent 0.471 CNY (budget 1.0)
-calls ok 153; tokens in 429,644, out 10,278; cost 0.471 CNY
+[flash] calls ok 153; tokens in 429,644, out 10,278 (mean 67/call); cost 0.471 CNY
 
 == 143 users, 3,604 random exposures, long-view rate 0.112
 share of category in history     GAUC 0.586 [0.545, 0.623] | global AUC 0.587

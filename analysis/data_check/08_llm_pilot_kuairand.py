@@ -6,7 +6,8 @@ Label = long_view. The LLM gives P(long view) per candidate.
 We compare per-user GAUC with parametric scores AND check whether the LLM reproduces the aggregate
 'acceptance by category rank' curve from 05, which is what the simulator actually needs.
 No demographics exist in KuaiRand, so the LLM sees behaviour only.
-Usage: python3 08_llm_pilot_kuairand.py [n_users] [budget_cny]
+Usage: python3 08_llm_pilot_kuairand.py [n_users] [budget_cny] [model] [thinking]
+  model: deepseek-flash (default) | deepseek-v4-pro;  thinking: off (default) | low | high
 """
 import json, os, sys, time, concurrent.futures as cf
 import numpy as np, pandas as pd, requests
@@ -17,9 +18,15 @@ from common import KR_DIR, KR_SUPP, OUT, DATA
 
 N_USERS = int(sys.argv[1]) if len(sys.argv) > 1 else 150
 BUDGET = float(sys.argv[2]) if len(sys.argv) > 2 else 1.0
-MODEL, URL = 'deepseek-flash', 'https://api.deepseek.com/chat/completions'
-PRICE = {'in_miss': 1.0, 'in_hit': 0.02, 'out': 4.0}        # CNY / 1M tokens, off-peak, checked 2026-10-02
-CACHE = DATA / 'kuairand' / 'llm_pilot_kuairand_cache.jsonl'
+MODEL = sys.argv[3] if len(sys.argv) > 3 else 'deepseek-flash'
+THINK = sys.argv[4] if len(sys.argv) > 4 else 'off'
+URL = 'https://api.deepseek.com/chat/completions'
+# CNY / 1M tokens, off-peak (weekends, holidays, outside 9-12/14-18 Beijing weekdays); peak is 2x. Checked 2026-10-02.
+PRICES = {'deepseek-flash': {'in_miss': 1.0, 'in_hit': 0.02, 'out': 4.0},
+          'deepseek-v4-pro': {'in_miss': 4.5, 'in_hit': 0.15, 'out': 13.5}}
+PRICE = PRICES[MODEL]
+TAG = MODEL.replace('deepseek-', '').replace('v4-', '') + ('' if THINK == 'off' else f'_think-{THINK}')
+CACHE = DATA / 'kuairand' / f'llm_pilot_kuairand_{TAG}.jsonl'
 N_HIST, N_CAND, MAX_TITLE = 50, 30, 50
 
 cmap = pd.read_csv(OUT / 'category_map_l1.csv', index_col='l1_id')
@@ -49,7 +56,7 @@ for tri, tei in GroupKFold(5).split(r, groups=r.user_id):         # fitted on ot
 
 ok = r.groupby('user_id').long_view.agg(['nunique', 'size'])
 elig = ok[(ok['nunique'] == 2) & (ok['size'] >= 10)].index
-users = np.random.default_rng(0).choice(np.array(sorted(elig)), size=min(N_USERS, len(elig)), replace=False)
+users = np.random.default_rng(0).choice(np.array(sorted(elig)), size=150, replace=False)[:N_USERS]   # fixed 150-user sample; smaller runs take a prefix
 print(f'eligible users {len(elig)} (both labels, >=10 random exposures); sampled {len(users)}')
 
 need = set(hist[hist.user_id.isin(users)].video_id) | set(rnd[rnd.user_id.isin(users)].video_id)
@@ -78,14 +85,20 @@ def call(u, items):
            + '\n'.join(f'{i + 1}. {vtext(x.video_id, x.duration_ms)}' for i, x in enumerate(rows.itertuples()))
            + f'\n\n请输出 {len(rows)} 个概率。')
     body = {'model': MODEL, 'messages': [{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': msg}],
-            'thinking': {'type': 'disabled'}, 'response_format': {'type': 'json_object'}, 'temperature': 0.0, 'max_tokens': 800}
+            'response_format': {'type': 'json_object'}}
+    if THINK == 'off':
+        body.update(thinking={'type': 'disabled'}, temperature=0.0, max_tokens=800)
+    else:   # temperature is ignored in thinking mode; reasoning tokens count as output
+        body.update(thinking={'type': 'enabled'}, reasoning_effort=THINK, max_tokens=16000)
     for attempt in range(4):
         try:
             resp = requests.post(URL, json=body, timeout=120, headers={'Authorization': f'Bearer {os.environ["DEEPSEEK_API_KEY"]}'})
             resp.raise_for_status(); d = resp.json()
             p = json.loads(d['choices'][0]['message']['content'])['p']
             if len(p) != len(rows): raise ValueError(f'{len(p)} != {len(rows)}')
-            return {'user_id': int(u), 'rows': [int(i) for i in items], 'p': [float(x) for x in p], 'usage': d['usage']}
+            rc = d['choices'][0]['message'].get('reasoning_content') or ''
+            return {'user_id': int(u), 'rows': [int(i) for i in items], 'p': [float(x) for x in p], 'usage': d['usage'], 'reasoning_chars': len(rc),
+                    'reasoning_head': rc[:600]}
         except Exception as e:
             err = e; time.sleep(2 ** attempt)
     return {'user_id': int(u), 'error': repr(err)}
@@ -112,7 +125,8 @@ with open(CACHE, 'a') as f, cf.ThreadPoolExecutor(8) as ex:
             if 'p' in d: done[d['user_id']] = d; spent += cost(d['usage'])
             else: print('ERROR', d)
 tok = pd.DataFrame([d['usage'] for d in done.values()])
-print(f'calls ok {len(done)}; tokens in {tok.prompt_tokens.sum():,}, out {tok.completion_tokens.sum():,}; cost {spent:.3f} CNY')
+print(f'[{TAG}] calls ok {len(done)}; tokens in {tok.prompt_tokens.sum():,}, out {tok.completion_tokens.sum():,} '
+      f'(mean {tok.completion_tokens.mean():.0f}/call); cost {spent:.3f} CNY')
 
 sel = set(int(u) for u in users)   # score only this run's sample (the cache may hold extra smoke-test users)
 llm = pd.Series({i: p for d in done.values() if d['user_id'] in sel for i, p in zip(d['rows'], d['p'])}, name='P_llm')
@@ -137,4 +151,5 @@ t['llm'] /= 100
 for c in ('real', 'llm', 'logistic'):
     t[c + '_rel'] = t[c] / t[c].iloc[0]
 print('\nacceptance by category rank (relative columns = divided by rank 1-3):'); print(t.round(3).to_string())
-pu.to_csv(OUT / '08_llm_pilot_kuairand_per_user_gauc.csv')
+pu.to_csv(OUT / f'08_llm_pilot_kuairand_per_user_gauc_{TAG}.csv')
+ev[['user_id', 'long_view', 'rank', 'share', 'lv_s', 'P_lr', 'P_llm']].to_parquet(DATA / 'kuairand' / f'llm_pilot_kuairand_preds_{TAG}.parquet')
