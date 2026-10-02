@@ -1,0 +1,14 @@
+benchmark: 977 users with >=20 train and >=5 test exposures; train 46,657, test 13,533, test positive rate 0.569; test videos unseen in train 0.36
+B0 user click-rate only                  AUC 0.687 | per-user GAUC 0.500 (users with both labels: 909)
+B1 + user x category pref                AUC 0.660 | per-user GAUC 0.542 (users with both labels: 909)
+B2 + video meta (duration, fans, hour)   AUC 0.661 | per-user GAUC 0.542 (users with both labels: 909)
+B3 + title-embedding similarity          AUC 0.665 | per-user GAUC 0.540 (users with both labels: 909)
+
+An LLM agent counts as "better than parametric" only if it beats B2/B3 on GAUC on the same test keys.
+
+single feature u_root    GAUC 0.541
+single feature g_root    GAUC 0.527
+single feature log_dur   GAUC 0.495
+single feature log_fans  GAUC 0.495
+single feature emb_sim   GAUC 0.535
+B4 gradient boosting, all features       AUC 0.662 | per-user GAUC 0.539

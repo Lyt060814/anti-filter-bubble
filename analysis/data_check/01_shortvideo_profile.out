@@ -1,0 +1,38 @@
+raw rows 794,053; columns ['user_id', 'pid', 'author_id', 'category_id', 'category_level', 'parent_id', 'root_id', 'exposed_time', 'author_fans_count', 'watch_time', 'duration', 'cvm_like', 'click', 'comment', 'follow', 'collect', 'forward', 'hate', 'tag_name', 'title', 'p_hour', 'p_date', 'gender', 'age', 'mod_price', 'fre_city', 'fre_community_type', 'fre_city_level']
+
+interactions 129,483 | users 6,654 | videos 31,496 | authors 23,242
+paper (full, not public): 10,000 users | 153,561 videos | 1,019,568 interactions
+dates [np.int64(20220916), np.int64(20220917), np.int64(20220918), np.int64(20220919), np.int64(20220920), np.int64(20220921), np.int64(20220922)]
+
+interactions per user: {'count': 6654.0, 'mean': 19.5, 'std': 25.4, 'min': 1.0, '25%': 4.0, '50%': 10.0, '75%': 25.0, '90%': 48.0, '99%': 117.5, 'max': 378.0}
+  users with >= 20: 2,108
+  users with >= 30: 1,343
+  users with >= 50: 638
+  users with >= 100: 104
+per user-day median 3.0
+gap between consecutive records of a user: median 819s, share <=60s 0.15  -> records are sampled, NOT contiguous feed sessions
+
+action rates (%, count):
+  click      60.538%  78,386
+  cvm_like    2.023%  2,620
+  comment     0.247%  320
+  follow      0.463%  600
+  collect     0.548%  709
+  forward     0.228%  295
+  hate        0.067%  87
+  hate: distinct users 49
+click semantics (undocumented field): watch_time by click
+         count  mean   std  min   50%    90%    max
+click                                              
+False  51097.0   2.9   2.7  0.0   3.0    6.0  234.0
+True   78386.0  58.9  70.2  0.0  32.0  145.0  922.0
+share watch_time>3s by click {False: 0.323, True: 0.979}
+
+videos: roots per video max 3 | share with L2 0.67 | share with L3 0.317
+distinct roots 36 | L2 267 | L3 328
+tags per video median 3.0 | title missing 0.0
+author_fans_count quantiles {0.25: 27449.0, 0.5: 126778.0, 0.75: 507880.0, 0.9: 1623886.0}
+share of videos whose author has <= 50k fans (X cold-start eligibility): 0.338
+
+users: age {'mean': 47.5, '25%': 33.0, '50%': 46.0, '75%': 63.0} | gender {'M': 4217, 'F': 2437}
+city level {'四线城市': 1588, '三线城市': 1548, '五线城市': 1490, '二线城市': 994, '新一线城市': 733, '一线城市': 295, 'unknown': 6}

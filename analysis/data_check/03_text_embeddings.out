@@ -1,0 +1,4 @@
+BAAI/bge-small-zh-v1.5: 31,496 texts in 61s on 4 CPU threads -> 515 texts/s
+  extrapolated: KuaiRand-1K logged videos (4.37M) ~ 2.4 h; KuaiRec (10.7k) ~ 21 s
+cosine same-root 0.408 vs cross-root 0.337
+1-NN shares root category: 0.626 (chance 0.061)

@@ -1,0 +1,34 @@
+(a) KuaiRand supplement: 4,371,868 of 4,371,868 1K videos joined; duration identical for 1.000 of 3,477,759 with both
+    caption non-empty: 0.825
+    categories: 4,371,868 videos; L1 known 0.984; L2 known 0.737; L3 known 0.334; median L1 prob 0.986  (categories are model-predicted)
+    KuaiRand `tag` == supplement L1 id for 0.719 of single-tag videos
+
+(b) level-1 ids: ShortVideo 36, KuaiRand 38, KuaiRec 40; present in all three 35
+status
+same                25
+renamed/partial     13
+one-dataset-only     3
+harmonised groups: SV 35, KuaiRand 34, KuaiRec 34; shared by all three 34; SV-only [1023.0]
+      sv_name kuairand_name kuairec_name  sv_videos  kuairand_videos  kuairec_videos
+l1_id                                                                               
+5          穿搭            时尚           时尚      449.0         235165.0          1034.0
+9          搞笑            喜剧           喜剧     3446.0         164721.0           366.0
+15         才艺            艺术           艺术      955.0          66794.0           309.0
+17         动物            宠物           宠物      701.0          43655.0           228.0
+21         历史            人文           人文      222.0          27785.0            50.0
+23         宗教          时政资讯         时政资讯       54.0          20832.0            50.0
+28         资讯          民生资讯         民生资讯      698.0         164932.0          1095.0
+29         科学         科学与法律        科学与法律      220.0          26921.0            82.0
+30         法律           NaN          NaN      208.0              NaN             NaN
+31        NaN            健身           健身        NaN          18507.0           162.0
+32        NaN            短剧           短剧        NaN          68217.0           152.0
+33        NaN            自拍           自拍        NaN         345734.0           379.0
+34        随手拍            其他           其他      250.0         246766.0           913.0
+39      影视和短剧           影视综          影视综     4445.0         325393.0            62.0
+418       NaN           NaN         生活泛拍        NaN              NaN             1.0
+667       NaN           NaN         娱乐八卦        NaN              NaN             1.0
+
+(c) median duration per L1 id, ShortVideo vs KuaiRand tag: Spearman 0.87 over 36 ids, permutation p < 0.0005
+
+(d) L2 ids  SV 267 | KuaiRand 174 | KuaiRec 138 | SV&KuaiRand 85 | SV&KuaiRec 70
+    L3 ids  SV 328 | KuaiRand 419 | KuaiRec 219 | SV&KuaiRand 131 | SV&KuaiRec 80

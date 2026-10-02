@@ -1,0 +1,2 @@
+2 layers, d=64, hist=128, 12.9M params: 316 ms/step -> 12,963 labelled candidates/s; one epoch of KuaiRand-1K standard logs (~11.7M) ~ 15 min
+4 layers, d=64, hist=128, 13.0M params: 419 ms/step -> 9,774 labelled candidates/s; one epoch of KuaiRand-1K standard logs (~11.7M) ~ 20 min
