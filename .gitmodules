@@ -1,0 +1,6 @@
+[submodule "sources/code/x-algorithm"]
+	path = sources/code/x-algorithm
+	url = https://github.com/xai-org/x-algorithm.git
+[submodule "sources/code/KuaiSim"]
+	path = sources/code/KuaiSim
+	url = https://github.com/Applied-Machine-Learning-Lab/KuaiSim.git

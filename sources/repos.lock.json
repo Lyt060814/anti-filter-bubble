@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Adaptive-Information-Dynamic-Model",
+    "url": "https://github.com/tsinghua-fib-lab/Adaptive-Information-Dynamic-Model",
+    "commit": "bff9643b18704837c5c7057abe84a76668d6a2ee",
+    "management": "on-demand"
+  },
+  {
+    "name": "C-MTCSD",
+    "url": "https://github.com/yangyi626/C-MTCSD.git",
+    "commit": "2a3fa72d1b892ef407b9079c37d4bea925dd2e2a",
+    "management": "on-demand"
+  },
+  {
+    "name": "C-STANCE",
+    "url": "https://github.com/chenyez/C-STANCE.git",
+    "commit": "f1e99fc5b49e517ac90fbdf1bd19a5f254958809",
+    "management": "on-demand"
+  },
+  {
+    "name": "CED",
+    "url": "https://github.com/thunlp/CED",
+    "commit": "1ae5f853b7fbc050c1827035eccde831324063f0",
+    "management": "on-demand"
+  },
+  {
+    "name": "CIRS-codes",
+    "url": "https://github.com/chongminggao/CIRS-codes.git",
+    "commit": "a07fb27a34d003c7252fddafb49d9b7f1010b084",
+    "management": "on-demand"
+  },
+  {
+    "name": "DDIR",
+    "url": "https://github.com/16061025/DDIR.git",
+    "commit": "2947e48168d1ed0bc6fed154fa0a6f22c0a5e522",
+    "management": "on-demand"
+  },
+  {
+    "name": "DGTA",
+    "url": "https://github.com/17Huaaa/DGTA-stance-detection",
+    "commit": "3d4ffdf743a082590e75cec4132e6f570199abd0",
+    "management": "on-demand"
+  },
+  {
+    "name": "FlagEmbedding",
+    "url": "https://github.com/FlagOpen/FlagEmbedding.git",
+    "commit": "fd1a2bdf69488ffebe0327999d4400d8c8058a0b",
+    "management": "on-demand"
+  },
+  {
+    "name": "KuaiRand",
+    "url": "https://github.com/chongminggao/KuaiRand.git",
+    "commit": "f8dbf6678b3c9594050e3e813aeff0c942260ec4",
+    "management": "on-demand"
+  },
+  {
+    "name": "KuaiRec",
+    "url": "https://github.com/chongminggao/KuaiRec.git",
+    "commit": "a22f13b07d8b9d6b15e0cec2e97393f2bb0c40b3",
+    "management": "on-demand"
+  },
+  {
+    "name": "KuaiSim",
+    "url": "https://github.com/Applied-Machine-Learning-Lab/KuaiSim.git",
+    "commit": "2ae32aa25a0aac103194a66e6864e3d2ac6d6580",
+    "management": "submodule"
+  },
+  {
+    "name": "LLM_User_Simulator",
+    "url": "https://github.com/Applied-Machine-Learning-Lab/LLM_User_Simulator.git",
+    "commit": "3ab3d3ac2e714d61a73f8d82e1dc46142716b894",
+    "management": "on-demand"
+  },
+  {
+    "name": "MicroLens",
+    "url": "https://github.com/westlake-repl/MicroLens.git",
+    "commit": "0fc876066987fb3b920df2765cfbac2763c515eb",
+    "management": "on-demand"
+  },
+  {
+    "name": "OpenOneRec",
+    "url": "https://github.com/Kuaishou-OneRec/OpenOneRec.git",
+    "commit": "a969edcadd579a06c1966ae1db5984e02f48beff",
+    "management": "on-demand"
+  },
+  {
+    "name": "OrChiD",
+    "url": "https://github.com/xiutian/OrChiD.git",
+    "commit": "d05b4adda1dbc57c0e87472072261a0b43e2406a",
+    "management": "on-demand"
+  },
+  {
+    "name": "PersonaAct",
+    "url": "https://github.com/Silung/PersonaAct",
+    "commit": "8840a944443aec6a000fe5af91a7f45bd7e1cba6",
+    "management": "on-demand"
+  },
+  {
+    "name": "Qwen-Agent",
+    "url": "https://github.com/QwenLM/Qwen-Agent.git",
+    "commit": "31a4d36d123688581a9e9744427272b33ce940e0",
+    "management": "on-demand"
+  },
+  {
+    "name": "Qwen3-Embedding",
+    "url": "https://github.com/QwenLM/Qwen3-Embedding.git",
+    "commit": "44548aa5f0a0aed1c76d64e19afe47727a325b8f",
+    "management": "on-demand"
+  },
+  {
+    "name": "Qwen3-Omni",
+    "url": "https://github.com/QwenLM/Qwen3-Omni.git",
+    "commit": "e4235853125589c789f06a2dd83e9f4126df5e9d",
+    "management": "on-demand"
+  },
+  {
+    "name": "Qwen3-VL",
+    "url": "https://github.com/QwenLM/Qwen3-VL.git",
+    "commit": "96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+    "management": "on-demand"
+  },
+  {
+    "name": "Qwen3-VL-Embedding",
+    "url": "https://github.com/QwenLM/Qwen3-VL-Embedding.git",
+    "commit": "393e2978d27852b0d0230d6994f37f9c15bed73c",
+    "management": "on-demand"
+  },
+  {
+    "name": "RADio",
+    "url": "https://github.com/svrijenhoek/RADio.git",
+    "commit": "f1ce0d8bb0d7235f0c48b1745a8a81060683846a",
+    "management": "on-demand"
+  },
+  {
+    "name": "RecAI",
+    "url": "https://github.com/microsoft/RecAI.git",
+    "commit": "0959ecb05b0794748426e73e6efc1b6b35ec433d",
+    "management": "on-demand"
+  },
+  {
+    "name": "SenseVoice",
+    "url": "https://github.com/FunAudioLLM/SenseVoice.git",
+    "commit": "586bbdb2b052f4fe19322581825228b6810a9fb3",
+    "management": "on-demand"
+  },
+  {
+    "name": "ShortVideo_dataset",
+    "url": "https://github.com/tsinghua-fib-lab/ShortVideo_dataset.git",
+    "commit": "6bd97f13a620f429745b24a17897457a75054052",
+    "management": "on-demand"
+  },
+  {
+    "name": "UCRS",
+    "url": "https://github.com/WenjieWWJ/UCRS.git",
+    "commit": "b7ecba193712174d9d7d62f4f3f877b476aedbc7",
+    "management": "on-demand"
+  },
+  {
+    "name": "YuLan-Rec",
+    "url": "https://github.com/RUC-GSAI/YuLan-Rec.git",
+    "commit": "fff935570079502d5a17509b0baf590becd1eaab",
+    "management": "on-demand"
+  },
+  {
+    "name": "ai-auditology-personalisation-drift-tiktok",
+    "url": "https://github.com/kinit-sk/ai-auditology-personalisation-drift-tiktok",
+    "commit": "65f0f10fe76365db5f723896139143e5497f1280",
+    "management": "on-demand"
+  },
+  {
+    "name": "naacl24-user-sim",
+    "url": "https://github.com/granelle/naacl24-user-sim.git",
+    "commit": "5aad6487132697b2fdbf296497cefcd069f84f80",
+    "management": "on-demand"
+  },
+  {
+    "name": "politics_tiktok",
+    "url": "https://github.com/comnetsAD/politics_tiktok.git",
+    "commit": "dd005d35dbc86f79e3ab0b17834a6801c45015f9",
+    "management": "on-demand"
+  },
+  {
+    "name": "rumor-dataset",
+    "url": "https://github.com/thunlp/Chinese_Rumor_Dataset",
+    "commit": "c1178d8cfd4c245c296889a51fc252b17c9037c5",
+    "management": "on-demand"
+  },
+  {
+    "name": "tiktok-audit",
+    "url": "https://github.com/kinit-sk/tiktok-algorithmic-audit-reproducibility.git",
+    "commit": "4dc82bbb5f81ec1c4dc039e3b02226facf3207a6",
+    "management": "on-demand"
+  },
+  {
+    "name": "x-algorithm",
+    "url": "https://github.com/xai-org/x-algorithm.git",
+    "commit": "b79b947ce9283c786822274ef8fe208c33c585b2",
+    "management": "submodule"
+  },
+  {
+    "name": "yaudit-recsys-2021",
+    "url": "https://github.com/kinit-sk/yaudit-recsys-2021",
+    "commit": "6a944930d1181b25fb2016ab3939b33297c0597c",
+    "management": "on-demand"
+  },
+  {
+    "name": "youtube-disinterest",
+    "url": "https://github.com/avliu-um/youtube-disinterest.git",
+    "commit": "6ea88a7d5bc08992f81fb4a32bcc726897de26f3",
+    "management": "on-demand"
+  },
+  {
+    "name": "zr-obp",
+    "url": "https://github.com/st-tech/zr-obp.git",
+    "commit": "8cbd5fa4558b7ad2ba4781546d6604e4cc3e07c4",
+    "management": "on-demand"
+  }
+]

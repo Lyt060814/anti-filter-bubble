@@ -1,0 +1,9 @@
+# Downloads and local environments; only explicitly selected code is versioned.
+/data/
+/models/
+/papers/
+/web/
+/envs/
+/code/*
+!/code/x-algorithm/
+!/code/KuaiSim/
