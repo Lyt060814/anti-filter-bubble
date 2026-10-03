@@ -1,0 +1,53 @@
+[
+  [
+    "cnnic56",
+    "https://www.cnnic.net/NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf",
+    "HTTPSConnectionPool(host='www.cnnic.net', port=443): Max retries exceeded with url: /NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.cnnic.net'. (_ssl.c:1000)\")))"
+  ],
+  [
+    "jmir_diabetes",
+    "https://formative.jmir.org/2024/1/e57720/PDF",
+    202,
+    0
+  ],
+  [
+    "jmir_dengue",
+    "https://infodemiology.jmir.org/2025/1/e76474/PDF",
+    202,
+    0
+  ],
+  [
+    "cac2025",
+    "https://www.cac.gov.cn/2025-05/22/c_1749536203490537.htm",
+    "403 Client Error: Forbidden for url: https://www.cac.gov.cn/2025-05/22/c_1749536203490537.htm"
+  ],
+  [
+    "cac2022",
+    "https://www.cac.gov.cn/2022-01/04/c_1642894606364259.htm",
+    "403 Client Error: Forbidden for url: https://www.cac.gov.cn/2022-01/04/c_1642894606364259.htm"
+  ],
+  [
+    "tiktok_controls",
+    "https://newsroom.tiktok.com/tiktoks-new-features-to-help-you-control-your-scroll?lang=en-AU",
+    200,
+    128094
+  ],
+  [
+    "tiktok_dsa",
+    "https://newsroom.tiktok.com/en-eu/compliance-digital-services-act-eu?lang=en",
+    200,
+    118426
+  ],
+  [
+    "instagram_reset",
+    "https://about.fb.com/news/2024/11/introducing-recommendations-reset-instagram/",
+    200,
+    332063
+  ],
+  [
+    "orchid_acl",
+    "https://aclanthology.org/2023.emnlp-main.582.pdf",
+    200,
+    1541897
+  ]
+]

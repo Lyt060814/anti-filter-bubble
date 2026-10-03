@@ -1,0 +1,1665 @@
+{
+  "note": "Pre-move inventory; sizes only, not content checksums. Source checksums are recorded in docs/context-recovery/resource_manifest.json and acquisition records.",
+  "files": [
+    {
+      "path": "data/KuaiRand-1K/LICENSE",
+      "bytes": 20138
+    },
+    {
+      "path": "data/KuaiRand-1K/README.md",
+      "bytes": 23998
+    },
+    {
+      "path": "data/KuaiRand-1K/data/log_random_4_22_to_5_08_1k.csv",
+      "bytes": 3086015
+    },
+    {
+      "path": "data/KuaiRand-1K/data/log_standard_4_08_to_4_21_1k.csv",
+      "bytes": 373670312
+    },
+    {
+      "path": "data/KuaiRand-1K/data/log_standard_4_22_to_5_08_1k.csv",
+      "bytes": 492303531
+    },
+    {
+      "path": "data/KuaiRand-1K/data/user_features_1k.csv",
+      "bytes": 127533
+    },
+    {
+      "path": "data/KuaiRand-1K/data/video_features_basic_1k.csv",
+      "bytes": 376887905
+    },
+    {
+      "path": "data/KuaiRand-1K/data/video_features_statistic_1k.csv",
+      "bytes": 3370628629
+    },
+    {
+      "path": "data/KuaiRand-1K/figs/KuaiRand.png",
+      "bytes": 93565
+    },
+    {
+      "path": "data/KuaiRand-1K/figs/kuaishou-app.png",
+      "bytes": 1077464
+    },
+    {
+      "path": "data/KuaiRand-1K/figs/three-version.png",
+      "bytes": 326759
+    },
+    {
+      "path": "data/KuaiRand-1K/load_data_1k.py",
+      "bytes": 1611
+    },
+    {
+      "path": "data/KuaiRand-1K/probe.json",
+      "bytes": 1339
+    },
+    {
+      "path": "data/KuaiRand-1K.tar.gz",
+      "bytes": 1135436720
+    },
+    {
+      "path": "data/KuaiRand-Pure/LICENSE",
+      "bytes": 20138
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/log_random_4_22_to_5_08_pure.csv",
+      "bytes": 87086116
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/log_standard_4_08_to_4_21_pure.csv",
+      "bytes": 83961282
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/log_standard_4_22_to_5_08_pure.csv",
+      "bytes": 21765075
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/user_features_pure.csv",
+      "bytes": 3519028
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/video_features_basic_pure.csv",
+      "bytes": 626669
+    },
+    {
+      "path": "data/KuaiRand-Pure/data/video_features_statistic_pure.csv",
+      "bytes": 6559217
+    },
+    {
+      "path": "data/KuaiRand-Pure/load_data_pure.py",
+      "bytes": 1608
+    },
+    {
+      "path": "data/KuaiRand-Pure.tar.gz",
+      "bytes": 47432272
+    },
+    {
+      "path": "data/KuaiRec 2.0/LICENSE",
+      "bytes": 20138
+    },
+    {
+      "path": "data/KuaiRec 2.0/Statistics_KuaiRec.ipynb",
+      "bytes": 314195
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/big_matrix.csv",
+      "bytes": 1083521226
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/item_categories.csv",
+      "bytes": 113130
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/item_daily_features.csv",
+      "bytes": 85855213
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/kuairec_caption_category.csv",
+      "bytes": 1964578
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/small_matrix.csv",
+      "bytes": 406155844
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/social_network.csv",
+      "bytes": 6910
+    },
+    {
+      "path": "data/KuaiRec 2.0/data/user_features.csv",
+      "bytes": 744174
+    },
+    {
+      "path": "data/KuaiRec 2.0/figs/KuaiRec.png",
+      "bytes": 300178
+    },
+    {
+      "path": "data/KuaiRec 2.0/figs/colab-badge.svg",
+      "bytes": 2369
+    },
+    {
+      "path": "data/KuaiRec 2.0/loaddata.py",
+      "bytes": 1188
+    },
+    {
+      "path": "data/KuaiRec.zip",
+      "bytes": 431964858
+    },
+    {
+      "path": "data/audit/keyword_examples.json",
+      "bytes": 21535
+    },
+    {
+      "path": "data/audit/kuairand_metadata_probe.json",
+      "bytes": 2889
+    },
+    {
+      "path": "data/audit/kuairec_probe.json",
+      "bytes": 357
+    },
+    {
+      "path": "data/audit/plan_v2/annotation_sample_200.csv",
+      "bytes": 44641
+    },
+    {
+      "path": "data/audit/plan_v2/bride_price_candidates.csv",
+      "bytes": 629012
+    },
+    {
+      "path": "data/audit/plan_v2/event_anchors.csv",
+      "bytes": 39637
+    },
+    {
+      "path": "data/audit/plan_v3/media/1.jpg",
+      "bytes": 40839
+    },
+    {
+      "path": "data/audit/plan_v3/media/1.mp4",
+      "bytes": 3604105
+    },
+    {
+      "path": "data/audit/plan_v3/media/1.txt",
+      "bytes": 189
+    },
+    {
+      "path": "data/audit/plan_v3/media/1.wav",
+      "bytes": 470592
+    },
+    {
+      "path": "data/audit/plan_v3/media/152.jpg",
+      "bytes": 44401
+    },
+    {
+      "path": "data/audit/plan_v3/media/152.mp4",
+      "bytes": 14603125
+    },
+    {
+      "path": "data/audit/plan_v3/media/152.txt",
+      "bytes": 726
+    },
+    {
+      "path": "data/audit/plan_v3/media/152.wav",
+      "bytes": 1515320
+    },
+    {
+      "path": "data/audit/plan_v3/media/181.jpg",
+      "bytes": 53288
+    },
+    {
+      "path": "data/audit/plan_v3/media/181.mp4",
+      "bytes": 23658335
+    },
+    {
+      "path": "data/audit/plan_v3/media/181.txt",
+      "bytes": 1981
+    },
+    {
+      "path": "data/audit/plan_v3/media/181.wav",
+      "bytes": 2735384
+    },
+    {
+      "path": "data/audit/plan_v3/media/2.jpg",
+      "bytes": 86297
+    },
+    {
+      "path": "data/audit/plan_v3/media/2.mp4",
+      "bytes": 4007926
+    },
+    {
+      "path": "data/audit/plan_v3/media/2.txt",
+      "bytes": 150
+    },
+    {
+      "path": "data/audit/plan_v3/media/2.wav",
+      "bytes": 293958
+    },
+    {
+      "path": "data/audit/plan_v3/media/207.jpg",
+      "bytes": 48361
+    },
+    {
+      "path": "data/audit/plan_v3/media/207.mp4",
+      "bytes": 14332213
+    },
+    {
+      "path": "data/audit/plan_v3/media/207.txt",
+      "bytes": 806
+    },
+    {
+      "path": "data/audit/plan_v3/media/207.wav",
+      "bytes": 1432090
+    },
+    {
+      "path": "data/audit/plan_v3/media/32.jpg",
+      "bytes": 41444
+    },
+    {
+      "path": "data/audit/plan_v3/media/32.mp4",
+      "bytes": 15199717
+    },
+    {
+      "path": "data/audit/plan_v3/media/32.txt",
+      "bytes": 452
+    },
+    {
+      "path": "data/audit/plan_v3/media/32.wav",
+      "bytes": 1709990
+    },
+    {
+      "path": "data/audit/plan_v3/media/480.jpg",
+      "bytes": 49783
+    },
+    {
+      "path": "data/audit/plan_v3/media/480.mp4",
+      "bytes": 44836208
+    },
+    {
+      "path": "data/audit/plan_v3/media/480.txt",
+      "bytes": 1657
+    },
+    {
+      "path": "data/audit/plan_v3/media/480.wav",
+      "bytes": 5909652
+    },
+    {
+      "path": "data/audit/plan_v3/media/592.jpg",
+      "bytes": 45812
+    },
+    {
+      "path": "data/audit/plan_v3/media/592.mp4",
+      "bytes": 11139739
+    },
+    {
+      "path": "data/audit/plan_v3/media/592.txt",
+      "bytes": 899
+    },
+    {
+      "path": "data/audit/plan_v3/media/592.wav",
+      "bytes": 1733766
+    },
+    {
+      "path": "data/kuairand_video_captions.csv",
+      "bytes": 3222932768
+    },
+    {
+      "path": "data/kuairand_video_categories.csv",
+      "bytes": 3687928520
+    },
+    {
+      "path": "data/kuairec_caption_category.csv",
+      "bytes": 1964578
+    },
+    {
+      "path": "data/kuaisar/KuaiSAR_v2.zip",
+      "bytes": 845087902
+    },
+    {
+      "path": "data/kuaisar/record.json",
+      "bytes": 6041
+    },
+    {
+      "path": "data/shortvideo/README.md",
+      "bytes": 5382
+    },
+    {
+      "path": "data/shortvideo/asr_sample.json",
+      "bytes": 31285
+    },
+    {
+      "path": "data/shortvideo/asr_zn/2407.txt",
+      "bytes": 483
+    },
+    {
+      "path": "data/shortvideo/asr_zn/32907.txt",
+      "bytes": 19
+    },
+    {
+      "path": "data/shortvideo/asr_zn/35669.txt",
+      "bytes": 1884
+    },
+    {
+      "path": "data/shortvideo/asr_zn/35887.txt",
+      "bytes": 1645
+    },
+    {
+      "path": "data/shortvideo/asr_zn/36998.txt",
+      "bytes": 1466
+    },
+    {
+      "path": "data/shortvideo/asr_zn/38200.txt",
+      "bytes": 1093
+    },
+    {
+      "path": "data/shortvideo/asr_zn/38431.txt",
+      "bytes": 76
+    },
+    {
+      "path": "data/shortvideo/asr_zn/39802.txt",
+      "bytes": 1202
+    },
+    {
+      "path": "data/shortvideo/asr_zn/46864.txt",
+      "bytes": 930
+    },
+    {
+      "path": "data/shortvideo/asr_zn/5439.txt",
+      "bytes": 1353
+    },
+    {
+      "path": "data/shortvideo/asr_zn/5733.txt",
+      "bytes": 744
+    },
+    {
+      "path": "data/shortvideo/asr_zn/6089.txt",
+      "bytes": 76
+    },
+    {
+      "path": "data/shortvideo/asr_zn/61002.txt",
+      "bytes": 245
+    },
+    {
+      "path": "data/shortvideo/asr_zn/61879.txt",
+      "bytes": 888
+    },
+    {
+      "path": "data/shortvideo/asr_zn/62969.txt",
+      "bytes": 137
+    },
+    {
+      "path": "data/shortvideo/asr_zn/62975.txt",
+      "bytes": 98
+    },
+    {
+      "path": "data/shortvideo/asr_zn/64088.txt",
+      "bytes": 1899
+    },
+    {
+      "path": "data/shortvideo/asr_zn/65602.txt",
+      "bytes": 267
+    },
+    {
+      "path": "data/shortvideo/asr_zn/67536.txt",
+      "bytes": 38
+    },
+    {
+      "path": "data/shortvideo/asr_zn/71534.txt",
+      "bytes": 1542
+    },
+    {
+      "path": "data/shortvideo/asr_zn/7614.txt",
+      "bytes": 2491
+    },
+    {
+      "path": "data/shortvideo/asr_zn/9192.txt",
+      "bytes": 2961
+    },
+    {
+      "path": "data/shortvideo/asr_zn/97766.txt",
+      "bytes": 3865
+    },
+    {
+      "path": "data/shortvideo/asr_zn/99435.txt",
+      "bytes": 276
+    },
+    {
+      "path": "data/shortvideo/categories_cn_en.csv",
+      "bytes": 31506
+    },
+    {
+      "path": "data/shortvideo/interaction_sampled.csv",
+      "bytes": 159920078
+    },
+    {
+      "path": "data/shortvideo/probe.json",
+      "bytes": 630
+    },
+    {
+      "path": "data/stance_resource_probe.json",
+      "bytes": 2056
+    },
+    {
+      "path": "data/user_features_raw.csv",
+      "bytes": 1541558
+    },
+    {
+      "path": "data/video_raw_categories_multi.csv",
+      "bytes": 1724451
+    },
+    {
+      "path": "data/zenodo-10439422.json",
+      "bytes": 5209
+    },
+    {
+      "path": "data/zenodo-18159199.json",
+      "bytes": 5766
+    },
+    {
+      "path": "data/zenodo-18164998.json",
+      "bytes": 5347
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/.gitignore",
+      "bytes": 1
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/1_Pooling/config.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/1_Pooling/config.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/README.md.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/README.md.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/config.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/config.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/config_sentence_transformers.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/config_sentence_transformers.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/generation_config.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/generation_config.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/merges.txt.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/merges.txt.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/model.safetensors.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/model.safetensors.metadata",
+      "bytes": 125
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/modules.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/modules.json.metadata",
+      "bytes": 100
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/tokenizer.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/tokenizer.json.metadata",
+      "bytes": 125
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/tokenizer_config.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/tokenizer_config.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/vocab.json.lock",
+      "bytes": 0
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/.cache/huggingface/download/vocab.json.metadata",
+      "bytes": 101
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/1_Pooling/config.json",
+      "bytes": 313
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/README.md",
+      "bytes": 17237
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/config.json",
+      "bytes": 727
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/config_sentence_transformers.json",
+      "bytes": 215
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/generation_config.json",
+      "bytes": 117
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/merges.txt",
+      "bytes": 1671853
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/model.safetensors",
+      "bytes": 1191586416
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/modules.json",
+      "bytes": 349
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/tokenizer.json",
+      "bytes": 11423705
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/tokenizer_config.json",
+      "bytes": 9706
+    },
+    {
+      "path": "models/Qwen3-Embedding-0.6B/97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3/vocab.json",
+      "bytes": 2776833
+    },
+    {
+      "path": "papers/amnesty.clean.txt",
+      "bytes": 279685
+    },
+    {
+      "path": "papers/amnesty.pdf",
+      "bytes": 2066794
+    },
+    {
+      "path": "papers/amnesty.txt",
+      "bytes": 318052
+    },
+    {
+      "path": "papers/amplification.clean.txt",
+      "bytes": 82154
+    },
+    {
+      "path": "papers/amplification.pdf",
+      "bytes": 5345499
+    },
+    {
+      "path": "papers/amplification.txt",
+      "bytes": 897289
+    },
+    {
+      "path": "papers/autolike.clean.txt",
+      "bytes": 69506
+    },
+    {
+      "path": "papers/autolike.pdf",
+      "bytes": 15498045
+    },
+    {
+      "path": "papers/autolike.txt",
+      "bytes": 71964
+    },
+    {
+      "path": "papers/bail.clean.txt",
+      "bytes": 33879
+    },
+    {
+      "path": "papers/bail.pdf",
+      "bytes": 810334
+    },
+    {
+      "path": "papers/bail.txt",
+      "bytes": 66707
+    },
+    {
+      "path": "papers/bep.clean.txt",
+      "bytes": 45116
+    },
+    {
+      "path": "papers/bep.pdf",
+      "bytes": 515748
+    },
+    {
+      "path": "papers/bep.txt",
+      "bytes": 84369
+    },
+    {
+      "path": "papers/boeker.clean.txt",
+      "bytes": 66252
+    },
+    {
+      "path": "papers/boeker.pdf",
+      "bytes": 2263536
+    },
+    {
+      "path": "papers/boeker.txt",
+      "bytes": 88477
+    },
+    {
+      "path": "papers/brady2026.clean.txt",
+      "bytes": 130845
+    },
+    {
+      "path": "papers/brady2026.pdf",
+      "bytes": 8806333
+    },
+    {
+      "path": "papers/brady2026.txt",
+      "bytes": 168999
+    },
+    {
+      "path": "papers/brown.clean.txt",
+      "bytes": 81203
+    },
+    {
+      "path": "papers/brown.pdf",
+      "bytes": 602338
+    },
+    {
+      "path": "papers/brown.txt",
+      "bytes": 82015
+    },
+    {
+      "path": "papers/bursztyn.clean.txt",
+      "bytes": 146431
+    },
+    {
+      "path": "papers/bursztyn.pdf",
+      "bytes": 27661352
+    },
+    {
+      "path": "papers/bursztyn.txt",
+      "bytes": 160025
+    },
+    {
+      "path": "papers/chaney.clean.txt",
+      "bytes": 58096
+    },
+    {
+      "path": "papers/chaney.pdf",
+      "bytes": 1595013
+    },
+    {
+      "path": "papers/chaney.txt",
+      "bytes": 81198
+    },
+    {
+      "path": "papers/checkbox.clean.txt",
+      "bytes": 88493
+    },
+    {
+      "path": "papers/checkbox.pdf",
+      "bytes": 755089
+    },
+    {
+      "path": "papers/checkbox.txt",
+      "bytes": 116472
+    },
+    {
+      "path": "papers/cirs.clean.txt",
+      "bytes": 97572
+    },
+    {
+      "path": "papers/cirs.pdf",
+      "bytes": 2337773
+    },
+    {
+      "path": "papers/cirs.txt",
+      "bytes": 126868
+    },
+    {
+      "path": "papers/cmtcsd.clean.txt",
+      "bytes": 23890
+    },
+    {
+      "path": "papers/cmtcsd.pdf",
+      "bytes": 139337
+    },
+    {
+      "path": "papers/cmtcsd.txt",
+      "bytes": 37692
+    },
+    {
+      "path": "papers/cnnic56.clean.txt",
+      "bytes": 123728
+    },
+    {
+      "path": "papers/cnnic56.pdf",
+      "bytes": 6256558
+    },
+    {
+      "path": "papers/cnnic56.txt",
+      "bytes": 156748
+    },
+    {
+      "path": "papers/cstance.clean.txt",
+      "bytes": 71600
+    },
+    {
+      "path": "papers/cstance.pdf",
+      "bytes": 628904
+    },
+    {
+      "path": "papers/cstance.txt",
+      "bytes": 92504
+    },
+    {
+      "path": "papers/deepbubble.clean.txt",
+      "bytes": 52643
+    },
+    {
+      "path": "papers/deepbubble.pdf",
+      "bytes": 2736470
+    },
+    {
+      "path": "papers/deepbubble.txt",
+      "bytes": 105443
+    },
+    {
+      "path": "papers/dgta.clean.txt",
+      "bytes": 55679
+    },
+    {
+      "path": "papers/dgta.pdf",
+      "bytes": 8909858
+    },
+    {
+      "path": "papers/dgta.txt",
+      "bytes": 75489
+    },
+    {
+      "path": "papers/dorl.clean.txt",
+      "bytes": 71021
+    },
+    {
+      "path": "papers/dorl.pdf",
+      "bytes": 1283249
+    },
+    {
+      "path": "papers/dorl.txt",
+      "bytes": 113482
+    },
+    {
+      "path": "papers/download_manifest.json",
+      "bytes": 2522
+    },
+    {
+      "path": "papers/download_manifest_2.json",
+      "bytes": 1638
+    },
+    {
+      "path": "papers/download_manifest_3.json",
+      "bytes": 2586
+    },
+    {
+      "path": "papers/draws2023.clean.txt",
+      "bytes": 64214
+    },
+    {
+      "path": "papers/draws2023.pdf",
+      "bytes": 539434
+    },
+    {
+      "path": "papers/draws2023.txt",
+      "bytes": 68346
+    },
+    {
+      "path": "papers/drift2026.clean.txt",
+      "bytes": 83838
+    },
+    {
+      "path": "papers/drift2026.pdf",
+      "bytes": 1496538
+    },
+    {
+      "path": "papers/drift2026.txt",
+      "bytes": 105450
+    },
+    {
+      "path": "papers/gaut2026.compact.txt",
+      "bytes": 95344
+    },
+    {
+      "path": "papers/gaut2026.pdf",
+      "bytes": 5915888
+    },
+    {
+      "path": "papers/gaut2026.txt",
+      "bytes": 95344
+    },
+    {
+      "path": "papers/haroon.clean.txt",
+      "bytes": 52734
+    },
+    {
+      "path": "papers/haroon.pdf",
+      "bytes": 19607585
+    },
+    {
+      "path": "papers/haroon.txt",
+      "bytes": 132087
+    },
+    {
+      "path": "papers/haroon_slides.clean.txt",
+      "bytes": 3766
+    },
+    {
+      "path": "papers/haroon_slides.pdf",
+      "bytes": 1065698
+    },
+    {
+      "path": "papers/haroon_slides.txt",
+      "bytes": 8756
+    },
+    {
+      "path": "papers/hartmann2025.clean.txt",
+      "bytes": 190286
+    },
+    {
+      "path": "papers/hartmann2025.pdf",
+      "bytes": 2037984
+    },
+    {
+      "path": "papers/hartmann2025.txt",
+      "bytes": 201393
+    },
+    {
+      "path": "papers/hartmann_preprint.compact.txt",
+      "bytes": 174040
+    },
+    {
+      "path": "papers/hartmann_preprint.pdf",
+      "bytes": 4510125
+    },
+    {
+      "path": "papers/hartmann_preprint.txt",
+      "bytes": 198550
+    },
+    {
+      "path": "papers/hotvcom.clean.txt",
+      "bytes": 104151
+    },
+    {
+      "path": "papers/hotvcom.pdf",
+      "bytes": 17006256
+    },
+    {
+      "path": "papers/hotvcom.txt",
+      "bytes": 105752
+    },
+    {
+      "path": "papers/kaplan.clean.txt",
+      "bytes": 86797
+    },
+    {
+      "path": "papers/kaplan.compact.txt",
+      "bytes": 75016
+    },
+    {
+      "path": "papers/kaplan.pdf",
+      "bytes": 340749
+    },
+    {
+      "path": "papers/kaplan.txt",
+      "bytes": 104054
+    },
+    {
+      "path": "papers/kleinberg.compact.txt",
+      "bytes": 116103
+    },
+    {
+      "path": "papers/kleinberg.pdf",
+      "bytes": 1040122
+    },
+    {
+      "path": "papers/kleinberg.txt",
+      "bytes": 159655
+    },
+    {
+      "path": "papers/kuairand.clean.txt",
+      "bytes": 34414
+    },
+    {
+      "path": "papers/kuairand.pdf",
+      "bytes": 1617365
+    },
+    {
+      "path": "papers/kuairand.txt",
+      "bytes": 58421
+    },
+    {
+      "path": "papers/kuairec.clean.txt",
+      "bytes": 67852
+    },
+    {
+      "path": "papers/kuairec.pdf",
+      "bytes": 1002179
+    },
+    {
+      "path": "papers/kuairec.txt",
+      "bytes": 94517
+    },
+    {
+      "path": "papers/larooij.clean.txt",
+      "bytes": 51835
+    },
+    {
+      "path": "papers/larooij.pdf",
+      "bytes": 697081
+    },
+    {
+      "path": "papers/larooij.txt",
+      "bytes": 65530
+    },
+    {
+      "path": "papers/leysen.clean.txt",
+      "bytes": 38963
+    },
+    {
+      "path": "papers/leysen.pdf",
+      "bytes": 427136
+    },
+    {
+      "path": "papers/leysen.txt",
+      "bytes": 40352
+    },
+    {
+      "path": "papers/li2026.clean.txt",
+      "bytes": 91871
+    },
+    {
+      "path": "papers/li2026.compact.txt",
+      "bytes": 94107
+    },
+    {
+      "path": "papers/li2026.pdf",
+      "bytes": 1381591
+    },
+    {
+      "path": "papers/li2026.txt",
+      "bytes": 128170
+    },
+    {
+      "path": "papers/liu2024.clean.txt",
+      "bytes": 83526
+    },
+    {
+      "path": "papers/liu2024.compact.txt",
+      "bytes": 71158
+    },
+    {
+      "path": "papers/liu2024.pdf",
+      "bytes": 176688
+    },
+    {
+      "path": "papers/liu2024.txt",
+      "bytes": 94761
+    },
+    {
+      "path": "papers/microlens.clean.txt",
+      "bytes": 64679
+    },
+    {
+      "path": "papers/microlens.pdf",
+      "bytes": 3430891
+    },
+    {
+      "path": "papers/microlens.txt",
+      "bytes": 66586
+    },
+    {
+      "path": "papers/milli.compact.txt",
+      "bytes": 228474
+    },
+    {
+      "path": "papers/milli.pdf",
+      "bytes": 8569821
+    },
+    {
+      "path": "papers/milli.txt",
+      "bytes": 1386198
+    },
+    {
+      "path": "papers/molly_coroner.clean.txt",
+      "bytes": 6157
+    },
+    {
+      "path": "papers/molly_coroner.pdf",
+      "bytes": 153771
+    },
+    {
+      "path": "papers/molly_coroner.txt",
+      "bytes": 7382
+    },
+    {
+      "path": "papers/mozilla.clean.txt",
+      "bytes": 85582
+    },
+    {
+      "path": "papers/mozilla.compact.txt",
+      "bytes": 86993
+    },
+    {
+      "path": "papers/mozilla.pdf",
+      "bytes": 9573973
+    },
+    {
+      "path": "papers/mozilla.txt",
+      "bytes": 95310
+    },
+    {
+      "path": "papers/ndjs.clean.txt",
+      "bytes": 47197
+    },
+    {
+      "path": "papers/ndjs.pdf",
+      "bytes": 305228
+    },
+    {
+      "path": "papers/ndjs.txt",
+      "bytes": 48078
+    },
+    {
+      "path": "papers/nguyen.clean.txt",
+      "bytes": 78471
+    },
+    {
+      "path": "papers/nguyen.pdf",
+      "bytes": 244285
+    },
+    {
+      "path": "papers/nguyen.txt",
+      "bytes": 79745
+    },
+    {
+      "path": "papers/nyhan.clean.txt",
+      "bytes": 91338
+    },
+    {
+      "path": "papers/nyhan.compact.txt",
+      "bytes": 92391
+    },
+    {
+      "path": "papers/nyhan.pdf",
+      "bytes": 3589680
+    },
+    {
+      "path": "papers/nyhan.txt",
+      "bytes": 92391
+    },
+    {
+      "path": "papers/orchid.clean.txt",
+      "bytes": 73678
+    },
+    {
+      "path": "papers/orchid.pdf",
+      "bytes": 1742308
+    },
+    {
+      "path": "papers/orchid.txt",
+      "bytes": 75264
+    },
+    {
+      "path": "papers/orchid_acl.clean.txt",
+      "bytes": 73304
+    },
+    {
+      "path": "papers/orchid_acl.pdf",
+      "bytes": 1541897
+    },
+    {
+      "path": "papers/orchid_acl.txt",
+      "bytes": 98304
+    },
+    {
+      "path": "papers/partisan_tiktok.clean.txt",
+      "bytes": 166195
+    },
+    {
+      "path": "papers/partisan_tiktok.compact.txt",
+      "bytes": 175738
+    },
+    {
+      "path": "papers/partisan_tiktok.pdf",
+      "bytes": 25322758
+    },
+    {
+      "path": "papers/partisan_tiktok.txt",
+      "bytes": 300281
+    },
+    {
+      "path": "papers/personaact.clean.txt",
+      "bytes": 26777
+    },
+    {
+      "path": "papers/personaact.compact.txt",
+      "bytes": 27401
+    },
+    {
+      "path": "papers/personaact.pdf",
+      "bytes": 980033
+    },
+    {
+      "path": "papers/personaact.txt",
+      "bytes": 43814
+    },
+    {
+      "path": "papers/piccardi.pdf",
+      "bytes": 538372
+    },
+    {
+      "path": "papers/piccardi.txt",
+      "bytes": 60244
+    },
+    {
+      "path": "papers/quxu.clean.txt",
+      "bytes": 79119
+    },
+    {
+      "path": "papers/quxu.compact.txt",
+      "bytes": 76490
+    },
+    {
+      "path": "papers/quxu.pdf",
+      "bytes": 475657
+    },
+    {
+      "path": "papers/quxu.txt",
+      "bytes": 86526
+    },
+    {
+      "path": "papers/radio.clean.txt",
+      "bytes": 74000
+    },
+    {
+      "path": "papers/radio.pdf",
+      "bytes": 1033056
+    },
+    {
+      "path": "papers/radio.txt",
+      "bytes": 107393
+    },
+    {
+      "path": "papers/revisiting.clean.txt",
+      "bytes": 66358
+    },
+    {
+      "path": "papers/revisiting.pdf",
+      "bytes": 743338
+    },
+    {
+      "path": "papers/revisiting.txt",
+      "bytes": 91530
+    },
+    {
+      "path": "papers/shortvideo.pdf",
+      "bytes": 960933
+    },
+    {
+      "path": "papers/shortvideo.txt",
+      "bytes": 52847
+    },
+    {
+      "path": "papers/simtok.clean.txt",
+      "bytes": 49689
+    },
+    {
+      "path": "papers/simtok.pdf",
+      "bytes": 579454
+    },
+    {
+      "path": "papers/simtok.txt",
+      "bytes": 82505
+    },
+    {
+      "path": "papers/srba2023.clean.txt",
+      "bytes": 132435
+    },
+    {
+      "path": "papers/srba2023.pdf",
+      "bytes": 1021907
+    },
+    {
+      "path": "papers/srba2023.txt",
+      "bytes": 133394
+    },
+    {
+      "path": "papers/srba2025.clean.txt",
+      "bytes": 26142
+    },
+    {
+      "path": "papers/srba2025.pdf",
+      "bytes": 289917
+    },
+    {
+      "path": "papers/srba2025.txt",
+      "bytes": 26188
+    },
+    {
+      "path": "papers/stance_survey.pdf",
+      "bytes": 2646962
+    },
+    {
+      "path": "papers/stance_survey.txt",
+      "bytes": 194184
+    },
+    {
+      "path": "papers/tiktok_stance.clean.txt",
+      "bytes": 57436
+    },
+    {
+      "path": "papers/tiktok_stance.pdf",
+      "bytes": 2561818
+    },
+    {
+      "path": "papers/tiktok_stance.txt",
+      "bytes": 58172
+    },
+    {
+      "path": "papers/tomlein.clean.txt",
+      "bytes": 69468
+    },
+    {
+      "path": "papers/tomlein.pdf",
+      "bytes": 710356
+    },
+    {
+      "path": "papers/tomlein.txt",
+      "bytes": 70309
+    },
+    {
+      "path": "papers/tornberg.clean.txt",
+      "bytes": 51473
+    },
+    {
+      "path": "papers/tornberg.pdf",
+      "bytes": 1226874
+    },
+    {
+      "path": "papers/tornberg.txt",
+      "bytes": 51909
+    },
+    {
+      "path": "papers/ucrs.clean.txt",
+      "bytes": 69087
+    },
+    {
+      "path": "papers/ucrs.pdf",
+      "bytes": 1554651
+    },
+    {
+      "path": "papers/ucrs.txt",
+      "bytes": 69175
+    },
+    {
+      "path": "papers/unwanted.clean.txt",
+      "bytes": 49138
+    },
+    {
+      "path": "papers/unwanted.compact.txt",
+      "bytes": 49820
+    },
+    {
+      "path": "papers/unwanted.pdf",
+      "bytes": 531852
+    },
+    {
+      "path": "papers/unwanted.txt",
+      "bytes": 67546
+    },
+    {
+      "path": "papers/v3/bge_m3.pdf",
+      "bytes": 754673
+    },
+    {
+      "path": "papers/v3/bge_m3.txt",
+      "bytes": 97072
+    },
+    {
+      "path": "papers/v3/kuaisim.pdf",
+      "bytes": 667886
+    },
+    {
+      "path": "papers/v3/kuaisim.txt",
+      "bytes": 86712
+    },
+    {
+      "path": "papers/v3/llm_user_simulator.pdf",
+      "bytes": 784325
+    },
+    {
+      "path": "papers/v3/llm_user_simulator.txt",
+      "bytes": 66697
+    },
+    {
+      "path": "papers/v3/open_bandit.pdf",
+      "bytes": 1609265
+    },
+    {
+      "path": "papers/v3/open_bandit.txt",
+      "bytes": 100736
+    },
+    {
+      "path": "papers/v3/qwen3_omni.pdf",
+      "bytes": 4036466
+    },
+    {
+      "path": "papers/v3/qwen3_omni.txt",
+      "bytes": 117838
+    },
+    {
+      "path": "papers/v3/user_simulator_evaluation.pdf",
+      "bytes": 1347975
+    },
+    {
+      "path": "papers/v3/user_simulator_evaluation.txt",
+      "bytes": 103792
+    },
+    {
+      "path": "web/author_errata_manifest.json",
+      "bytes": 570
+    },
+    {
+      "path": "web/bail.body.txt",
+      "bytes": 26476
+    },
+    {
+      "path": "web/bail.txt",
+      "bytes": 30626
+    },
+    {
+      "path": "web/bail.xml",
+      "bytes": 67636
+    },
+    {
+      "path": "web/extra_manifest.json",
+      "bytes": 1542
+    },
+    {
+      "path": "web/hosseinmardi.txt",
+      "bytes": 57452
+    },
+    {
+      "path": "web/hosseinmardi.xml",
+      "bytes": 115779
+    },
+    {
+      "path": "web/instagram_reset.html",
+      "bytes": 332063
+    },
+    {
+      "path": "web/instagram_reset.txt",
+      "bytes": 6800
+    },
+    {
+      "path": "web/jmir_dengue.html",
+      "bytes": 0
+    },
+    {
+      "path": "web/jmir_dengue.txt",
+      "bytes": 30230
+    },
+    {
+      "path": "web/jmir_dengue.xml",
+      "bytes": 91599
+    },
+    {
+      "path": "web/jmir_dengue_correction.xml",
+      "bytes": 8462
+    },
+    {
+      "path": "web/jmir_diabetes.html",
+      "bytes": 0
+    },
+    {
+      "path": "web/jmir_diabetes.txt",
+      "bytes": 37770
+    },
+    {
+      "path": "web/jmir_diabetes.xml",
+      "bytes": 171576
+    },
+    {
+      "path": "web/manifest.json",
+      "bytes": 5952
+    },
+    {
+      "path": "web/page-00.html",
+      "bytes": 42909
+    },
+    {
+      "path": "web/page-00.txt",
+      "bytes": 17818
+    },
+    {
+      "path": "web/page-01.html",
+      "bytes": 100197
+    },
+    {
+      "path": "web/page-01.txt",
+      "bytes": 9957
+    },
+    {
+      "path": "web/page-02.html",
+      "bytes": 15344
+    },
+    {
+      "path": "web/page-02.txt",
+      "bytes": 8862
+    },
+    {
+      "path": "web/page-03.html",
+      "bytes": 19488
+    },
+    {
+      "path": "web/page-03.txt",
+      "bytes": 6385
+    },
+    {
+      "path": "web/page-05.html",
+      "bytes": 204776
+    },
+    {
+      "path": "web/page-05.txt",
+      "bytes": 6446
+    },
+    {
+      "path": "web/page-07.html",
+      "bytes": 21316
+    },
+    {
+      "path": "web/page-07.txt",
+      "bytes": 165
+    },
+    {
+      "path": "web/page-08.html",
+      "bytes": 43923
+    },
+    {
+      "path": "web/page-08.txt",
+      "bytes": 5092
+    },
+    {
+      "path": "web/page-09.html",
+      "bytes": 192405
+    },
+    {
+      "path": "web/page-09.txt",
+      "bytes": 5180
+    },
+    {
+      "path": "web/page-10.html",
+      "bytes": 44011
+    },
+    {
+      "path": "web/page-10.txt",
+      "bytes": 5326
+    },
+    {
+      "path": "web/page-11.html",
+      "bytes": 50780
+    },
+    {
+      "path": "web/page-11.txt",
+      "bytes": 5028
+    },
+    {
+      "path": "web/page-12.html",
+      "bytes": 40794
+    },
+    {
+      "path": "web/page-12.txt",
+      "bytes": 11146
+    },
+    {
+      "path": "web/page-13.html",
+      "bytes": 43013
+    },
+    {
+      "path": "web/page-13.txt",
+      "bytes": 4452
+    },
+    {
+      "path": "web/page-14.html",
+      "bytes": 44775
+    },
+    {
+      "path": "web/page-14.txt",
+      "bytes": 4855
+    },
+    {
+      "path": "web/page-15.html",
+      "bytes": 42592
+    },
+    {
+      "path": "web/page-15.txt",
+      "bytes": 4354
+    },
+    {
+      "path": "web/page-16.html",
+      "bytes": 17603
+    },
+    {
+      "path": "web/page-16.txt",
+      "bytes": 158
+    },
+    {
+      "path": "web/page-17.html",
+      "bytes": 158910
+    },
+    {
+      "path": "web/page-17.txt",
+      "bytes": 11310
+    },
+    {
+      "path": "web/page-18.html",
+      "bytes": 45425
+    },
+    {
+      "path": "web/page-18.txt",
+      "bytes": 4727
+    },
+    {
+      "path": "web/page-19.html",
+      "bytes": 18067
+    },
+    {
+      "path": "web/page-19.txt",
+      "bytes": 4686
+    },
+    {
+      "path": "web/page-20.html",
+      "bytes": 232962
+    },
+    {
+      "path": "web/page-20.txt",
+      "bytes": 88055
+    },
+    {
+      "path": "web/page-21.html",
+      "bytes": 502545
+    },
+    {
+      "path": "web/page-21.txt",
+      "bytes": 73352
+    },
+    {
+      "path": "web/page-22.html",
+      "bytes": 438235
+    },
+    {
+      "path": "web/page-22.txt",
+      "bytes": 78971
+    },
+    {
+      "path": "web/page-23.html",
+      "bytes": 193457
+    },
+    {
+      "path": "web/page-23.txt",
+      "bytes": 51589
+    },
+    {
+      "path": "web/page-24.html",
+      "bytes": 14995
+    },
+    {
+      "path": "web/page-24.txt",
+      "bytes": 118
+    },
+    {
+      "path": "web/qiu_author.html",
+      "bytes": 46553
+    },
+    {
+      "path": "web/shi_author.html",
+      "bytes": 29223
+    },
+    {
+      "path": "web/tiktok_controls.html",
+      "bytes": 128094
+    },
+    {
+      "path": "web/tiktok_controls.txt",
+      "bytes": 5693
+    },
+    {
+      "path": "web/tiktok_dsa.html",
+      "bytes": 118426
+    },
+    {
+      "path": "web/tiktok_dsa.txt",
+      "bytes": 5177
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  [
+    "hosseinmardi",
+    "error",
+    "405 Client Error: Not Allowed for url: https://infoscience.epfl.ch/record/311089/files/hosseinmardi-et-al-2024-causally-estimating-the-effect-of-youtube-s-recommender-system-using-counterfactual-bots.pdf",
+    "https://infoscience.epfl.ch/record/311089/files/hosseinmardi-et-al-2024-causally-estimating-the-effect-of-youtube-s-recommender-system-using-counterfactual-bots.pdf"
+  ],
+  [
+    "tomlein",
+    "ok",
+    710356,
+    "https://arxiv.org/pdf/2203.13769"
+  ],
+  [
+    "srba2023",
+    "ok",
+    1021907,
+    "https://arxiv.org/pdf/2210.10085"
+  ],
+  [
+    "srba2025",
+    "ok",
+    289917,
+    "https://raw.githubusercontent.com/mlresearch/v294/main/assets/srba25a/srba25a.pdf"
+  ],
+  [
+    "ucrs",
+    "ok",
+    1554651,
+    "https://arxiv.org/pdf/2204.13844"
+  ],
+  [
+    "hotvcom",
+    "ok",
+    17006256,
+    "https://aclanthology.org/2024.findings-acl.130.pdf"
+  ],
+  [
+    "leysen",
+    "error",
+    "HTTPSConnectionPool(host='adrem.uantwerpen.be', port=443): Max retries exceeded with url: /bibrem/pubs/bubbles.pdf (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1000)')))",
+    "https://adrem.uantwerpen.be/bibrem/pubs/bubbles.pdf"
+  ],
+  [
+    "brown",
+    "ok",
+    602338,
+    "https://www.jamesbisbee.com/assets/pdf/yt_recs_ideology.pdf"
+  ],
+  [
+    "ddir",
+    "error",
+    "403 Client Error: Forbidden for url: https://dl.acm.org/doi/pdf/10.1145/3828182",
+    "https://dl.acm.org/doi/pdf/10.1145/3828182"
+  ],
+  [
+    "draws2023",
+    "error",
+    "403 Client Error: Forbidden for url: https://cris.maastrichtuniversity.nl/files/138674627/Tintarev_2023_Viewpoint_Diversity_in_Search_Results.pdf",
+    "https://cris.maastrichtuniversity.nl/files/138674627/Tintarev_2023_Viewpoint_Diversity_in_Search_Results.pdf"
+  ],
+  [
+    "piao",
+    "not_pdf",
+    200,
+    "https://www.nature.com/articles/s42256-023-00731-4.pdf"
+  ],
+  [
+    "shi_li",
+    "error",
+    "403 Client Error: Forbidden for url: https://www.tandfonline.com/doi/pdf/10.1080/21670811.2025.2450312",
+    "https://www.tandfonline.com/doi/pdf/10.1080/21670811.2025.2450312"
+  ],
+  [
+    "bail",
+    "error",
+    "403 Client Error: Forbidden for url: https://www.pnas.org/doi/pdf/10.1073/pnas.1804840115",
+    "https://www.pnas.org/doi/pdf/10.1073/pnas.1804840115"
+  ],
+  [
+    "guess",
+    "error",
+    "403 Client Error: Forbidden for url: https://www.science.org/doi/pdf/10.1126/science.abp9364",
+    "https://www.science.org/doi/pdf/10.1126/science.abp9364"
+  ]
+]
