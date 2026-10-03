@@ -2,9 +2,9 @@
 
 这些脚本核查数据可用性和历史数字的口径，不训练模型、不生成自动立场标签，也不估计按钮的因果效果。
 
-外部资料保存在仓库同级目录：
+外部资料现保存在仓库内的忽略目录（管理与恢复方式见 [sources/README.md](../../sources/README.md)）：
 
-`/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/`
+`sources/`
 
 输入来源：
 
@@ -16,7 +16,7 @@
 先运行：
 
 ```bash
-python3 analysis/context_audit/probe_resources.py /absolute/path/to/anti-filter-bubble-sources
+python3 analysis/context_audit/probe_resources.py sources
 ```
 
 输出在外部目录 `data/audit/`。200 条窗口按用户的标准日志时间排序后不重叠切分，丢弃末尾不足 200 条的窗口；保留全部入口，不冒充单一推荐页。关键词在 caption 和封面文字中匹配；命中只是候选，既可能误收，也可能漏掉不用这些词的相关内容。每类前 12 条例子是定性检查，不是随机人工金标准。原始标题可能含个人账号标识，样例不复制进本仓库。
@@ -24,7 +24,7 @@ python3 analysis/context_audit/probe_resources.py /absolute/path/to/anti-filter-
 随后生成资料身份和校验清单：
 
 ```bash
-python3 analysis/context_audit/resource_manifest.py /absolute/path/to/anti-filter-bubble-sources
+python3 analysis/context_audit/resource_manifest.py sources
 ```
 
 该脚本记录克隆版本、文件 SHA-256、已下载 Zenodo 文件的官方 MD5 核验和核查结果；输出 `docs/context-recovery/resource_manifest.json`。其中下载尝试的旧状态仅为获取过程记录，当前文件是否存在和 PDF 签名另列。文件存在、标题命中、读过论文与复现论文结果是不同状态。
@@ -32,7 +32,7 @@ python3 analysis/context_audit/resource_manifest.py /absolute/path/to/anti-filte
 为 [execution plan v2](../../docs/project-plan/execution_plan_v2.md) 固定有限输入：
 
 ```bash
-python3 analysis/context_audit/plan_v2_preflight.py /absolute/path/to/anti-filter-bubble-sources
+python3 analysis/context_audit/plan_v2_preflight.py sources
 ```
 
 脚本只使用已有 KuaiRand-1K 和完整标题 CSV。它在 1K 视频池中检索“彩礼”，以 seed=1110 从按 ID 排序的候选中均匀无放回抽取 200 条（40 pilot、160 audit）；另外在标准日志 `tab=1` 中选择有前 200／后 100 条曝光的 hate 事件，按时间每人最多 5 个、位置相差 >300，避免选中事件的完整窗口重叠。其他负反馈只打标，不按后续效果筛选。

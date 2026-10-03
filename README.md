@@ -21,6 +21,7 @@ Earlier course Project Plan: `docs/project-plan/Project_Plan.pdf` (source: `proj
 | `docs/01_topic_candidates.md` | 候选题目对比与推荐方案（讨论稿） |
 | `docs/research/` | 第一轮调研笔记（文献、政策、审计方法、模型）+ 文献核对清单 |
 | `docs/resources/` | 第二轮资源清单（数据集、代码、X 算法代码地图、自采数据、破茧方案）— **从 `docs/resources/README.md` 开始看** |
+| `sources/` | [外部资源管理](sources/README.md)：核心代码 submodule、版本清单与本地数据／模型缓存 |
 | `analysis/` | 探索性分析脚本（数据不入库，见脚本注释的下载地址） |
 | `docs/project-plan/` | [版本与阅读入口](docs/project-plan/README.md)：当前 v3、正式提交稿和历史方案 |
 
