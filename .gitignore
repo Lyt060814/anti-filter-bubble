@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 # derived data from pilots (datasets are not committed; see script headers for download URLs)
 *.parquet
+
+# Local session recovery: raw conversations, attachments and runtime evidence
+.session-recovery/
