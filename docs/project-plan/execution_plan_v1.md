@@ -1,5 +1,7 @@
 # 执行计划 v1：基于实际资源的工作分解
 
+> 接续复核（2026-10-02）：已新增 [execution plan v2](execution_plan_v2.md) 和配套 [working plan v2](working_plan_v2.md)，作为当时内部方案；当前最终基线见 [Working v3](working_plan_v3.md) 与 [Execution v3](execution_plan_v3.md)。这是原始 v1，以下资源状态与验收条件并非全部仍成立；修订依据见[第一性原理复核](first_principles_review.md)与[来源台账](../context-recovery/plan_source_review.md)。
+
 > 2026-10-02。前置文档：`working_plan_v1.md`（问题、意义、资源）。本文只回答一件事：**用手里已核实的资源，具体做哪些工作，怎么验收。** 每项工作都标了"与理想目标的偏差"。所有数字（曝光数、事件数、费用）都是本机实测或已核实的，不是估计。
 
 ---

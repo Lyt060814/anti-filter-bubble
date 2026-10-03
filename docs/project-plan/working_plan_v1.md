@@ -1,5 +1,7 @@
 # 工作版 Project Plan v1：从"问题"出发重新组织整个项目
 
+> 接续复核（2026-10-02）：已新增 [working plan v2](working_plan_v2.md) 和配套 [execution plan v2](execution_plan_v2.md)，作为当时内部方案；当前最终基线见 [Working v3](working_plan_v3.md) 与 [Execution v3](execution_plan_v3.md)。本页保留原始讨论；部分“已核实”主张经原文、源码和数据重查需要更正，依据见[第一性原理复核](first_principles_review.md)与[来源台账](../context-recovery/plan_source_review.md)。
+
 > 2026-10-02。这不是提交版，是用来理清思路的内部文档。原则只有一条：**先想清楚什么问题重要，再想我们能怎么分析它；不用可行性去迁就问题。** 做不到的部分如实写"做不到"，在能力范围内把能做的做到最好。
 > 标注：[V] 本次核实过原文或数据；[T] 来自组员整理、我未独立核实；[P] 本次跑过的初步数字，还没有做对照检验。
 
