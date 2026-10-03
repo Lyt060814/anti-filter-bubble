@@ -16,37 +16,41 @@ We study **filter-bubble risks** in Chinese-language short-video feeds: recommen
 
 Our proposed solution has three parts. An **exposure report** shows which claims, reasons and sources recur, with examples the user can check. A **control step** asks what the user wants to reduce, retain or explore. A **follow-up comparison** examines whether available actions achieve that goal and how much continued effort they require. For example, a user could request fewer claims that strict discipline is the only effective approach while retaining practical advice and explanations of different approaches.
 
-The method will be developed across at least two issues and evaluated on another issue not used in development. Our main outputs will be an evidence-based report design, a comparison of intervention strategies and a dynamic simulation. A small tool may demonstrate the process, but a finished app is not required. We will study exposure and control, rather than claim to measure changes in users’ beliefs or well-being.
+We will develop the method across at least two issues and evaluate it on a held-out issue. Our main outputs will be an evidence-based report design, a comparison of adaptive intervention policies and a dynamic simulation. An optional tool may demonstrate the process. We will study exposure and control, rather than claim to measure changes in users’ beliefs or well-being.
 
 ## 2. Computing and data science approach
 
-This is a **hybrid project combining data analysis, algorithmic design and simulation**. Its technical core is selecting interventions that preserve useful information, then examining their effects within a recommendation–feedback loop. We will use existing methods where they fit the task.
+This hybrid project uses **data analysis** to describe what users encounter, **algorithmic design** to select actions under information-retention and effort constraints, and **simulation** to test how those actions affect subsequent recommendations. We will reuse established methods where suitable.
 
-### Understand the content
+### Data analysis: measuring viewpoint exposure
 
-We will retrieve relevant videos using keyword and semantic search, then identify the specific claim, the speaker’s stance, supporting reasons and the evidence available in the video. Large language models (LLMs) can analyse titles and transcripts; vision–language models (VLMs) can interpret frames or video clips when dialogue, subtitles or visual context matter. A character’s line in a sketch must not automatically become the creator’s opinion.
+The tool sees content and interaction records $o_{\leq t}$ available up to step $t$, not the platform’s internal state. Keyword and semantic retrieval, followed by large language model (LLM) or vision–language model (VLM) analysis, will extract claims, stances, reasons and source identifiers with supporting passages or timestamps. The analysis pipeline produces an exposure summary:
 
-Model outputs will include supporting passages or video segments and an “uncertain” option. Two members will independently label an evaluation sample, resolve or retain disagreements, and check model errors. Comparing titles alone with transcripts and audiovisual input will show when extra context is useful. Retrieval errors will also be checked, including relevant videos missed by the initial search.
+$$\widehat{e}_t=\Phi(o_{\leq t})=(p_t,\mathbf{r}_t,d_t,u_t).$$
 
-### Describe exposure
+Here $p_t$ is the stance distribution for a defined claim, excluding unknown labels, $\mathbf{r}_t$ gives reason coverage, $d_t$ source repetition, and $u_t$ the unknown-label proportion. Sliding windows track two properties: concentration and change. Shannon entropy $H(p_t)=-\sum_k p_{t,k}\log p_{t,k}$ measures concentration, with lower values indicating exposure concentrated in fewer stances. Jensen–Shannon divergence $\mathrm{JS}(p_t,q)$ measures difference from an explicit reference $q$, such as earlier exposure. Neither establishes harm or implies that uniform exposure is ideal.
 
-For each issue, we will summarise the distribution of stances, recurring reasons, repeated source material and changes over time. Comparison baselines might include the user’s earlier feed or a documented collection of relevant arguments; neither automatically represents the “correct” distribution. The report will show missing information and uncertain labels rather than combine everything into a single filter-bubble score.
+Independent double annotation, precision/recall, modality comparisons and a held-out issue will test measurement quality; sparse histories will remain unscored. Disagreements and alternative plausible labels for uncertain items will test whether classification errors change the conclusions.
 
-This analysis must distinguish content collections from personal exposure histories. We will produce individual time-based reports only where the logs contain enough relevant observations. Otherwise, we will report coverage limitations and use clearly identified constructed sequences to test the reporting method.
+### Algorithmic design: selecting interventions
 
-### Compare adjustments
+An action-selection policy chooses $a_t=\pi(\widehat{e}_t,g,b_t)$ using the exposure summary, a confirmed reduce–retain–explore goal $g$ and remaining budget $b_t$. Over horizon $T$, we compare permitted policies by
 
-The input to the control step is a user-confirmed description of what to reduce, retain and add, together with permitted actions. We will compare no intervention, broad topic filtering, targeted negative feedback, selective filtering with sourced supplementary material, and directed searching or following. We will distinguish platform controls from filtering and supplementation provided by a proposed external tool.
+$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=1}^{T}\ell(\widehat{e}_t,g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
 
-A simple constrained selection procedure will reject strategies that remove too much desired information, then compare the remaining options by unwanted exposure, information retained, additional reasons found and effort required. Semantic similarity can help retrieve material, but will not by itself establish whether it adds a different reason. An LLM assistant may clarify requests and call search or analysis tools; the calculations and constraints will remain independently checkable.
+$\Pi_{\mathrm{user}}$ contains permitted policies and the expectation averages over random recommendations and responses. The loss $\ell$ measures goal mismatch; $C_T$ is effort and $R_T$ retention relative to no intervention. Budget $B$, minimum retention $\rho$ and measurement rules are fixed by test scenarios or user confirmation. Unknown content and empty feeds cannot count as success. In the parenting example, loss tracks sweeping claims and retention tracks practical advice and distinct explanations. Additional reasons require documented sources.
 
-### Test the feedback loop
+We will enumerate no-intervention, topic-filtering, negative-feedback, selective-filtering-plus-supplementation, and search/follow policies. Simulation estimates outcomes; infeasible candidates are excluded. If none qualifies, we report no feasible option. Given these estimates, selection is linear in candidate count. Platform actions and external-tool functions remain distinct. We do not claim global optimality.
 
-The simulation will separate the content pool, recommender, user and intervention strategy. At each step, the recommender selects content, the user responds, the platform updates its history, and the next recommendation is produced. The user’s tendency to watch something will be represented separately from their stated adjustment goal.
+### Simulation: testing the recommendation–feedback loop
 
-We will compare a transparent rule-based user with data-driven and LLM-based candidates. A promising option combines semantic interpretation with a statistical model of observable behaviour. Where matching content and logs exist, predicted behaviour must be checked against held-out records; plausible explanations alone do not establish realism. The study will retain a simple simulation if more elaborate users cannot be justified.
+Let $s_t$ contain recommendation history and user behavioural state. At step $t$, the recommender $\mathcal{R}$ generates exposure $x_t$, the user model $\mathcal{U}$ generates feedback $y_t$, and the selected action $a_t$ enters the state-update rule $\mathcal{F}$:
 
-Experiments will compare continued intervention with stopping it, under different assumptions about recommendation memory, exploration and responses to negative feedback. Outputs will include whether a goal is reached, exposure steps required, useful information lost, actions taken and whether the unwanted pattern returns. Repeated runs will test sensitivity to model assumptions; the simulator does not reproduce a live platform.
+$$x_t\sim\mathcal{R}(\cdot\mid s_t),\quad y_t\sim\mathcal{U}(\cdot\mid x_t,s_t),\quad s_{t+1}\sim\mathcal{F}(\cdot\mid s_t,x_t,y_t,a_t).$$
+
+This simulation separates viewing tendencies from adjustment goals. Rule-based, data-driven, LLM-based and hybrid users will be compared against available held-out logs, including probability calibration. Recommendation memory, exploration and feedback strength will vary across experiments. Watching upsetting videos can conflict with wanting fewer recommendations of them. Each policy receives only observable records, not hidden preferences or recommender parameters.
+
+Matched initial states and repeated random seeds will compare goal attainment, information loss, effort and recurrence. Continued intervention, stopping it and resuming earlier viewing will be tested separately. We will report averages, variation across runs and constraint-violation frequency. Sensitivity to model parameters and label errors will test robustness; simulated effects are not evidence of live-platform effects.
 
 ## 3. Related work and research focus
 
@@ -62,11 +66,11 @@ Together, these studies leave a practical question for our project: **can a user
 
 ## 4. Feasibility, limitations and ethics
 
-We have obtained public short-video content and interaction datasets, checked video–transcript pairs, and run initial retrieval and response-model checks. These establish access and basic execution, not classification quality or realistic simulation.
+We have obtained public short-video content and interaction datasets, checked video–transcript pairs, and run initial retrieval and response-model checks. These establish access and execution, not accuracy or simulation realism.
 
 Pilot annotation will guide sample selection to cover important cases and assess errors. We will reuse pretrained models and established statistical methods. Large-model inference requires suitable computing resources; if these are unavailable or ineffective, we can still analyse manually checked content and demonstrate the proposed control logic in a transparent simulation. The report will state which components were implemented and which remain designs.
 
-The main limitations are incomplete video context, sparse personal histories and unknown platform responses. Observational changes after negative feedback will be reported as associations, not causal effects. Simulation results will remain conditional on their assumptions. Broader exposure does not prove better judgement, and removing disliked views can itself narrow a feed. We will make those trade-offs visible and avoid treating opposing claims as equally credible when their evidence differs.
+The main limitations are incomplete video context, sparse personal histories and unknown platform responses. Observational changes after negative feedback will be reported as associations, not causal effects. Simulation results will remain conditional on their assumptions. Independently checked labels will be used where available to assess whether measurement errors make an intervention look better than it is. Broader exposure does not prove better judgement, and removing disliked views can itself narrow a feed. We will make those trade-offs visible and avoid treating opposing claims as equally credible when their evidence differs.
 
 The core work uses publicly released research data and simulated users. Offline adjustment goals will be specified as test scenarios, not inferred as the wishes of people in anonymous logs. We will follow dataset terms, avoid identifying individuals, and keep unnecessary personal details out of examples and shared outputs. Any external AI processing must respect the source’s permitted use and avoid sending identifiable histories. Human testing is optional; before recruitment, we would confirm applicable course or university requirements and obtain informed consent. No live account automation or platform intervention is needed for the core study.
 

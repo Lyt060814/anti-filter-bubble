@@ -6,7 +6,7 @@
 
 | 用途 | 入口 |
 |---|---|
-| 正式课程提案（4 页，含参考文献） | [中英文 PDF、Word、源稿与构建说明](submission/README.md) |
+| 正式课程提案（中英文各 4 页，含参考文献） | [中英文 PDF、Word、源稿与构建说明](submission/README.md) |
 | 问题定义、研究依据与理想方案 | [Working Plan v3](working_plan_v3.md) |
 | 工作包、验证条件、分工与实施步骤 | [Execution Plan v3](execution_plan_v3.md) |
 | 扩展资源调研 | [Resource Review v3](resource_review_v3.md) |
