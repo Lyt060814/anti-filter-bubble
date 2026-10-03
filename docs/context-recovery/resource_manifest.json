@@ -1,0 +1,2127 @@
+{
+  "created_at": "2026-10-02T13:18:58.686076+00:00",
+  "resource_root": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources",
+  "project_baseline_commit": "64b14d461adb71c3b94d49f7fcc855efa8b60efb",
+  "scope": "Acquisition identity and selected resource probes; consult plan_source_review.md for reading scope and access gaps.",
+  "runtime": {
+    "python": "3.12.3",
+    "numpy": "2.4.3",
+    "pandas": "3.0.2"
+  },
+  "code": [
+    {
+      "path": "code/Adaptive-Information-Dynamic-Model",
+      "remote": "https://github.com/tsinghua-fib-lab/Adaptive-Information-Dynamic-Model",
+      "commit": "bff9643b18704837c5c7057abe84a76668d6a2ee",
+      "commit_date": "2023-08-19T18:31:02+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/C-MTCSD",
+      "remote": "https://github.com/yangyi626/C-MTCSD.git",
+      "commit": "2a3fa72d1b892ef407b9079c37d4bea925dd2e2a",
+      "commit_date": "2025-06-25T11:48:46+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/C-STANCE",
+      "remote": "https://github.com/chenyez/C-STANCE.git",
+      "commit": "f1e99fc5b49e517ac90fbdf1bd19a5f254958809",
+      "commit_date": "2023-07-22T09:48:47-07:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/CED",
+      "remote": "https://github.com/thunlp/CED",
+      "commit": "1ae5f853b7fbc050c1827035eccde831324063f0",
+      "commit_date": "2020-09-19T16:09:04+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/CIRS-codes",
+      "remote": "https://github.com/chongminggao/CIRS-codes.git",
+      "commit": "a07fb27a34d003c7252fddafb49d9b7f1010b084",
+      "commit_date": "2024-01-02T21:18:39+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/DDIR",
+      "remote": "https://github.com/16061025/DDIR.git",
+      "commit": "2947e48168d1ed0bc6fed154fa0a6f22c0a5e522",
+      "commit_date": "2025-08-08T15:37:17+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/DGTA",
+      "remote": "https://github.com/17Huaaa/DGTA-stance-detection",
+      "commit": "3d4ffdf743a082590e75cec4132e6f570199abd0",
+      "commit_date": "2025-05-24T18:55:54+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/KuaiRand",
+      "remote": "https://github.com/chongminggao/KuaiRand.git",
+      "commit": "f8dbf6678b3c9594050e3e813aeff0c942260ec4",
+      "commit_date": "2026-01-07T01:40:59+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/KuaiRec",
+      "remote": "https://github.com/chongminggao/KuaiRec.git",
+      "commit": "a22f13b07d8b9d6b15e0cec2e97393f2bb0c40b3",
+      "commit_date": "2026-01-07T01:31:06+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/MicroLens",
+      "remote": "https://github.com/westlake-repl/MicroLens.git",
+      "commit": "0fc876066987fb3b920df2765cfbac2763c515eb",
+      "commit_date": "2026-03-19T09:25:16-04:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/OrChiD",
+      "remote": "https://github.com/xiutian/OrChiD.git",
+      "commit": "d05b4adda1dbc57c0e87472072261a0b43e2406a",
+      "commit_date": "2023-12-08T23:01:49+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/PersonaAct",
+      "remote": "https://github.com/Silung/PersonaAct",
+      "commit": "8840a944443aec6a000fe5af91a7f45bd7e1cba6",
+      "commit_date": "2026-06-09T16:22:35+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/RADio",
+      "remote": "https://github.com/svrijenhoek/RADio.git",
+      "commit": "f1ce0d8bb0d7235f0c48b1745a8a81060683846a",
+      "commit_date": "2023-02-09T16:29:28+01:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/ShortVideo_dataset",
+      "remote": "https://github.com/tsinghua-fib-lab/ShortVideo_dataset.git",
+      "commit": "6bd97f13a620f429745b24a17897457a75054052",
+      "commit_date": "2026-01-29T22:07:45+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/UCRS",
+      "remote": "https://github.com/WenjieWWJ/UCRS.git",
+      "commit": "b7ecba193712174d9d7d62f4f3f877b476aedbc7",
+      "commit_date": "2022-05-04T20:44:31+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/ai-auditology-personalisation-drift-tiktok",
+      "remote": "https://github.com/kinit-sk/ai-auditology-personalisation-drift-tiktok",
+      "commit": "65f0f10fe76365db5f723896139143e5497f1280",
+      "commit_date": "2026-03-24T11:07:43+01:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/politics_tiktok",
+      "remote": "https://github.com/comnetsAD/politics_tiktok.git",
+      "commit": "dd005d35dbc86f79e3ab0b17834a6801c45015f9",
+      "commit_date": "2025-06-19T11:23:43+04:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/rumor-dataset",
+      "remote": "https://github.com/thunlp/Chinese_Rumor_Dataset",
+      "commit": "c1178d8cfd4c245c296889a51fc252b17c9037c5",
+      "commit_date": "2018-12-24T00:19:20+08:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/tiktok-audit",
+      "remote": "https://github.com/kinit-sk/tiktok-algorithmic-audit-reproducibility.git",
+      "commit": "4dc82bbb5f81ec1c4dc039e3b02226facf3207a6",
+      "commit_date": "2025-04-16T00:43:11+02:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/x-algorithm",
+      "remote": "https://github.com/xai-org/x-algorithm.git",
+      "commit": "b79b947ce9283c786822274ef8fe208c33c585b2",
+      "commit_date": "2026-10-01T02:13:55+00:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/yaudit-recsys-2021",
+      "remote": "https://github.com/kinit-sk/yaudit-recsys-2021",
+      "commit": "6a944930d1181b25fb2016ab3939b33297c0597c",
+      "commit_date": "2023-01-28T08:36:12+01:00",
+      "working_tree_dirty": false
+    },
+    {
+      "path": "code/youtube-disinterest",
+      "remote": "https://github.com/avliu-um/youtube-disinterest.git",
+      "commit": "6ea88a7d5bc08992f81fb4a32bcc726897de26f3",
+      "commit_date": "2026-08-05T12:47:44-04:00",
+      "working_tree_dirty": false
+    }
+  ],
+  "papers": [
+    {
+      "path": "papers/amnesty.pdf",
+      "bytes": 2066794,
+      "sha256": "19bac9bb131456ad8776176ba5104d47e4c1dd2d4e43546f8ed9ad858943441f",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://www.amnesty.org.uk/knowledge-hub/all-resources/report-driven-into-darkness/",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/amplification.pdf",
+      "bytes": 5345499,
+      "sha256": "cdbca4002c44df769d7ac03dda003abcc606e7cecf4f33461cd549edb2751f91",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2503.20231"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/autolike.pdf",
+      "bytes": 15498045,
+      "sha256": "43272ee82090a0957b951a31613fc95b538bb5856d9e4b8b05dd215cb45e10dc",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2502.08933"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/bail.pdf",
+      "bytes": 810334,
+      "sha256": "eef4a4e24410560b55f14d53171627d61ba13c77331c07256816d73982cc4965",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "error",
+          "url": "https://www.pnas.org/doi/pdf/10.1073/pnas.1804840115"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/bep.pdf",
+      "bytes": 515748,
+      "sha256": "e403ee0119350014160796bd5e2c59f94005108a32dd57b72bcf7b7747a8c5e0",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2512.03067",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/boeker.pdf",
+      "bytes": 2263536,
+      "sha256": "e04d2fa6aec39256ce5210c8a4d30dff7d79923c71c09e9eb088c12c8f55e0a1",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2201.12271"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/brady2026.pdf",
+      "bytes": 8806333,
+      "sha256": "0c7c890b36e794c7df45def873951dff17c30e7916a5860eb4a3b1898b6b817f",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://williamjbrady.com/research",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/brown.pdf",
+      "bytes": 602338,
+      "sha256": "702e430fadfae02a924267504463b1e25d0d0745602c906eb5b8a4bca5f7df51",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://www.jamesbisbee.com/assets/pdf/yt_recs_ideology.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/bursztyn.pdf",
+      "bytes": 27661352,
+      "sha256": "af93f5f8656a6429456c14e694ac19396159ea8f438af17bdf5e929319b9bac9",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "error",
+          "url": "https://leonardobursztyn.com/wp-content/uploads/2024/03/CollectiveTraps.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/chaney.pdf",
+      "bytes": 1595013,
+      "sha256": "3965bdb1e39d274a5342ad6b322727c8904743850b54240ff2eed13077e4e7ae",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/1710.11214"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/checkbox.pdf",
+      "bytes": 755089,
+      "sha256": "65dc1ec7eede896bf5a5be52738bb2be9edc80cae000a29d84817c1b78bf813a",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2601.18405"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/cirs.pdf",
+      "bytes": 2337773,
+      "sha256": "3b86397dc6e53f73d8aa3c0c377d21bd29d8c1e851a5ef8666765e255194b14d",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2204.01266",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/cmtcsd.pdf",
+      "bytes": 139337,
+      "sha256": "1262932e3a1aaf6edcf6205519a662a8bcb938d6ae75e78bf32463f71ff65ea9",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2504.09958"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/cnnic56.pdf",
+      "bytes": 6256558,
+      "sha256": "b979d09d15e42fffbd348489b2743b2b1959273a7ac67479970b4d36b9c77fcb",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://www.cnnic.net/NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/cstance.pdf",
+      "bytes": 628904,
+      "sha256": "2eb0ebfabea7bf75bc7b191c3712bb3db29980cd3e03586b3c5d30073ea55b8c",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://aclanthology.org/2023.acl-long.747.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/deepbubble.pdf",
+      "bytes": 2736470,
+      "sha256": "01c090450043b6bd259264b15c284a06df2e7f2a2fb1f2e1a3261c7203810409",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2403.04511",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/dgta.pdf",
+      "bytes": 8909858,
+      "sha256": "b10c8dac2d15d59b4f2a683d51ad05ae258e63759bc8ac6b051d531007444aef",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2601.19802"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/dorl.pdf",
+      "bytes": 1283249,
+      "sha256": "6ec8da3cdc1f76247ce522be8eb10038ceb2517edd1c23f49ca286370e7d56e7",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2307.04571",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/draws2023.pdf",
+      "bytes": 539434,
+      "sha256": "cd53d1eb953b5b8edbb215d3ef23e05cbd0f5a7efadc763cc9ff53329396f13f",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "error",
+          "url": "https://cris.maastrichtuniversity.nl/files/138674627/Tintarev_2023_Viewpoint_Diversity_in_Search_Results.pdf"
+        },
+        {
+          "status_at_attempt": "error",
+          "url": "https://cris.maastrichtuniversity.nl/files/138674627/Tintarev_2023_Viewpoint_Diversity_in_Search_Results.pdf"
+        }
+      ],
+      "source_or_author_entry": "https://pure.tudelft.nl/ws/portalfiles/portal/150434223/978_3_031_28244_7_18.pdf",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/drift2026.pdf",
+      "bytes": 1496538,
+      "sha256": "45e28ddd566084daae24626c7e70af8eb64ccb048d49a89ee9daa74f07863ebe",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2603.20723",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/gaut2026.pdf",
+      "bytes": 5915888,
+      "sha256": "4269d3c6f9f0fe794a95cbe9e7c3631f33799aebc13d55a0347f9ae7c66606c5",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://www.nature.com/articles/s41586-026-10098-2.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/haroon.pdf",
+      "bytes": 19607585,
+      "sha256": "550c989fcf8beb2111db6daaa89fac4d2bf611bb3a050f660b9e8684615e8eb6",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://web.cs.ucdavis.edu/~zubair/files/haroon-pnas.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/haroon_slides.pdf",
+      "bytes": 1065698,
+      "sha256": "c0eb96be0e72f7fbe04b72d7d007e6e3a6498364dbfd1858e151aae125e20ee4",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://bpb-us-e2.wpmucdn.com/faculty.sites.uci.edu/dist/8/913/files/2023/01/symposium22-Muhammad-Haroon-YouTube.pdf",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/hartmann2025.pdf",
+      "bytes": 2037984,
+      "sha256": "b5ac92f14e8e5348146557aa35fc022cc0d2a2d19f8c02826ae01b00720374ee",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://doi.org/10.1007/s42001-025-00381-z",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/hartmann_preprint.pdf",
+      "bytes": 4510125,
+      "sha256": "675de56114ab00ceea2e1f9413d36030f084ec62bc8dc47c236abd8f624b8c70",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2407.06631"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/hotvcom.pdf",
+      "bytes": 17006256,
+      "sha256": "e805a96ce63dbb30a8d6d4b67547225c7791a263ea2edbe76379e9efd881ef72",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://aclanthology.org/2024.findings-acl.130.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/kaplan.pdf",
+      "bytes": 340749,
+      "sha256": "3f7f42c1b4d07c9b20165164e61a0d96a30353189677ee065d754831a5eb6125",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2605.10690",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/kleinberg.pdf",
+      "bytes": 1040122,
+      "sha256": "f9bee3bbf902c45201ddbd8e666f61c9dcc46010913bb99e1b951ed236562b2f",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2202.11776"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/kuairand.pdf",
+      "bytes": 1617365,
+      "sha256": "0cde9719e1a1ea357d57bac8dcf551f2644d71b0afb5231d86cc333b8fc762c7",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2208.08696",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/kuairec.pdf",
+      "bytes": 1002179,
+      "sha256": "7d979d6886df3cf37b018312c9d244ab2401ef91c3e887a1271b51c029411d86",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2202.10842",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/larooij.pdf",
+      "bytes": 697081,
+      "sha256": "5945f69b0b3630d966dad66c692a4ed651925e1aa48f15e5d063126ed739b424",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2508.03385"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/leysen.pdf",
+      "bytes": 427136,
+      "sha256": "9083db6205261363506621506668642376f67ce6e7d4425695ee1e9f4579f58e",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "error",
+          "url": "https://adrem.uantwerpen.be/bibrem/pubs/bubbles.pdf"
+        }
+      ],
+      "source_or_author_entry": "https://adrem.uantwerpen.be/bibrem/pubs/bubbles.pdf",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/li2026.pdf",
+      "bytes": 1381591,
+      "sha256": "7f6b217d9af58b0315909e16964a0fec2905ea98bf3d0e0bc993e0bdd5ee32dc",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://ojs.aaai.org/index.php/ICWSM/article/download/42704/50264"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/liu2024.pdf",
+      "bytes": 176688,
+      "sha256": "fe0ada64f21348eb2282e2e7cc5b0fa7e6aaeca27f1edee09ba78e3b58326ac9",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://ojs.aaai.org/index.php/ICWSM/article/download/31363/33523"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/microlens.pdf",
+      "bytes": 3430891,
+      "sha256": "1fc4d010aba16026830f235e5968d1aee71c4ca1eca4840c50bb5e5fcc311779",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2309.15379"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/milli.pdf",
+      "bytes": 8569821,
+      "sha256": "49ab08ad75d966de671d94db726a73ea063054827c22e6b080de0a49ded8e2ad",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2305.16941"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/molly_coroner.pdf",
+      "bytes": 153771,
+      "sha256": "6f04de914d8a12481522ed1806d7a4521d01915098d11db1bf0a09100bbacb6c",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://www.judiciary.uk/prevention-of-future-death-reports/molly-russell-prevention-of-future-deaths-report/",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/mozilla.pdf",
+      "bytes": 9573973,
+      "sha256": "3a68cc090b151792f6d2af42648d5337ae8d367350fc4884f19cf607277edda6",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://assets.mofoprod.net/network/documents/Mozilla-Report-YouTube-User-Controls.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/ndjs.pdf",
+      "bytes": 305228,
+      "sha256": "a7d62fe9a59d8bb4eb5a580a60060e81d3fc3211d876e501b32d18a238031d4b",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "error",
+          "url": "https://ujwalgadiraju.com/Publications/Bias2020.pdf"
+        },
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2010.14531"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/nguyen.pdf",
+      "bytes": 244285,
+      "sha256": "4d35b7af927c53795591bd9de2ea9a233a47a3293cb1430c19b1038b296ef9c5",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://objectionable.net/wp-content/uploads/2018/09/nguyen-echo-chambers-and-epistemic-bubbles.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/nyhan.pdf",
+      "bytes": 3589680,
+      "sha256": "4b27c3f6553ae06cefa6d1e3001940aac80bf7f706729ed999cc89bc72480fe5",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://www.nature.com/articles/s41586-023-06297-w.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/orchid.pdf",
+      "bytes": 1742308,
+      "sha256": "fd58b6b75971e5337ca00602756aee0ab048d11edc5be347c1f1c734b60c6b14",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2410.13667"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/orchid_acl.pdf",
+      "bytes": 1541897,
+      "sha256": "9d3f6c3ca614bb2c706068081bcf0abb52a3b50d4057cb66045c890d4df24754",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://aclanthology.org/2023.emnlp-main.582/",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/partisan_tiktok.pdf",
+      "bytes": 25322758,
+      "sha256": "79536f9b00e65d939073437e064f4176cb0e68bce5d4f14148d46f920b66cbb0",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2501.17831"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/personaact.pdf",
+      "bytes": 980033,
+      "sha256": "8a36f613e31fa9ee3255de4cdb8331c03ad307ba8ac7242d49076f472cbc3693",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2601.22547"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/piccardi.pdf",
+      "bytes": 538372,
+      "sha256": "3f797798fdc78bd7168ac8ae14fe9477f48435a1e71b229267767f84e147d0fe",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://culture-emotion-lab.stanford.edu/sites/culture_emotion_lab/files/media/file/science.adu5584.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/quxu.pdf",
+      "bytes": 475657,
+      "sha256": "0caca85575b234494e13b732874b22f6ff6f8470ed49c1402fa18d4bfe9336d2",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://sjc.bnu.edu.cn/docs/2026-05/a83991a68bec4b19a7a357bf5bb6138b.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/radio.pdf",
+      "bytes": 1033056,
+      "sha256": "6b21795cc962dee311950aba8e02fabaff1cf474e3f5c316de640bb5f2d6c57f",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2209.13520"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/revisiting.pdf",
+      "bytes": 743338,
+      "sha256": "f45f3b449f3deda62c5585ed0f523070694297da75752014a87e75fe6d4dbbdb",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2504.18140"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/shortvideo.pdf",
+      "bytes": 960933,
+      "sha256": "b9830c8582fd554dbc4696016a6a078b79f49b8bf20c704c95446214f92541e8",
+      "pdf_signature": true,
+      "download_attempts": [],
+      "source_or_author_entry": "https://arxiv.org/abs/2502.05922",
+      "text_extracted": true
+    },
+    {
+      "path": "papers/simtok.pdf",
+      "bytes": 579454,
+      "sha256": "7dbb4af70ecf83466d8b3b59efe60fcd27feaa0a987349e044531f75a788c9da",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2504.08742"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/srba2023.pdf",
+      "bytes": 1021907,
+      "sha256": "545ae3f2ac1f004551ecf7df0ebc30d1f4c6fb231ecf2e2badfebc685f2d6a66",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://arxiv.org/pdf/2210.10085"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/srba2025.pdf",
+      "bytes": 289917,
+      "sha256": "34e5d66b579b87ce254a0d01f84b6e9e8ab98fad1c29205fe844d9b913278d64",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://raw.githubusercontent.com/mlresearch/v294/main/assets/srba25a/srba25a.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/stance_survey.pdf",
+      "bytes": 2646962,
+      "sha256": "d897dedd56a1728ab0de83723738f5eb61c0f36b572fbb824bb7021f2d7a38e8",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://www.zubiaga.org/publications/files/jamadi2025eswa.pdf"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/tiktok_stance.pdf",
+      "bytes": 2561818,
+      "sha256": "5416337f2d5a88c1b144cec15f905dfa403ceac519d7810af0dcf828a2dbb9dc",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2607.15240"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/tomlein.pdf",
+      "bytes": 710356,
+      "sha256": "994d2bf76331f9af7232aeca9022bbf6b1be6ec2ff7f50d47a477e0361368315",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://arxiv.org/pdf/2203.13769"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/tornberg.pdf",
+      "bytes": 1226874,
+      "sha256": "e073ff5dcf56bee44e63cb6af3ba7563f898261b2ceb15e13d7872191e7020ed",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0347207&type=printable"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/ucrs.pdf",
+      "bytes": 1554651,
+      "sha256": "c74a3b1cd559d942319ef7f5a6dee22b401a2da6e77d19599a992c81ea64e04f",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "ok",
+          "url": "https://arxiv.org/pdf/2204.13844"
+        }
+      ],
+      "text_extracted": true
+    },
+    {
+      "path": "papers/unwanted.pdf",
+      "bytes": 531852,
+      "sha256": "5b9dc1e2b899576084ae927e194872b346af72541ae8a65ac87fcbfee1a2690f",
+      "pdf_signature": true,
+      "download_attempts": [
+        {
+          "status_at_attempt": "downloaded",
+          "url": "https://arxiv.org/pdf/2504.13895"
+        }
+      ],
+      "text_extracted": true
+    }
+  ],
+  "zenodo": [
+    {
+      "record": "10439422",
+      "filename": "KuaiRand-1K.tar.gz",
+      "url": "https://zenodo.org/api/records/10439422/files/KuaiRand-1K.tar.gz/content",
+      "expected_bytes": 1135436720,
+      "expected_checksum": "md5:6b0b9c8222d67fcd4c676218edca3f1f",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/KuaiRand-1K.tar.gz",
+      "bytes": 1135436720,
+      "sha256": "dfaafbb5fd16e9e6d2f9a6adaa4ea25df20a14bc26a90961c136e26c00a7bb2c",
+      "md5": "6b0b9c8222d67fcd4c676218edca3f1f",
+      "checksum_matches": true
+    },
+    {
+      "record": "10439422",
+      "filename": "KuaiRand-27K.tar.gz",
+      "url": "https://zenodo.org/api/records/10439422/files/KuaiRand-27K.tar.gz/content",
+      "expected_bytes": 9892191178,
+      "expected_checksum": "md5:3e3c799a24e2d23a4d2c757fbf9adf59",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": false
+    },
+    {
+      "record": "10439422",
+      "filename": "KuaiRand-Pure.tar.gz",
+      "url": "https://zenodo.org/api/records/10439422/files/KuaiRand-Pure.tar.gz/content",
+      "expected_bytes": 47432272,
+      "expected_checksum": "md5:0820331067a3784d9691136f772b35a7",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/KuaiRand-Pure.tar.gz",
+      "bytes": 47432272,
+      "sha256": "c814bf6f3624c0cfae83c57de3df26b2ed206e5c57bab4c4dcbfabbabe20cbf0",
+      "md5": "0820331067a3784d9691136f772b35a7",
+      "checksum_matches": true
+    },
+    {
+      "record": "18159199",
+      "filename": "kuairand_video_captions.csv",
+      "url": "https://zenodo.org/api/records/18159199/files/kuairand_video_captions.csv/content",
+      "expected_bytes": 3222932768,
+      "expected_checksum": "md5:9fd4e7587ffd0c8dc289d013858fb229",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/kuairand_video_captions.csv",
+      "bytes": 3222932768,
+      "sha256": "0032ff2062abbcf10d6a1dfb033a65b0cdcd448f4fc56e19c75f8ff4494e4455",
+      "md5": "9fd4e7587ffd0c8dc289d013858fb229",
+      "checksum_matches": true
+    },
+    {
+      "record": "18159199",
+      "filename": "kuairand_video_categories.csv",
+      "url": "https://zenodo.org/api/records/18159199/files/kuairand_video_categories.csv/content",
+      "expected_bytes": 3687928520,
+      "expected_checksum": "md5:8a4c772d3d8f8cf65fa1e1eb896f4177",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/kuairand_video_categories.csv",
+      "bytes": 3687928520,
+      "sha256": "744010240c8ae829a80998532737f710e6493d50c500c256ca39bd9f102aa4ad",
+      "md5": "8a4c772d3d8f8cf65fa1e1eb896f4177",
+      "checksum_matches": true
+    },
+    {
+      "record": "18164998",
+      "filename": "KuaiRec.zip",
+      "url": "https://zenodo.org/api/records/18164998/files/KuaiRec.zip/content",
+      "expected_bytes": 431964858,
+      "expected_checksum": "md5:261550d472c48eff4990fb13c0e5bcf7",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/KuaiRec.zip",
+      "bytes": 431964858,
+      "sha256": "c23f211cf109c7a060a25a4afe9e8c681b1ccbbc816cca921d87ad37dd11c70c",
+      "md5": "261550d472c48eff4990fb13c0e5bcf7",
+      "checksum_matches": true
+    },
+    {
+      "record": "18164998",
+      "filename": "kuairec_caption_category.csv",
+      "url": "https://zenodo.org/api/records/18164998/files/kuairec_caption_category.csv/content",
+      "expected_bytes": 1964578,
+      "expected_checksum": "md5:31bc38cdccdf75a71df137779035f8cb",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/kuairec_caption_category.csv",
+      "bytes": 1964578,
+      "sha256": "08f6ec40059c5a7ecdcebf615d080d9cf8f59f9497f6d66e8d5ccabdc7cab2d9",
+      "md5": "31bc38cdccdf75a71df137779035f8cb",
+      "checksum_matches": true
+    },
+    {
+      "record": "18164998",
+      "filename": "video_raw_categories_multi.csv",
+      "url": "https://zenodo.org/api/records/18164998/files/video_raw_categories_multi.csv/content",
+      "expected_bytes": 1724451,
+      "expected_checksum": "md5:d05eea147135d2cdf7759fba5c0d70d4",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/video_raw_categories_multi.csv",
+      "bytes": 1724451,
+      "sha256": "4cfde4bf7c37bcef31f68a164d5832aa6ee7d10fdd8f48434256e33292a448d5",
+      "md5": "d05eea147135d2cdf7759fba5c0d70d4",
+      "checksum_matches": true
+    },
+    {
+      "record": "18164998",
+      "filename": "user_features_raw.csv",
+      "url": "https://zenodo.org/api/records/18164998/files/user_features_raw.csv/content",
+      "expected_bytes": 1541558,
+      "expected_checksum": "md5:3969b8120035e7ced36d56926a7cbd24",
+      "license_in_record": {
+        "id": "cc-by-4.0"
+      },
+      "downloaded": true,
+      "path": "data/user_features_raw.csv",
+      "bytes": 1541558,
+      "sha256": "444d0dd38d24f0e80f960a5241984d4c658db1d7c627e6565e300a6e626d2b15",
+      "md5": "3969b8120035e7ced36d56926a7cbd24",
+      "checksum_matches": true
+    }
+  ],
+  "shortvideo": [
+    {
+      "path": "data/shortvideo/README.md",
+      "bytes": 5382,
+      "sha256": "89d133788031f991ed4112bfb8fb5416514fd992e0418eccc8a9003dad4b91a7"
+    },
+    {
+      "path": "data/shortvideo/asr_sample.json",
+      "bytes": 31285,
+      "sha256": "4616d0b09f111934083a754e3fcb1c832c65d9e693e14f762a7f0b3fc56490ba"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/2407.txt",
+      "bytes": 483,
+      "sha256": "4e35c2900368549749e071d0a10b8e6e335f6578b561a55f403f896bbddf0686"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/32907.txt",
+      "bytes": 19,
+      "sha256": "1bffa3478087ff5560a113cf9a3f155b9a8ca408ead7549804f96d4ae183854d"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/35669.txt",
+      "bytes": 1884,
+      "sha256": "45ec27dc91f1f99245a6d26ffb431e873f5dca8687f488574b999a134b05a0d5"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/35887.txt",
+      "bytes": 1645,
+      "sha256": "a3ca88a11158ef454bdfac8b49266d061cd5d9cac711e98afe8292401b253ceb"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/36998.txt",
+      "bytes": 1466,
+      "sha256": "346303e62072c13954df146b71786619ad533e12e967fdd646cdeaea8a85507f"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/38200.txt",
+      "bytes": 1093,
+      "sha256": "d9aff5c67618042e8508881fb5f0093425ceaee93d247d4e647c48a68571fe8a"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/38431.txt",
+      "bytes": 76,
+      "sha256": "5a5775a2aed633d21c95fcab172ca638cd7339daf57f5d01773c909f163a4dc9"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/39802.txt",
+      "bytes": 1202,
+      "sha256": "ce180d41d90f26bf935760aba92bda47bb4d9986ce4a0d2e77387eec73086bb9"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/46864.txt",
+      "bytes": 930,
+      "sha256": "0f35c6313ef4c0516271e33b82f530ef90f23966e6043dc4fb578a8fc6b42c80"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/5439.txt",
+      "bytes": 1353,
+      "sha256": "0b9f8e658bef4689da9bc3792d4405b735a9c3f31a471d0d22d06390d61d0f53"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/5733.txt",
+      "bytes": 744,
+      "sha256": "f71db0640498a0c6403a863ec6c27e910f1e806fa8a19192b6f0e8aa765fcd48"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/6089.txt",
+      "bytes": 76,
+      "sha256": "113e90ef4aafbd5702c68d8acfb3fbcd44df662ce23fd71548800796d8f46484"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/61002.txt",
+      "bytes": 245,
+      "sha256": "ec52345069262dbc55e0b7d82ea00dcf4c90c8b20e5560bf34b8f16ae3d4bbeb"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/61879.txt",
+      "bytes": 888,
+      "sha256": "bc311c126edef81ce714f926eb5ca8b76543778173912b55909b60f7405a3889"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/62969.txt",
+      "bytes": 137,
+      "sha256": "9d901b10b18472b6e92d753dcf84a590ce36e895b8e1ff062d4ad9bfa1dfecc1"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/62975.txt",
+      "bytes": 98,
+      "sha256": "7e59db6d88f39518aaaa21caf1aeb95b165dac657d6b80a60c18f3713d399c16"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/64088.txt",
+      "bytes": 1899,
+      "sha256": "99e827aa6a55f20a9bb9cced0ee5ebb3c854dbc4fe8aa919c652f22a07785586"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/65602.txt",
+      "bytes": 267,
+      "sha256": "6e10a30d8641b4b61148eecd7a2822a476d278301adc0845f75b48f83af9446a"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/67536.txt",
+      "bytes": 38,
+      "sha256": "8bf23e27e5cf302bcef587ceaefbb652d87e3e30a907703b64aa1e4a15349323"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/71534.txt",
+      "bytes": 1542,
+      "sha256": "bd8b865a581549d34f382c735489f1b540be9360f82ddf1673b087dbdfba1889"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/7614.txt",
+      "bytes": 2491,
+      "sha256": "3571ad5ef322f2fcdb4c490326c6ff7635b14062b57b4c8ab2a546f0ffc8e4ea"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/9192.txt",
+      "bytes": 2961,
+      "sha256": "9f49a67b52caec4ee31f333c1c2b608d3cfea2599141e65855dc9b12337cbb3b"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/97766.txt",
+      "bytes": 3865,
+      "sha256": "42a0231b43d5be8e512361d5efa86751239429c6ea963f1b90a299c3b2849358"
+    },
+    {
+      "path": "data/shortvideo/asr_zn/99435.txt",
+      "bytes": 276,
+      "sha256": "086236a5d2de09322607add7e2b66baf4e2abf5cc3fddc2936549689750e57ea"
+    },
+    {
+      "path": "data/shortvideo/categories_cn_en.csv",
+      "bytes": 31506,
+      "sha256": "39fcfbf0d42873facd25cbca3996e9e5d44a287d02c5530145bcf0ccd5d7d922"
+    },
+    {
+      "path": "data/shortvideo/interaction_sampled.csv",
+      "bytes": 159920078,
+      "sha256": "96cadb70829e853b8d7797bc566928eceeb670f19a8a0b92dbfa58b32372bf87"
+    },
+    {
+      "path": "data/shortvideo/probe.json",
+      "bytes": 630,
+      "sha256": "24886f8139574afc0c2a8baccd38c04b6ef81b38f89a9c25393f0aed78651d5a"
+    }
+  ],
+  "web": [
+    {
+      "path": "web/author_errata_manifest.json",
+      "bytes": 570,
+      "sha256": "7667450fca4d933137359f7726822b85d1f670346b46e7ce7a21e9d8bb81d088"
+    },
+    {
+      "path": "web/bail.body.txt",
+      "bytes": 26476,
+      "sha256": "de5f6fed0d4639b3ea9cd7b6208af8e0b1d4379290dd6609cb9a923ff2770e2c"
+    },
+    {
+      "path": "web/bail.txt",
+      "bytes": 30626,
+      "sha256": "2f10f8649060b9b53c2fd0e92f8af254628acea29970dc3c6ef913b046868e11"
+    },
+    {
+      "path": "web/bail.xml",
+      "bytes": 67636,
+      "sha256": "556c6d15e85a40d00620e327843434f855dac9d7abefd8c7967c787f990b5138",
+      "article_identifiers": {
+        "pmcid": "PMC6140520",
+        "pmcaid": "6140520",
+        "pmcaiid": "6140520",
+        "pmid": "30154168",
+        "doi": "10.1073/pnas.1804840115"
+      }
+    },
+    {
+      "path": "web/extra_manifest.json",
+      "bytes": 1542,
+      "sha256": "7444b45dd86251ecee528a15fe13b2e3943b78dfe90eac7ed7bdb8884aaa2a35"
+    },
+    {
+      "path": "web/hosseinmardi.txt",
+      "bytes": 57452,
+      "sha256": "f72fff5f6032b09888b8da5a5e2fffd8a10932dd04b6471c13e151de4137baac"
+    },
+    {
+      "path": "web/hosseinmardi.xml",
+      "bytes": 115779,
+      "sha256": "36303acab2b7c2f4f155887b4aee18e9e12c98b378b48729a9f5d228d9ae901c",
+      "article_identifiers": {
+        "pmcid": "PMC10895271",
+        "pmcaid": "10895271",
+        "pmcaiid": "10895271",
+        "pmid": "38349876",
+        "doi": "10.1073/pnas.2313377121"
+      }
+    },
+    {
+      "path": "web/instagram_reset.html",
+      "bytes": 332063,
+      "sha256": "b24c8a661b46721e39395eb7606c1e6514292e198b9475c242423e0455ec6335"
+    },
+    {
+      "path": "web/instagram_reset.txt",
+      "bytes": 6800,
+      "sha256": "9d0c14d47c2797523f7e7bc85a5acdd16951e9a04c6534fd4d988f0b0e99656e"
+    },
+    {
+      "path": "web/jmir_dengue.html",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "web/jmir_dengue.txt",
+      "bytes": 30230,
+      "sha256": "5af6055e682908d5af50c25c71c38bb3ddb08ef91c99424a314a06f883ab007a"
+    },
+    {
+      "path": "web/jmir_dengue.xml",
+      "bytes": 91599,
+      "sha256": "7780adf78db55372aa8f0017ab960dae565da4a9cbbe8b2facb1dbf960726a4b",
+      "article_identifiers": {
+        "pmcid": "PMC12466789",
+        "pmcid-ver": "PMC12466789.1",
+        "pmcaid": "12466789",
+        "pmcaiid": "12466789",
+        "pmid": "41004281",
+        "doi": "10.2196/76474",
+        "publisher-id": "76474"
+      }
+    },
+    {
+      "path": "web/jmir_dengue_correction.xml",
+      "bytes": 8462,
+      "sha256": "040480eabc55004dee47d47c101baab5fc3b70a6911c58281d37affdcb72d552",
+      "article_identifiers": {
+        "pmcid": "PMC12537961",
+        "pmcaid": "12537961",
+        "pmcaiid": "12537961",
+        "pmid": "41116621",
+        "doi": "10.2196/85305"
+      }
+    },
+    {
+      "path": "web/jmir_diabetes.html",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "web/jmir_diabetes.txt",
+      "bytes": 37770,
+      "sha256": "3522ba936295a3eef02e0c534cf4a54c26047e5cd65e6e94f47c44c81be1799b"
+    },
+    {
+      "path": "web/jmir_diabetes.xml",
+      "bytes": 171576,
+      "sha256": "a35ecf5a8e9efac0ab629435beb029032f39d524a83514273d162f289995531f",
+      "article_identifiers": {
+        "pmcid": "PMC11530717",
+        "pmcid-ver": "PMC11530717.1",
+        "pmcaid": "11530717",
+        "pmcaiid": "11530717",
+        "pmid": "39423367",
+        "doi": "10.2196/57720",
+        "publisher-id": "v8i1e57720"
+      }
+    },
+    {
+      "path": "web/manifest.json",
+      "bytes": 5952,
+      "sha256": "a39c1abd48917510522ab18627c1b84eeb6c3809f75d31595d3c4fc100a30508"
+    },
+    {
+      "path": "web/page-00.html",
+      "bytes": 42909,
+      "sha256": "d323714d0312a3f95ac655bbcfc3db0e9fd6b69340f36bc331b6e15c6e658e55"
+    },
+    {
+      "path": "web/page-00.txt",
+      "bytes": 17818,
+      "sha256": "b70cc80ce44e2f1c16996afff1b0106d19227d52faed058e34b3ac4e77b5a5aa"
+    },
+    {
+      "path": "web/page-01.html",
+      "bytes": 100197,
+      "sha256": "369b1dbe3eba4890b91b03170a3417fcc3ff75df9583efef73ab5d7591389d8a"
+    },
+    {
+      "path": "web/page-01.txt",
+      "bytes": 9957,
+      "sha256": "93ffd0595863db3a9a6335d1d305dc8aed90b1c5f37af4246d07a6fd9a3e698c"
+    },
+    {
+      "path": "web/page-02.html",
+      "bytes": 15344,
+      "sha256": "bcde24d0ccf4dc4ae6252d54db53f24ddd4deb160a1e20acda5617a40a92ea0c"
+    },
+    {
+      "path": "web/page-02.txt",
+      "bytes": 8862,
+      "sha256": "7584865de802dcaf7851285b18a853a31ad63ec40c2586108b04af733462597d"
+    },
+    {
+      "path": "web/page-03.html",
+      "bytes": 19488,
+      "sha256": "32006609f19d0f59811a2febf4bfdf4d689903ffafdee69935fcf9824c3b4a04"
+    },
+    {
+      "path": "web/page-03.txt",
+      "bytes": 6385,
+      "sha256": "b185d28f29970f39b564bfb47f527d44bcb872b1d2a38f36f24c485891657d90"
+    },
+    {
+      "path": "web/page-05.html",
+      "bytes": 204776,
+      "sha256": "668ed985e8d6db9f7bad9733a71bd49a5443b5f9e905cb7f38c6d43f45238924"
+    },
+    {
+      "path": "web/page-05.txt",
+      "bytes": 6446,
+      "sha256": "9bbe819c5cf3312ca34d82d626c139e38b6a6c27e2aedd5a44c1582d2eaa1ec1"
+    },
+    {
+      "path": "web/page-07.html",
+      "bytes": 21316,
+      "sha256": "4f7aa1be683d4d4157bb41339989f39957c5a4e08c026ff073d47bfbac2c67cd"
+    },
+    {
+      "path": "web/page-07.txt",
+      "bytes": 165,
+      "sha256": "797046ee4f12c09d9451a261e28171268678a7d75dbb33033b6a89bce3e83439"
+    },
+    {
+      "path": "web/page-08.html",
+      "bytes": 43923,
+      "sha256": "ad9c5073550bf38e1be671b290d701ef7f17bc57da61eee250c5dbf6bd75be63"
+    },
+    {
+      "path": "web/page-08.txt",
+      "bytes": 5092,
+      "sha256": "34ca7d5f0e6845bce4ffea88ec02754e62161da478e0329e05387e7de64566e2"
+    },
+    {
+      "path": "web/page-09.html",
+      "bytes": 192405,
+      "sha256": "0434d707d4dfface6b2b10215cd359983de9889605b6bdd9fdcd045dea5797e6"
+    },
+    {
+      "path": "web/page-09.txt",
+      "bytes": 5180,
+      "sha256": "05539b545f3586438d08e1c78fc9f102b1b3b63494f14c10eb10f770708cfe38"
+    },
+    {
+      "path": "web/page-10.html",
+      "bytes": 44011,
+      "sha256": "5b69045a7db318963d9fc9a70880d288391701b735ba1cd8ddfe88d17403bbaf"
+    },
+    {
+      "path": "web/page-10.txt",
+      "bytes": 5326,
+      "sha256": "e2dae94f26ca584202f6473fd2e407ad0127d1447dfa57238496f73dc55786c8"
+    },
+    {
+      "path": "web/page-11.html",
+      "bytes": 50780,
+      "sha256": "4974b8599263a09d9105a40995a1936b9532d30544abff8e28407371cff2766b"
+    },
+    {
+      "path": "web/page-11.txt",
+      "bytes": 5028,
+      "sha256": "cdfd005d27575b02d0d583afba2e44770dabbd59e832bd1c528ee47be8f745be"
+    },
+    {
+      "path": "web/page-12.html",
+      "bytes": 40794,
+      "sha256": "f7b791949ca7edf229a57c79625b27f4a69f5df1ddbb02e2477ddd632cb8214d"
+    },
+    {
+      "path": "web/page-12.txt",
+      "bytes": 11146,
+      "sha256": "3491465ae508405aaa6f5dbfa523355df57f0650f6f12f7729d903aeaafe4ddb"
+    },
+    {
+      "path": "web/page-13.html",
+      "bytes": 43013,
+      "sha256": "31ef8014975fb6ec9f94624cbe48bf8cb251483ab6466093357b27a77c9f1dbe"
+    },
+    {
+      "path": "web/page-13.txt",
+      "bytes": 4452,
+      "sha256": "22d362748e8fc94bc7b0ddd743d0e57386fa80512ccd7dc5f975ada47f12545c"
+    },
+    {
+      "path": "web/page-14.html",
+      "bytes": 44775,
+      "sha256": "b93c74272b1718663178a7c7395312d85652d3baee9059555649cb987ec1f4d2"
+    },
+    {
+      "path": "web/page-14.txt",
+      "bytes": 4855,
+      "sha256": "b9466df0e7ad3c2ffcb63501d253d2be782679d86fb1624b980c17c581331b2d"
+    },
+    {
+      "path": "web/page-15.html",
+      "bytes": 42592,
+      "sha256": "10a501445cbf4e589f87f2e1cd02fbf5f3ee9015fd024c1aa4fc3fcddfed6bcf"
+    },
+    {
+      "path": "web/page-15.txt",
+      "bytes": 4354,
+      "sha256": "31c385e64f8803a33209e6621e9a1cc2ab99d82b77145e6f316792b793635811"
+    },
+    {
+      "path": "web/page-16.html",
+      "bytes": 17603,
+      "sha256": "d017bd504a8b843b6ca9bbe20661a554936a6cf8c294f297fa3702f76c614ba6"
+    },
+    {
+      "path": "web/page-16.txt",
+      "bytes": 158,
+      "sha256": "cb054b031c4f77f671746fa9d321d7d4c5b8ede79c56975f95b4aa41c8ba5a34"
+    },
+    {
+      "path": "web/page-17.html",
+      "bytes": 158910,
+      "sha256": "0e063543b9b082fcea50f7ecacc42ec05da1f0491a6a5ec434ffa1f8881615d6"
+    },
+    {
+      "path": "web/page-17.txt",
+      "bytes": 11310,
+      "sha256": "39d953e38945dab691db4f28a8095187cc3f6d2a949c23ce911351942908b901"
+    },
+    {
+      "path": "web/page-18.html",
+      "bytes": 45425,
+      "sha256": "47823f8e3d132f22bddf15480cda9a46765d3560a7911c63be52b9ea211407b5"
+    },
+    {
+      "path": "web/page-18.txt",
+      "bytes": 4727,
+      "sha256": "8f62164b7c533fbc0884af123f1676d5308c697b26bf80b9e388872e59185adb"
+    },
+    {
+      "path": "web/page-19.html",
+      "bytes": 18067,
+      "sha256": "018dafaee296ba56b14915692796506f6d5b7bffacdd221c876adb26b7080e78"
+    },
+    {
+      "path": "web/page-19.txt",
+      "bytes": 4686,
+      "sha256": "fab6d6dee12a80750806c4a6efb47f350ff3fa88822005a42cf1ab3a4be29920"
+    },
+    {
+      "path": "web/page-20.html",
+      "bytes": 232962,
+      "sha256": "19b5660db8f660cf9aa3f34618d7ad30b5426c38315c9c728a53c367d22f9e2e"
+    },
+    {
+      "path": "web/page-20.txt",
+      "bytes": 88055,
+      "sha256": "e01734ff6b3012043f57bc79dc0cc2d75d558b35dcc3851165b9ec134336eee3"
+    },
+    {
+      "path": "web/page-21.html",
+      "bytes": 502545,
+      "sha256": "c81dbad0e65d4f8b20110503fed0e00fc26513f0d1bfcadf0782ba04e0b957d2"
+    },
+    {
+      "path": "web/page-21.txt",
+      "bytes": 73352,
+      "sha256": "932cb547391fb4f40087a07c255503e78d66a4b9b70fbfbf4f4f4a56c71b0a15"
+    },
+    {
+      "path": "web/page-22.html",
+      "bytes": 438235,
+      "sha256": "e4837be5706f447530bfcaaf6bca63ab87b025fad2275499869ad33e5078086b"
+    },
+    {
+      "path": "web/page-22.txt",
+      "bytes": 78971,
+      "sha256": "2b179234a66e622cc6ea77afb1cde834e83269f9898c99b03cb209f4b3762a3d"
+    },
+    {
+      "path": "web/page-23.html",
+      "bytes": 193457,
+      "sha256": "1878c27a126ca6ea919fe3b57fe108944fe70618d18babd41bf950a4cc3e887a"
+    },
+    {
+      "path": "web/page-23.txt",
+      "bytes": 51589,
+      "sha256": "3f268e31ab2f7532cdc68ff9668af03ce136636abd1c12095030215ef1dd902e"
+    },
+    {
+      "path": "web/page-24.html",
+      "bytes": 14995,
+      "sha256": "dc06420563aae58679ab20eb88aa71cdd33a35aaf384606ce7bc06bb34a2cc17"
+    },
+    {
+      "path": "web/page-24.txt",
+      "bytes": 118,
+      "sha256": "7ee7c609797bc3ae8b66e91796262f747cf960fe163b774623184a03fbdccb8e"
+    },
+    {
+      "path": "web/qiu_author.html",
+      "bytes": 46553,
+      "sha256": "9eae80fae83d6cce90d842e83c43c931b9f97d2ddfe508ce1c213033ee9028a5"
+    },
+    {
+      "path": "web/shi_author.html",
+      "bytes": 29223,
+      "sha256": "9fde123b8c9407839855d77919aa8c514d8bb739d5101cc1eabba893ebf1258a"
+    },
+    {
+      "path": "web/tiktok_controls.html",
+      "bytes": 128094,
+      "sha256": "50b2ce85660f1f49bc03f9d94756a0f7fd41894d343951edb1be6c6487ac49b8"
+    },
+    {
+      "path": "web/tiktok_controls.txt",
+      "bytes": 5693,
+      "sha256": "9d73f950c8df2e7e1fc94071633fc9a12e14968b7ae2c5d04250f45a95431c79"
+    },
+    {
+      "path": "web/tiktok_dsa.html",
+      "bytes": 118426,
+      "sha256": "ddf4ccac763ff65ca4f8e00abdd7560852996f51931faf92a7851621b7d6548e"
+    },
+    {
+      "path": "web/tiktok_dsa.txt",
+      "bytes": 5177,
+      "sha256": "bbfd43f6ff4146ac49e448ff569e9d9440f7e4adecd1d661ab0178ee4ed58e27"
+    }
+  ],
+  "probes": {
+    "data/KuaiRand-1K/probe.json": {
+      "log_random_4_22_to_5_08_1k.csv": {
+        "rows": 43028,
+        "users": 1000,
+        "hate": 35,
+        "follow": 8,
+        "time_ms_min": 1650600645720,
+        "time_ms_max": 1652025123404,
+        "tabs": {
+          "1": 42636,
+          "11": 304,
+          "2": 73,
+          "14": 15
+        }
+      },
+      "log_standard_4_08_to_4_21_1k.csv": {
+        "rows": 5055984,
+        "users": 983,
+        "hate": 8727,
+        "follow": 5722,
+        "time_ms_min": 1649340003236,
+        "time_ms_max": 1650556325975,
+        "tabs": {
+          "1": 3286302,
+          "0": 1066194,
+          "4": 402534,
+          "6": 66045,
+          "2": 183556,
+          "3": 19720,
+          "12": 3164,
+          "8": 7712,
+          "9": 1132,
+          "5": 6991,
+          "10": 588,
+          "7": 1696,
+          "11": 10344,
+          "14": 6
+        }
+      },
+      "log_standard_4_22_to_5_08_1k.csv": {
+        "rows": 6657061,
+        "users": 1000,
+        "hate": 2129,
+        "follow": 5676,
+        "time_ms_min": 1650553294007,
+        "time_ms_max": 1652025129022,
+        "tabs": {
+          "1": 4431299,
+          "0": 1341158,
+          "4": 492851,
+          "6": 117358,
+          "2": 218737,
+          "3": 17698,
+          "12": 7843,
+          "8": 9718,
+          "5": 9433,
+          "7": 2137,
+          "9": 779,
+          "10": 364,
+          "11": 7230,
+          "14": 439,
+          "13": 17
+        }
+      },
+      "combined": {
+        "rows": 11756073,
+        "users": 1000,
+        "videos": 4371868,
+        "hate_users": 274,
+        "follow_users": 831
+      }
+    },
+    "data/audit/kuairec_probe.json": {
+      "rows": 4676570,
+      "users": 1411,
+      "videos": 3327,
+      "unique_pairs": 4676570,
+      "watch_ratio_gt_2_rows": 217175,
+      "watch_ratio_quantiles": {
+        "0.0": 0.0,
+        "0.25": 0.46757689679746983,
+        "0.5": 0.7691665893199678,
+        "0.75": 1.1205899303200888,
+        "0.99": 3.585138252983777,
+        "1.0": 571.5214280603849
+      },
+      "density": 0.9962024941648523
+    },
+    "data/audit/kuairand_metadata_probe.json": {
+      "patterns": {
+        "marriage_broad": "彩礼|结婚|婚姻|婚恋|夫妻|婆媳|离婚",
+        "parenting_broad": "鸡娃|育儿|教育|早教|孩子|严管|快乐教育",
+        "health_broad": "养生|食疗|中医|偏方|减肥|糖尿病|辟谣",
+        "bride_price": "彩礼",
+        "parenting_control": "鸡娃|快乐教育|严管|棍棒|打骂孩子",
+        "diabetes": "糖尿病|降血糖"
+      },
+      "window": "non-overlapping 200 standard exposures per user, chronological; discard incomplete windows",
+      "keyword_warning": "candidate counts only, not same-target stance-valid counts",
+      "raw_rows": 11756073,
+      "unique_videos": 4371868,
+      "unique_video_caption_join": 4371868,
+      "unique_video_nonempty_caption": 3605249,
+      "unique_video_caption_or_cover": 3750835,
+      "unique_video_category_join": 4371868,
+      "all": {
+        "rows": 11756073,
+        "hate": 10891,
+        "follow": 11406,
+        "mapped_rows": 11641199,
+        "mapped_hate": 10748,
+        "mapped_follow": 11330,
+        "caption_exposures": 10342830
+      },
+      "standard": {
+        "rows": 11713045,
+        "hate": 10856,
+        "follow": 11398,
+        "mapped_rows": 11598236,
+        "mapped_hate": 10713,
+        "mapped_follow": 11322,
+        "caption_exposures": 10300259
+      },
+      "random": {
+        "rows": 43028,
+        "hate": 35,
+        "follow": 8,
+        "mapped_rows": 42963,
+        "mapped_hate": 35,
+        "mapped_follow": 8,
+        "caption_exposures": 42571
+      },
+      "full_windows": 58066,
+      "keyword_candidates": {
+        "marriage_broad": {
+          "unique_videos": 62961,
+          "standard_exposures": 212315,
+          "windows_with_any": 50121,
+          "windows_at_least_20": 149,
+          "users_with_window_at_least_20": 64,
+          "max_candidates_in_full_window": 34
+        },
+        "parenting_broad": {
+          "unique_videos": 85663,
+          "standard_exposures": 292075,
+          "windows_with_any": 55752,
+          "windows_at_least_20": 363,
+          "users_with_window_at_least_20": 78,
+          "max_candidates_in_full_window": 41
+        },
+        "health_broad": {
+          "unique_videos": 23561,
+          "standard_exposures": 61973,
+          "windows_with_any": 29478,
+          "windows_at_least_20": 44,
+          "users_with_window_at_least_20": 15,
+          "max_candidates_in_full_window": 33
+        },
+        "bride_price": {
+          "unique_videos": 2729,
+          "standard_exposures": 7927,
+          "windows_with_any": 6706,
+          "windows_at_least_20": 1,
+          "users_with_window_at_least_20": 1,
+          "max_candidates_in_full_window": 21
+        },
+        "parenting_control": {
+          "unique_videos": 125,
+          "standard_exposures": 372,
+          "windows_with_any": 336,
+          "windows_at_least_20": 0,
+          "users_with_window_at_least_20": 0,
+          "max_candidates_in_full_window": 2
+        },
+        "diabetes": {
+          "unique_videos": 702,
+          "standard_exposures": 1499,
+          "windows_with_any": 1144,
+          "windows_at_least_20": 0,
+          "users_with_window_at_least_20": 0,
+          "max_candidates_in_full_window": 13
+        }
+      }
+    },
+    "data/stance_resource_probe.json": {
+      "C-STANCE/c_stance_dataset/subtaskA/raw_test_all_onecol.csv": {
+        "rows": 7424,
+        "columns": [
+          "Text",
+          "Target 1",
+          "Stance 1",
+          "Type"
+        ]
+      },
+      "C-STANCE/c_stance_dataset/subtaskA/raw_train_all_onecol.csv": {
+        "rows": 33418,
+        "columns": [
+          "Text",
+          "Target 1",
+          "Stance 1",
+          "Type"
+        ]
+      },
+      "C-STANCE/c_stance_dataset/subtaskA/raw_val_all_onecol.csv": {
+        "rows": 7284,
+        "columns": [
+          "Text",
+          "Target 1",
+          "Stance 1",
+          "Type"
+        ]
+      },
+      "C-MTCSD/data/Apollo Go/test.json": {
+        "records": 981
+      },
+      "C-MTCSD/data/Apollo Go/train.json": {
+        "records": 4850
+      },
+      "C-MTCSD/data/Apollo Go/valid.json": {
+        "records": 1037
+      },
+      "C-MTCSD/data/Naked Resignation/test.json": {
+        "records": 436
+      },
+      "C-MTCSD/data/Naked Resignation/train.json": {
+        "records": 2223
+      },
+      "C-MTCSD/data/Naked Resignation/valid.json": {
+        "records": 473
+      },
+      "C-MTCSD/data/Non-marriage Doctrine/test.json": {
+        "records": 716
+      },
+      "C-MTCSD/data/Non-marriage Doctrine/train.json": {
+        "records": 3572
+      },
+      "C-MTCSD/data/Non-marriage Doctrine/valid.json": {
+        "records": 754
+      },
+      "C-MTCSD/data/Pre-made Meals/test.json": {
+        "records": 789
+      },
+      "C-MTCSD/data/Pre-made Meals/train.json": {
+        "records": 3631
+      },
+      "C-MTCSD/data/Pre-made Meals/valid.json": {
+        "records": 776
+      },
+      "C-MTCSD/data/iPhone 15/test.json": {
+        "records": 576
+      },
+      "C-MTCSD/data/iPhone 15/train.json": {
+        "records": 2826
+      },
+      "C-MTCSD/data/iPhone 15/valid.json": {
+        "records": 624
+      },
+      "DGTA/target_stance_dataset_part1.json": {
+        "records": 11821
+      },
+      "DGTA/target_stance_dataset_part2.json": {
+        "records": 11821
+      },
+      "DGTA/target_stance_dataset_part3.json": {
+        "records": 11821
+      },
+      "DGTA/target_stance_dataset_part4.json": {
+        "records": 11821
+      },
+      "DGTA/target_stance_dataset_part5.json": {
+        "records": 11821
+      },
+      "DGTA/target_stance_dataset_part6.json": {
+        "records": 11826
+      },
+      "OrChiD/OrChiD.json": {
+        "records": 1134
+      }
+    },
+    "data/shortvideo/probe.json": {
+      "rows": 794053,
+      "distinct_events": 129483,
+      "users": 6654,
+      "videos": 31496,
+      "hate_users": 49,
+      "events_per_user": {
+        "0.0": 1.0,
+        "0.25": 4.0,
+        "0.5": 10.0,
+        "0.75": 25.0,
+        "1.0": 378.0
+      },
+      "marriage": {
+        "videos": 287,
+        "exposures": 7509,
+        "users": 1213,
+        "unique_exposures": 1656
+      },
+      "parenting": {
+        "videos": 454,
+        "exposures": 12334,
+        "users": 1398,
+        "unique_exposures": 2040
+      },
+      "health": {
+        "videos": 29,
+        "exposures": 596,
+        "users": 95,
+        "unique_exposures": 101
+      },
+      "raw_hate_rows": 431,
+      "hate_events": 87,
+      "median_inter_event_seconds": 819.0
+    }
+  },
+  "shortvideo_source": "https://github.com/tsinghua-fib-lab/ShortVideo_dataset",
+  "web_source_manifests": {
+    "extra_manifest.json": [
+      [
+        "cnnic56",
+        "https://www.cnnic.net/NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf",
+        "HTTPSConnectionPool(host='www.cnnic.net', port=443): Max retries exceeded with url: /NMediaFile/2025/0730/MAIN1753846666507QEK67ZS9DH.pdf (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.cnnic.net'. (_ssl.c:1000)\")))"
+      ],
+      [
+        "jmir_diabetes",
+        "https://formative.jmir.org/2024/1/e57720/PDF",
+        202,
+        0
+      ],
+      [
+        "jmir_dengue",
+        "https://infodemiology.jmir.org/2025/1/e76474/PDF",
+        202,
+        0
+      ],
+      [
+        "cac2025",
+        "https://www.cac.gov.cn/2025-05/22/c_1749536203490537.htm",
+        "403 Client Error: Forbidden for url: https://www.cac.gov.cn/2025-05/22/c_1749536203490537.htm"
+      ],
+      [
+        "cac2022",
+        "https://www.cac.gov.cn/2022-01/04/c_1642894606364259.htm",
+        "403 Client Error: Forbidden for url: https://www.cac.gov.cn/2022-01/04/c_1642894606364259.htm"
+      ],
+      [
+        "tiktok_controls",
+        "https://newsroom.tiktok.com/tiktoks-new-features-to-help-you-control-your-scroll?lang=en-AU",
+        200,
+        128094
+      ],
+      [
+        "tiktok_dsa",
+        "https://newsroom.tiktok.com/en-eu/compliance-digital-services-act-eu?lang=en",
+        200,
+        118426
+      ],
+      [
+        "instagram_reset",
+        "https://about.fb.com/news/2024/11/introducing-recommendations-reset-instagram/",
+        200,
+        332063
+      ],
+      [
+        "orchid_acl",
+        "https://aclanthology.org/2023.emnlp-main.582.pdf",
+        200,
+        1541897
+      ]
+    ],
+    "manifest.json": [
+      {
+        "id": 0,
+        "url": "https://www.gov.cn/zhengce/zhengceku/202411/content_6989143.htm",
+        "status": "retrieved",
+        "chars": 6297,
+        "title": "关于开展“清朗·网络平台算法典型问题治理”专项行动的通知_国务院部门文件_中国政府网"
+      },
+      {
+        "id": 1,
+        "url": "https://finance.sina.com.cn/tech/internet/2025-05-22/doc-inexkzvk9866363.shtml",
+        "status": "retrieved",
+        "chars": 3939,
+        "title": "算法推荐乱象凸显 中央网信办督导抖音、小红书等平台优化调整_新浪财经_新浪网"
+      },
+      {
+        "id": 2,
+        "url": "https://lf3-cdn-tos.draftstatic.com/obj/ies-hotsoon-draft/douyin_agreement/70c3d13a-73cf-403a-8ecf-a16f70887c21.html",
+        "status": "retrieved",
+        "chars": 3326,
+        "title": "“抖音”算法及模型备案公示说明"
+      },
+      {
+        "id": 3,
+        "url": "http://www.news.cn/tech/20250417/9b2e3622d8764c408c2b667bf73d1d29/c.html",
+        "status": "retrieved",
+        "chars": 2210,
+        "title": "\n            首次公开算法机制：抖音如何通过多样化推荐打破“信息茧房”-新华网\n        "
+      },
+      {
+        "id": 4,
+        "url": "https://sjc.bnu.edu.cn/docs/2026-05/a83991a68bec4b19a7a357bf5bb6138b.pdf",
+        "status": "pdf separate"
+      },
+      {
+        "id": 5,
+        "url": "https://news.qq.com/rain/a/20250226A09PNX00",
+        "status": "retrieved",
+        "chars": 2494,
+        "title": "算法 “背锅” 信息茧房？新闻学国际顶刊论文说“不”_腾讯新闻"
+      },
+      {
+        "id": 6,
+        "url": "https://www.psypost.org/xs-feed-algorithm-shifts-users-political-opinions-to-the-right-new-study-finds/",
+        "status": "HTTP Error 403: Forbidden"
+      },
+      {
+        "id": 7,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11894805/",
+        "status": "retrieved",
+        "chars": 165,
+        "title": "Checking your browser - reCAPTCHA"
+      },
+      {
+        "id": 8,
+        "url": "https://arxiv.org/abs/2501.17831",
+        "status": "retrieved",
+        "chars": 5088,
+        "title": "[2501.17831] TikTok's recommendations skewed towards Republican content during the 2024 U.S. presidential race"
+      },
+      {
+        "id": 9,
+        "url": "https://www.amnesty.org.uk/knowledge-hub/all-resources/report-driven-into-darkness/",
+        "status": "retrieved",
+        "chars": 5067,
+        "title": "Driven into Darkness: How TikTok’s ‘For You’ Feed Encourages Self-Harm and Suicidal Ideation | Amnesty International UK"
+      },
+      {
+        "id": 10,
+        "url": "https://arxiv.org/abs/2202.11776",
+        "status": "retrieved",
+        "chars": 5322,
+        "title": "[2202.11776] The Challenge of Understanding What Users Want: Inconsistent Preferences and Engagement Optimization"
+      },
+      {
+        "id": 11,
+        "url": "https://philarchive.org/rec/NGUECA",
+        "status": "retrieved",
+        "chars": 5028,
+        "title": "C. Thi Nguyen, Echo chambers and epistemic bubbles - PhilArchive"
+      },
+      {
+        "id": 12,
+        "url": "https://aclanthology.org/2023.acl-long.747/",
+        "status": "retrieved",
+        "chars": 11131,
+        "title": "C-STANCE: A Large Dataset for Chinese Zero-Shot Stance Detection - ACL Anthology"
+      },
+      {
+        "id": 13,
+        "url": "https://arxiv.org/abs/2201.12271",
+        "status": "retrieved",
+        "chars": 4448,
+        "title": "[2201.12271] An Empirical Investigation of Personalization Factors on TikTok"
+      },
+      {
+        "id": 14,
+        "url": "https://arxiv.org/abs/2504.18140",
+        "status": "retrieved",
+        "chars": 4851,
+        "title": "[2504.18140] Revisiting Algorithmic Audits of TikTok: Poor Reproducibility and Short-term Validity of Findings"
+      },
+      {
+        "id": 15,
+        "url": "https://arxiv.org/abs/2504.13895",
+        "status": "retrieved",
+        "chars": 4350,
+        "title": "[2504.13895] \"They've Over-Emphasized That One Search\": Controlling Unwanted Content on TikTok's For You Page"
+      },
+      {
+        "id": 16,
+        "url": "https://36kr.com/p/1932095912299136",
+        "status": "retrieved",
+        "chars": 56,
+        "title": ""
+      },
+      {
+        "id": 17,
+        "url": "https://xinwen.bjd.com.cn/content/s675f7884e4b06b0a56244855.html",
+        "status": "retrieved",
+        "chars": 3929,
+        "title": "中国青年报：近八成受访大学生认为需要减少对算法推荐的依赖"
+      },
+      {
+        "id": 18,
+        "url": "https://m.bjnews.com.cn/detail/1734745106168700.html",
+        "status": "retrieved",
+        "chars": 1719,
+        "title": "老年群体网络防沉迷调查报告发布：近七成老人为“轻松”爱上短剧"
+      },
+      {
+        "id": 19,
+        "url": "http://www.news.cn/ent/20250327/65fa067f4b614f308c8b1217bf6f976d/c.html",
+        "status": "retrieved",
+        "chars": 1798,
+        "title": "\n            中国网络视听发展研究报告显示，用户规模达10.91亿，行业市场规模达1.22万亿元——网络视听已成为“数字空气”-新华网\n        "
+      },
+      {
+        "id": 20,
+        "url": "https://reutersinstitute.politics.ox.ac.uk/echo-chambers-filter-bubbles-and-polarisation-literature-review",
+        "status": "retrieved",
+        "chars": 87529,
+        "title": "Echo chambers, filter bubbles, and polarisation: a literature review | Reuters Institute for the Study of Journalism"
+      },
+      {
+        "id": 21,
+        "url": "https://www.nature.com/articles/s41586-023-06297-w",
+        "status": "retrieved",
+        "chars": 72915,
+        "title": "Like-minded sources on Facebook are prevalent but not polarizing | Nature"
+      },
+      {
+        "id": 22,
+        "url": "https://www.nature.com/articles/s41586-026-10098-2",
+        "status": "retrieved",
+        "chars": 78258,
+        "title": "The political effects of X’s feed algorithm | Nature"
+      },
+      {
+        "id": 23,
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0347207",
+        "status": "retrieved",
+        "chars": 51270,
+        "title": "Echo chambers can emerge without algorithmic personalization or a preference for homogeneity | PLOS One"
+      },
+      {
+        "id": 24,
+        "url": "https://www.weizenbaum-library.de/items/33b627e3-8505-43e9-8103-0506d5fdb064",
+        "status": "retrieved",
+        "chars": 118,
+        "title": "Bot Detection"
+      }
+    ],
+    "author_errata_manifest.json": [
+      {
+        "key": "qiu_author",
+        "url": "https://xinwenxueyuan.cuc.edu.cn/_t722/2021/0610/c7649a182802/page.htm",
+        "status": 200,
+        "bytes": 46553
+      },
+      {
+        "key": "shi_author",
+        "url": "https://xsgyy.sufe.edu.cn/ef/40/c19267a257856/page.htm",
+        "status": 200,
+        "bytes": 29223
+      },
+      {
+        "key": "guess_erratum_2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39637002/",
+        "status": 203,
+        "bytes": 5590
+      },
+      {
+        "key": "guess_erratum_2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41855352/",
+        "status": 203,
+        "bytes": 5590
+      }
+    ]
+  }
+}

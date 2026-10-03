@@ -1,0 +1,33 @@
+[
+  {
+    "kind": "code",
+    "name": "RecAI",
+    "url": "https://github.com/microsoft/RecAI.git",
+    "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/code/RecAI",
+    "commit": "0959ecb05b0794748426e73e6efc1b6b35ec433d",
+    "license_files": [
+      "LICENSE.txt"
+    ],
+    "status": "downloaded_not_reproduced"
+  },
+  {
+    "kind": "code",
+    "name": "Qwen3-Embedding",
+    "url": "https://github.com/QwenLM/Qwen3-Embedding.git",
+    "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/code/Qwen3-Embedding",
+    "commit": "44548aa5f0a0aed1c76d64e19afe47727a325b8f",
+    "license_files": [],
+    "status": "downloaded_not_reproduced"
+  },
+  {
+    "kind": "code",
+    "name": "Qwen3-VL-Embedding",
+    "url": "https://github.com/QwenLM/Qwen3-VL-Embedding.git",
+    "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/code/Qwen3-VL-Embedding",
+    "commit": "393e2978d27852b0d0230d6994f37f9c15bed73c",
+    "license_files": [
+      "LICENSE"
+    ],
+    "status": "downloaded_not_reproduced"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "scope": "Untrained network; synthetic input; no simulator fidelity or policy-effect result",
+  "commit": "2ae32aa25a0aac103194a66e6864e3d2ac6d6580",
+  "torch": "2.14.1+cpu",
+  "device": "cpu",
+  "prediction_shape": [
+    2,
+    1,
+    2
+  ],
+  "state_shape": [
+    2,
+    1,
+    96
+  ],
+  "finite_forward": true,
+  "finite_backward": true,
+  "base_probability_is_sigmoid_logits": true,
+  "source_contract_checks": {
+    "base_adds_sigmoid": true,
+    "env_reads_probs": true,
+    "env_applies_sigmoid_again": true
+  },
+  "probability_contract_example": {
+    "logit": 0.0,
+    "base_probability": 0.5,
+    "env_before_diversity_penalty": 0.622459352016449
+  },
+  "interpretation": "For this BaseModel + environment path probabilities are sigmoid-transformed twice before diversity penalty. Audit/adapt before reuse; do not generalize to every KuaiSim environment or original reported experiment."
+}

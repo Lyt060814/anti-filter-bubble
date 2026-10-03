@@ -1,0 +1,341 @@
+{
+  "selection": "first two unique IDs per keyword group and two controls; convenience feasibility sample, not semantic labels",
+  "rows": [
+    {
+      "pid": 32,
+      "selection_groups": [
+        "relationships"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/32.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/32.mp4",
+          "bytes": 15199717,
+          "sha256": "c0f9c60ded0ad1e4422a791b1427486279ea4badce516c8b4f5d957535f3c38a",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "53.416667"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/32.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/32.txt",
+          "bytes": 452,
+          "sha256": "421612ef8e9639f8c83f37c79fe5b11ed28e844bb9b8f81bd7f68b761b4cf5c6",
+          "characters": 153,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 480,
+      "selection_groups": [
+        "relationships"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/480.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/480.mp4",
+          "bytes": 44836208,
+          "sha256": "16178bc58a670be7cc4416109593392e0384235e3143d884cc0d8c51f51abce1",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "184.800000"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/480.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/480.txt",
+          "bytes": 1657,
+          "sha256": "48bc9fec882a374f558c8e63e4715563818c0348c082a2f27858febb16557e1b",
+          "characters": 548,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 152,
+      "selection_groups": [
+        "parenting"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/152.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/152.mp4",
+          "bytes": 14603125,
+          "sha256": "77cf8390a295255f353d84744ef0f95eb66a5142d06292cac24ce71c8a3b7d9a",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 606,
+                "height": 1080
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "47.316009"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/152.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/152.txt",
+          "bytes": 726,
+          "sha256": "21afbbc3fd35ff49ee5149426fca7179ca483df078d0c985bca92c7c42983bb2",
+          "characters": 245,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 181,
+      "selection_groups": [
+        "parenting"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/181.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/181.mp4",
+          "bytes": 23658335,
+          "sha256": "84160340e67b168566a5222a2e1a974bea45cbba2f9378ff6290de465ea0881e",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "85.472993"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/181.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/181.txt",
+          "bytes": 1981,
+          "sha256": "d47e4164af3f65c935218672878ad07ba00279d2f12388b9ae4b2c266412d0b7",
+          "characters": 660,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 207,
+      "selection_groups": [
+        "career"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/207.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/207.mp4",
+          "bytes": 14332213,
+          "sha256": "74c6483f27e1b036c84f6aebb8e40280753a153af499d7e1b4aa72933863cae3",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "44.733333"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/207.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/207.txt",
+          "bytes": 806,
+          "sha256": "2132edb5681aa7e170fa1c4faace40f0b213dd0fa616f6997e5ec6acd7d01745",
+          "characters": 271,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 592,
+      "selection_groups": [
+        "career"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/592.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/592.mp4",
+          "bytes": 11139739,
+          "sha256": "f9ee22fb795b7c8ebc2accfce330c01a4e1f576c681ec81555414d6c7eb3ef02",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "54.166667"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/592.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/592.txt",
+          "bytes": 899,
+          "sha256": "ccc7da5e97e1c72990c10318c4abc8c03942eaa67e86e089fb86e3f01154df9b",
+          "characters": 301,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 1,
+      "selection_groups": [
+        "control"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/1.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/1.mp4",
+          "bytes": 3604105,
+          "sha256": "23fa58a624bb118e2f9c9b0e4da963b409070bbf8aa0e70476e5757f506695cf",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "14.733333"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/1.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/1.txt",
+          "bytes": 189,
+          "sha256": "2fe2adc29c8fbe117b341d938b5b0dd32607549e9b8646347ba926244d4d580a",
+          "characters": 63,
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "pid": 2,
+      "selection_groups": [
+        "control"
+      ],
+      "files": [
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/raw_file/2.mp4",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/2.mp4",
+          "bytes": 4007926,
+          "sha256": "89b393ccd1cb1e7dfe05c45b7a9e3bd0852e9fbe842bafe73f3f8441d33791cf",
+          "probe": {
+            "programs": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 720,
+                "height": 1280
+              },
+              {
+                "codec_name": "aac",
+                "codec_type": "audio"
+              }
+            ],
+            "format": {
+              "duration": "9.200000"
+            }
+          },
+          "decode": "frame_and_16khz_audio_pass",
+          "status": "pass"
+        },
+        {
+          "url": "https://fi.ee.tsinghua.edu.cn/datasets/short-video-dataset/asr_zn/2.txt",
+          "path": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources/data/audit/plan_v3/media/2.txt",
+          "bytes": 150,
+          "sha256": "09402acc3760a8e26fc0368c7fc3658664334f2964fdd881a645cb82279e40f6",
+          "characters": 50,
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "Input feasibility only; no manual labels, model accuracy or button effect estimated.",
+  "resource_root": "/home/yitongli/Courses/26full/COMP1110/anti-filter-bubble-sources",
+  "seed": 1110,
+  "events": {
+    "standard_rows": 11713045,
+    "tab1_rows": 7717601,
+    "tab1_users": 991,
+    "tab1_hate": 2515,
+    "author_join_coverage": 1.0,
+    "pre200_post100_complete_events": 2422,
+    "users_with_complete_events": 205,
+    "complete_events_without_other_hate_within_100": 696,
+    "selection": "Per user, chronological first up to 5 complete events, positions >300 apart; other hate is flagged, not excluded.",
+    "selected_events": 524,
+    "selected_users": 205,
+    "selected_without_other_hate_within_100": 339,
+    "pre200_elapsed_hours_quantiles": {
+      "0.5": 13.27563736111111,
+      "0.9": 42.91373483333333,
+      "1.0": 335.6649438888889
+    },
+    "post100_elapsed_hours_quantiles": {
+      "0.5": 4.115775555555556,
+      "0.9": 24.627949666666666,
+      "1.0": 236.8697736111111
+    },
+    "file": "data/audit/plan_v2/event_anchors.csv",
+    "sha256": "09650bfd7b94e09155dd792b4beef0cb447462ec7bce8056403b5c7f0ab409f9"
+  },
+  "content": {
+    "query": "literal 彩礼 in caption or show_cover_text",
+    "population": "Unique videos in the KuaiRand-1K basic feature table, including logged random-pool videos",
+    "candidate_videos": 2729,
+    "sample_videos": 200,
+    "pilot_videos": 40,
+    "audit_videos": 160,
+    "selection": "Uniform sample without replacement over sorted candidate IDs; seed 1110; no stance or popularity filtering",
+    "pool_file": "data/audit/plan_v2/bride_price_candidates.csv",
+    "pool_sha256": "673b8b856869b62f1c0c97ddddcd5d878955dd1317629b37b56f74e05231978a",
+    "sample_file": "data/audit/plan_v2/annotation_sample_200.csv",
+    "sample_sha256": "5c7854d9e4a9cb0f152b2f6ffab1d4011c8e2b6031679e3e95bb8b6814506f7e",
+    "annotated": false
+  },
+  "runtime_seconds": 73.17,
+  "peak_rss_mib_linux": 727.6
+}
