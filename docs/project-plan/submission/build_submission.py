@@ -92,6 +92,8 @@ for language in ['en','zh']:
                 or p._p.find('.//{http://schemas.openxmlformats.org/officeDocument/2006/math}oMathPara') is not None):
             p.paragraph_format.keep_with_next = True
         p.paragraph_format.widow_control=True
+        if p.text.startswith(('Dates follow the course guidelines', '以下日期依据课程')):
+            p.paragraph_format.keep_with_next = True
     grid = doc.styles.add_style('Submission Grid', WD_STYLE_TYPE.TABLE)
     borders = OxmlElement('w:tblBorders')
     for edge in ['top','left','bottom','right','insideH','insideV']:
@@ -127,20 +129,29 @@ for language in ['en','zh']:
                             run.bold = row_index == 0
             continue
         table.style=grid
+        cell_margins = OxmlElement('w:tblCellMar')
+        for edge, value in [('top', '40'), ('bottom', '40'), ('left', '70'), ('right', '70')]:
+            margin = OxmlElement(f'w:{edge}')
+            margin.set(qn('w:w'), value)
+            margin.set(qn('w:type'), 'dxa')
+            cell_margins.append(margin)
+        table._tbl.tblPr.append(cell_margins)
         for i,row in enumerate(table.rows):
             props=row._tr.get_or_add_trPr()
             props.append(OxmlElement('w:cantSplit'))
             if i==0:props.append(OxmlElement('w:tblHeader'))
             for cell in row.cells:
                 for p in cell.paragraphs:
-                    p.paragraph_format.space_after=Pt(3)
-                    p.paragraph_format.space_before=Pt(3)
+                    p.paragraph_format.space_after=Pt(0)
+                    p.paragraph_format.space_before=Pt(0)
                     p.paragraph_format.line_spacing=1.08
+                    if table_index == 1:
+                        p.paragraph_format.keep_with_next = i < len(table.rows) - 1
                     for run in p.runs:
                         run.font.size=Pt(10)
                         if i==0:run.bold=True
         # Keep the date/member column readable; give explanatory text the space.
-        widths=[1.20,4.15,1.22] if len(table.columns)==3 else [1.22,5.35]
+        widths=[1.10,3.82,1.65] if len(table.columns)==3 else [1.22,5.35]
         table.autofit=False
         for column,width in zip(table.columns,widths):
             column.width=Inches(width)
@@ -177,6 +188,7 @@ for language in ['en','zh']:
     html = html.replace('<p><span class="equation-display">', '<p style="break-after:avoid"><span class="equation-display">')
     html = re.sub(r'<colgroup>.*?</colgroup>', '', html, flags=re.S)
     html = html.replace('<table>', '<table class="team">', 1)
+    html = html.replace('<table>', '<table class="timeline">', 1)
     def keep_names_together(match):
         table_html = match.group(0)
         for name in member_names:
@@ -194,6 +206,8 @@ for language in ['en','zh']:
         table.team { margin: 0 0 15pt; break-inside: avoid; break-after: avoid; }
         table.team th, table.team td { width: 20%; border: none; padding: 1pt 0; }
         table.team td { color: #555; }
+        table.timeline { break-inside: avoid; }
+        h2#timeline-and-responsibilities + p, h2#时间安排与成员分工 + p { break-after: avoid; }
         h2 { bookmark-level: 1; font-size: 13pt; margin: 12pt 0 6pt; }
         h3 { bookmark-level: 2; font-size: 11pt; margin: 9pt 0 4pt; }
         h1,h2,h3 { break-after: avoid; }
@@ -202,13 +216,14 @@ for language in ['en','zh']:
         a { color: #245580; text-decoration: none; }
         a[href^="https://doi.org"]:not(:has(em)) { white-space: nowrap; }
         table { border-collapse: collapse; width: 100%; font-size: 10pt; margin: 8pt 0; }
-        th,td { border: 0.5pt solid #bbb; padding: 4pt; text-align: left; vertical-align: top; }
+        th,td { border: 0.5pt solid #bbb; padding: 2pt 3.5pt; text-align: left; vertical-align: top; }
+        table p { margin: 0; }
         tr { break-inside: avoid; }
         table { table-layout: fixed; }
-        th:first-child,td:first-child { width: 19%; }
-        th:nth-child(3),td:nth-child(3) { width: 19%; }
+        th:first-child,td:first-child { width: 17%; }
+        th:nth-child(3),td:nth-child(3) { width: 25%; }
 
-        h2#references ~ p, h2#参考文献 ~ p { font-size: 9.5pt; line-height: 1.1; margin-bottom: 6pt; padding-left: 20pt; text-indent: -20pt; break-inside: avoid; }
+        h2#references ~ p, h2#参考文献 ~ p { font-size: 9.5pt; line-height: 1.1; margin-bottom: 5pt; padding-left: 20pt; text-indent: -20pt; break-inside: avoid; }
     """
     if language == 'zh':
         css_text = css_text.replace("content: 'COMP1110 | Project Plan'; font: 9pt 'Liberation Serif';", "content: 'COMP1110 | 项目计划'; font: 9pt 'Droid Sans Fallback';")
