@@ -30,21 +30,21 @@ $$\widehat{e}_t=\Phi(o_{\leq t})=(p_t,\mathbf{r}_t,d_t,u_t).$$
 
 Here $p_t$ is the stance distribution for a defined claim, excluding unknown labels, $\mathbf{r}_t$ gives reason coverage, $d_t$ source repetition, and $u_t$ the unknown-label proportion. Sliding windows track two properties: concentration and change. Shannon entropy $H(p_t)=-\sum_k p_{t,k}\log p_{t,k}$ measures concentration, with lower values indicating exposure concentrated in fewer stances. Jensen–Shannon divergence $\mathrm{JS}(p_t,q)$ measures difference from an explicit reference $q$, such as earlier exposure. Neither establishes harm or implies that uniform exposure is ideal.
 
-Double annotation, precision/recall, modality comparisons and a held-out issue will test measurement quality; sparse histories remain unscored. Alternative plausible labels will test sensitivity to classification errors.
+Independent double annotation, precision/recall, modality comparisons and a held-out issue will test measurement quality; sparse histories will remain unscored. Disagreements and alternative plausible labels for uncertain items will test whether classification errors change the conclusions.
 
 ### Algorithmic design: selecting interventions
 
-Given the summary, confirmed reduce–retain–explore goal $g$ and remaining budget $b_t$, a policy chooses $a_t=\pi(\widehat{e}_t,g,b_t)$. From observed $\widehat{e}_0$, evaluate $T$ actions by subsequent exposure:
+An action-selection policy chooses $a_t=\pi(\widehat{e}_t,g,b_t)$ using the exposure summary, a confirmed reduce–retain–explore goal $g$ and remaining budget $b_t$. Over horizon $T$, we compare permitted policies by
 
-$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=0}^{T-1}\ell(\widehat{e}_{t+1},g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
+$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=1}^{T}\ell(\widehat{e}_t,g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
 
-$\Pi_{\mathrm{user}}$ contains permitted policies; expectations average over random recommendations and responses. Action $a_t$ affects future exposure, not recorded $\widehat{e}_t$. Loss $\ell$ measures goal mismatch; $C_T$ totals these actions’ costs and $R_T$ measures subsequent information retention relative to no intervention. Scenarios or users set budget $B$, retention threshold $\rho$ and measurement rules. Unknown content and empty feeds cannot count as success. In the parenting example, loss tracks sweeping claims and retention tracks practical advice and distinct explanations. Additional reasons require documented sources.
+$\Pi_{\mathrm{user}}$ contains permitted policies and the expectation averages over random recommendations and responses. The loss $\ell$ measures goal mismatch; $C_T$ is effort and $R_T$ retention relative to no intervention. Budget $B$, minimum retention $\rho$ and measurement rules are fixed by test scenarios or user confirmation. Unknown content and empty feeds cannot count as success. In the parenting example, loss tracks sweeping claims and retention tracks practical advice and distinct explanations. Additional reasons require documented sources.
 
-We will enumerate no-intervention, topic-filtering, negative-feedback, selective-filtering-plus-supplementation, and search/follow policies. Simulation estimates outcomes; we reject infeasible candidates and report if none qualifies. Given these estimates, selection is linear in candidate count. Platform actions and external-tool functions remain distinct. We do not claim global optimality.
+We will enumerate no-intervention, topic-filtering, negative-feedback, selective-filtering-plus-supplementation, and search/follow policies. Simulation estimates outcomes; infeasible candidates are excluded. If none qualifies, we report no feasible option. Given these estimates, selection is linear in candidate count. Platform actions and external-tool functions remain distinct. We do not claim global optimality.
 
 ### Simulation: testing the recommendation–feedback loop
 
-Let $s_t$ contain recommendation history and user behavioural state. At step $t$, recommender $\mathcal{R}$ produces exposure $x_t$, user model $\mathcal{U}$ produces feedback $y_t$, and action $a_t$ enters update rule $\mathcal{F}$:
+Let $s_t$ contain recommendation history and user behavioural state. At step $t$, the recommender $\mathcal{R}$ generates exposure $x_t$, the user model $\mathcal{U}$ generates feedback $y_t$, and the selected action $a_t$ enters the state-update rule $\mathcal{F}$:
 
 $$x_t\sim\mathcal{R}(\cdot\mid s_t),\quad y_t\sim\mathcal{U}(\cdot\mid x_t,s_t),\quad s_{t+1}\sim\mathcal{F}(\cdot\mid s_t,x_t,y_t,a_t).$$
 
