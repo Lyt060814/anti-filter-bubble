@@ -34,9 +34,9 @@ Double annotation, precision/recall, modality comparisons and a held-out issue w
 
 ### Algorithmic design: selecting interventions
 
-Given the summary, confirmed reduce–retain–explore goal $g$ and remaining budget $b_t$, a policy chooses $a_t=\pi(\widehat{e}_t,g,b_t)$. Starting from $\widehat{e}_0$, actions $a_0,\ldots,a_{T-1}$ produce the evaluated summaries $\widehat{e}_1,\ldots,\widehat{e}_T$:
+Given the summary, confirmed reduce–retain–explore goal $g$ and remaining budget $b_t$, a policy chooses $a_t=\pi(\widehat{e}_t,g,b_t)$. From observed $\widehat{e}_0$, evaluate $T$ actions by subsequent exposure:
 
-$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=1}^{T}\ell(\widehat{e}_t,g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
+$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=0}^{T-1}\ell(\widehat{e}_{t+1},g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
 
 $\Pi_{\mathrm{user}}$ contains permitted policies; expectations average over random recommendations and responses. Action $a_t$ affects future exposure, not recorded $\widehat{e}_t$. Loss $\ell$ measures goal mismatch; $C_T$ totals these actions’ costs and $R_T$ measures subsequent information retention relative to no intervention. Scenarios or users set budget $B$, retention threshold $\rho$ and measurement rules. Unknown content and empty feeds cannot count as success. In the parenting example, loss tracks sweeping claims and retention tracks practical advice and distinct explanations. Additional reasons require documented sources.
 

@@ -34,9 +34,9 @@ $$\widehat{e}_t=\Phi(o_{\leq t})=(p_t,\mathbf{r}_t,d_t,u_t).$$
 
 ### 算法设计：选择干预策略
 
-策略（行动选择规则）根据曝光摘要、已确认的“减少—保留—探索”目标 $g$ 和剩余预算 $b_t$，选择 $a_t=\pi(\widehat{e}_t,g,b_t)$。从 $\widehat{e}_0$ 出发，行动 $a_0,\ldots,a_{T-1}$ 产生随后评价的摘要 $\widehat{e}_1,\ldots,\widehat{e}_T$：
+策略（行动选择规则）根据曝光摘要、已确认的“减少—保留—探索”目标 $g$ 和剩余预算 $b_t$，选择 $a_t=\pi(\widehat{e}_t,g,b_t)$。从已观察的摘要 $\widehat{e}_0$ 出发，以后续曝光评价 $T$ 次行动：
 
-$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=1}^{T}\ell(\widehat{e}_t,g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
+$$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=0}^{T-1}\ell(\widehat{e}_{t+1},g)\right]\quad\mathrm{s.t.}\quad\mathbb{E}_{\pi}[C_T]\leq B,\quad\mathbb{E}_{\pi}[R_T]\geq\rho.$$
 
 $\Pi_{\mathrm{user}}$ 为允许的策略集合，期望对随机推荐与反应取平均。$a_t$ 影响未来曝光，不能改变已记录的 $\widehat{e}_t$。损失 $\ell$ 衡量目标偏离；$C_T$ 累计这 $T$ 次行动的成本，$R_T$ 衡量随后曝光期内相对不干预的信息保留程度。预算 $B$、最低保留要求 $\rho$ 和测量规则由测试情境预先设定或用户确认。未知内容和空信息流不能被计为成功。以育儿为例，损失可衡量目标概括性说法的曝光，保留程度则跟踪实用建议及不同解释。新增理由依据有出处的来源集合评价，不能用模型生成的断言代替。
 
