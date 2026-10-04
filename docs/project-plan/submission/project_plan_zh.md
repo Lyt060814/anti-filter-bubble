@@ -16,6 +16,8 @@
 
 方案包括三个部分。首先，用**曝光报告**展示反复出现的主张、理由与来源，并提供可回看的例子。其次，通过**目标确认**明确用户想减少、保留或进一步了解什么。最后，**比较并复查调整办法**，分析它们能否达到目标，以及需要多少持续操作。例如，用户可以要求减少“严格管教是唯一有效办法”的表达，同时保留具体建议和不同做法的解释。
 
+用户未必知道自己遗漏了什么。因此，报告也会对照有出处的议题语料中可找到的理由，并提出供用户确认的调整目标。这份语料只是有限参照，不代表议题的全部观点，也不自动意味着正反方均衡。
+
 我们将在至少两个议题上共同开发方法，再用一个未参与开发的议题评价适用性。主要成果是带证据的报告设计、干预策略比较和动态仿真；条件允许时用小型工具演示，不要求完成一个 app。研究重点是曝光与控制，不直接测量用户信念或生活质量的改变。
 
 ## 2. 计算与数据科学方法
@@ -30,7 +32,7 @@ $$\widehat{e}_t=\Phi(o_{\leq t})=(p_t,\mathbf{r}_t,d_t,u_t).$$
 
 其中，$p_t$ 是针对明确命题的可判定曝光立场分布，$\mathbf{r}_t$ 表示理由覆盖，$d_t$ 表示来源重复，$u_t$ 是未知标签比例。滑动窗口跟踪集中程度与变化。Shannon 熵 $H(p_t)=-\sum_k p_{t,k}\log p_{t,k}$ 用于衡量集中程度，越低表示曝光越集中在少数立场。Jensen–Shannon 散度 $\mathrm{JS}(p_t,q)$ 衡量与明确参照 $q$（如过去曝光）的差异。两者都不直接证明伤害，也不意味着均匀曝光最好。
 
-独立双人标注、precision/recall、模态对照及留出议题用于检验测量质量；稀疏轨迹不评分。标注分歧保留用于错误分析；为未知内容赋予不同的合理标签，检查结论是否改变，而不默认已标注子集代表整个信息流。
+独立双人标注、precision/recall 及留出议题用于检验测量质量。比较只看标题、加入转录和加入视觉语境的分析，检查更多模态能否减少把角色对白误当作者观点等错误。稀疏轨迹不评分。标注分歧保留用于错误分析；为未知内容赋予不同的合理标签，检查结论是否改变，而不默认已标注子集代表整个信息流。
 
 ### 算法设计：选择干预策略
 
@@ -40,7 +42,7 @@ $$\min_{\pi\in\Pi_{\mathrm{user}}}\mathbb{E}_{\pi}\!\left[\sum_{t=1}^{T}\ell(\wi
 
 $\Pi_{\mathrm{user}}$ 为允许的策略集合，期望对随机推荐与反应取平均。损失 $\ell$ 衡量目标偏离；$C_T$ 为操作成本，$R_T$ 为相对不干预时的信息保留程度。预算 $B$、最低保留要求 $\rho$ 和测量规则由测试情境预先设定或用户确认。未知内容和空信息流不能被计为成功。以育儿为例，损失可衡量目标概括性说法的曝光，保留程度则跟踪实用建议及不同解释。新增理由依据有出处的来源集合评价，不能用模型生成的断言代替。
 
-枚举不干预、话题过滤、负反馈、选择性过滤与补充、搜索／关注等策略，通过下文的仿真估计结果，再排除违反估计约束的候选；无可行方案时明确报告。结果已估计后，选择成本随候选数线性增长。平台操作与外部工具功能分别处理。这里比较有限候选，不声称求得全局最优策略。
+枚举不干预、话题过滤、负反馈、选择性过滤与补充、搜索／关注等策略，通过下文的仿真估计结果，再排除违反估计约束的候选；无可行方案时明确报告。结果已估计后，选择成本随候选数线性增长。比较将检验选择性调整能否比过滤整个话题保留更多所需信息，以及为此付出的代价。平台操作与外部工具功能分别处理。这里比较有限候选，不声称求得全局最优策略。
 
 ### 仿真建模：检验推荐—反馈循环
 
@@ -54,25 +56,25 @@ $$x_t\sim\mathcal{R}(\cdot\mid s_t),\quad y_t\sim\mathcal{U}(\cdot\mid x_t,s_t),
 
 ## 3. 相关研究与本项目的切入点
 
-**参与行为与用户意愿可能不一致。** Milli 等 [\[1\]](#ref-1) 在 Twitter 政治内容研究中发现，按参与度排序与用户自述偏好并不一致；按自述偏好排序又可能强化与自身立场一致的内容。这说明需要区分“吸引注意”与“用户想要”，也不能把用户控制当成自动有效的解决办法。Vera 和 Ghosh [\[2\]](#ref-2) 通过对 14 位 TikTok 用户的访谈，记录了不想要的推荐及清除这些内容的尝试，为本项目的生活情境提供依据，但不能据此推断中国用户的发生率。
+**参与行为与用户意愿可能不一致。** Milli 等 [\[1\]](#ref-1) 在 Twitter 政治内容研究中发现，按参与度排序与用户自述偏好并不一致；按自述偏好排序又可能强化与自身立场一致的内容。Vera 和 Ghosh [\[2\]](#ref-2) 访谈了 14 位 TikTok 用户，记录不想要的推荐及清除尝试。这些研究支持区分注意力与经过确认的目标，但不能据此推断中国用户的发生率。
 
-**观点分析需要超出类别统计。** Pecher 等 [\[3\]](#ref-3) 的 TikTok 审计区分了话题变化与立场变化，因此“研究同一话题里的观点”本身并不是空白。Draws 等 [\[4\]](#ref-4) 在搜索结果研究中从立场和背后的论证逻辑理解观点多样性。我们借用这种区分，并面对短视频中的角色、语境缺失和重复故事等判断困难。
+**观点分析需要超出类别统计。** Pecher 等 [\[3\]](#ref-3) 的 TikTok 审计区分话题变化与立场变化，因此同题观点分析本身并不是空白。Draws 等 [\[4\]](#ref-4) 在搜索结果研究中同时考察立场和论证逻辑，支持我们分析理由及观点，并处理短视频中角色、语境缺失等额外困难。
 
-**用户控制已有成熟方法。** Wang 等的 UCRS [\[5\]](#ref-5) 允许用户通过特征层面的控制影响推荐。本项目面对的是用户通常无法修改平台模型的情况：如何表达“继续了解这个议题，但调整某类表达或补充某种理由”，再通过手边的操作实现？X 的公开推荐代码 [\[6\]](#ref-6) 提供了可检查的过滤和评分机制，但不能证明中国短视频平台采用相同规则。
+**控制及其持续性已有研究。** Wang 等的 UCRS [\[5\]](#ref-5) 提供特征层面的推荐控制。Kaplan 等 [\[6\]](#ref-6) 用受控 TikTok 账号比较划走与“不感兴趣”，并检验恢复观看目标话题后的复发。Compass [\[7\]](#ref-7) 在 YouTube Shorts 中支持持续反思与细化偏好，结合模拟互动、直接过滤和内容补充，开展了 15 人、十天的实地研究。我们可以借鉴这些方法，重点联合评价同一议题内的主张与理由曝光、信息保留及持续操作成本。X 的公开代码 [\[8\]](#ref-8) 提供可检查的过滤和评分机制，不代表中国平台的实际规则。
 
-**公开数据与仿真支持部分验证。** Shang 等发布的 ShortVideo 数据集 [\[7\]](#ref-7) 将内容与行为联系起来；KuaiRand [\[8\]](#ref-8) 提供时序互动和随机曝光视频，可用于内容分析及行为检验，但都没有记录用户经过思考后确认的调整目标。SimTok [\[9\]](#ref-9) 展示了由 LLM 用户读取视频文本描述、与推荐器反复互动的模拟方法。Yoon 等 [\[10\]](#ref-10) 则说明，模拟偏好和反馈需要独立对照真人数据。因此，我们会把用户模型是否可信与干预是否有效分开评价。
+**数据与仿真支持部分验证。** ShortVideo [\[9\]](#ref-9) 联系内容与行为；KuaiRand [\[10\]](#ref-10) 提供互动序列和随机曝光视频，但两者都没有记录反思目标。SimTok [\[11\]](#ref-11) 展示了 LLM 用户读取视频描述、与推荐器循环互动的方法。Yoon 等 [\[12\]](#ref-12) 对照真人数据评价模拟偏好与反馈，支持我们独立评价用户模型。平台审计用于指导实验条件，不直接提供可跨平台套用的效果量。
 
-这些研究为我们留下了一个具体问题：**能否从用户侧识别生活议题中反复出现的理由，把具体调整目标转化为可用操作，并比较信息损失和持续维护的代价？** 本项目将在多个议题、内容判断不完整和平台权限有限的条件下研究这一问题，而不是提出新的推荐算法。
+本项目将这些方向结合起来：**用户能否减少特定主张或探索缺失理由，同时保留同一议题的有用信息，为此需要付出多少持续操作？** 我们将在多个议题、内容判断不完整和平台权限有限的条件下研究这一问题。贡献在于对这个综合问题开展带证据的评价。
 
 ## 4. 可行性、局限与伦理
 
-我们已经取得公开短视频内容与互动数据，检查了视频与转录的配对，并完成语义检索和用户响应模型的初步运行检查。这些说明数据入口和基础运行路径可用，不代表内容判断已经准确或仿真已经真实。
+我们需要可理解的内容和互动轨迹。目前已取得 ShortVideo 样本、KuaiRand-1K/Pure 日志及补充标题与类别。八组 ShortVideo 视频与转录文件已取得，视频可解码；预训练语义检索和未训练的用户响应网络也已运行。这些说明入口和基础运行路径可用，不代表转录准确、模型可信或轨迹完整。
 
-试标结果将指导样本选择，以覆盖重要情境并评价错误。我们会复用预训练模型和成熟统计方法。较大模型的推理需要合适算力；若资源不可得或效果不佳，仍可用人工核查的内容分析，并在透明仿真中展示控制逻辑。报告会区分已实现部分与仍停留在设计层面的部分。
+下一步用试检索和独立标注指导议题选择、样本量及错误分析，评价预训练 LLM/VLM 的内容判断，以及规则、学习和 LLM 用户模型。扩大规模前先测小批推理的资源需求。组件验证失败或超出可用资源时，采用人工核验内容或透明的规则仿真，并说明能力损失。报告区分已实现、已验证及仍待实施的部分。
 
-主要局限是视频语境不全、个人轨迹稀疏、平台响应未知。负反馈前后的日志变化首先作为关联，不直接解释为因果效果；仿真结论也保留其假设条件。有独立核验标签时，将用它们检查测量错误是否使干预看起来比实际更有效。接触更多观点不证明判断更好，过滤不喜欢的观点还可能进一步缩窄信息流。因此，我们会展示取舍，也不会在证据强弱不同的情况下把相反说法视为同样可信。
+语境缺失或表达不清时保留未知标签，用视觉核查和不同的合理标签检验影响。轨迹能否支持议题报告由覆盖程度和不确定性决定。平台响应未知，通过敏感性实验处理。负反馈关联不等于因果效果，模拟改善也不能证明真实平台效果或信念变化。接触更多观点不证明判断更好；选择性过滤还可能进一步缩窄信息流。我们会展示这些取舍，并保留证据质量的区别。
 
-核心工作使用公开研究数据与模拟用户。离线实验的调整目标将作为测试情境预先设定，不把它们当作匿名日志中真实用户的意愿。我们将遵守数据使用条款，不识别个人，在共享输出和示例中去除不必要的个人信息。若使用外部 AI 服务，需符合数据允许的用途，并避免发送可识别的个人历史。真人测试属于可选部分；招募前会确认适用的课程或学校要求并取得知情同意。核心研究不需要自动操作真实账号或实施线上平台干预。
+核心使用公开研究数据与模拟用户。目标是明确的测试情境，不冒充匿名日志中真实用户的意愿。遵守数据条款，不尝试重新识别个人，减少示例中的个人信息，不向外部 AI 服务上传个人观看历史。公开视频材料送至外部服务前，也需检查允许用途和个人信息。标注者可以跳过令人不适的内容。可选真人测试需知情同意，并确认适用的课程或学校要求；核心实验在线下进行。
 
 ## 5. 时间安排与成员分工
 
@@ -80,10 +82,9 @@ $$x_t\sim\mathcal{R}(\cdot\mid s_t),\quad y_t\sim\mathcal{U}(\cdot\mid x_t,s_t),
 
 | 时间（2026 年） | 阶段成果 | 负责人 |
 |---|---|---|
-| 10 月 4 日 | 提交计划，确认问题与职责 | Li Yitong；全组 |
-| 10 月 5–11 日 | 选择议题、检查数据、试标并确定评价方法 | Fu Yitong、Xu Ruicong、Zhao Dingcheng |
+| 10 月 5–11 日 | 选择议题、检查数据、独立试标并确定评价方法 | Fu Yitong、Wang Junbo |
 | 10 月 12–18 日 | 评价内容理解，形成曝光报告和控制比较初稿 | Zhao Dingcheng、Wang Junbo、Li Yitong |
-| 10 月 19–24 日 | 准备贯通案例和初步仿真，参加期中会议 | Xu Ruicong、Li Yitong；全组 |
+| 10 月 19–24 日 | 19 日前备好贯通案例和初步仿真；20–24 日期中会议 | Xu Ruicong、Li Yitong；全组 |
 | 10 月 25–31 日 | 比较干预及不同假设，在留出议题上评价 | Li Yitong、Xu Ruicong、Zhao Dingcheng |
 | 11 月 1–8 日 | 整理结果和报告初稿；11 月 4 日提交个人进度日志 | 全组，Wang Junbo 协调整合 |
 | 11 月 9–15 日 | 复核论证与引用，提交报告和个人反思 | 全组 |
@@ -97,26 +98,30 @@ $$x_t\sim\mathcal{R}(\cdot\mid s_t),\quad y_t\sim\mathcal{U}(\cdot\mid x_t,s_t),
 | Xu Ruicong | 数据准备、轨迹覆盖、行为建模与模拟用户的统计评价 |
 | Zhao Dingcheng | 语义检索、LLM/VLM 内容分析、证据核查与跨议题评价 |
 
-Fu Yitong 与 Wang Junbo 将和 Zhao Dingcheng 共同制定标注规范，再独立标注评价样本，并一起复核分歧。每位成员负责撰写自己的实质性章节，并复核另一位成员的工作。每周会议检查已取得的证据、尚缺条件和排期调整。
+Fu Yitong 与 Wang Junbo 按和 Zhao Dingcheng 共同制定的规范独立标注，再一起复核分歧。每位成员撰写实质性章节，并复核另一位的工作。每周会议检查证据和进度。
 
 ## 参考文献
 
-[\[1\]]{#ref-1} Milli, S., Carroll, M., Wang, Y., Pandey, S., Zhao, S., & Dragan, A. D. (2024). [*Engagement, User Satisfaction, and the Amplification of Divisive Content on Social Media*](https://arxiv.org/abs/2305.16941v6). arXiv:2305.16941, version 6.
+[\[1\]]{#ref-1} Milli, S., Carroll, M., Wang, Y., Pandey, S., Zhao, S., & Dragan, A. D. (2025). [*Engagement, User Satisfaction, and the Amplification of Divisive Content on Social Media*](https://doi.org/10.1093/pnasnexus/pgaf062). PNAS Nexus, 4(3), pgaf062.
 
 [\[2\]]{#ref-2} Vera, J. A., & Ghosh, S. (2025). [*“They’ve Over-Emphasized That One Search”: Controlling Unwanted Content on TikTok’s For You Page*](https://arxiv.org/abs/2504.13895). arXiv:2504.13895.
 
-[\[3\]]{#ref-3} Pecher, B., et al. (2026). [*Algorithmic Audit of Personalisation Drift in Polarising Topics on TikTok*](https://arxiv.org/abs/2603.20723). UMAP 2026.
+[\[3\]]{#ref-3} Pecher, B., et al. (2026). [*Algorithmic Audit of Personalisation Drift in Polarising Topics on TikTok*](https://doi.org/10.1145/3774935.3806161). UMAP 2026.
 
-[\[4\]]{#ref-4} Draws, T., et al. (2023). [*Viewpoint Diversity in Search Results*](https://doi.org/10.1007/978-3-031-28244-7_18). ECIR 2023, pp. 279–297. [doi:10.1007/978-3-031-28244-7_18](https://doi.org/10.1007/978-3-031-28244-7_18).
+[\[4\]]{#ref-4} Draws, T., et al. (2023). [*Viewpoint Diversity in Search Results*](https://doi.org/10.1007/978-3-031-28244-7_18). ECIR 2023, pp. 279–297.
 
-[\[5\]]{#ref-5} Wang, W., Feng, F., Nie, L., & Chua, T.-S. (2022). [*User-Controllable Recommendation Against Filter Bubbles*](https://doi.org/10.1145/3477495.3532075). SIGIR 2022, pp. 1251–1261. [doi:10.1145/3477495.3532075](https://doi.org/10.1145/3477495.3532075).
+[\[5\]]{#ref-5} Wang, W., Feng, F., Nie, L., & Chua, T.-S. (2022). [*User-Controllable Recommendation Against Filter Bubbles*](https://doi.org/10.1145/3477495.3532075). SIGIR 2022, pp. 1251–1261.
 
-[\[6\]]{#ref-6} xAI. (2026). [*x-algorithm*](https://github.com/xai-org/x-algorithm/tree/b79b947ce9283c786822274ef8fe208c33c585b2) [Source code, commit b79b947].
+[\[6\]]{#ref-6} Kaplan, L., Patel, D., Gerzon, N., Mislove, A., & Sapiezynski, P. (2026). [*When “For You” Isn’t For You: Measuring User Agency in TikTok’s Algorithmic Feed*](https://arxiv.org/abs/2605.10690). arXiv:2605.10690.
 
-[\[7\]]{#ref-7} Shang, Y., Gao, C., Li, N., & Li, Y. (2025). [*A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform*](https://arxiv.org/abs/2502.05922). WWW Companion 2025, pp. 793–796.
+[\[7\]]{#ref-7} Barua, A., Wang, L., & Zhang, A. X. (2026). [*Compass: Continuously Aligning Social Media Feeds via In-Situ Reflections*](https://arxiv.org/abs/2608.04274). UIST 2026; arXiv:2608.04274.
 
-[\[8\]]{#ref-8} Gao, C., et al. (2022). [*KuaiRand: An Unbiased Sequential Recommendation Dataset with Randomly Exposed Videos*](https://doi.org/10.1145/3511808.3557624). CIKM 2022, pp. 3953–3957. [doi:10.1145/3511808.3557624](https://doi.org/10.1145/3511808.3557624).
+[\[8\]]{#ref-8} xAI. (2026). [*x-algorithm*](https://github.com/xai-org/x-algorithm/tree/b79b947ce9283c786822274ef8fe208c33c585b2) [Source code, commit b79b947].
 
-[\[9\]]{#ref-9} Sukiennik, N., Wang, H., Zeng, Z., Gao, C., & Li, Y. (2025). [*SimTok: Simulating Filter Bubble on Short-video Recommender System with Large Language Model Agents*](https://arxiv.org/abs/2504.08742). arXiv:2504.08742.
+[\[9\]]{#ref-9} Shang, Y., Gao, C., Li, N., & Li, Y. (2025). [*A Large-scale Dataset with Behavior, Attributes, and Content of Mobile Short-video Platform*](https://arxiv.org/abs/2502.05922). WWW Companion 2025, pp. 793–796.
 
-[\[10\]]{#ref-10} Yoon, S., He, Z., Echterhoff, J. M., & McAuley, J. (2024). [*Evaluating Large Language Models as Generative User Simulators for Conversational Recommendation*](https://aclanthology.org/2024.naacl-long.83/). NAACL 2024, pp. 1490–1504.
+[\[10\]]{#ref-10} Gao, C., et al. (2022). [*KuaiRand: An Unbiased Sequential Recommendation Dataset with Randomly Exposed Videos*](https://doi.org/10.1145/3511808.3557624). CIKM 2022, pp. 3953–3957. [Caption/category supplement](https://zenodo.org/records/18159199).
+
+[\[11\]]{#ref-11} Sukiennik, N., Wang, H., Zeng, Z., Gao, C., & Li, Y. (2025). [*SimTok: Simulating Filter Bubble on Short-video Recommender System with Large Language Model Agents*](https://arxiv.org/abs/2504.08742). arXiv:2504.08742.
+
+[\[12\]]{#ref-12} Yoon, S., He, Z., Echterhoff, J. M., & McAuley, J. (2024). [*Evaluating Large Language Models as Generative User Simulators for Conversational Recommendation*](https://aclanthology.org/2024.naacl-long.83/). NAACL 2024, pp. 1490–1504.
