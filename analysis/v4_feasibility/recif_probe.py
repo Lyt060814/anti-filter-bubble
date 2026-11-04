@@ -30,9 +30,9 @@ def captions(recif_dir, out):
     matched = {g: set() for g in GROUPS}
     lengths, samples, rng = [], [], random.Random(0)
     for rg in range(f.num_row_groups):
-        t = f.read_row_group(rg, columns=["pid", "caption"])
+        t = f.read_row_group(rg, columns=["pid", "dense_caption"])
         pids = t.column("pid").to_numpy()
-        caps = t.column("caption")
+        caps = t.column("dense_caption")
         lengths.extend(pc.utf8_length(caps).to_numpy(zero_copy_only=False).tolist()[:2000])
         for g, kws in GROUPS.items():
             mask = None
