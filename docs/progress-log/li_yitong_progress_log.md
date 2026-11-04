@@ -1,19 +1,18 @@
 **Name:** Li Yitong (3036289377)
 
-**Role:** Technical integration, research design, recommender experiments and data infrastructure
+**Role:** Technical integration, recommendation simulation and intervention experiments
 
 **Work completed**
 
-- *Before the plan.* Reviewed prior work on information cocoons and user controls, and traced how "not interested" feedback works in X's open-source recommender. Ran data checks on ShortVideo and KuaiRand and small pilots with LLM-simulated users. Wrote the technical part of the project plan.
-- *After the plan feedback.* The feedback said our question was vague and two key terms were undefined. I reworked the question into a measurable one: when a user says they do not want one viewpoint on an issue, how much does that viewpoint drop compared with other content on the same issue? I defined the issue corpus, viewpoint exposure and a selectivity score (1 if only the targeted viewpoint drops, 0 if the whole issue drops equally), and derived limits for three controls: topic tags give zero selectivity; classifier filters and embedding-based feedback are limited by how well they separate viewpoints.
-- *This week.* Checked data and compute. Kuaishou's RecIF dataset has 162k users, 75.7M impressions and about 54k "not interested" events. I moved data and experiments to a GPU server.
+- Refined the research question with Fu Yitong and Wang Junbo: helping users see fewer unwanted claims while keeping useful content on the same topic. I wrote formal definitions of the issue corpus, viewpoint exposure and a selectivity score, which compares how much a control reduces the unwanted viewpoint with how much it reduces the rest of the issue.
+- With Xu Ruicong, built a simple recommendation simulator comparing five actions, including negative feedback, topic filtering and selective filtering with extra content.
+- Checked larger data and compute for the experiments: Kuaishou's RecIF dataset (162k users, about 54k "not interested" records) and a GPU server.
 
 **Difficulties encountered**
 
-- Our earlier simulation cut a viewpoint's weight to 0.7 and the topic's to 0.97 after each "not interested", but these numbers had no source, and X's code cannot supply them. We will measure them on trained recommenders instead.
-- Real logs are too sparse for a single issue: for marriage and gender, only 22 events can be compared before and after. The main measurement will therefore use controlled inputs to recommenders trained on all events, with logs as a topic-level check.
-- Explicit claims are rare and mostly one-sided in the data, while framing that blames a whole gender recurs. I am proposing that we label framing alongside stance.
+- The simulator's feedback parameters, such as how much one "not interested" lowers a viewpoint compared with its topic, were set by hand, and no public source gives them. I am replacing them with values measured on a trained recommender (Kuaishou's OneRec).
+- Real "not interested" records on a single issue are too few for a direct before-and-after comparison, so we test the trained model with controlled inputs and use the logs as a check.
 
 **In progress and next steps**
 
-I am checking whether Kuaishou's OneRec model responds to "not interested" history as expected. Next, I will measure selectivity for the three controls on the group's labelled videos, work with Zhao Dingcheng on comparing strategies and the held-out issue, and with Xu Ruicong on evaluating simulated users with measured parameters. By 12 November I will write my sections of the report draft.
+I am improving the simulator with measured feedback, classification errors and stopping interventions (with Xu Ruicong). By 8 November I will compare the five strategies under different assumptions and on the new issue (with Zhao Dingcheng and Xu Ruicong), then write my section of the report draft by 12 November.
