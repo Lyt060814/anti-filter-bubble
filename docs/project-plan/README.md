@@ -1,16 +1,15 @@
 # Project Plan 导航
 
-当前阶段：正式中英文稿已发组员 review，正按反馈修订；尚未向课程平台提交。内部方案以 v3 为基线，后续实验尚未完成。
+当前阶段：Project Plan 已提交并收到老师对选题创造性的反馈。研究方向已按反馈重新设计为 [Research Plan v4](research_plan_v4.md)，取代 v3 的研究问题、理论与执行设计；正在做 v4 的可行性核查，实验尚未开始。
 
 ## 当前文档
 
 | 用途 | 入口 |
 |---|---|
-| 正式课程提案（中英文各 4 页，含参考文献） | [中英文 PDF、Word、源稿与构建说明](submission/README.md) |
-| 问题定义、研究依据与理想方案 | [Working Plan v3](working_plan_v3.md) |
-| 工作包、验证条件、分工与实施步骤 | [Execution Plan v3](execution_plan_v3.md) |
-| 扩展资源调研 | [Resource Review v3](resource_review_v3.md) |
-| 已运行的基础检查与未验证项 | [可行性记录](../context-recovery/plan_v3_feasibility.md) |
+| **当前研究方向**：问题、理论、研究空白、设计、资源档位与待决策事项 | [Research Plan v4](research_plan_v4.md) |
+| v4 可行性核查的原始数字与脚本 | [v4 可行性记录](../context-recovery/plan_v4_feasibility.md)、[analysis/v4_feasibility](../../analysis/v4_feasibility/) |
+| 已提交的课程提案（中英文各 4 页） | [中英文 PDF、Word、源稿与构建说明](submission/README.md) |
+| v3（已被 v4 取代，保留作背景） | [Working Plan v3](working_plan_v3.md)、[Execution Plan v3](execution_plan_v3.md)、[Resource Review v3](resource_review_v3.md)、[v3 可行性记录](../context-recovery/plan_v3_feasibility.md) |
 | 资源检查脚本与运行方式 | [analysis/context_audit](../../analysis/context_audit/README.md) |
 
 提交稿是依照课程要求精简的提案，不需要包含内部计划的全部技术细节。具体模型和参数由后续实验决定；资源可读取、组件可运行，不等于准确率或干预效果已经验证。
