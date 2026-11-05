@@ -1,0 +1,44 @@
+{
+  "none": {
+    "logit_issue_share_mean": -0.6732320581276773,
+    "diff_vs_none": 0.0,
+    "se": 0.0,
+    "share_users_up": 0.0
+  },
+  "ni_standard": {
+    "logit_issue_share_mean": -0.46707718828070066,
+    "diff_vs_none": 0.20615486984697656,
+    "se": 0.027544888484899985,
+    "share_users_up": 0.9666666666666667
+  },
+  "ni_variant": {
+    "logit_issue_share_mean": -0.46953239003050246,
+    "diff_vs_none": 0.2036996680971747,
+    "se": 0.02710332759813629,
+    "share_users_up": 0.9333333333333333
+  },
+  "ni_block": {
+    "logit_issue_share_mean": -0.46939022405396086,
+    "diff_vs_none": 0.20384183407371642,
+    "se": 0.027390493852156732,
+    "share_users_up": 0.9666666666666667
+  },
+  "neutral": {
+    "logit_issue_share_mean": -0.40976577744026466,
+    "diff_vs_none": 0.2634662806874125,
+    "se": 0.031321744868306134,
+    "share_users_up": 0.9666666666666667
+  },
+  "like": {
+    "logit_issue_share_mean": -0.40875645631166363,
+    "diff_vs_none": 0.2644756018160136,
+    "se": 0.03240108092315862,
+    "share_users_up": 0.9333333333333333
+  },
+  "ctrl_ni_standard": {
+    "logit_issue_share_mean": -0.6406206082477915,
+    "diff_vs_none": 0.03261144987988575,
+    "se": 0.022505115502093654,
+    "share_users_up": 0.5666666666666667
+  }
+}

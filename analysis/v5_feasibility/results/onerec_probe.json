@@ -1,0 +1,99 @@
+{
+  "pools": {
+    "issue": 400,
+    "ctrl": 400
+  },
+  "template_thinking_False": {
+    "valid_sid_rate": 0.9989583333333333,
+    "sampled_recall@64": 0.01111111111111111
+  },
+  "template_thinking_True": {
+    "valid_sid_rate": 0.004427083333333333,
+    "sampled_recall@64": 0.0
+  },
+  "thinking_used": false,
+  "label_cond": {
+    "base": {
+      "m_mean": 0.025919945643865204,
+      "m_median": 0.02529611548234295,
+      "target_rate_mean": 0.00011747125369477389,
+      "valid_rate": 0.6798375
+    },
+    "lv_issue": {
+      "m_mean": 0.056526854240258106,
+      "m_median": 0.05503326443379082,
+      "target_rate_mean": 0.0036583485559809116,
+      "valid_rate": 0.75125
+    },
+    "lv_ctrl": {
+      "m_mean": 0.027787026088526123,
+      "m_median": 0.02762245343680273,
+      "target_rate_mean": 0.00029674862328997784,
+      "valid_rate": 0.8039375
+    },
+    "ni_issue": {
+      "m_mean": 0.03976729141035149,
+      "m_median": 0.03832737182550745,
+      "target_rate_mean": 0.000892144894861326,
+      "valid_rate": 0.7203875
+    },
+    "ni_ctrl": {
+      "m_mean": 0.028039192210201902,
+      "m_median": 0.02689254203327734,
+      "target_rate_mean": 0.00019562262154400922,
+      "valid_rate": 0.756575
+    }
+  },
+  "label_cond_diffs": {
+    "lv_issue-lv_ctrl": {
+      "mean_diff_m": 0.028739828151731994,
+      "se": 0.0019646498931233463,
+      "share_users_lower": 0.0,
+      "mean_log_ratio_m": 0.701966266718164,
+      "mean_diff_target_rate": 0.003361599932690934,
+      "se_target": 0.00042136425406758313
+    },
+    "ni_issue-ni_ctrl": {
+      "mean_diff_m": 0.011728099200149587,
+      "se": 0.0009133468093411821,
+      "share_users_lower": 0.0,
+      "mean_log_ratio_m": 0.3565442763727752,
+      "mean_diff_target_rate": 0.0006965222733173167,
+      "se_target": 0.00012493063277384904
+    },
+    "ni_issue-base": {
+      "mean_diff_m": 0.013847345766486283,
+      "se": 0.0009542172510020161,
+      "share_users_lower": 0.0,
+      "mean_log_ratio_m": 0.45882113671171953,
+      "mean_diff_target_rate": 0.000774673641166552,
+      "se_target": 0.00012952910686774688
+    },
+    "lv_issue-base": {
+      "mean_diff_m": 0.030606908596392913,
+      "se": 0.0023010976330028686,
+      "share_users_lower": 0.0,
+      "mean_log_ratio_m": 0.806882080473418,
+      "mean_diff_target_rate": 0.0035408773022861375,
+      "se_target": 0.00044399295149366087
+    }
+  },
+  "video_rec": {
+    "base": {
+      "m_mean": 0.021013184907461208,
+      "valid_rate": 0.6452250000000002
+    },
+    "add_issue": {
+      "m_mean": 0.095718321144759,
+      "valid_rate": 0.7048875
+    },
+    "add_ctrl": {
+      "m_mean": 0.023133526427517655,
+      "valid_rate": 0.74655
+    },
+    "add_issue-add_ctrl": {
+      "mean_diff_m": 0.07258479471724136,
+      "se": 0.005548167549996768
+    }
+  }
+}
