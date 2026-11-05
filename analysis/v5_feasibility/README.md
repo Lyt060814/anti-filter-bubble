@@ -10,6 +10,7 @@
 | `label_pilot.py` | 用开源 LLM 给 1,800 条议题候选标注三种属性，统计流行度与反馈率 | 2×GPU，vLLM |
 | `onerec_manipulation_probe.py` | OneRec 模板检查、抽样召回、话题与"不感兴趣"的操纵检验；`Maps` 提供 pid 与语义 ID 的查表 | 1×GPU，vLLM |
 | `onerec_ni_header_probe.py` | 同一批视频换不同栏目标题，检验模型是否读懂"不感兴趣"的含义 | 1×GPU |
+| `embedding_contrast_probe.py` | 用 Qwen3-Embedding-8B 计算描述 embedding 中的属性对比、话题对比、线性探针 AUC 与语义 ID 共享率 | 1×GPU，vLLM，scikit-learn |
 | `onerec_viewpoint_probe.py` | 精确计算语义 ID 序列概率，检验 OneRec 在议题内是否区分属性；可加随机假属性与按语义 ID 前缀分组的对照 | 1×GPU，transformers |
 
 运行方式（服务器上）：
