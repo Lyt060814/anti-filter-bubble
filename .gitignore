@@ -5,3 +5,7 @@ __pycache__/
 
 # Local session recovery: raw conversations, attachments and runtime evidence
 .session-recovery/
+
+# PDF build dependencies and intermediate HTML
+docs/project-plan/pdf-build/node_modules/
+docs/project-plan/pdf-build/out/

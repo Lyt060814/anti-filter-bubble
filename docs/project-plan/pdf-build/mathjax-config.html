@@ -1,0 +1,11 @@
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+    svg: { fontCache: "global", mtextInheritFont: true },
+    startup: {
+      pageReady: () => MathJax.startup.defaultPageReady().then(() => {
+        document.body.setAttribute("data-math-ready", "1");
+      })
+    }
+  };
+</script>
