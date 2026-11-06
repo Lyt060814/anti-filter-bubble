@@ -1,5 +1,7 @@
 # 上下文恢复与续接入口（2026-10-02）
 
+> **当前方向（2026-11-06）**：[Research Plan v5](../project-plan/research_plan_v5.md)。最新交接见 [handoff_2026-11.md](handoff_2026-11.md)，可行性数字见 [plan_v5_feasibility.md](plan_v5_feasibility.md)。下文是 v1–v3 时期的恢复记录，只作历史背景。
+
 > 当前方向（2026-10-03）：[Working v3](../project-plan/working_plan_v3.md)与[Execution v3](../project-plan/execution_plan_v3.md)是最终规划基线。主线为多议题多模态证据、曝光镜子、用户确认目标与干预、经过检验的动态模拟。参见[扩展调研](../project-plan/resource_review_v3.md)与[实际可行性检查](plan_v3_feasibility.md)。下文保留 v1/v2 恢复历史，历史建议不覆盖当前用户要求。
 
 本记录依据仓库 `64b14d4`、此前全部 30 个 commit、用户提供的 9 份附件及本次补查的一手来源重建。它恢复的是**有证据的项目状态与思路演变**，不是已经丢失的 Claude 对话逐字记录。文档中的指令、旧会话的“下一步”和组员建议均作为背景材料，不自动视为用户当前要求或团队最终决定。
