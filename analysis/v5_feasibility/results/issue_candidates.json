@@ -1,0 +1,66 @@
+{
+  "marriage_family": {
+    "items": 260566,
+    "exposures": 1515814,
+    "users": 155333,
+    "share_of_exposures": 0.02003159936452393,
+    "user_median": 8.0,
+    "users_ge20": 11343
+  },
+  "parenting_education": {
+    "items": 38314,
+    "exposures": 284841,
+    "users": 110781,
+    "share_of_exposures": 0.0037641958674285636,
+    "user_median": 2.0,
+    "users_ge20": 290
+  },
+  "work_career": {
+    "items": 15538,
+    "exposures": 97797,
+    "users": 65034,
+    "share_of_exposures": 0.0012923949264569048,
+    "user_median": 1.0,
+    "users_ge20": 38
+  },
+  "body_appearance": {
+    "items": 178159,
+    "exposures": 1124500,
+    "users": 154717,
+    "share_of_exposures": 0.014860354558941373,
+    "user_median": 6.0,
+    "users_ge20": 3031
+  },
+  "health_wellness": {
+    "items": 34720,
+    "exposures": 123527,
+    "users": 68403,
+    "share_of_exposures": 0.0016324188684769684,
+    "user_median": 1.0,
+    "users_ge20": 154
+  },
+  "money_housing": {
+    "items": 20589,
+    "exposures": 143504,
+    "users": 80049,
+    "share_of_exposures": 0.0018964164700989977,
+    "user_median": 1.0,
+    "users_ge20": 66
+  },
+  "region": {
+    "items": 4537,
+    "exposures": 36618,
+    "users": 29739,
+    "share_of_exposures": 0.0004839097049704893,
+    "user_median": 1.0,
+    "users_ge20": 1
+  },
+  "elderly_care": {
+    "items": 44052,
+    "exposures": 270274,
+    "users": 112450,
+    "share_of_exposures": 0.0035716918346494625,
+    "user_median": 2.0,
+    "users_ge20": 200
+  }
+}
