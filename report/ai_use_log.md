@@ -99,3 +99,4 @@
 - 输出如何使用：实际运行；供给参照总偏斜不再称为平台参照个人偏斜，R3–R5 待 R2 合并后重跑。
 
 - D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
+- 附录 A（同一会话）：确切提示词为"先做附录 A"。Claude 根据 `narrative_types.md` 和 `prompt_v2.py` 起草附录 A 的英文全文，v2 提示词原文由脚本从 `prompt_v2.py` 原样复制；例子是编写的。同时改写了第 4.3 节中描述提示词修订的一句。影响附录 A 和第 4.3 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
