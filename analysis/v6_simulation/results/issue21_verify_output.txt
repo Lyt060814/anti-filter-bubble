@@ -1,0 +1,3 @@
+PASS scope: Li Yitong 5.1 and all material outside Xu markers unchanged.
+PASS data: all seed records complete; zero limit matches preserved c/t=0 scan; S6 remains a separate output mechanism.
+PASS provenance: source hashes, PNG 300 dpi/PDF, old upper files unchanged; directory 54.39 MB.

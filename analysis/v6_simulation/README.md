@@ -1,5 +1,12 @@
 # 透明推荐模型模拟
 
+## Issue #21：当前 L4 主情形
+
+运行 `python analysis/v6_simulation/l4_main.py`，再运行 `python analysis/v6_simulation/verify_issue21.py`。
+新主目标为属性 +.12、话题 +.70；拟合 c/t=.4170。独立零对比下限重跑，并引用原扫描 r=.20 的近 null 点。
+原 +1.13 的完整网格、图、端点和汇总不变，现作为上限情境；下面 calibrated_run.py 命令复现的是该历史网格。
+新的结果和图均使用 l4_main 前缀。不要把种子均值区间当作对 L4/null 测量不确定性的区间。
+
 ## R3：按组员要求校准后的版本
 
 Python >=3.10，numpy、matplotlib。运行：
