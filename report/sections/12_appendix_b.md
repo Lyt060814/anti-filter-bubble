@@ -34,7 +34,7 @@ The earlier formation figure is preserved as upper-scenario evidence:
 
 ![Preserved upper-scenario formation](../../analysis/v6_simulation/figures/formation_calibrated.png)
 
-The figure's fitted group curve uses the old +1.13 input; it must not be interpreted as the L4-aligned main.
+**Figure B.1.** Upper scenario (attribute response +1.13, the Qwen-label pilot): formation for supply .02 and prior .15. Time panels show selected ratios; the last row shows the full coefficient sweep. Bands are pointwise 95% Monte Carlo intervals. The fitted group curve uses the old +1.13 input and is not the main scenario of Section 5.2.
 
 
 ## B.2 Strategy implementations and effort
@@ -56,6 +56,14 @@ The figure's fitted group curve uses the old +1.13 input; it must not be interpr
 The arms share initial formation states and coupled random numbers. After 1,000 active exposures, output controls are removed before the next natural draw. Follow-up runs for 2,000 exposures with original preferences. Effort counts actions, not equal human time: bulk deletion/reset count once; S4 adds 100 viewed items; S3 acts on every encountered B, including cases that might naturally complete. Perfect identification of A is assumed for feedback/deletion. Filtering quality is tested separately. Ledger deletion can overshoot toward B.
 
 We record two half-lives: the first follow-up step halving the initial reduction relative to pre-intervention skew, and a separate half-life of improvement over matched S0. No initial reduction has no defined half-life. A reduction not halved by the horizon is right-censored; its time remains missing, with explicit flags. Conditional averages of observed half-lives must not treat censored times as 2,000.
+
+![Upper-scenario strategy comparison](../../analysis/v6_simulation/figures/escape_calibrated.png)
+
+**Figure B.2.** Upper scenario: endpoint effects of each strategy at θ=2. Bars are pointwise 95% intervals. S7 has m=0 and undefined skew, so it is omitted. Filtering uses the assumed benchmark classifier.
+
+![Upper-scenario persistence](../../analysis/v6_simulation/figures/persistence_calibrated.png)
+
+**Figure B.3.** Upper scenario: difference from matched S0 after the user stops. Output controls are removed before the first follow-up draw; preferences resume unchanged. Bands are pointwise 95% intervals.
 
 ## B.3 Local contrasts, filtering and the NI fit
 
