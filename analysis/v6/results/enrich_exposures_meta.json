@@ -1,0 +1,12 @@
+{
+  "candidate_pool": 260566,
+  "candidate_pool_exposures": 1515814,
+  "cue_word_videos": 961,
+  "cue_word_exposures": 6529,
+  "non_cue_exposures": 1509285,
+  "random_draws_until_cutoff": 2335,
+  "random_draws_on_cue_videos": 8,
+  "random_draws_on_non_cue_videos": 2327,
+  "reproduction_check": "passed: reproduced random stratum equals labels file (same pids, same order)",
+  "weighting": "cue stratum: census, weight each video by its exposures; random stratum: each draw represents non_cue_exposures / random_draws_on_non_cue_videos exposures (weight a video by its draws)"
+}
