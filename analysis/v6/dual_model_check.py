@@ -1,6 +1,7 @@
 """Dual-model check of narrative labels on marriage-and-family videos (no human annotation).
 
-Usage: python -I dual_model_check.py LLM_DIR RECIF_DIR OUT_PREFIX [N] [N_GPT] [PROMPT_VERSION]
+Usage: python -I dual_model_check.py LLM_DIR RECIF_DIR OUT_PREFIX [N] [N_GPT] [PROMPT_MODULE_PATH]
+  PROMPT_MODULE_PATH: optional .py defining PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse (e.g. analysis/v6_annotation/prompt_v1.py).
   - samples N issue-candidate videos by exposure (same keyword set as v5),
   - labels them with Qwen3-30B (local vLLM, GPUs given by CUDA_VISIBLE_DEVICES, TP=2),
     DeepSeek V4 Pro (API, reference) and, on the first N_GPT, GPT-6.1 Sol (relay API, second reference).
@@ -58,12 +59,15 @@ def parse(text):
 
 def api_label(url, key, model, prompts, workers, extra):
     def one(p):
+        parse_fn = globals()["parse"]
         body = {"model": model, "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": p}], **extra}
         for attempt in range(5):
             try:
                 r = requests.post(url, headers={"Authorization": f"Bearer {key}"}, json=body, timeout=180)
                 if r.status_code == 200:
-                    return parse(r.json()["choices"][0]["message"]["content"])
+                    out = parse_fn(r.json()["choices"][0]["message"]["content"])
+                    if out is not None:
+                        return out
             except Exception:
                 pass
             time.sleep(2 * (attempt + 1))
@@ -76,6 +80,13 @@ def main():
     llm_dir, recif_dir, prefix = sys.argv[1:4]
     n = int(sys.argv[4]) if len(sys.argv) > 4 else 500
     n_gpt = int(sys.argv[5]) if len(sys.argv) > 5 else 150
+    if len(sys.argv) > 6:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("prompt_mod", sys.argv[6])
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        global PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse
+        PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse = mod.PROMPT_VERSION, mod.SYSTEM, mod.TEMPLATE, mod.FIELDS, mod.parse
     caps = issue_captions(recif_dir)
     cnt = item_counts(recif_dir, set(caps))
     seen = [p for p in cnt if cnt[p][0] > 0]
