@@ -119,6 +119,6 @@
 
 ### 2026-11-07 · Li Yitong · Claude Code（Claude Opus 5.5）
 - 用途：起草报告第 3 节（Concepts and Theory）英文初稿，内容来自 `docs/project-plan/research_plan_v5.md` 第 4 节与 v6 第 3 节，算例数字用脚本计算。
-- 影响的报告部分：第 3 节全文。
+- 影响的报告部分：第 3 节全文；第 1 节全文；第 4.1 节。
 - 确切提示词：会话中让 Claude 按任务说明开展工作的指令："我觉得可以，就以性别婚恋作为case study。……下一步就开始实际干活了，我的两个队员分别是dingcheng和ruicong。开始吧"；任务 L6 写在 `docs/tasks/li_yitong.md`。
 - 输出如何使用：待 Li Yitong 审阅修改后采用。

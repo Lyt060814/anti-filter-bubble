@@ -7,7 +7,11 @@ Numbers in 4.3 are for prompts v0 and v1 and will be updated with the v2 check. 
 
 ## 4.1 Data
 
-*(Li Yitong: RecIF logs, video descriptions, issue candidates, sampling.)*
+We use RecIF, the public benchmark released with Kuaishou's OpenOneRec project (OpenOneRec Team, 2025), available on Hugging Face under an Apache-2.0 licence after accepting its terms. Its log file covers 162,074 users and 75,671,142 impressions; for each impression it records whether the user watched to the end ("long view"), liked, followed, shared, or marked the video "not interested". Users' histories are ordered in time, with a median of 493 impressions per user. Each of the 12.7 million videos has a machine-generated text description (median 173 Chinese characters), written in a neutral reporting style, and a three-level semantic ID used by the OneRec recommender. We never see the videos themselves, so every label in this report is a judgement about the description, not the video.
+
+Two samples are drawn from the logs. For the overview in Section 4.2 we drew impressions uniformly from all users' histories, so a video appears in proportion to how often it was shown. For the case study we used videos whose descriptions contain one of 15 marriage-and-family keywords (such as *divorce*, *mother-in-law*, *bride price*, *husband*); 260,566 videos match, and together they make up 2.0% of all impressions. Each user saw a median of 8 of them (10th–90th percentile 3–17), and only 813 users saw 50 or more. Keywords only select candidates: the language model then decides whether each video is actually about the issue.
+
+The data have three limits that shape the analysis. The users are a sample of Kuaishou's general population, not students. Per-user counts on any one issue are small, so individual users' skew cannot be measured from the logs and is studied in simulation instead. And the logs record what users were shown and how they reacted, not what they wanted to see.
 
 ## 4.2 Which issues carry opposing narratives
 
