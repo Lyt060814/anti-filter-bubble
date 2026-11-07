@@ -1,0 +1,12 @@
+{
+  "input": "strat_ds_labels.csv",
+  "n_invalid": 79,
+  "model": "deepseek-v4-pro",
+  "by_stratum_outcome": {
+    "身体与外貌|valid_on_retry": 47,
+    "家庭与代际|valid_on_retry": 32
+  },
+  "outcomes_detail": {
+    "valid_on_retry": 79
+  }
+}
