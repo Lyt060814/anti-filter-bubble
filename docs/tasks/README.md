@@ -8,6 +8,10 @@
 | Xu Ruicong | [xu_ruicong.md](xu_ruicong.md)：透明模型模拟、察觉样本量 | `analysis/v6_simulation/`、`report/sections/` 中自己的节 |
 | Li Yitong | [li_yitong.md](li_yitong.md)：服务器上的标注与 OneRec 实验、理论、整合、审阅 | `analysis/v6/`、`report/` |
 
+## 并行
+
+三条线互不等待：Xu Ruicong 的模拟不依赖数据；Zhao Dingcheng 的核查分析先用 v0 结果开工，提示词定稿后再更新数字；Li Yitong 的 OneRec 和日志分析先用现有标签开工。依赖只在数字层面，换一版结果重跑脚本即可。
+
 ## 流程
 
 1. 拉取最新 `main`，从它新建自己的分支：`dingcheng/<主题>` 或 `ruicong/<主题>`。

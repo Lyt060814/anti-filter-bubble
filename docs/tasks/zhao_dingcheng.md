@@ -24,7 +24,7 @@
 
 ## D3 双模型核查结果分析（11-11）
 
-Li Yitong 用你的提示词，让两个模型各自独立标注同一批约 500 条婚恋视频：开源的 Qwen3-30B（全量标注用）和一个更强的前沿模型（作为参照）。结果只含 `pid`、标签和一句话依据，会提交到 `analysis/v6/results/`。你写 `analysis/v6_annotation/agreement.md`：
+**不用等 D2**：Li Yitong 已用 v0 提示词（见 `analysis/v6/dual_model_check.py`）跑出第一版结果 `analysis/v6/results/dual_v0_labels.csv`，你可以先用它写分析脚本和初稿；D2 定稿后会用你的提示词重跑一次，你再更新数字。两个模型各自独立标注同一批约 500 条婚恋视频（另有 150 条加了第三个模型 GPT-6.1 Sol 作第二参照）：开源的 Qwen3-30B（全量标注用）和一个更强的前沿模型（作为参照）。结果只含 `pid`、标签和一句话依据，会提交到 `analysis/v6/results/`。你写 `analysis/v6_annotation/agreement.md`：
 
 1. 以前沿模型为参照，给出群体标签的混淆矩阵、Qwen 的查准率和查全率（带置信区间），以及两个模型的一致率（Cohen's kappa）；
 2. 按两个模型给出的依据，把分歧归成几类，例如"剧情反派被当成群体标签""调侃被当成贬低"；
