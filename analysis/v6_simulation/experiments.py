@@ -2,6 +2,7 @@
 import argparse
 import csv
 import json
+import hashlib
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -41,13 +42,18 @@ def metadata(name, extra):
                 sources=['docs/tasks/xu_ruicong.md', 'docs/project-plan/research_plan_v5.md section 4',
                          'docs/context-recovery/plan_v5_feasibility.md section 3.4'])
     meta.update(extra)
+    meta['source_sha256'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                             for p in ROOT.glob('*.py')}
+    meta['working_tree_status'] = subprocess.check_output(['git','status','--porcelain'],text=True)
     (ROOT/'results'/f'{name}.meta.json').write_text(json.dumps(meta, indent=2), encoding='utf8')
     (ROOT/'figures'/f'{name}.meta.json').write_text(json.dumps(meta, indent=2), encoding='utf8')
 
 
 def figure(name, extra=None):
     (ROOT/'figures').mkdir(exist_ok=True)
-    plt.gcf().text(0.5, 0.005, 'Synthetic scenarios; parameters assumed. Bands/bars: pointwise 95% Monte Carlo CI (20 seeds).',
+    footer = ('Analytic approximation; assumed classifier; repository-reported pilot anchors. No sampling intervals.'
+              if name=='detection' else 'Synthetic scenarios; parameters assumed. Bands/bars: pointwise 95% Monte Carlo CI (20 seeds).')
+    plt.gcf().text(0.5, 0.005, footer,
                   ha='center', fontsize=7)
     plt.tight_layout(rect=(0, 0.035, 1, 1))
     plt.savefig(ROOT/'figures'/f'{name}.png', dpi=300)
@@ -61,14 +67,14 @@ def ci(x):
     return np.mean(x, axis=0), 2.093*np.std(x, axis=0, ddof=1)/np.sqrt(len(x))
 
 
-def population(ratio, seed, decay=0.002):
+def population(ratio, seed, decay=0.002, outside_topics=4):
     """Each seed is an independent four-user world; shared item catalogue.
 
     Platform reference is ratio of *mean masses*, never mean conditional p.
     Record exact metrics every step internally; CSV snapshots every 20 steps.
     Keep decayed A contributions so S5 reverses only their surviving weights.
     """
-    model = Model(Config(ratio=ratio, decay=decay), seed)
+    model = Model(Config(ratio=ratio, decay=decay, outside_topics=outside_topics), seed)
     rngs = [np.random.default_rng(seed*100+q) for q in range(4)]
     users = np.zeros((4, 8))
     ahist = np.zeros_like(users)
@@ -81,7 +87,7 @@ def population(ratio, seed, decay=0.002):
             for q, theta in enumerate(THETAS):
                 m, p, v = model.metrics(pis[q], ref)
                 c, topic = model.contrast(users[q], 0)
-                rows.append(dict(ratio=ratio, theta=theta, seed=seed, decay=decay, step=step,
+                rows.append(dict(ratio=ratio, theta=theta, seed=seed, decay=decay, outside_topics=outside_topics, step=step,
                                  m=m, p=p, V=v, reference=ref[0]/sum(ref),
                                  total_bias=np.log(pis[q,model.A].sum()/pis[q,model.B].sum()),
                                  platform_bias=reference_logit(ref), contrast_A=c, topic_contrast_A=topic))
@@ -102,29 +108,34 @@ def population(ratio, seed, decay=0.002):
 
 def formation():
     rows = []
-    for decay in (0, 0.002):
-        for ratio in RATIOS:
-            for seed in SEEDS:
-                rows.extend(population(ratio, seed, decay)[-1])
-            print(f'R2 decay={decay} c/t={ratio}: 20 seeds complete', flush=True)
+    for outside in (1,4):
+        for decay in (0, 0.002):
+            for ratio in RATIOS:
+                for seed in SEEDS:
+                    rows.extend(population(ratio, seed, decay, outside)[-1])
+                print(f'R2 outside={outside} decay={decay} c/t={ratio}: 20 seeds complete', flush=True)
     save_csv('formation', rows)
+    plot_formation(rows)
+
+
+def plot_formation(rows):
     fig, axes = plt.subplots(2, 4, figsize=(13, 6))
     for d, decay in enumerate((0, 0.002)):
         for q, theta in enumerate(THETAS):
             ax = axes[d, q]
-            for ratio in (0, 0.15, 0.59, 1):
-                group = [r for r in rows if r['ratio']==ratio and r['theta']==theta and r['decay']==decay]
+            for ratio in RATIOS:
+                group = [r for r in rows if r['ratio']==ratio and r['theta']==theta and r['decay']==decay and r['outside_topics']==4]
                 m = np.array([r['m'] for r in group]).reshape(20, -1)
                 v = np.array([r['V'] for r in group]).reshape(20, -1)
                 mm, em = ci(m)
                 vv, ev = ci(v)
-                line, = ax.plot(mm, vv, label=f'c/t={ratio}')
+                line, = ax.plot(mm, vv, label=f'c/t={ratio}' if ratio in (0,.15,.59,1) else '_nolegend_', color=plt.cm.viridis(ratio))
                 ax.fill_between(mm, vv-ev, vv+ev, alpha=.12, color=line.get_color())
                 ax.errorbar(mm[-1], vv[-1], xerr=em[-1], yerr=ev[-1], color=line.get_color())
             ax.set(title=f'theta={theta}; decay={decay}', xlabel='Topic exposure m', ylabel='Personal skew V')
     axes[0,0].legend(fontsize=7)
-    figure('formation', dict(csv_snapshot_interval=20, decay_scan=[0, .002],
-                             plotted_ratios=[0,.15,.59,1], all_ratios_available_in_csv=True))
+    figure('formation', dict(csv_snapshot_interval=20, decay_scan=[0, .002], outside_topics_scan=[1,4], plotted_outside_topics=4,
+                             plotted_ratios=RATIOS, all_ratios_available_in_csv=True))
 
 
 def detection():

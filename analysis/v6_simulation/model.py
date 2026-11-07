@@ -30,6 +30,7 @@ class Config:
     a: float = -1.0
     gamma: float = 1.0
     noise: float = 0.05
+    outside_topics: int = 4
 
 
 class Model:
@@ -37,16 +38,17 @@ class Model:
         self.cfg = cfg
         rng = np.random.default_rng(seed)
         # 40 A, 40 B, 320 outside items; balanced supply is an assumption.
-        nuisance = rng.normal(0, cfg.noise, (40, 4))
+        nuisance = rng.normal(0, cfg.noise, (40, 2))
         self.v = np.zeros((400, 8))
         self.v[:80, 0] = cfg.t
         self.v[:40, 1] = cfg.ratio * cfg.t
         self.v[40:80, 1] = -cfg.ratio * cfg.t
-        self.v[:40, 4:] = nuisance
-        self.v[40:80, 4:] = nuisance
-        self.v[80:, 2] = cfg.t
-        self.v[80:, 3] = np.tile([-0.5, 0.5], 160)
-        self.v[80:, 4:] = rng.normal(0, cfg.noise, (320, 4))
+        self.v[:40, 6:] = nuisance
+        self.v[40:80, 6:] = nuisance
+        if cfg.outside_topics not in (1, 4):
+            raise ValueError('outside_topics must be 1 or 4')
+        self.v[np.arange(80,400), 2+np.arange(320)%cfg.outside_topics] = cfg.t
+        self.v[80:, 6:] = rng.normal(0, cfg.noise, (320, 2))
         self.A = np.arange(400) < 40
         self.B = (np.arange(400) >= 40) & (np.arange(400) < 80)
         self.I = self.A | self.B
