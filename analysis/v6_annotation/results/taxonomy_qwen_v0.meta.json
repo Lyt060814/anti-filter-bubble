@@ -1,18 +1,34 @@
 {
   "script": "analysis/v6_annotation/taxonomy.py",
-  "commit": "b11fe0a",
+  "commit": "02ee95f",
   "date": "2026-11-07",
   "input": "../v6/results/bottom_up_labels.csv",
   "label_source": "qwen_v0",
   "summary": {
     "n": 2996,
+    "missing": 0,
     "issue_share": 0.223,
+    "issue_share_ci": [
+      0.2084,
+      0.2382
+    ],
+    "in_scope_share": 0.1262,
+    "in_scope_share_ci": [
+      0.1148,
+      0.1385
+    ],
+    "in_scope_opposing_share": 0.4894,
+    "in_scope_opposing_ci": [
+      0.4394,
+      0.5397
+    ],
     "consumption_anxiety_raising_total": 27,
     "consumption_anxiety_raising_in_marketing": 10,
     "subissue_other_share_in_scope": 0.2116
   },
+  "compare": null,
   "intervals": "Wilson 95%",
   "weighting": "none (impressions sampled uniformly from user histories)",
   "subissues": "keyword rules over the LLM's free-text issue labels; see SUBISSUES in the script",
-  "evidence": "measured: LLM labels on a random sample; not checked against a stronger model or humans"
+  "evidence": "measured: LLM labels on a random sample; no human check"
 }
