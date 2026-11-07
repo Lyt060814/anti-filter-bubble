@@ -85,8 +85,9 @@ def rogan_gladen(q, tpr, fpr):
 def load(path):
     d = pd.read_csv(path, dtype=str, keep_default_na=False)
     for m in MODELS:
-        for f in ("issue", "group_label", "narrative_type", "genre"):
-            d[f"{m}_{f}"] = d[f"{m}_{f}"].replace("", "缺失")
+        for f in ("issue", "group_label", "narrative_type", "genre") + tuple(QS):
+            if f"{m}_{f}" in d.columns:
+                d[f"{m}_{f}"] = d[f"{m}_{f}"].replace("", "缺失")
     return d
 
 
@@ -181,6 +182,35 @@ def disagreements(both, a, ref):
     return out
 
 
+QS = ["q1_target", "q2_generalize", "q3_negative", "q4_endorse"]
+
+
+def question_divergence(d, a, ref):
+    """Where two models part ways on the four group-label questions (prompt v2 onwards).
+
+    For rows both models labelled: agreement and kappa per question, and, for rows where the binary group label
+    differs, the first question (in order) on which their answers differ.
+    """
+    if not all(f"{m}_{q}" in d.columns for m in (a, ref) for q in QS):
+        return None
+    rows = d[(d[f"{a}_issue"] != "缺失") & (d[f"{ref}_issue"] != "缺失")]
+    out = {"rows": int(len(rows)), "per_question": {}}
+    for q in QS:
+        x, y = rows[f"{a}_{q}"].to_numpy(), rows[f"{ref}_{q}"].to_numpy()
+        out["per_question"][q] = {"agreement": round(float(np.mean(x == y)), 4), "kappa": None if kappa(x, y) is None else round(kappa(x, y), 4),
+                                  "crosstab": pd.crosstab(rows[f"{a}_{q}"], rows[f"{ref}_{q}"]).to_dict()}
+    dis = rows[rows[f"{a}_group_label"].isin(POS) != rows[f"{ref}_group_label"].isin(POS)]
+
+    def first(r):
+        for q in QS:
+            if r[f"{a}_{q}"] != r[f"{ref}_{q}"]:
+                return f"{q}: {r[f'{a}_{q}']} vs {r[f'{ref}_{q}']}"
+        return "same answers, different label"
+    out["label_disagreements"] = int(len(dis))
+    out["first_divergence"] = pd.Series([first(r) for _, r in dis.iterrows()], dtype=object).value_counts().to_dict()
+    return out
+
+
 def compare_versions(cur, prev):
     """Change from the previous prompt version on the same pids."""
     m = cur.merge(prev, on="pid", suffixes=("", "_prev"))
@@ -230,6 +260,9 @@ def analyse(path, prev_path=None, out_dir=None, write=True):
     dis = pd.concat(dis, ignore_index=True)
     res["disagreement_categories"] = {f"{a}_vs_{ref}": dis[(dis.rated == a) & (dis.reference == ref)].category.value_counts().to_dict()
                                       for a, ref in PAIRS if f"{a}_vs_{ref}" in res["pairs"]}
+    qd = {f"{a}_vs_{ref}": question_divergence(d, a, ref) for a, ref in PAIRS if f"{a}_vs_{ref}" in res["pairs"]}
+    if any(qd.values()):
+        res["question_divergence"] = qd
     if prev_path:
         res["change_from_" + version_of(prev_path)] = compare_versions(d, load(prev_path))
     if write:
