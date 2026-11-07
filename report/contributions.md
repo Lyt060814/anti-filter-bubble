@@ -9,6 +9,7 @@
 - 10 月：与 Fu Yitong、Li Yitong 细化研究问题并撰写项目计划相关部分；与 Zhao Dingcheng 搭建初版曝光报告流程，负责端到端连接与报告生成；与 Fu Yitong 设计标注模板并编写一致性检查代码；标注真实视频样本。（来源：11-04 进度记录）
 
 ## Xu Ruicong
+- 2026-11-07：使用 Codex 研究助手完成 R1 透明模型与两项数值自检，保留逐种子验证结果（analysis/v6_simulation/）。
 - 10 月：准备 ShortVideo、KuaiRand 数据；从 KuaiRand Pure 构建 30 名用户、1,936 条交互的样本轨迹，检查字段完整性、去重与时长异常。（来源：11-04 进度记录）
 
 ## Zhao Dingcheng
