@@ -40,9 +40,24 @@ The model writes the issue name as free text, so for domains with at least 30 im
 | Resources and fairness | 0.3% | 0/9 (0%–30%) | — | (too few to split) | 0.6%; 53% |
 | Study and ideas | 0.1% | 0/2 (0%–66%) | — | (too few to split) | 1.5%; 25% |
 
-**Where opposing narratives appear, and what kind they are.** Most of what users are shown is not about social issues at all: about 7% of impressions (95% interval 6.5%–8.4%) touch a social issue, and the five domains we study account for about 4.5% (3.8%–5.3%). Within those five domains, roughly one impression in six carries an opposing narrative (17%; 12%–24%). Gender and relationships is the largest issue domain, and about one in five of its impressions carries an opposing narrative; about half of these present one choice as the only right one. In body and appearance the opposing narratives we found are all of the only-right-way kind, about appearance standards. Across the whole sample, only-right-way is the most common type (16 of the 39 impressions with an opposing narrative), followed by anxiety-raising (8), group label (6) and binary opposition (5). Group labels are rare: only one fell in gender and relationships, consistent with the rate of roughly 1% that the reference model gives on a larger sample of marriage videos (Section 4.3).
+**Where opposing narratives appear, and what kind they are.** Most of what users are shown is not about social issues at all: about 7% of impressions (95% interval 6.5%–8.4%) touch a social issue, and the five domains we study account for about 4.5% (3.8%–5.3%). Gender and relationships is the largest issue domain. Across the 3,000 impressions, only-right-way is the most common type (16 of the 39 with an opposing narrative), followed by anxiety-raising (8), group label (6) and binary opposition (5).
 
-Three cautions apply. First, each domain has only 2 to 54 impressions, so the intervals are wide, often 20 to 40 percentage points; the table shows where opposing narratives concentrate and what kind they are, not precise levels. Second, the cross-domain prompt excluded marketing, and none of the anxiety-raising labels in consumption fell on promotions; with the open model and no such rule, at least 10 of 27 did. Third, the labels come from a model, checked only against other models (Section 4.3).
+Each domain in Table 4.1 has only 2 to 54 impressions, so to estimate the opposing share within the studied domains more precisely we drew a second, larger sample. A cheaper model (deepseek-flash) screened 20,000 impressions, again drawn from user histories in proportion to exposure, and assigned each to a domain (19,773 valid). From each of the five studied domains it flagged we drew up to 200 impressions and had the reference model label them with the same cross-domain prompt. Each labelled impression is weighted by the number the screen flagged in its domain divided by the number labelled, and impressions are grouped by the reference model's domain. The screen over-flags: the reference model confirmed only 46%–60% of each flagged domain (Table 4.2).
+
+**Table 4.2.** Opposing narratives within the five studied domains in the screened, stratified sample (DeepSeek V4 Pro labels). The weighted share uses screen counts as stratum weights; counts are unweighted. Intervals are percentile bootstrap within strata. "Group label" here follows the cross-domain prompt, which counts negative labels on any group, including businesses and professions.
+
+| Domain | Screen-flagged impressions confirmed by the reference model | Opposing narrative, weighted share (95% interval) | Narrative types (count) |
+|---|---:|---:|---|
+| Gender and relationships | 60% of 200 | 17% (10%–23%); 21/127 | only-right-way (8), binary opposition (6), anxiety-raising (4), group label (2) |
+| Body and appearance | 58% of 81 | 17% (7%–28%); 8/47 | only-right-way (3), group label (2), anxiety-raising (2) |
+| Family and generations | 55% of 168 | 7% (2%–12%); 7/101 | anxiety-raising (3), group label (2), only-right-way (1), binary opposition (1) |
+| Life choices and paths | 56% of 71 | 15% (5%–27%); 6/45 | only-right-way (2), group label (2), anxiety-raising (1) |
+| Consumption and money | 46% of 149 | 20% (11%–30%); 14/69 | anxiety-raising (8), group label (5), binary opposition (1) |
+| All five studied domains | — | 14% (10%–17%); 56/389 | — |
+
+The two samples agree, and the larger one narrows the intervals. Within the five studied domains, about one impression in seven carries an opposing narrative (14%; 10%–17%). The share is lowest in family and generations (7%) and highest in consumption and money (20%) and gender and relationships (17%), with wide intervals for the smaller domains. Gender and relationships carries all four types, led by only-right-way. Group labels against a gender remain rare: two of the 127 gender-and-relationships impressions, consistent with the rate of about 1% in Section 4.3.
+
+Three cautions apply. First, the shares are only as good as the labels, which come from a model checked against other models (Section 4.3). Second, the stratified sample covers only impressions the screen placed in a studied domain, so it is used here for the opposing share within each domain, while domain sizes come from Table 4.1; 47 of the 128 body-and-appearance and 32 of the 200 family-and-generations outputs were invalid and are left out, which assumes they are missing at random. Third, the cross-domain prompt excluded marketing, and none of the anxiety-raising labels in consumption in Table 4.1 fell on promotions; with the open model and no such rule, at least 10 of 27 did.
 
 **The open model overestimates at both steps.** The open model labelled 22% of the same impressions as social-issue content, three times as many as the reference model, and judged almost half of those (47%) to carry an opposing narrative. Of the 660 impressions it placed in a social-issue domain, the reference model placed 450 in non-issue content. On the 210 impressions both models treated as issue content, the open model labelled 69% as opposing and the reference model 17%. This matches the pattern in Section 4.3: the open model reads drama, jokes and everyday family scenes as stances.
 
@@ -54,15 +69,15 @@ Three cautions apply. First, each domain has only 2 to 54 impressions, so the in
 - *Life choices and paths*: taking the civil-service exam versus starting work; "lying flat" versus striving.
 - *Consumption and money*: saving versus enjoying life now; whether young people should still buy a home and a car.
 
-**Why gender and relationships is the case study.** It is the largest social-issue domain in what users are shown, and it carries three of the four narrative types. The most common type there is only-right-way. Group labels are rarer, but they are the most clearly defined type, so they can be labelled and checked (Appendix A.3), and the most directly harmful, since they disparage a whole group rather than a choice. Their rarity is also the premise of the detection analysis in Section 5: a narrative that makes up about 1% of a user's issue videos is hard for the user to notice.
+**Why gender and relationships is the case study.** It is the largest social-issue domain in what users are shown, and it carries all four narrative types (Table 4.2). The most common type there is only-right-way. Group labels are rarer, but they are the most clearly defined type, so they can be labelled and checked (Appendix A.3), and the most directly harmful, since they disparage a whole group rather than a choice. Their rarity is also the premise of the detection analysis in Section 5: a narrative that makes up about 1% of a user's issue videos is hard for the user to notice.
 
 **What we left out, and why.** We exclude three groups of content from the main analysis. (1) *History, national memory and patriotism*, which make up a third of the culture-and-values domain (17 of 51 impressions), and *policing, surveillance and campus control* in public order and freedom. These are politically sensitive: we expect labels to disagree more, and both the ethics of studying users' exposure to them and open discussion of results are harder. (2) *Resources and fairness*, *study and ideas* and *other social issues*, each with 9 or fewer impressions. (3) The rest of culture and values, a broad mix of tradition, celebrity and online culture with no common dispute.
 
 ## 4.3 How reliable the labels are
 
-No video was labelled by hand. To estimate label quality, three models labelled the same 500 marriage-and-family videos independently, sampled in proportion to exposures: the open model (Qwen3-30B-A3B-Instruct-2507), the reference model used for all final labels (DeepSeek V4 Pro), and, on the first 150 videos, a second reference (GPT-6.1 Sol). We ran this check three times as we revised the prompt (Appendix A.4); Table 4.2 summarises the gender group label, the attribute used in the case study.
+No video was labelled by hand. To estimate label quality, three models labelled the same 500 marriage-and-family videos independently, sampled in proportion to exposures: the open model (Qwen3-30B-A3B-Instruct-2507), the reference model used for all final labels (DeepSeek V4 Pro), and, on the first 150 videos, a second reference (GPT-6.1 Sol). We ran this check three times as we revised the prompt (Appendix A.4); Table 4.3 summarises the gender group label, the attribute used in the case study.
 
-**Table 4.2.** Gender group labels on the same 500 marriage-and-family videos under three prompt versions. Precision, recall and kappa compare the open model with the reference model; 95% intervals in brackets.
+**Table 4.3.** Gender group labels on the same 500 marriage-and-family videos under three prompt versions. Precision, recall and kappa compare the open model with the reference model; 95% intervals in brackets.
 
 | | v0 | v1 | v2 (final) |
 |---|---:|---:|---:|
@@ -83,7 +98,7 @@ This check has clear limits. The reference is itself a model, not a human gold s
 
 A common worry is that ranking by engagement amplifies divisive content because people engage with it more (Milli et al., 2025). We checked whether that holds in these logs. For each labelled video we counted, across all users, how often it was shown, watched to the end, liked or marked "not interested", and pooled the rates over impressions. Intervals come from resampling videos, since impressions of the same video are not independent.
 
-**Table 4.3.** Engagement in RecIF by DeepSeek label (95% intervals from 2,000 bootstrap resamples of videos).
+**Table 4.4.** Engagement in RecIF by DeepSeek label (95% intervals from 2,000 bootstrap resamples of videos).
 
 | Videos | Videos (impressions) | Watched to end | Liked | "Not interested" |
 |---|---:|---:|---:|---:|
