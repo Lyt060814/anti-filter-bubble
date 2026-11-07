@@ -1,0 +1,14 @@
+{
+  "script": "analysis/v6_annotation/design_mockup.py",
+  "commit": "21a0eb2",
+  "date": "2026-11-07",
+  "inputs": [
+    "analysis/v6_simulation/results/calibrated_escape_summary.csv.gz"
+  ],
+  "simulation_case": "group family, supply .02, prior .15, topic target .70, attribute target 1.13, fitted ratio 1.28, decay .0002, main_grid, theta 2, step 1000",
+  "evidence": "mock-up: example-user numbers are invented; evidence thresholds are formula results; action effects are synthetic simulation results",
+  "check_group_label_needed_vs_section_5_3": {
+    "this_script": 6475,
+    "section_5_3": 6475
+  }
+}

@@ -1,0 +1,23 @@
+item,value,kind,source
+days,30.0,illustrative,invented example user
+videos,2200.0,illustrative,invented example user
+topic_videos,46.0,illustrative,invented example user
+topic_share,0.02090909090909091,illustrative,invented example user
+typical_topic_share,0.016,illustrative,invented example user
+needed_videos_per_arm: Any opposing narrative,196.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.1: gender and relationships, 11/54 (DeepSeek)"
+needed_videos_per_arm: Group labels,6475.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.2: v2 reference, 5/500 (DeepSeek)"
+S5 odds factor vs S0: Delete these videos from my history,0.2779,simulation,delta_vs_control -1.2807 (95% half-width 0.1492)
+S5 topic exposure kept,0.9916,simulation,"exp(delta_log_m), main case"
+S6 odds factor vs S0: Hide these videos (filter),0.1518,simulation,delta_vs_control -1.8852 (95% half-width 0.0700)
+S6 topic exposure kept,0.9535,simulation,"exp(delta_log_m), main case"
+"S1a odds factor vs S0: ""Not interested"", if it acts as negative feedback",0.4325,simulation,delta_vs_control -0.8383 (95% half-width 0.1361)
+S1a topic exposure kept,0.9881,simulation,"exp(delta_log_m), main case"
+"S1b odds factor vs S0: ""Not interested"", if it behaves as in our OneRec test",0.9159,simulation,delta_vs_control -0.0878 (95% half-width 0.0526)
+S1b topic exposure kept,1.0009,simulation,"exp(delta_log_m), main case"
+S8 odds factor vs S0: Turn off personalisation,0.5999,simulation,delta_vs_control -0.5110 (95% half-width 0.1891)
+S8 topic exposure kept,0.9913,simulation,"exp(delta_log_m), main case"
+S2 odds factor vs S0: Skip these videos quickly,0.6722,simulation,delta_vs_control -0.3972 (95% half-width 0.0725)
+S2 topic exposure kept,0.9942,simulation,"exp(delta_log_m), main case"
+S3 odds factor vs S0: Watch other videos on the topic to the end,0.905,simulation,delta_vs_control -0.0998 (95% half-width 0.0399)
+S3 topic exposure kept,1.0011,simulation,"exp(delta_log_m), main case"
+S6 topic exposure kept with the v2 open-model classifier,0.8648,simulation,"section 5.2: v2-classifier main-case rerun, delta log m -.1453"
