@@ -26,8 +26,8 @@ def meta(name,details,scripts):
         (BASE/folder/f'{name}.meta.json').write_text(json.dumps(data,indent=2),encoding='utf8')
 
 
-def fig(name,details,scripts):
-    plt.gcf().text(.5,.006,'Synthetic scenarios; pilot-matched scales; remaining parameters assumed. Pointwise 95% Monte Carlo intervals, 20 seeds.',ha='center',fontsize=7)
+def fig(name,details,scripts,note='Synthetic scenarios; pilot-matched scales; remaining parameters assumed. Pointwise 95% Monte Carlo intervals, 20 seeds.'):
+    plt.gcf().text(.5,.006,note,ha='center',fontsize=7)
     plt.tight_layout(rect=(0,.035,1,1))
     (BASE/'figures').mkdir(exist_ok=True)
     for ext in ('png','pdf'): plt.savefig(BASE/'figures'/f'{name}.{ext}',dpi=300)

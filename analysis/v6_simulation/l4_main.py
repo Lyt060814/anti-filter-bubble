@@ -88,7 +88,8 @@ def run():
     axes[1].axhline(0,color='grey',lw=.5)
     axes[2].set(xticks=[0],xticklabels=['S6'],ylabel='Endpoint change in total skew',title='Output filtering: separate mechanism',ylim=(-1.7,.05))
     axes[2].axhline(0,color='grey',lw=.5)
-    fig('l4_main',details,['l4_main.py','calibrated_model.py','calibrated_run.py','revised_common.py'])
+    fig('l4_main',details,['l4_main.py','calibrated_model.py','calibrated_run.py','revised_common.py'],
+        note='Synthetic scenarios; attribute scale matched to the L4 OneRec measurement (+0.12), topic scale to the pilot (+0.70); remaining parameters assumed. Pointwise 95% Monte Carlo intervals, 20 seeds.')
     for r in cal:print(r)
     for r in summary:
         if r['theta']==2 and ((r['scenario']=='L4_main' and r['step'] in (FORM,ACTIVE)) or (r['scenario']=='zero_lower' and r['strategy']=='formation')):print(r)

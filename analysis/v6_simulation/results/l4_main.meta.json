@@ -1,12 +1,12 @@
 {
-  "git_commit": "df559e3a2e8d5faf1a6cab693640d69e449a9022",
-  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
-  "numpy": "2.3.1",
+  "git_commit": "193ce6eb2afb6f0a4d900a3e6fbefd436163cbbd",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "numpy": "2.4.3",
   "source_sha256": {
-    "l4_main.py": "28d20831b1f945e3c9099f5fb66827ee69f957308b3459fc8e174a885cb05e8d",
+    "l4_main.py": "7fc77fcd5d6d68b4a88bf5d4dd67ceb6ae2acf02b5c1940b4ce92dd554a23304",
     "calibrated_model.py": "f96707bdb1951d95ec5c55186a89b598d106e8ea68780198e2e884c49955e787",
     "calibrated_run.py": "4cd83e83d0e03bb6e049a11fe3a9390674689d66b47debc344fcc6f68589dc81",
-    "revised_common.py": "7e66238e0e93878109e81c1131cc89892f627775ad113e9436e26cc6eea3cae2"
+    "revised_common.py": "13f8fb22abff27077c3011b9fa460adbad85afd9367091e181e0a634d0c30a11"
   },
   "source_hash_format": "UTF-8 normalized LF",
   "evidence_type": "synthetic scenarios calibrated to L4 measurement; not independent validation",
@@ -23,8 +23,8 @@
   "near_null_ratio": 0.2,
   "near_null_achieved_target": 0.027599042053513045,
   "measured_sources": {
-    "l4_onerec_v0.json": "6d5b5de288f738d1fc2612b6f0e0b558d7798a117e419669c0095a6e7a88eec7",
-    "l4_null.json": "c70d61de36b456c8c6c32f030fcebc98e4d41c86705442dc9b5aa597956deb92"
+    "l4_onerec_v0.json": "30ca9f6cd6eaa1a19eb9f7579aa397b0a5c968c63cbca7c6032221f970f63662",
+    "l4_null.json": "34380f70e5f45d80602998ef6c7bc3a4aefe15d1af272826aeeb33e26a692ea9"
   },
   "seeds": [
     0,

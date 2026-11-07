@@ -160,3 +160,4 @@
 - 确切提示词：`analysis/v6/deepseek_label.py`（`BU_TEMPLATE` 等）、`analysis/v6_annotation/prompt_v0`–`prompt_v2.py` 中的系统提示与模板；v2 与跨大类提示词原文见附录 A。
 - 输出如何使用：作为标签，用模型间一致性估计质量；不当作人工金标准。
 - 整合（同一会话）：确切提示词为"继续"和"ruicong的在改，你继续完成你的工作吧"。Claude 编写 `report/build_report.sh` 合成全文 PDF；压缩第 5.1–5.3 节（数字不变，5.2–5.3 为 Xu Ruicong 的部分，已告知其核对），把上限情境的图移入附录 B；按 #27、#28、#29 的结果同步摘要、第 4.4 节表注、第 5 节、第 6 节图注、第 7 节和第 8、10 节；编写并运行 `analysis/v6/retry_invalid.py`、`enrich_exposures.py`。输出如何使用：待 Li Yitong 通读后采用。
+- 代 Xu Ruicong 收尾（同一会话）：确切提示词为"你直接把ruicong的做掉吧，她不太方便"。Claude 给 `revised_common.fig` 加上可选脚注参数（默认值不变，上限情境的图不受影响），在 `l4_main.py` 中把图 5.1 的脚注改为"属性尺度匹配 L4 实测 +0.12、话题尺度匹配试点 +0.70"，重跑 `l4_main.py`（结果与已提交文件相同，最大差 2×10⁻¹⁷，数据文件保持原样）；对照 `l4_main_summary.csv` 与 `l4_main_calibration.csv` 核对第 5.2 节的全部主情境数字。输出如何使用：待 Li Yitong 通读后采用。
