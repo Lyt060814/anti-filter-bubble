@@ -60,8 +60,11 @@
   "intervention_steps": 200,
   "followup_steps": 400,
   "script": "analysis/v6_simulation/escape.py",
-  "git_commit": "c7db9981f5fd2aedc94653d71c47047bbe42dde0",
-  "utc": "2026-11-07T05:52:58.143540+00:00",
+  "git_commit": "970f6897b097410ef98e3c8a7e82d4c7e7703118",
+  "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "numpy_version": "2.3.1",
+  "matplotlib_version": "3.10.3",
+  "utc": "2026-11-07T06:05:41.906847+00:00",
   "interval": "mean +/- t(19,0.975)=2.093 * sample SD / sqrt(20); pointwise Monte Carlo CI",
   "sources": [
     "docs/tasks/xu_ruicong.md",
@@ -80,14 +83,15 @@
   "S8": "softmax(mean user vector); not mean softmax probabilities; V need not equal zero",
   "filtration": "expected class-dependent thinning with refill; outside unaffected",
   "effort": "actions; S6 also records expected rejected mass, not human effort",
+  "source_hash_format": "UTF-8 text with universal-newline normalization to LF",
   "source_sha256": {
-    "audit.py": "96886f9f0324b47afed3309ec279cd3215cfc09e8b76209dc9c54441f662ee95",
-    "escape.py": "e45c8e57a1e28397e6b71945f809af2f966797189000c9a35c540973e07e159e",
-    "experiments.py": "3056fdd292b10957998eb806e45b6805d0b89869fc65b7de4c8c612780f22335",
+    "audit.py": "03a8a809b52fc50893ef5fea49edb26bcad7245c964bae6d3a3bda8e558368d3",
+    "escape.py": "c6b37243c3a1bdfb7739f3b86a8f2ac7978e589f347d125a7b3455f61d5676b1",
+    "experiments.py": "5cdee8ba8d0ee4dc64b2541e67adb807ae0a9ecfecadaf87e77f9d32a7a7dda0",
     "model.py": "5d9c69abe944840d58c54aec4d8e89a4d4ec2ab71fa9e9d88b083e724b97d729",
     "ni_sensitivity.py": "4a21ebff7d5ab07cc03e2c7d065735e54df8f1758932bb411847862e9d1ca233",
     "replot.py": "623bae2cb8b9b7a502e260428338ba254c1e3d4f4d398f3d016b59c460c5bad3",
-    "summarize.py": "6be4a1c268f23218c3153b4304a2bac56a0d8a1cfcae26d585532ce80c2c211f"
+    "summarize.py": "6d4fac80e9fd25fb4d80dcfb661d3b641177a41dad4715bddff9792a71858c58"
   },
-  "working_tree_status": " M analysis/v6_simulation/figures/formation.meta.json\n M analysis/v6_simulation/figures/formation.pdf\n M analysis/v6_simulation/results/formation.meta.json\n M report/contributions.md\n M report/figures.md\n?? analysis/v6_simulation/audit.py\n?? analysis/v6_simulation/escape.py\n?? analysis/v6_simulation/figures/detection.meta.json\n?? analysis/v6_simulation/figures/detection.pdf\n?? analysis/v6_simulation/figures/detection.png\n?? analysis/v6_simulation/figures/escape.meta.json\n?? analysis/v6_simulation/figures/escape.pdf\n?? analysis/v6_simulation/figures/escape.png\n?? analysis/v6_simulation/figures/ni_sensitivity.meta.json\n?? analysis/v6_simulation/figures/persistence.meta.json\n?? analysis/v6_simulation/figures/persistence.pdf\n?? analysis/v6_simulation/figures/persistence.png\n?? analysis/v6_simulation/ni_sensitivity.py\n?? analysis/v6_simulation/replot.py\n?? analysis/v6_simulation/results/detection.csv\n?? analysis/v6_simulation/results/detection.meta.json\n?? analysis/v6_simulation/results/escape.csv\n?? analysis/v6_simulation/results/escape.meta.json\n?? analysis/v6_simulation/results/escape_summary.csv\n?? analysis/v6_simulation/results/ni_sensitivity.csv\n?? analysis/v6_simulation/results/ni_sensitivity.meta.json\n?? analysis/v6_simulation/results/persistence.csv\n?? analysis/v6_simulation/results/persistence.meta.json\n?? analysis/v6_simulation/results/run_output.txt\n?? analysis/v6_simulation/summarize.py\n?? report/screenshots/\n"
+  "working_tree_status": " M analysis/v6_simulation/figures/detection.meta.json\n M analysis/v6_simulation/figures/detection.pdf\n M analysis/v6_simulation/figures/escape.pdf\n M analysis/v6_simulation/figures/formation.meta.json\n M analysis/v6_simulation/figures/formation.pdf\n D analysis/v6_simulation/figures/ni_sensitivity.meta.json\n M analysis/v6_simulation/results/detection.meta.json\n M analysis/v6_simulation/results/formation.meta.json\n M analysis/v6_simulation/results/ni_sensitivity.meta.json\n?? analysis/v6_simulation/results/parameters.csv\n?? analysis/v6_simulation/results/parameters.meta.json\n"
 }

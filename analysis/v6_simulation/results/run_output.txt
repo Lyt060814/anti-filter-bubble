@@ -5,4 +5,5 @@ PASS R3 sensitivity: seven NI strengths, including +0.5 and +0.78; full grid.
 R4 p0=0.018: odds x2 -> 2636 same-topic videos per arm; total at m=.016: 164750.0.
 R4 p0=0.41: odds x2 -> 164 same-topic videos per arm; total at m=.016: 10250.0.
 PASS R4: correct odds conversion; sample sizes decrease from odds x2 to x8.
+PASS artifacts: four PNG/PDF pairs, 300 dpi, CSVs, and matching source SHA256.
 All simulation parameters are SCENARIO ASSUMPTIONS. No GPU, raw data or credentials used.

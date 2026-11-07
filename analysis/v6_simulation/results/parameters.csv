@@ -1,0 +1,23 @@
+parameter,value,evidence_type,source
+ratio,0.15,scenario assumption,model.Config
+theta,2.0,scenario assumption,model.Config
+t,1.0,scenario assumption,model.Config
+tau,1.0,scenario assumption,model.Config
+eta,0.05,scenario assumption,model.Config
+decay,0.002,scenario assumption,model.Config
+a,-1.0,scenario assumption,model.Config
+gamma,1.0,scenario assumption,model.Config
+noise,0.05,scenario assumption,model.Config
+outside_topics,4,scenario assumption,model.Config
+ratios,"[np.float64(0.0), np.float64(0.1), 0.15, np.float64(0.2), np.float64(0.3), np.float64(0.4), np.float64(0.5), 0.59, np.float64(0.6), np.float64(0.7), np.float64(0.8), np.float64(0.9), np.float64(1.0)]",scenario assumption,experiments.py
+theta_scan,"[0, 0.5, 1, 2]",scenario assumption,experiments.py
+seeds,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",scenario assumption,experiments.py
+T,600,scenario assumption,experiments.py
+active,200,scenario assumption,experiments.py
+followup,400,scenario assumption,experiments.py
+catalogue,40 A / 40 B / 320 outside,scenario assumption,experiments.py
+nuisance,paired A/B; Gaussian 2 coordinates,scenario assumption,experiments.py
+p0,"[0.018, 0.41]",repository-reported pilot anchor,"Xu task R4 / v5 sections 4,7"
+topic_rate,"[0.016, 0.036]",repository-reported pilot anchor,"Xu task R4 / v5 sections 4,7"
+recall,0.8,scenario assumption,experiments.py
+false_positive_rate,0.02,scenario assumption,experiments.py
