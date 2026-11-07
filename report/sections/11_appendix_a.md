@@ -1,6 +1,6 @@
 # Appendix A. Narrative Definitions and the Annotation Prompt
 
-<!-- Zhao Dingcheng, 2026-11-07. English version of analysis/v6_annotation/narrative_types.md (definitions, v2) and prompt_v2.py (prompt text, copied verbatim in A.5). A.4 will be updated when the v2 check results are in. -->
+<!-- Zhao Dingcheng, 2026-11-07. English version of analysis/v6_annotation/narrative_types.md (definitions, v2) and prompt_v2.py (prompt text, copied verbatim in A.5); A.6 is BU_TEMPLATE from analysis/v6/deepseek_label.py, copied verbatim with the domain list inserted. A.4 will be updated when the v2 check results are in. -->
 
 All labels in this report were produced by large language models from the text description of each video; no video was labelled by hand. This appendix gives the definitions the models were asked to apply, how the prompt changed between versions, and the exact prompt used for the final labels. All examples below were written by us to illustrate the rules; none is taken from a video description.
 
@@ -43,7 +43,7 @@ We checked each version by having the open model (Qwen3-30B-A3B-Instruct-2507) a
 | v1 | Four questions in prose; the model writes its reason first, starting with "target: individual / group" | 51% (252/494) | 0.6% (3/500) |
 | v2 | The four questions become separate output fields answered before the label, and the reason comes last; the target defaults to an individual; looser tests for generalisation and endorsement; wrongdoing-defined groups excluded | *pending* | *pending* |
 
-The same edit moved the two models in opposite directions. Under v1, the open model began almost every reason with "target: group", including reasons for videos it then labelled "none", and then looked for a generalisation to fit; the reference model read the stricter wording as requiring a universal claim, and withdrew five of its seven earlier positives. In v2 the answer to each question is a separate field, and outputs whose label does not follow from the four answers are rejected and, for the API model, re-requested. The labels used in Sections 4 and 5 are produced by the reference model with prompt v2.
+The same edit moved the two models in opposite directions. Under v1, the open model began almost every reason with "target: group", including reasons for videos it then labelled "none", and then looked for a generalisation to fit; the reference model read the stricter wording as requiring a universal claim, and withdrew five of its seven earlier positives. In v2 the answer to each question is a separate field, and outputs whose label does not follow from the four answers are rejected and, for the API model, re-requested. Section 4.2 uses the cross-domain prompt in A.6; Sections 4.3 and 5 use prompt v2.
 
 ## A.5 The v2 prompt (verbatim)
 
@@ -111,4 +111,30 @@ issue 为"否"时，q1_target 填"无对象"，q2–q3 填"否"，q4 填"否"，
   {{"issue":"是","q1_target":"性别群体","q2_generalize":"是","q3_negative":"是","q4_endorse":"否","group_label":"无","narrative_type":"无","genre":"观点/评论","reason":"转述标签但立场是反驳"}}
 
 按 issue、q1_target、q2_generalize、q3_negative、q4_endorse、group_label、narrative_type、genre、reason 的顺序输出 JSON，不要输出其他内容。
+```
+
+## A.6 The cross-domain prompt for the bottom-up sample (verbatim)
+
+Section 4.2 labels a random sample of all impressions, most of which are not about marriage, so it uses a shorter prompt that covers every domain. It was run with DeepSeek V4 Pro and applies the common rules in A.1 in condensed form. The system prompt is the same as in A.5. `{cap}` is replaced by the video description, truncated to 1,200 characters; the list of eleven domains, shown here already inserted, is the one in Table 4.1, and doubled braces become single braces. The output fields are `domain`, `issue` (at most eight characters, or "none"), `opposing` (whether the video itself endorses a contested position), `narrative_type` and `reason` (at most 30 characters). Outputs with an invalid domain or type, or with a narrative type but no opposing position, were rejected and re-requested.
+
+**System prompt**
+
+```text
+你是严谨的内容分析标注员。只根据给出的视频描述判断，不猜测描述中没有的信息。只输出一个 JSON 对象。
+```
+
+**User prompt**
+
+```text
+以下是一条短视频的文字描述（由模型根据视频生成）：
+「{cap}」
+
+请判断：
+1. "domain"：视频主要涉及的社会议题大类，取值之一："性别与婚恋"、"身体与外貌"、"家庭与代际"、"人生选择与出路"、"消费与经济"、"资源与公平"、"学术与思想"、"文化与价值观"、"公共秩序与自由"、"其他社会议题"、"非议题内容"。娱乐、美食、游戏、风景、商品展示、技能教学等不涉及社会观点争议的内容选"非议题内容"。
+2. "issue"：若不是"非议题内容"，用不超过8个字写出具体议题；否则写"无"。
+3. "opposing"：视频本身是否认同并表达了某种有争议的立场或叙事。注意：只转述、反驳或嘲讽某种说法不算；讲冲突或纠纷但不表态不算；商品、课程、"赚钱游戏"等营销推销不算；中性记录、介绍、娱乐不算。取值："是"/"否"。
+4. "narrative_type"：若 opposing 为"是"，选一类（按此顺序取第一个符合的）："群体标签"（给某类人整体贴负面标签或把个案说成群体特征）、"唯一正确"（把一种选择说成唯一正道并贬低其他）、"二元对立"（非此即彼的两个阵营）、"焦虑渲染"（用恐惧、紧迫感、羞耻感推动观点或选择）；否则为"无"。
+5. "reason"：不超过30字，用自己的话概括依据，不要引用描述原文。
+
+只输出 JSON，例如：{{"domain":"性别与婚恋","issue":"彩礼","opposing":"否","narrative_type":"无","reason":"……"}}
 ```
