@@ -25,10 +25,10 @@ DECAY = .002
 TAU = 1.
 
 
-def vectors(ratio):
+def vectors(ratio,supply=.02):
     v = np.zeros((6,6))
     v[:2,0] = 1
-    v[0,1],v[1,1] = ratio,-ratio
+    v[0,1],v[1,1] = ratio*(1-supply),-ratio*supply
     v[2:,2:] = np.eye(4)
     return v
 
@@ -81,7 +81,7 @@ def run():
     rows=[]
     for supply in (.02,.10,.50):
         for ratio in RATIOS:
-            v=vectors(ratio)
+            v=vectors(ratio,supply)
             u=np.zeros((80,6))
             # Every setting uses the same 20 independent random streams.
             rngs=[np.random.default_rng(int(s)) for s in SEEDS]
@@ -119,6 +119,27 @@ def run():
                 summaries.append(summary)
     with (ROOT/'results/formation_bounded_summary.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=summaries[0]);w.writeheader();w.writerows(summaries)
+    diagnostics=[]
+    for s in (.02,.1,.5):
+        for r in RATIOS:
+            x=[q for q in summaries if q['supply']==s and q['ratio']==r]
+            neutral=x[0]
+            diagnostics.append(dict(check='neutral_95CI_contains_zero',supply=s,ratio=r,theta=0,
+                                    passed=neutral['V_supply_lower']<=0<=neutral['V_supply_upper'],
+                                    value=neutral['V_supply_mean']))
+            for left,right in zip(x,x[1:]):
+                diagnostics.append(dict(check='sample_mean_nondecreasing_theta',supply=s,ratio=r,theta=right['theta'],
+                                        passed=right['V_supply_mean']>=left['V_supply_mean']-1e-12,
+                                        value=right['V_supply_mean']-left['V_supply_mean']))
+        for theta in (.5,1,2):
+            x=[q for q in summaries if q['supply']==s and q['theta']==theta]
+            for left,right in zip(x,x[1:]):
+                diagnostics.append(dict(check='sample_mean_nondecreasing_ratio',supply=s,ratio=right['ratio'],theta=theta,
+                                        passed=right['V_supply_mean']>=left['V_supply_mean']-1e-12,
+                                        value=right['V_supply_mean']-left['V_supply_mean']))
+    with (ROOT/'results/formation_diagnostics.csv').open('w',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=diagnostics[0]);w.writeheader();w.writerows(diagnostics)
+    print(f'Review diagnostics: {sum(q["passed"] for q in diagnostics)}/{len(diagnostics)} pass; all failures retained, not tuned away.',flush=True)
     fig,axes=plt.subplots(3,4,figsize=(13,8))
     for q,theta in enumerate((0,.5,1,2)):
         for ratio in RATIOS:
@@ -148,6 +169,7 @@ def run():
               reference='supply p_sup; V_supply is TOTAL skew, not personal V relative to platform average',
               catalogue='six homogeneous vector groups; exact aggregation of arbitrary item multiplicities',
               noise=0,interval='pointwise mean +/- t19(.975)*SD/sqrt(20)',
+              attribute_coordinates='A=c*(1-s); B=-c*s; supply-weighted mean zero; A-B contrast c',
               sources=['PR #4 review 2026-11-07','analysis/v6_annotation/agreement.md: DeepSeek v0 1.4%; not supply estimate',
                        'docs/context-recovery/plan_v5_feasibility.md: topic exposure median 1.6%, p90 3.6%'],
               caveat='Exposure proportions are not supply estimates. Both synthetic prior and supply are assumptions. Projection changes Proposition 2 at the boundary.')
