@@ -1,0 +1,71 @@
+{
+  "evidence_type": "synthetic scenario assumptions",
+  "script": "analysis/v6_simulation/bounded_formation.py",
+  "git_commit": "53f5d45e7c08d72c663b08949c1f760b3876acc5",
+  "source_sha256": "41d4347202dba99f5ba953bf53df44babd360f8f9695b539c7a8adbaa3567381",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "ratios": [
+    0.0,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.59,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "theta": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "supply_scan": [
+    0.02,
+    0.1,
+    0.5
+  ],
+  "main_supply": 0.02,
+  "topic_prior": 0.04,
+  "norm_cap": 0.75,
+  "eta": 0.05,
+  "decay": 0.002,
+  "tau": 1.0,
+  "steps": 1200,
+  "reference": "supply p_sup; V_supply is TOTAL skew, not personal V relative to platform average",
+  "catalogue": "six homogeneous vector groups; exact aggregation of arbitrary item multiplicities",
+  "noise": 0,
+  "interval": "pointwise mean +/- t19(.975)*SD/sqrt(20)",
+  "sources": [
+    "PR #4 review 2026-11-07",
+    "analysis/v6_annotation/agreement.md: DeepSeek v0 1.4%; not supply estimate",
+    "docs/context-recovery/plan_v5_feasibility.md: topic exposure median 1.6%, p90 3.6%"
+  ],
+  "caveat": "Exposure proportions are not supply estimates. Both synthetic prior and supply are assumptions. Projection changes Proposition 2 at the boundary."
+}
