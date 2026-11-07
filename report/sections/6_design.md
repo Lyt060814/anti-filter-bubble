@@ -17,9 +17,3 @@ What should a tool that helps users see a viewpoint cocoon show, and what must i
 **Part 4 states what the report does not claim.** It does not judge which view is right, infer what the user believes, or attribute intent to the platform. It also names the blind spot of its reference: comparing with the non-personalised feed reveals only the personal layer, so a skew built into the platform's overall ranking would not appear (Section 3.2) and needs outside audits.
 
 The thresholds assume a classifier more accurate than the open model, the action effects come from one calibrated scenario, and how users would read such a report is untested.
-
-## References used in this section
-
-Munson, S. A., Lee, S. Y., & Resnick, P. (2013). Encouraging reading of diverse political viewpoints with a browser widget. *Proceedings of the International AAAI Conference on Web and Social Media, 7*(1), 419–428. https://doi.org/10.1609/icwsm.v7i1.14429
-
-Nagulendra, S., & Vassileva, J. (2014). Understanding and controlling the filter bubble through interactive visualization: A user study. In *Proceedings of the 25th ACM Conference on Hypertext and Social Media* (pp. 107–115). ACM. https://doi.org/10.1145/2631775.2631811

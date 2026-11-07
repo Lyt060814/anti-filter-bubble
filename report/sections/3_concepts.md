@@ -62,7 +62,7 @@ The sign and size of $\eta$ for "not interested" are set by how a platform imple
 
 ## 3.4 What other controls can and cannot do
 
-**Proposition 2 (topic and tag controls).** If an action multiplies the exposure of every video in a tag or topic by the same factor, $\Delta V$ depends only on how the attribute is distributed across tags; if every tag contains $A$ in the same proportion, $\Delta V=0$. Switching off the whole issue sets $m$ to zero, at which point $V$ is undefined. Likewise, any "cocoon check" that summarises the feed by content categories, such as the self-assessment features launched by Chinese platforms in 2025, cannot see $V$.
+**Proposition 2 (topic and tag controls).** If an action multiplies the exposure of every video in a tag or topic by the same factor, $\Delta V$ depends only on how the attribute is distributed across tags; if every tag contains $A$ in the same proportion, $\Delta V=0$. Switching off the whole issue sets $m$ to zero, at which point $V$ is undefined. Likewise, any "cocoon check" that summarises the feed by content categories, such as the self-assessment features launched by Chinese platforms in 2025 (Shiqi, 2025), cannot see $V$.
 
 **Proposition 3 (filters).** If an external filter removes every video it classifies as $A$, with exposure-weighted recall $\mathrm{TPR}$ and false-positive rate $\mathrm{FPR}$, and the removed slots are not refilled,
 
