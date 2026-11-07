@@ -1,0 +1,56 @@
+# D2 LLM 标注提示词（v1，2026-11-07，Zhao Dingcheng）
+
+把 [D1 的定义](narrative_types.md)改写成给 LLM 用的提示词，用于婚恋议题视频的标注，以及双模型核查（D3）。提示词的正式文本在 [prompt_v1.py](prompt_v1.py)，下面第 4 节是它的原样副本。修改提示词时改 `prompt_v1.py`，修改说明文字时改 `prompt_md.in`，然后按第 5 节的命令重新生成本文，不要直接编辑本文。
+
+## 1. 怎样使用
+
+`prompt_v1.py` 里的 `SYSTEM`、`TEMPLATE`、`FIELDS`、`parse` 与 [analysis/v6/dual_model_check.py](../v6/dual_model_check.py) 中的同名对象接口相同，可以直接替换：
+
+```python
+sys.path.insert(0, "<仓库>/analysis/v6_annotation")
+from prompt_v1 import PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse
+```
+
+输出字段不变（`issue`、`group_label`、`narrative_type`、`genre`、`reason`），所以 D3 的分析脚本对 v0 和 v1 的结果都能用。`python -I prompt_v1.py` 会自检模板和解析函数。
+
+## 2. 相对 v0 改了什么
+
+| 问题 | v0 / v5 试点 | v1 的做法 |
+|---|---|---|
+| 单个反派被判成群体标签（v5 试点的主要误报） | 只有一句"只刻画具体人物的选无" | 拆成四个依次回答的问题：对象是不是一类人、有没有推广、是不是负面特征、视频认不认同；任何一个答"否"就是"无" |
+| 视频反驳某种标签，也被判成持有它 | 没有规定 | 共同规则：只标视频认同的说法；示例 3 专门演示这种情形 |
+| 冲突题材被当作有立场 | v5 的 (c) 直接把冲突算作属性 | 明确"有冲突不等于有立场" |
+| 营销内容被判成焦虑渲染 | 只在焦虑渲染的括号里提了一句 | 列为共同规则，依据写"营销"，方便事后统计 |
+| 几类同时符合时不一致 | 没有顺序 | 规定顺序：群体标签 → 唯一正确 → 二元对立 → 焦虑渲染 |
+| 非性别的群体标签 | 无处可放 | `narrative_type` 记"群体标签"，`group_label` 记"无" |
+| 什么时候"无法判断" | 只列出了取值 | 写明条件：描述太短、太乱，或看不出视频是否认同 |
+| 先下结论、后找理由 | `reason` 放在最后 | 要求先输出 `reason`，并先写对象是"个人"还是"群体"，让模型先说依据再给标签；D3 也可以用这个前缀给分歧归类 |
+| 前后矛盾的输出 | 只检查取值范围 | `parse` 额外拒绝两类矛盾：性别标签不配"群体标签"、`issue` 为"否"却有标签 |
+
+## 3. 需要 Li Yitong 留意的地方
+
+- **解析更严**：两条一致性规则会让少量输出变成解析失败。请在 meta 里照常记录各模型的解析数；如果失败超过约 2%，告诉我，我改提示词，而不是放宽解析。
+- **长度**：模板约 2,100 字，加上最多 1,200 字的描述，在 Qwen 的 `max_model_len=4096` 以内。`reason` 放宽到 40 字，Qwen 的 `max_tokens=250` 应该够用。
+- **示例**：四个示例都是编写的，不来自视频描述。
+
+## 4. 提示词原文（由 prompt_v1.py 生成）
+
+版本：`PROMPT_VERSION = "v1"`。
+
+**System**
+
+```text
+SYSTEM_PLACEHOLDER
+```
+
+**User**（`{cap}` 处填入视频描述，最多 1,200 字；模板中的 `{{`、`}}` 在填入后变成单个花括号）
+
+```text
+TEMPLATE_PLACEHOLDER
+```
+
+## 5. 重新生成第 4 节
+
+```bash
+cd analysis/v6_annotation && python -I make_prompt_md.py
+```
