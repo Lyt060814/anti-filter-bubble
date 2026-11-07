@@ -1,5 +1,32 @@
 # 透明推荐模型模拟
 
+## R3：按组员要求校准后的版本
+
+Python >=3.10，numpy、matplotlib。运行：
+
+```powershell
+python analysis/v6_simulation/calibrated_run.py
+python analysis/v6_simulation/ni_calibration.py
+python analysis/v6_simulation/package_results.py
+python analysis/v6_simulation/calibrated_audit.py
+python analysis/v6_simulation/report_numbers.py
+```
+
+仅重画：`python analysis/v6_simulation/calibrated_replot.py`。
+完整设计、单位约定、坐标截断的假设、校准目标与 ±50% 单因素扫描见 `r3_calibrated_pr.md`。
+校准不是独立验证；原 R2 是 1,200 步、有界范数的审阅版本，本 R3 以 6,000 步和坐标截断做单独的试点匹配情境，不能混用。
+每个 CSV 保留各设定/各种子的结果；形成每100步存，逃离全设定保留端点，指定主情境另存每100步轨迹。
+持续时间区分无初始改善、已观察到回弹、右删失；总偏斜使用供给参照。
+
+### 公开包与完整本地数据
+
+按审阅保留所有种子的端点和完整汇总，稠密原始形成轨迹只保留主图五组情境，逃离只保留主图两组情境（间隔100步）。
+大文件以确定性 gzip level 9 存成 `.csv.gz`，标准库 `gzip.open(path,'rt')` 或 pandas 可直接读。
+`packaging_manifest.json` 与各图 meta 记录保存策略、压缩方式、行数、大小、文件哈希和完整源哈希。
+整个 analysis/v6_simulation 当前约52 MB。R2 已批准的完整形成 CSV 也仅作无损 gzip 压缩，未删任何行。
+完整未压缩本地数据在仓库外的同级 `simulation_full_runs/calibrated_v1/`，不会提交；不同校准版本应使用新的本地归档目录。
+重新执行 calibrated_run.py 会产生完整 CSV；执行 package_results.py 再生成公开小包。脚本不会以新结果覆盖不同内容的旧完整归档。
+
 ## R2 审阅修订
 
 当前 R2 使用 `python analysis/v6_simulation/bounded_formation.py`。

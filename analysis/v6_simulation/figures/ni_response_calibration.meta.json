@@ -1,0 +1,45 @@
+{
+  "git_commit": "72377e13bb645a84069578425c757dbcd714a965",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "numpy": "2.3.1",
+  "source_sha256": {
+    "ni_calibration.py": "137bd4e742808e9a5ef80e24e5075f2bdb59a211799d427abd7c6c8e23e9db52",
+    "calibrated_model.py": "f96707bdb1951d95ec5c55186a89b598d106e8ea68780198e2e884c49955e787",
+    "calibrated_run.py": "4cd83e83d0e03bb6e049a11fe3a9390674689d66b47debc344fcc6f68589dc81",
+    "revised_common.py": "7e66238e0e93878109e81c1131cc89892f627775ad113e9436e26cc6eea3cae2"
+  },
+  "source_hash_format": "UTF-8 normalized LF",
+  "evidence_type": "scenario calibration to repository-reported positive response ~78% of neutral mention",
+  "source": "docs/context-recovery/plan_v5_feasibility.md section 3.2",
+  "targets": [
+    0.39,
+    0.78,
+    1.17
+  ],
+  "context_prior": 0.15,
+  "topic_target": 0.7,
+  "raw_results": "ni_calibrated_sensitivity.csv",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "warning": "Upper response may be unattainable under coordinate caps; all residuals and attainable flags retained."
+}
