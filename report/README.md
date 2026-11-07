@@ -34,6 +34,7 @@
 | `8_contributions.md` | Team member contribution | 0.5 | 全组，见 [contributions.md](contributions.md) |
 | `9_references.md` | References | 1 | Zhao Dingcheng 统一格式 |
 | `10_ai_declaration.md` | Declaration of generative AI use | 1 | 各人从 [ai_use_log.md](ai_use_log.md) 汇总 |
+| `11_appendix_a.md` | Appendix A：叙事类型定义与标注提示词（英文） | 2 | Zhao Dingcheng |
 
 ## 为报告留存数据（所有人）
 
