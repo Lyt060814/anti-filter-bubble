@@ -234,6 +234,19 @@ def stratified(labels_path, meta_path, b=2000, seed=0):
     tab = pd.DataFrame(rows)
     stem = os.path.join(HERE, "results", "taxonomy_strat_ds")
     tab.to_csv(stem + ".csv", index=False, encoding="utf-8")
+    md = ["| Domain | Screen-flagged impressions confirmed by the reference model | Opposing narrative, weighted share (95% interval) | Narrative types (count) |",
+          "|---|---:|---:|---|"]
+    for r in rows:
+        lo, hi = r["opposing_share_ci"]
+        share = f"{r['opposing_share']:.0%} ({lo:.0%}–{hi:.0%}); {r['v4pro_opposing_rows']}/{r['v4pro_rows']}"
+        if r["domain"] == "_all_studied":
+            md.append(f"| All five studied domains | — | {share} | — |")
+            continue
+        tc = sorted(((r[f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}"], TYPE_EN[t]) for t in TYPES), reverse=True)
+        md.append(f"| {r['domain_en']} | {r['screen_confirmed']:.0%} of {r['stratum_valid_rows']} | {share} | "
+                  + ", ".join(f"{n} ({c})" for c, n in tc if c > 0) + " |")
+    with open(stem + "_table.md", "w", encoding="utf-8", newline="\n") as fh:
+        fh.write("\n".join(md) + "\n")
     try:
         commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
     except OSError:
