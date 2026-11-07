@@ -1,3 +1,34 @@
+# 5 Case Study: Gender and Relationships (RQ2, RQ3)
+
+<!-- 5.1 by Li Yitong, 2026-11-07. Sources: analysis/v5_feasibility/results/onerec_{probe,ni_header,viewpoint_ctrl}.json (v5 pilot, Qwen labels) and analysis/v6/results/l4_onerec_v0.json, l4_null.json (DeepSeek labels). 5.2 and 5.3 are Xu Ruicong's. -->
+
+This section asks how a feed tilts and how a user can undo it, for the narrative of our case study: videos that attach a negative label to a whole gender ("group-label" videos, Section 4.3). We first measure how a recommender trained on real logs responds to user actions (5.1), then use those responses to set the scale of a transparent simulation of formation and escape (5.2), and finally ask whether a user could notice the tilt (5.3).
+
+## 5.1 Measurements on OneRec
+
+**Set-up (measured).** OneRec-1.7B is a recommender released by Kuaishou's team and trained on the RecIF logs (OpenOneRec technical report, 2025). It reads a user's history as text, with each video written as a three-part semantic ID, and generates the IDs of videos to recommend. We used it in two ways. In the *conditional* task, the history is split into sections (videos the user watched to the end, liked, marked "not interested", and so on); in the *video* task, it is one long sequence. For each of 30–50 users from the benchmark test set, whom the model never saw in training, we changed the history in one controlled way and computed the exact probability that the model recommends each video in a fixed candidate set. From these probabilities we read the two quantities of Section 3: the share of issue videos among the candidates (topic share $m$), and the log-odds of group-label videos against other issue videos of the same genre ($V$). Videos used to change the history were never among those used to measure the response.
+
+**Result 1: the topic responds strongly.** Putting 10 issue videos in the "watched to the end" section raised the share of issue videos in the recommendations from 2.6% to 5.7%, against 2.8% when the 10 videos were off-issue; all 40 users moved in the same direction (pilot, Section 4 labels by Qwen). With issue labels from DeepSeek the effect has the same size: the log-odds of issue against off-issue candidates rose by 0.9–1.1, for 90–96% of 50 users.
+
+**Result 2: "not interested" works in the wrong direction.** Putting the same 10 issue videos in the "not interested" section *also* raised the issue share, to 4.0% (40 of 40 users), and the marked videos themselves became more likely to be recommended. With DeepSeek-labelled videos the rise in log-odds was 0.33–0.45 for 96% of users, about 40% of the effect of the "watched" section. Swapping the section title showed why: three negative titles ("not interested", "disliked", "blocked") had almost the same effect as each other, about 78% of a neutral title ("here are some videos"). The model has learned that a video in the prompt is a clue to the user's interests, and has learned little about what the title means. A check on the logs ruled out the other explanation, that users mark only content they were already close to: in the logs, a "not interested" mark goes with *lower* later interest in the issue (odds 0.61–0.77 times). Sequence models trained only on logs are known to be insensitive to negative feedback (Wang et al., 2023).
+
+**Result 3: OneRec does not separate the group-label narrative from other issue videos.** We put 10 group-label videos (A) or 10 genre-matched other issue videos (B) in a section and compared $V$ on held-out videos. A positive difference means the model amplifies the narrative a user engages with. To rule out near-duplicates of the same story, injected and held-out videos never share a first-level semantic ID. As a null, we drew random "pseudo-narratives" of the same size and genre mix from videos without a group label and ran the same test.
+
+**Table 5.1.** Response of $V$ (log-odds of A against B) to adding A rather than B to a user's history. Mean over users, standard error in brackets.
+
+| A set (labels) | Users | "Watched" section | "Not interested" section | Video task, 20 appended |
+|---|---:|---:|---:|---:|
+| Group label, pilot (Qwen; 30 videos) | 30 | +1.13 (0.12) | +0.63 (0.07) | +1.43 (0.08) |
+| Group label (DeepSeek; 171 videos) | 50 | +0.12 (0.07) | +0.06 (0.05) | −0.11 (0.07) |
+| Random pseudo-narrative, one draw | 50 | +0.19 (0.04) | +0.08 (0.03) | +0.15 (0.08) |
+| Random pseudo-narratives, 10 draws: mean (SD across draws) | 30 | +0.09 (0.13) | +0.02 (0.09) | — |
+
+With the reference labels, the group-label contrast is small and inside the range of random pseudo-narratives (−0.18 to +0.24 for the "watched" section over 10 draws). The spread across random sets is larger than the standard error within one set, so a single set must be compared with that spread, not with zero. The large pilot value came from a set of 30 videos labelled by the open model, whose positive labels the reference model confirms only about one time in ten (Section 4.3); a small set of such videos can differ from the rest in ways other than the narrative. We therefore treat OneRec's attribute contrast for this narrative as approximately zero, and the pilot value as an upper scenario.
+
+**What this means.** By Proposition 1, the same contrast drives both formation and escape. For this narrative and this model, a user's own clicks would do little to build a personal tilt, and the user's own feedback would do little to remove one; what the model does respond to is the topic. A tilt of the kind Section 3 defines would then come mostly from the platform layer or from a recommender whose representation separates the narrative more finely than OneRec's text-derived IDs. Section 5.2 therefore reports the whole range of contrasts, from the measured value near zero to the pilot value. "Not interested", by contrast, behaves in the wrong direction at every level we measured, so a user who marks group-label videos as not interested raises their issue share and gains nothing on the mix.
+
+These are measurements on one open model of one platform's data, not on the app itself (Section 7.3).
+
 <!-- BEGIN XU RUICONG SIMULATION: material outside these markers belongs to other authors -->
 ## 5.2 Simulation: formation and escape
 
