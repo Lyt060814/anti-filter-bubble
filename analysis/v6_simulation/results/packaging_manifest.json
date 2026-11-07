@@ -1,0 +1,118 @@
+{
+  "evidence_type": "lossless gzip plus documented intermediate-trace selection; all endpoints and summaries retained",
+  "git_commit": "ad381555acc5b530a892be048b07bbaef8ed0a89",
+  "script": "analysis/v6_simulation/package_results.py",
+  "snapshot_interval": 100,
+  "formation_plotted_cases": [
+    14,
+    16,
+    21,
+    26,
+    27
+  ],
+  "escape_plotted_cases": [
+    21,
+    27
+  ],
+  "retained_formation_steps": "0,6000 for every seed; every100 in plotted cases",
+  "retained_escape_steps": "0,1000,1001,3000 for every seed; every100 in plotted cases",
+  "full_data": "local sibling directory simulation_full_runs/calibrated_v1, excluded from repository; reproduce calibrated_run.py",
+  "files": [
+    {
+      "file": "calibrated_escape_conflict_s0.02.csv.gz",
+      "rows": 165440,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 6595048,
+      "sha256": "11507fbee0ba5713e1a8aaeee57cf99efdc048ce65a90d0553e88d799273b12c",
+      "full_source_sha256": "a449ad8736eb5f6f6374cf94adca1f34aa080144cc08175e8d7de22f31643bc2"
+    },
+    {
+      "file": "calibrated_escape_conflict_s0.1.csv.gz",
+      "rows": 147840,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 5366812,
+      "sha256": "f44c739247abc33566db578627ff032f5d9788562911b186fb2871f67a2c3c98",
+      "full_source_sha256": "0df01c5ad4a5d08cf5aa1e84bf29c876f3178655fa6010c1b6ffc49200465191"
+    },
+    {
+      "file": "calibrated_escape_conflict_s0.5.csv.gz",
+      "rows": 147840,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 4065425,
+      "sha256": "f8aea1b9a0ae2320e9c6e1cea68248f913f8e1f50a20006d5813a224e4ab5203",
+      "full_source_sha256": "8d4737df14614977c60504ee325e60e41494ffec94d22e566c1c455f3e886f80"
+    },
+    {
+      "file": "calibrated_escape_group_s0.02.csv.gz",
+      "rows": 214720,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 8971006,
+      "sha256": "bdd3a48e43a0139873379eb297a74cd68b227ec8ec8c9c2169aa940cfd52adee",
+      "full_source_sha256": "6594b4b3e2d9c0ed3f21cae348075df17b1a7869884d60b428d64d4bc52c6bbf"
+    },
+    {
+      "file": "calibrated_escape_group_s0.1.csv.gz",
+      "rows": 147840,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 5290077,
+      "sha256": "8f82d2b504a9a796e9d06c80fe1e82b14bddee1b88509fa2a8ad9c6d4b7edbb7",
+      "full_source_sha256": "06b4f7fff90933ad5a0fb2759272d0e2946032053f20445372cd861702f7813e"
+    },
+    {
+      "file": "calibrated_escape_group_s0.5.csv.gz",
+      "rows": 147840,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 4037823,
+      "sha256": "70ae56634cbe6233a20c36be8a263ff063bdf08bcfa3ebf2466cff138cdbfb4e",
+      "full_source_sha256": "6b85a1b01b57c12f1f5420fc656bc6afd287f862837c6fb4ef7da7676a04a98e"
+    },
+    {
+      "file": "calibrated_escape_summary.csv.gz",
+      "rows": 58432,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 3436896,
+      "sha256": "122a125d73b629bc8fc0b35b4a16a4af28709a9ddc764cd6208552b4ea94d52d",
+      "full_source_sha256": "55cc2da746f4dfc2a1ad5bb5bca259cbf67bf61826f68cd55ec90b1f8df8281a"
+    },
+    {
+      "file": "calibrated_formation_conflict.csv.gz",
+      "rows": 20960,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 226211,
+      "sha256": "8c89212d0e141724a2c011092874d307324cba7a756d2e9e10bc55459ef07b68",
+      "full_source_sha256": "4a0557852f22a1075841d6b89fdfcea624a81fbdb221e8e90309be904c554cb0"
+    },
+    {
+      "file": "calibrated_formation_group.csv.gz",
+      "rows": 44560,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 559343,
+      "sha256": "0d82edc386577adb24bff0b57177b4c630c9574b5c9616028d8202f997b091b7",
+      "full_source_sha256": "a4464a01ce4d1ebb1cc4f74816f01ea4a2668385f827520433fd890fa9dc7b97"
+    },
+    {
+      "file": "calibrated_formation_summary.csv.gz",
+      "rows": 63928,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 2449477,
+      "sha256": "d168edb58b99aaf1d1ee85810ea1b9fb63ec967965e1be67fa9ba30285a61dd9",
+      "full_source_sha256": "320bffa01453c1cbacb38f95a7d8d2eb616d6cf38c92d07a67bad66941c2f9b5"
+    },
+    {
+      "file": "calibrated_persistence.csv.gz",
+      "rows": 461120,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 5068390,
+      "sha256": "874d55202bc2dc2f4b990b76ada689d21e1acd801b561ce7a984f441af6e7b25",
+      "full_source_sha256": "69cbef4dda9ace0d11e2042a3440d0f425cb55ddd57eb949b0327fbdca61cea6"
+    },
+    {
+      "file": "formation_bounded.csv.gz",
+      "rows": 190320,
+      "compression": "gzip level 9, deterministic mtime=0",
+      "bytes": 2433470,
+      "sha256": "686ff4ba573598fb75c9e4e1929f72fb28aac01bb3ee8bc938b26f3f5db3ea89",
+      "full_source_sha256": "865b0a814ab4d1de30822165902649007552eb6ddac978a4a16bf84f30f156bf"
+    }
+  ]
+}
