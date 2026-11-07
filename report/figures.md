@@ -9,3 +9,5 @@
 | F-R3 | 策略平面和完整 c/t 扫描 | `analysis/v6_simulation/results/escape.csv`、`escape_summary.csv`、同名 `.meta.json`；NI 强度见 `ni_sensitivity.csv` | `analysis/v6_simulation/figures/escape.png` / `.pdf` | 情境假设模拟 | Xu Ruicong | 已运行 |
 | F-R3P | 停止后的持续性；相对同期 S0 | `analysis/v6_simulation/results/escape.csv`、`persistence.csv`、同名 `.meta.json` | `analysis/v6_simulation/figures/persistence.png` / `.pdf` | 情境假设模拟；400 步右删失 | Xu Ruicong | 已运行 |
 | F-R4 | 察觉所需同议题和总曝光次数 | `analysis/v6_simulation/results/detection.csv`、同名 `.meta.json` | `analysis/v6_simulation/figures/detection.png` / `.pdf` | 解析近似；分类器为假设、占比锚点引用仓库试点 | Xu Ruicong | 已运行；待 D3 替换分类器参数 |
+| S-R5 | 自检与模拟审计输出（Notepad 中显示实际 stdout） | `analysis/v6_simulation/results/run_output.txt` | `report/screenshots/ruicong_simulation_run.png` | 实际运行证据，截图中的模拟数字仍属情境假设 | Xu Ruicong | 已保存 |
+| T-R5 | 英文模拟小节参数表 | `analysis/v6_simulation/results/parameters.csv`、同名 `.meta.json` | `report/sections/5_case_study.md` | 参数为情境假设；实测锚点逐项注明来源 | Xu Ruicong | 已登记 |

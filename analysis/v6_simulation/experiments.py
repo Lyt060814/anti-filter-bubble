@@ -3,6 +3,7 @@ import argparse
 import csv
 import json
 import hashlib
+import sys
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -37,16 +38,19 @@ def metadata(name, extra):
                 defaults=vars(Config()), formation_steps=T, intervention_steps=ACTIVE,
                 followup_steps=FOLLOW, script='analysis/v6_simulation/experiments.py',
                 git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+                python_version=sys.version, numpy_version=np.__version__, matplotlib_version=matplotlib.__version__,
                 utc=datetime.now(timezone.utc).isoformat(),
                 interval='mean +/- t(19,0.975)=2.093 * sample SD / sqrt(20); pointwise Monte Carlo CI',
                 sources=['docs/tasks/xu_ruicong.md', 'docs/project-plan/research_plan_v5.md section 4',
                          'docs/context-recovery/plan_v5_feasibility.md section 3.4'])
     meta.update(extra)
-    meta['source_sha256'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+    meta['source_hash_format'] = 'UTF-8 text with universal-newline normalization to LF'
+    meta['source_sha256'] = {p.name: hashlib.sha256(p.read_text(encoding='utf8').encode('utf8')).hexdigest()
                              for p in ROOT.glob('*.py')}
     meta['working_tree_status'] = subprocess.check_output(['git','status','--porcelain'],text=True)
     (ROOT/'results'/f'{name}.meta.json').write_text(json.dumps(meta, indent=2), encoding='utf8')
-    (ROOT/'figures'/f'{name}.meta.json').write_text(json.dumps(meta, indent=2), encoding='utf8')
+    if name in ('formation','escape','persistence','detection'):
+        (ROOT/'figures'/f'{name}.meta.json').write_text(json.dumps(meta, indent=2), encoding='utf8')
 
 
 def figure(name, extra=None):

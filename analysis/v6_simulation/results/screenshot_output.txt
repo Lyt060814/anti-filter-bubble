@@ -1,0 +1,8 @@
+PASS R1: c=0 (4 theta x 20 seeds x 500 steps); first-order +/- eta, 20 seeds, quadratic error.
+PASS R2: 128,960 snapshots; full grid; finite V; decomposition; zero contrast.
+PASS R3: 366,080 snapshots, 11 arms; S7 undefined V; 11,440 half-life records.
+PASS R3 sensitivity: seven NI strengths, including +0.5 and +0.78; full grid.
+R4 p0=0.018: odds x2 -> 2636 same-topic videos per arm; total at m=.016: 164750.0.
+R4 p0=0.41: odds x2 -> 164 same-topic videos per arm; total at m=.016: 10250.0.
+PASS R4: correct odds conversion; sample sizes decrease from odds x2 to x8.
+All simulation parameters are SCENARIO ASSUMPTIONS. No GPU, raw data or credentials used.

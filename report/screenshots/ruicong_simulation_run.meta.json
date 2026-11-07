@@ -1,0 +1,8 @@
+{
+  "content": "Actual audit.py stdout displayed in Notepad; not a rendered terminal",
+  "source_log_sha256": "044b632d79ae6eacfcc2bd1ba9eb305716cdd54857d47aa3bc0abe6954c7875f",
+  "evidence_type": "actual execution of synthetic experiments",
+  "source_log": "analysis/v6_simulation/results/screenshot_output.txt",
+  "capture_tool": "computer-use @oai/sky via node_repl",
+  "date": "2026-11-07"
+}
