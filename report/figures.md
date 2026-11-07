@@ -1,5 +1,7 @@
 # 图表登记
 
+| F-R4-revised | 察觉：1.4% 新参照及版本敏感性 | `analysis/v6_simulation/results/detection_revised.csv`、同名 meta | `analysis/v6_simulation/figures/detection_revised.png` / `.pdf` | 解析情境，分类器假设；占比引用分版本核查 | Xu Ruicong | 已运行 |
+
 每完成一张图或表，加一行。编号在整合时统一。
 
 | 临时编号 | 内容 | 结果文件 | 图片 | 证据类型 | 负责 | 状态 |
