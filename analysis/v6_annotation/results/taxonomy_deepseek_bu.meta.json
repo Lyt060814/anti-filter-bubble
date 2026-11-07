@@ -1,0 +1,39 @@
+{
+  "script": "analysis/v6_annotation/taxonomy.py",
+  "commit": "02ee95f",
+  "date": "2026-11-07",
+  "input": "../v6/results/bottomup_ds_labels.csv",
+  "label_source": "deepseek_bu",
+  "summary": {
+    "n": 2973,
+    "missing": 23,
+    "issue_share": 0.0743,
+    "issue_share_ci": [
+      0.0654,
+      0.0843
+    ],
+    "in_scope_share": 0.0451,
+    "in_scope_share_ci": [
+      0.0382,
+      0.0531
+    ],
+    "in_scope_opposing_share": 0.1716,
+    "in_scope_opposing_ci": [
+      0.1172,
+      0.2444
+    ],
+    "consumption_anxiety_raising_total": 2,
+    "consumption_anxiety_raising_in_marketing": 0,
+    "subissue_other_share_in_scope": 0.2687
+  },
+  "compare": {
+    "input": "../v6/results/bottom_up_labels.csv",
+    "label_source": "qwen_v0",
+    "n_on_same_pids": 2973,
+    "missing": 0
+  },
+  "intervals": "Wilson 95%",
+  "weighting": "none (impressions sampled uniformly from user histories)",
+  "subissues": "keyword rules over the LLM's free-text issue labels; see SUBISSUES in the script",
+  "evidence": "measured: LLM labels on a random sample; no human check"
+}

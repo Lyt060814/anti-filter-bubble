@@ -1,7 +1,10 @@
 """D4 taxonomy table from the bottom-up sample (Zhao Dingcheng).
 
-Usage: python -I -X utf8 taxonomy.py LABELS_CSV SOURCE_NAME
-  e.g. python -I -X utf8 taxonomy.py ../v6/results/bottom_up_labels.csv qwen_v0
+Usage: python -I -X utf8 taxonomy.py LABELS_CSV SOURCE_NAME [COMPARE_CSV COMPARE_NAME]
+  e.g. python -I -X utf8 taxonomy.py ../v6/results/bottomup_ds_labels.csv deepseek_bu ../v6/results/bottom_up_labels.csv qwen_v0
+Rows with an empty domain (invalid model output) are counted as missing and left out of every share.
+With COMPARE_CSV, the table adds the other model's share and opposing share for each domain (same impressions).
+Sub-issues are listed only for domains with at least MIN_SUB impressions.
 Input columns: pid, domain, issue, opposing, narrative_type (as written by analysis/v6/bottom_up_sample.py).
 The sample is impressions drawn uniformly from user histories, so shares are shares of exposures.
 
@@ -32,10 +35,10 @@ DOMAIN_EN = {"性别与婚恋": "Gender and relationships", "身体与外貌": "
 IN_SCOPE = ["性别与婚恋", "身体与外貌", "家庭与代际", "人生选择与出路", "消费与经济"]
 # (English name, regex over the LLM's issue string), first match wins within a domain.
 SUBISSUES = {
-    "性别与婚恋": [("money in relationships", r"经济|金钱"), ("pregnancy and childbearing", r"怀孕|生育|代孕|月经"),
+    "性别与婚恋": [("money and bride price", r"经济|金钱|彩礼"), ("pregnancy and childbearing", r"怀孕|生育|代孕|月经"),
                ("gender roles and expectations", r"男女|女性|男性|女强|性别|第六感|大叔"),
                ("marriage and spouses", r"婚|夫妻|伴娘|忠诚"), ("dating, break-ups and feelings", r"情|恋|爱|分手|表白|情侣|追求|失联|闺蜜")],
-    "身体与外貌": [("appearance anxiety", r"容貌|审美|身高|脱发|痘")],
+    "身体与外貌": [("appearance anxiety", r"容貌|审美|身高|脱发|痘|外貌|颜|美丽|身材|形象|穿衣")],
     "家庭与代际": [("in-laws and marrying into a family", r"婆媳|远嫁|媳妇|婚事|继母|重组|复婚|护嫂"),
                ("elder care", r"养老|老人|代际|三代"),
                ("family conflict and violence", r"暴力|纠纷|抚养权|房屋|财务|经济|冲突|矛盾"),
@@ -56,6 +59,7 @@ SUBISSUES = {
                ("health", r"健康|医|病|器官|心理|骨肉瘤")],
 }
 MARKETING = "promotions and marketing"
+MIN_SUB = 30
 
 
 def wilson(k, n, z=1.96):
@@ -75,9 +79,21 @@ def subissue(domain, issue):
     return "other"
 
 
-def main(path, src):
+def load(path):
     d = pd.read_csv(path, dtype=str, keep_default_na=False)
+    missing = int((d.domain == "").sum())
+    return d[d.domain != ""].reset_index(drop=True), missing
+
+
+def main(path, src, cmp_path=None, cmp_name=None):
+    d, n_missing = load(path)
     n = len(d)
+    cmp = None
+    if cmp_path:
+        c, c_missing = load(cmp_path)
+        c = c[c.pid.isin(set(d.pid))]
+        cmp = {"n": len(c), "missing": c_missing,
+               "by_domain": {dom: (len(g), int(g.opposing.eq("是").sum())) for dom, g in c.groupby("domain")}}
     d["sub"] = [subissue(a, b) for a, b in zip(d.domain, d.issue)]
     d["opp"] = d.opposing.eq("是")
     rows, subs = [], []
@@ -89,6 +105,10 @@ def main(path, src):
                      "opposing_share": round(k / len(g), 4), "opposing_ci": wilson(k, len(g)),
                      **{f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}": int(types.get(t, 0)) for t in TYPES},
                      "type_none_but_opposing": int(types.get("无", 0))})
+        if cmp:
+            cn, ck = cmp["by_domain"].get(dom, (0, 0))
+            rows[-1].update({f"{cmp_name}_n": cn, f"{cmp_name}_share": round(cn / cmp["n"], 4),
+                             f"{cmp_name}_opposing_share": round(ck / cn, 4) if cn else None})
         if dom == "非议题内容":
             continue
         for s, h in g.groupby("sub"):
@@ -101,22 +121,38 @@ def main(path, src):
     stem = os.path.join(HERE, "results", f"taxonomy_{src}")
     tab.to_csv(stem + ".csv", index=False, encoding="utf-8")
     sub.to_csv(stem + "_subissues.csv", index=False, encoding="utf-8")
-    md = ["| Domain | Share of exposures | Opposing narrative (within domain) | Main narrative types (count) | Largest sub-issues (n) |",
-          "|---|---:|---:|---|---|"]
+    head = "| Domain | Share of exposures | Opposing narrative (within domain) | Narrative types (count) | Largest sub-issues (n) |"
+    rule = "|---|---:|---:|---|---|"
+    if cmp:
+        head += f" {cmp_name.split('_')[0].capitalize()} on the same impressions: share; opposing |"
+        rule += "---:|"
+    md = [head, rule]
     for _, r in tab.iterrows():
         if r.domain == "非议题内容":
-            md.append(f"| {r.domain_en} | {r.share:.1%} | — | — | — |")
+            line = f"| {r.domain_en} | {r.share:.1%} | — | — | — |"
+            if cmp:
+                line += f" {r[f'{cmp_name}_share']:.1%}; — |"
+            md.append(line)
             continue
         tc = sorted(((r[f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}"], TYPE_EN[t]) for t in TYPES), reverse=True)
         tcs = ", ".join(f"{name} ({c})" for c, name in tc if c > 0)
         ss = sub[(sub.domain == r.domain) & (sub.subissue != "other")].head(3)
-        sss = "; ".join(f"{a} ({b})" for a, b in zip(ss.subissue, ss.n)) or "—"
+        sss = ("; ".join(f"{a} ({b})" for a, b in zip(ss.subissue, ss.n)) or "—") if r.n >= MIN_SUB else "(too few to split)"
         star = " *" if r.in_scope else ""
-        md.append(f"| {r.domain_en}{star} | {r.share:.1%} | {r.opposing_share:.0%} ({r.opposing_n}/{r.n}; {r.opposing_ci[0]:.0%}–{r.opposing_ci[1]:.0%}) | {tcs} | {sss} |")
+        line = f"| {r.domain_en}{star} | {r.share:.1%} | {r.opposing_n}/{r.n} ({r.opposing_ci[0]:.0%}–{r.opposing_ci[1]:.0%}) | {tcs or '—'} | {sss} |"
+        if cmp:
+            cs, co = r[f"{cmp_name}_share"], r[f"{cmp_name}_opposing_share"]
+            line += f" {cs:.1%}; {'—' if co is None else format(co, '.0%')} |"
+        md.append(line)
     open(stem + "_table.md", "w", encoding="utf-8", newline="\n").write("\n".join(md) + "\n")
     cons = sub[sub.domain == "消费与经济"]
     mk = cons[cons.subissue == MARKETING]
-    summary = {"n": n, "issue_share": round(float((d.domain != "非议题内容").mean()), 4),
+    issue_k = int((d.domain != "非议题内容").sum())
+    scope_k = int(d.domain.isin(IN_SCOPE).sum())
+    summary = {"n": n, "missing": n_missing, "issue_share": round(issue_k / n, 4), "issue_share_ci": wilson(issue_k, n),
+               "in_scope_share": round(scope_k / n, 4), "in_scope_share_ci": wilson(scope_k, n),
+               "in_scope_opposing_share": round(float(d[d.domain.isin(IN_SCOPE)].opposing.eq("是").mean()), 4),
+               "in_scope_opposing_ci": wilson(int(d[d.domain.isin(IN_SCOPE)].opposing.eq("是").sum()), scope_k),
                "consumption_anxiety_raising_total": int(cons.anxiety_raising_n.sum()),
                "consumption_anxiety_raising_in_marketing": int(mk.anxiety_raising_n.sum()) if len(mk) else 0,
                "subissue_other_share_in_scope": round(float((d[d.domain.isin(IN_SCOPE)]["sub"] == "other").mean()), 4)}
@@ -126,13 +162,15 @@ def main(path, src):
         commit = None
     meta = {"script": "analysis/v6_annotation/taxonomy.py", "commit": commit, "date": time.strftime("%Y-%m-%d"),
             "input": os.path.relpath(path, HERE).replace("\\", "/"), "label_source": src, "summary": summary,
+            "compare": None if not cmp else {"input": os.path.relpath(cmp_path, HERE).replace("\\", "/"), "label_source": cmp_name,
+                                             "n_on_same_pids": cmp["n"], "missing": cmp["missing"]},
             "intervals": "Wilson 95%", "weighting": "none (impressions sampled uniformly from user histories)",
             "subissues": "keyword rules over the LLM's free-text issue labels; see SUBISSUES in the script",
-            "evidence": "measured: LLM labels on a random sample; not checked against a stronger model or humans"}
+            "evidence": "measured: LLM labels on a random sample; no human check"}
     json.dump(meta, open(stem + ".meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print("\n".join(md))
     print(json.dumps(summary, ensure_ascii=False))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*sys.argv[1:5])
