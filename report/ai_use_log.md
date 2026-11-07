@@ -91,10 +91,10 @@
   > - 每完成一项实质性工作，在 report/contributions.md 的 Zhao Dingcheng 名下加一行。
   >
   > 遇到需要决定或有疑问的地方，写在 PR 描述里，不要自己改动别人的部分。先告诉我你的计划，再开始 D1。
-- 输出如何使用：Claude 起草定义、例子和提示词，Zhao Dingcheng 审阅后采用（审阅后在此补记修改情况）。例子都是编写的，不来自视频描述。
-- D3（同一会话）：确切提示词为"开始 D3"。Claude 编写并运行 `agreement.py`，起草 `agreement.md` 的数字与解读；数字来自脚本对 `dual_v0_labels.csv` 的实际运行。分歧类型由关键词规则归类，Claude 逐条读过两个模型的依据并核对。
-- D5（同一会话）：确切提示词为"开始 D5"。Claude 根据仓库内已核实的文献笔记（`docs/project-plan/references_verified.md`、`docs/research/`）起草第 2 节英文全文和参考文献条目；新增文献的作者、年份、出处和页码通过 Crossref API 与 arXiv 页面核实。影响报告第 2 节和第 9 节的参考文献。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- D4（同一会话）：确切提示词为"开始 D4"。Claude 编写并运行 `taxonomy.py`，起草第 4.2、4.3 节英文全文；表 4.1 由脚本生成，4.3 的数字来自 D3 的 `agreement_v0.json`。"典型争论"是 Claude 根据 LLM 给出的议题名编写的示意，不来自视频描述。影响报告第 4 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
+- 输出如何使用：审阅后采用。Claude 起草定义、例子和提示词，Zhao Dingcheng 审阅，Li Yitong 在 PR #1（D1、D2）和 PR #2（D3）审阅通过后合并。v1 提示词在服务器上运行后暴露问题，按 issue #10 改为 v2（见下文）。例子都是编写的，不来自视频描述。
+- D3（同一会话）：确切提示词为"开始 D3"。Claude 编写并运行 `agreement.py`，起草 `agreement.md` 的数字与解读；数字来自脚本对 `dual_v0_labels.csv` 的实际运行。分歧类型由关键词规则归类，Claude 逐条读过两个模型的依据并核对。输出如何使用：审阅后采用，Li Yitong 在 PR #2 审阅通过后合并。
+- D5（同一会话）：确切提示词为"开始 D5"。Claude 根据仓库内已核实的文献笔记（`docs/project-plan/references_verified.md`、`docs/research/`）起草第 2 节英文全文和参考文献条目；新增文献的作者、年份、出处和页码通过 Crossref API 与 arXiv 页面核实。影响报告第 2 节和第 9 节的参考文献。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #8 审阅通过后合并；按审阅意见在 PR #9 中改写 2.2 节末句，在 PR #23 中统一引用写法并把文献并入第 9 节。
+- D4（同一会话）：确切提示词为"开始 D4"。Claude 编写并运行 `taxonomy.py`，起草第 4.2、4.3 节英文全文；表 4.1 由脚本生成，4.3 的数字来自 D3 的 `agreement_v0.json`。"典型争论"是 Claude 根据 LLM 给出的议题名编写的示意，不来自视频描述。影响报告第 4 节。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #9 审阅通过后合并；表 4.1 后来按 issue #13 改用 DeepSeek 结果（PR #14）。
 
 ### 2026-11-07 · Xu Ruicong · Codex（GPT-6；本会话未提供更细模型版本）
 - 用途：实现、执行和检查 R1–R5；生成模拟图、样本量计算和英文模拟小节。
@@ -135,15 +135,15 @@
 - 附加依据：PR #4 于 2026-11-07 的 CHANGES_REQUESTED 审阅；四项要求和选取方案逐项保存在本 PR 描述与 bounded_formation.py。
 - 输出如何使用：实际运行；供给参照总偏斜不再称为平台参照个人偏斜，R3–R5 待 R2 合并后重跑。
 
-- D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- 附录 A（同一会话）：确切提示词为"先做附录 A"。Claude 根据 `narrative_types.md` 和 `prompt_v2.py` 起草附录 A 的英文全文，v2 提示词原文由脚本从 `prompt_v2.py` 原样复制；例子是编写的。同时改写了第 4.3 节中描述提示词修订的一句。影响附录 A 和第 4.3 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- issue #13（同一会话）：确切提示词为"你看一下新提的issue是什么问题 你什么计划"和"开始做"。Claude 修改并运行 `taxonomy.py`，改写第 4.2 节英文全文，向附录加入 A.6（提示词原文由脚本从 `analysis/v6/deepseek_label.py` 原样复制）；数字来自脚本的实际运行。影响第 4.2 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- issue #10 v2 结果（同一会话）：确切提示词为"检查一下现在情况"和"先做 #10"。Claude 给 `agreement.py` 加上四问分歧分析并运行，起草 `agreement.md` 第 6 节、第 4.3 节（含表 4.2）与附录 A.4 的更新，改写 4.2 节案例选择理由；数字来自脚本的实际运行。影响第 4.2、4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- D6（同一会话）：确切提示词为"开始 D6"。Claude 编写并运行 `design_mockup.py` 生成样稿图（示例用户数字为编造，证据门槛由命题 6 计算，操作效果取自 Xu Ruicong 的模拟结果文件），起草第 6 节英文全文；新增引用 Munson 等（2013）经 Crossref 核实。影响第 6 节和图 6.1。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- 第 6 节压缩（同一会话）：确切提示词为"按照仓库中的计划检查一下当前进展"和"先压缩第 6 节"。Claude 按 PR #19 的评审意见把第 6 节正文从约 815 词压到约 560 词，删去与 7.5 节重复的建议段，图注加入"重度用户、RecIF 中位数约 8 条"的说明。影响第 6 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- 第 6 节随 5.1 节更新（同一会话，同一提示词）：Claude 读到新合并的 5.1 节（OneRec 对群体标签的对比约为 0，试点值改作上限情形；"不感兴趣"提高议题占比）后，修改样稿第 3 部分的说明和"不感兴趣"一行、第 6 节第 3 部分与图注，注明操作效果属于上限情形。影响第 6 节和图 6.1。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- 第 9 节参考文献（同一会话）：确切提示词为"做 #20 参考文献"。Claude 汇总各节正文引用，用 Crossref、arXiv、出版方页面和网信办原文核实新增文献，生成 `9_references.md`，修改第 1、2、3、4、5 节中的引用写法（加引用、统一 OpenOneRec 与两位 Wang 的写法），并编写 `check_references.py` 做双向核对。影响第 1–6 节的引用与第 9 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
-- issue #13 分层更新（同一会话）：确切提示词为"做 #13"。Claude 编写并运行 `taxonomy.py --stratified`，起草表 4.2 和第 4.2 节读法与注意事项的改写，把原表 4.2、4.3 顺延为 4.3、4.4 并同步第 6 节引用；数字来自脚本的实际运行。影响第 4.2 节、第 6 节一处表号。输出如何使用：待 Zhao Dingcheng 审阅后补记。
+- D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #11 审阅通过后合并；按审阅意见在 PR #12 中把"渣男/渣女"的处理写入定义。
+- 附录 A（同一会话）：确切提示词为"先做附录 A"。Claude 根据 `narrative_types.md` 和 `prompt_v2.py` 起草附录 A 的英文全文，v2 提示词原文由脚本从 `prompt_v2.py` 原样复制；例子是编写的。同时改写了第 4.3 节中描述提示词修订的一句。影响附录 A 和第 4.3 节。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #12 审阅通过后合并；按审阅意见在 PR #14 中改准 A.4 末句并加入 A.6。
+- issue #13（同一会话）：确切提示词为"你看一下新提的issue是什么问题 你什么计划"和"开始做"。Claude 修改并运行 `taxonomy.py`，改写第 4.2 节英文全文，向附录加入 A.6（提示词原文由脚本从 `analysis/v6/deepseek_label.py` 原样复制）；数字来自脚本的实际运行。影响第 4.2 节和附录 A。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #14 审阅通过后合并；按审阅意见在 PR #18 中补写案例选择理由。
+- issue #10 v2 结果（同一会话）：确切提示词为"检查一下现在情况"和"先做 #10"。Claude 给 `agreement.py` 加上四问分歧分析并运行，起草 `agreement.md` 第 6 节、第 4.3 节（含表 4.2）与附录 A.4 的更新，改写 4.2 节案例选择理由；数字来自脚本的实际运行。影响第 4.2、4.3 节和附录 A。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #18 审阅通过后合并。
+- D6（同一会话）：确切提示词为"开始 D6"。Claude 编写并运行 `design_mockup.py` 生成样稿图（示例用户数字为编造，证据门槛由命题 6 计算，操作效果取自 Xu Ruicong 的模拟结果文件），起草第 6 节英文全文；新增引用 Munson 等（2013）经 Crossref 核实。影响第 6 节和图 6.1。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #19 审阅通过后合并；按审阅意见在 PR #22 中压缩第 6 节。
+- 第 6 节压缩（同一会话）：确切提示词为"按照仓库中的计划检查一下当前进展"和"先压缩第 6 节"。Claude 按 PR #19 的评审意见把第 6 节正文从约 815 词压到约 560 词，删去与 7.5 节重复的建议段，图注加入"重度用户、RecIF 中位数约 8 条"的说明。影响第 6 节。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #22 审阅通过后合并。
+- 第 6 节随 5.1 节更新（同一会话，同一提示词）：Claude 读到新合并的 5.1 节（OneRec 对群体标签的对比约为 0，试点值改作上限情形；"不感兴趣"提高议题占比）后，修改样稿第 3 部分的说明和"不感兴趣"一行、第 6 节第 3 部分与图注，注明操作效果属于上限情形。影响第 6 节和图 6.1。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，随 PR #22 合并；Li Yitong 在第 5.2 节重新校准后又改写了图 6.1 的图注（提交 428a91f）。
+- 第 9 节参考文献（同一会话）：确切提示词为"做 #20 参考文献"。Claude 汇总各节正文引用，用 Crossref、arXiv、出版方页面和网信办原文核实新增文献，生成 `9_references.md`，修改第 1、2、3、4、5 节中的引用写法（加引用、统一 OpenOneRec 与两位 Wang 的写法），并编写 `check_references.py` 做双向核对。影响第 1–6 节的引用与第 9 节。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #23 审阅通过后合并。
+- issue #13 分层更新（同一会话）：确切提示词为"做 #13"。Claude 编写并运行 `taxonomy.py --stratified`，起草表 4.2 和第 4.2 节读法与注意事项的改写，把原表 4.2、4.3 顺延为 4.3、4.4 并同步第 6 节引用；数字来自脚本的实际运行。影响第 4.2 节、第 6 节一处表号。输出如何使用：审阅后采用：Zhao Dingcheng 审阅，Li Yitong 在 PR #24 审阅通过后合并。
 
 ### 2026-11-07 · Li Yitong · Claude Code（Claude Opus 5.5）
 - 用途：起草报告第 3 节（Concepts and Theory）英文初稿，内容来自 `docs/project-plan/research_plan_v5.md` 第 4 节与 v6 第 3 节，算例数字用脚本计算。
