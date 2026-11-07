@@ -9,3 +9,4 @@ __pycache__/
 # PDF build dependencies and intermediate HTML
 docs/project-plan/pdf-build/node_modules/
 docs/project-plan/pdf-build/out/
+report/build/
