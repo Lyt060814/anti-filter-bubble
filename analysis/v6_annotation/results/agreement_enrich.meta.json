@@ -1,0 +1,15 @@
+{
+  "script": "analysis/v6_annotation/agreement.py --enrich",
+  "commit": "d35e4ce",
+  "date": "2026-11-07",
+  "inputs": [
+    "../v6/results/enrich_ds_labels.csv",
+    "../v6/results/enrich_v2_labels.csv",
+    "../v6/results/enrich_exposures.csv",
+    "../v6/results/enrich_exposures_meta.json",
+    "../v6/results/dual_v2_labels.csv"
+  ],
+  "weights": "cue stratum: each video by its exposures, scaled to the cue-word share of pool exposures; random stratum: each video by its number of draws, scaled to the non-cue share",
+  "intervals": "percentile bootstrap (2000 resamples, seed 0) over cue videos and random draws",
+  "evidence": "measured: DeepSeek V4 Pro labels; no human check"
+}
