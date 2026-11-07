@@ -1,6 +1,6 @@
 # Appendix A. Narrative Definitions and the Annotation Prompt
 
-<!-- Zhao Dingcheng, 2026-11-07. English version of analysis/v6_annotation/narrative_types.md (definitions, v2) and prompt_v2.py (prompt text, copied verbatim in A.5); A.6 is BU_TEMPLATE from analysis/v6/deepseek_label.py, copied verbatim with the domain list inserted. A.4 will be updated when the v2 check results are in. -->
+<!-- Zhao Dingcheng, 2026-11-07. English version of analysis/v6_annotation/narrative_types.md (definitions, v2) and prompt_v2.py (prompt text, copied verbatim in A.5); A.6 is BU_TEMPLATE from analysis/v6/deepseek_label.py, copied verbatim with the domain list inserted. -->
 
 All labels in this report were produced by large language models from the text description of each video; no video was labelled by hand. This appendix gives the definitions the models were asked to apply, how the prompt changed between versions, and the exact prompt used for the final labels. All examples below were written by us to illustrate the rules; none is taken from a video description.
 
@@ -41,9 +41,9 @@ We checked each version by having the open model (Qwen3-30B-A3B-Instruct-2507) a
 |---|---|---:|---:|
 | v0 | One-paragraph definition with a note that single characters do not count | 4.0% (20/498) | 1.4% (7/500) |
 | v1 | Four questions in prose; the model writes its reason first, starting with "target: individual / group" | 51% (252/494) | 0.6% (3/500) |
-| v2 | The four questions become separate output fields answered before the label, and the reason comes last; the target defaults to an individual; looser tests for generalisation and endorsement; wrongdoing-defined groups excluded | *pending* | *pending* |
+| v2 | The four questions become separate output fields answered before the label, and the reason comes last; the target defaults to an individual; looser tests for generalisation and endorsement; wrongdoing-defined groups excluded | 13% (66/500) | 1.0% (5/500) |
 
-The same edit moved the two models in opposite directions. Under v1, the open model began almost every reason with "target: group", including reasons for videos it then labelled "none", and then looked for a generalisation to fit; the reference model read the stricter wording as requiring a universal claim, and withdrew five of its seven earlier positives. In v2 the answer to each question is a separate field, and outputs whose label does not follow from the four answers are rejected and, for the API model, re-requested. Section 4.2 uses the cross-domain prompt in A.6; Sections 4.3 and 5 use prompt v2.
+The same edit moved the two models in opposite directions. Under v1, the open model began almost every reason with "target: group", including reasons for videos it then labelled "none", and then looked for a generalisation to fit; the reference model read the stricter wording as requiring a universal claim, and withdrew five of its seven earlier positives. In v2 the answer to each question is a separate field, and outputs whose label does not follow from the four answers are rejected and, for the API model, re-requested. Under v2 the reference model's five flags were all among its seven under v0, and every disagreement between the two models began at the first question, who the target is (Section 4.3). Section 4.2 uses the cross-domain prompt in A.6; Sections 4.3 and 5 use prompt v2.
 
 ## A.5 The v2 prompt (verbatim)
 

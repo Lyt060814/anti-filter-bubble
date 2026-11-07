@@ -1,0 +1,15 @@
+{
+  "script": "analysis/v6_annotation/agreement.py",
+  "commit": "6195126",
+  "date": "2026-11-07",
+  "inputs": [
+    "../v6/results/dual_v2_labels.csv",
+    "../v6/results/dual_v1_labels.csv"
+  ],
+  "reference_model": "deepseek-v4-pro; gpt-6.1-sol as second reference on its subset",
+  "positive": "group_label in {针对女性, 针对男性}; 无法判断 counts as negative in binary metrics",
+  "intervals": "Wilson 95% for proportions; percentile bootstrap (2000 resamples, seed 0) for kappa and corrected share",
+  "weighting": "none (sample drawn proportional to exposures)",
+  "evidence": "measured: LLM labels compared with a stronger LLM; not a human gold standard",
+  "disagreement_categories": "keyword rules on both models' reasons (see CATEGORIES in script); sorting aid only"
+}
