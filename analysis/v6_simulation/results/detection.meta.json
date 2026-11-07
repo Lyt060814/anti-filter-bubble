@@ -1,0 +1,66 @@
+{
+  "evidence_type": "analytic approximation; assumed classifier; repository-reported pilot anchors",
+  "seeds": [],
+  "independent_unit": "seed: four-user population, one user per theta",
+  "theta": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "coefficient_ratios": [
+    0.0,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.59,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "defaults": {
+    "ratio": 0.15,
+    "theta": 2.0,
+    "t": 1.0,
+    "tau": 1.0,
+    "eta": 0.05,
+    "decay": 0.002,
+    "a": -1.0,
+    "gamma": 1.0,
+    "noise": 0.05,
+    "outside_topics": 4
+  },
+  "formation_steps": 600,
+  "intervention_steps": 200,
+  "followup_steps": 400,
+  "script": "analysis/v6_simulation/experiments.py",
+  "git_commit": "c7db9981f5fd2aedc94653d71c47047bbe42dde0",
+  "utc": "2026-11-07T05:53:01.296990+00:00",
+  "interval": "none: deterministic formula",
+  "sources": [
+    "docs/tasks/xu_ruicong.md",
+    "docs/project-plan/research_plan_v5.md section 4",
+    "docs/context-recovery/plan_v5_feasibility.md section 3.4"
+  ],
+  "alpha": 0.8,
+  "beta": 0.02,
+  "significance": 0.05,
+  "power": 0.8,
+  "n0_equals_n": true,
+  "warning": "Independent observations, known classifier rates; no D3 calibration yet. Each arm needs n.",
+  "source_sha256": {
+    "audit.py": "96886f9f0324b47afed3309ec279cd3215cfc09e8b76209dc9c54441f662ee95",
+    "escape.py": "e45c8e57a1e28397e6b71945f809af2f966797189000c9a35c540973e07e159e",
+    "experiments.py": "3056fdd292b10957998eb806e45b6805d0b89869fc65b7de4c8c612780f22335",
+    "model.py": "5d9c69abe944840d58c54aec4d8e89a4d4ec2ab71fa9e9d88b083e724b97d729",
+    "ni_sensitivity.py": "4a21ebff7d5ab07cc03e2c7d065735e54df8f1758932bb411847862e9d1ca233",
+    "replot.py": "623bae2cb8b9b7a502e260428338ba254c1e3d4f4d398f3d016b59c460c5bad3",
+    "summarize.py": "6be4a1c268f23218c3153b4304a2bac56a0d8a1cfcae26d585532ce80c2c211f"
+  },
+  "working_tree_status": " M analysis/v6_simulation/figures/formation.meta.json\n M analysis/v6_simulation/figures/formation.pdf\n M analysis/v6_simulation/results/formation.meta.json\n M report/contributions.md\n M report/figures.md\n?? analysis/v6_simulation/audit.py\n?? analysis/v6_simulation/escape.py\n?? analysis/v6_simulation/figures/detection.meta.json\n?? analysis/v6_simulation/figures/detection.pdf\n?? analysis/v6_simulation/figures/detection.png\n?? analysis/v6_simulation/figures/escape.meta.json\n?? analysis/v6_simulation/figures/escape.pdf\n?? analysis/v6_simulation/figures/escape.png\n?? analysis/v6_simulation/figures/ni_sensitivity.meta.json\n?? analysis/v6_simulation/figures/persistence.meta.json\n?? analysis/v6_simulation/figures/persistence.pdf\n?? analysis/v6_simulation/figures/persistence.png\n?? analysis/v6_simulation/ni_sensitivity.py\n?? analysis/v6_simulation/replot.py\n?? analysis/v6_simulation/results/detection.csv\n?? analysis/v6_simulation/results/detection.meta.json\n?? analysis/v6_simulation/results/escape.csv\n?? analysis/v6_simulation/results/escape.meta.json\n?? analysis/v6_simulation/results/escape_summary.csv\n?? analysis/v6_simulation/results/ni_sensitivity.csv\n?? analysis/v6_simulation/results/ni_sensitivity.meta.json\n?? analysis/v6_simulation/results/persistence.csv\n?? analysis/v6_simulation/results/persistence.meta.json\n?? analysis/v6_simulation/results/run_output.txt\n?? analysis/v6_simulation/summarize.py\n?? report/screenshots/\n"
+}

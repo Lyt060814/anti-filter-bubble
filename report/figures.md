@@ -8,3 +8,4 @@
 | F-R2 | 形成状态轨迹；全部扫描见 CSV | `analysis/v6_simulation/results/formation.csv`、同名 `.meta.json` | `analysis/v6_simulation/figures/formation.png` / `.pdf` | 情境假设模拟；20 种子均值与 95% Monte Carlo 区间 | Xu Ruicong | 已运行 |
 | F-R3 | 策略平面和完整 c/t 扫描 | `analysis/v6_simulation/results/escape.csv`、`escape_summary.csv`、同名 `.meta.json`；NI 强度见 `ni_sensitivity.csv` | `analysis/v6_simulation/figures/escape.png` / `.pdf` | 情境假设模拟 | Xu Ruicong | 已运行 |
 | F-R3P | 停止后的持续性；相对同期 S0 | `analysis/v6_simulation/results/escape.csv`、`persistence.csv`、同名 `.meta.json` | `analysis/v6_simulation/figures/persistence.png` / `.pdf` | 情境假设模拟；400 步右删失 | Xu Ruicong | 已运行 |
+| F-R4 | 察觉所需同议题和总曝光次数 | `analysis/v6_simulation/results/detection.csv`、同名 `.meta.json` | `analysis/v6_simulation/figures/detection.png` / `.pdf` | 解析近似；分类器为假设、占比锚点引用仓库试点 | Xu Ruicong | 已运行；待 D3 替换分类器参数 |
