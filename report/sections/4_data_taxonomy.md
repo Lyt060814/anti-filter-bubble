@@ -48,16 +48,16 @@ Each domain in Table 4.1 has only 2 to 54 impressions, so to estimate the opposi
 
 | Domain | Screen-flagged impressions confirmed by the reference model | Opposing narrative, weighted share (95% interval) | Narrative types (count) |
 |---|---:|---:|---|
-| Gender and relationships | 60% of 200 | 17% (10%–23%); 21/127 | only-right-way (8), binary opposition (6), anxiety-raising (4), group label (2) |
-| Body and appearance | 58% of 81 | 17% (7%–28%); 8/47 | only-right-way (3), group label (2), anxiety-raising (2) |
-| Family and generations | 55% of 168 | 7% (2%–12%); 7/101 | anxiety-raising (3), group label (2), only-right-way (1), binary opposition (1) |
-| Life choices and paths | 56% of 71 | 15% (5%–27%); 6/45 | only-right-way (2), group label (2), anxiety-raising (1) |
-| Consumption and money | 46% of 149 | 20% (11%–30%); 14/69 | anxiety-raising (8), group label (5), binary opposition (1) |
-| All five studied domains | — | 14% (10%–17%); 56/389 | — |
+| Gender and relationships | 60% of 200 | 17% (10%–23%); 21/128 | only-right-way (8), binary opposition (6), anxiety-raising (4), group label (2) |
+| Body and appearance | 55% of 128 | 15% (8%–24%); 11/71 | only-right-way (4), group label (2), binary opposition (2), anxiety-raising (2) |
+| Family and generations | 56% of 200 | 7% (3%–11%); 8/121 | anxiety-raising (4), group label (2), only-right-way (1), binary opposition (1) |
+| Life choices and paths | 56% of 71 | 15% (5%–26%); 6/45 | only-right-way (2), group label (2), anxiety-raising (1) |
+| Consumption and money | 46% of 149 | 20% (12%–31%); 14/69 | anxiety-raising (8), group label (5), binary opposition (1) |
+| All five studied domains | — | 13% (10%–17%); 60/434 | — |
 
-The two samples agree, and the larger one narrows the intervals. Within the five studied domains, about one impression in seven carries an opposing narrative (14%; 10%–17%). The share is lowest in family and generations (7%) and highest in consumption and money (20%) and gender and relationships (17%), with wide intervals for the smaller domains. Gender and relationships carries all four types, led by only-right-way. Group labels against a gender remain rare: two of the 127 gender-and-relationships impressions, consistent with the rate of about 1% in Section 4.3.
+The two samples agree, and the larger one narrows the intervals. Within the five studied domains, about one impression in seven or eight carries an opposing narrative (13%; 10%–17%). The share is lowest in family and generations (7%) and highest in consumption and money (20%) and gender and relationships (17%), with wide intervals for the smaller domains. Gender and relationships carries all four types, led by only-right-way. Group labels against a gender remain rare: two of the 128 gender-and-relationships impressions, consistent with the rate of about 1% in Section 4.3.
 
-Three cautions apply. First, the shares are only as good as the labels, which come from a model checked against other models (Section 4.3). Second, the stratified sample covers only impressions the screen placed in a studied domain, so it is used here for the opposing share within each domain, while domain sizes come from Table 4.1; 47 of the 128 body-and-appearance and 32 of the 200 family-and-generations outputs were invalid and are left out, which assumes they are missing at random. Third, the cross-domain prompt excluded marketing, and none of the anxiety-raising labels in consumption in Table 4.1 fell on promotions; with the open model and no such rule, at least 10 of 27 did.
+Three cautions apply. First, the shares are only as good as the labels, which come from a model checked against other models (Section 4.3). Second, the stratified sample covers only impressions the screen placed in a studied domain, so it is used here for the opposing share within each domain, while domain sizes come from Table 4.1; 79 outputs that were first invalid were transient API failures and all became valid on retry, so the sample is complete. Third, the cross-domain prompt excluded marketing, and none of the anxiety-raising labels in consumption in Table 4.1 fell on promotions; with the open model and no such rule, at least 10 of 27 did.
 
 **The open model overestimates at both steps.** The open model labelled 22% of the same impressions as social-issue content, three times as many as the reference model, and judged almost half of those (47%) to carry an opposing narrative. Of the 660 impressions it placed in a social-issue domain, the reference model placed 450 in non-issue content. On the 210 impressions both models treated as issue content, the open model labelled 69% as opposing and the reference model 17%. This matches the pattern in Section 4.3: the open model reads drama, jokes and everyday family scenes as stances.
 
