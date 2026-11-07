@@ -1,0 +1,63 @@
+{
+  "kaoyan": {
+    "items": 2583,
+    "exposures": 15248,
+    "users": 13255,
+    "share_of_exposures": 0.00020528694666901466
+  },
+  "civil_service": {
+    "items": 2144,
+    "exposures": 10459,
+    "users": 8994,
+    "share_of_exposures": 0.00014081165891993862
+  },
+  "study_abroad": {
+    "items": 3817,
+    "exposures": 36105,
+    "users": 29774,
+    "share_of_exposures": 0.0004860890090165775
+  },
+  "job_internship": {
+    "items": 7793,
+    "exposures": 49291,
+    "users": 38319,
+    "share_of_exposures": 0.0006636148274044072
+  },
+  "grades": {
+    "items": 4290,
+    "exposures": 34528,
+    "users": 29056,
+    "share_of_exposures": 0.0004648575350595316
+  },
+  "lying_flat": {
+    "items": 5402,
+    "exposures": 29993,
+    "users": 22889,
+    "share_of_exposures": 0.00040380190132763353
+  },
+  "consumption": {
+    "items": 5742,
+    "exposures": 32312,
+    "users": 26858,
+    "share_of_exposures": 0.0004350230732403726
+  },
+  "employment_anxiety": {
+    "items": 3504,
+    "exposures": 19599,
+    "users": 17397,
+    "share_of_exposures": 0.00026386535071917745
+  },
+  "college_life": {
+    "items": 73193,
+    "exposures": 701119,
+    "users": 147598,
+    "share_of_exposures": 0.009439308680589774
+  },
+  "any_student_issue": {
+    "items": 104347,
+    "exposures": 902890,
+    "users": 152106,
+    "share_of_exposures": 0.012155792974684328
+  },
+  "_total_exposures_hist": 74276520
+}
