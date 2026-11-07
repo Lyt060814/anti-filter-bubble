@@ -1,0 +1,60 @@
+{
+  "script": "analysis/v6_simulation/detection_revised.py",
+  "git_commit": "76c0a2e6169422f2687263828193fd95cdf8aaa1",
+  "source_sha256": "56bb0030e3611b9d18814dd34d4a46f9ef976cb9f3a2d3f5be69baff3b8a1a45",
+  "source_hash_format": "UTF-8 normalized LF",
+  "evidence_type": "analytic approximation with scenario classifier; repository-reported pilot anchors",
+  "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "numpy": "2.3.1",
+  "matplotlib": "3.10.3",
+  "p0_sources": {
+    "0.014": "DeepSeek v0 cross-check; agreement.md section 2",
+    "0.006": "DeepSeek v1 cross-check; agreement.md section 5; unstable definition",
+    "0.018": "Qwen v5 pilot; research_plan_v5.md section 4",
+    "0.41": "conflict narrative v5 pilot; research_plan_v5.md section 4"
+  },
+  "topic_rate_sources": "RecIF median 1.6%, p90 3.6%; Xu task R4 / v5 section 4",
+  "classifier_cases": [
+    [
+      0.8,
+      0.02
+    ],
+    [
+      0.7,
+      0.02
+    ],
+    [
+      0.9,
+      0.02
+    ],
+    [
+      0.8,
+      0
+    ],
+    [
+      0.8,
+      0.05
+    ]
+  ],
+  "classifier_status": "assumed; v0/v1 Qwen checks unreliable; awaiting validated v2",
+  "odds_range": [
+    2,
+    8
+  ],
+  "points": 61,
+  "significance": 0.05,
+  "power": 0.8,
+  "n0_equals_n": true,
+  "seeds": [],
+  "interval": "none: deterministic calculation",
+  "count_unit": "n per arm; both_arms_total explicitly doubles total_per_arm",
+  "limitations": [
+    "independent observations",
+    "normal approximation",
+    "known classifier rates",
+    "no sequential testing",
+    "no elapsed-time claim",
+    "pilot prevalence is not supply",
+    "not all four pilot prevalences have identical narrative definitions"
+  ]
+}
