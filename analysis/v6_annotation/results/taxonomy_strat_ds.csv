@@ -1,0 +1,7 @@
+domain,domain_en,v4pro_rows,v4pro_opposing_rows,opposing_share,opposing_share_ci,domain_share_covered,domain_share_covered_ci,screen_confirmed,stratum_valid_rows,stratum_missing_rows,type_only_right_way,type_binary_opposition,type_anxiety_raising,type_group_label
+性别与婚恋,Gender and relationships,127,21,0.1666,"[0.105, 0.2316]",0.012,"[0.0106, 0.0134]",0.595,200.0,0.0,8.0,6.0,4.0,2.0
+身体与外貌,Body and appearance,47,8,0.1702,"[0.0698, 0.28]",0.0038,"[0.003, 0.0045]",0.5802,81.0,47.0,3.0,0.0,2.0,2.0
+家庭与代际,Family and generations,101,7,0.071,"[0.0222, 0.1236]",0.0104,"[0.009, 0.0118]",0.5536,168.0,32.0,1.0,1.0,3.0,2.0
+人生选择与出路,Life choices and paths,45,6,0.1501,"[0.0463, 0.2688]",0.0024,"[0.0019, 0.0029]",0.5634,71.0,0.0,2.0,0.0,1.0,2.0
+消费与经济,Consumption and money,69,14,0.2029,"[0.1127, 0.3]",0.0035,"[0.0029, 0.0041]",0.4631,149.0,0.0,0.0,1.0,8.0,5.0
+_all_studied,five studied domains,389,56,0.1388,"[0.1039, 0.1733]",0.032,"[0.03, 0.034]",,,,,,,
