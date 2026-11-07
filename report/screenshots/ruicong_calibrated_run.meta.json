@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-07",
+  "capture_tool": "computer-use @oai/sky via node_repl",
+  "content": "Actual calibrated_audit.py stdout displayed in Notepad",
+  "evidence_type": "actual execution evidence of synthetic simulations",
+  "source_log": "report/screenshots/calibrated_run_output.txt",
+  "source_log_sha256": "9ef78213ccfe1600c5a1cf6fb4146f322941182911690d8a1a41f2cfd981d796",
+  "screenshot_sha256": "0de8191ea1bc750587b91d820f653f07d5745b842f10b8ec100237141595fbe2",
+  "source_log_hash_format": "raw original plus UTF-8 normalized LF for cross-platform verification",
+  "source_log_sha256_normalized_lf": "8555db3ae0f9500c46da74ceec0bfeff08831c7c3d1a7f8bd800b4bf9e77c2c8"
+}

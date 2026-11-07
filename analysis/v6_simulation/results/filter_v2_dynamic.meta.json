@@ -1,0 +1,70 @@
+{
+  "script": "analysis/v6_simulation/filter_v2_dynamic.py",
+  "git_commit": "04ef6763678a23306238164f4dbcb39e85e7a80f",
+  "evidence_type": "main-case synthetic dynamic sensitivity using measured cross-model classifier rates; not gold-standard accuracy",
+  "source_sha256": {
+    "filter_v2_dynamic.py": "4644195b5d74c3e7b1b98e2e2928540bc6879fc4d150f007bd28b7e624a0c895",
+    "calibrated_model.py": "f96707bdb1951d95ec5c55186a89b598d106e8ea68780198e2e884c49955e787",
+    "calibrated_run.py": "4cd83e83d0e03bb6e049a11fe3a9390674689d66b47debc344fcc6f68589dc81"
+  },
+  "v2_input_sha256": "42fbb8b219212732c18cac2d3c6ccdb2d16822420de5927c2b8106557c341821",
+  "rates": {
+    "source": "analysis/v6/results/dual_v2_labels.csv",
+    "source_sha256": "21bd694aeb20eba468eb6fc21323c273a828008d74fec128494c50a509279710",
+    "reference": "DeepSeek v2, not human gold standard",
+    "total_rows": 500,
+    "reference_parsed": 500,
+    "reference_positive": 5,
+    "p0": 0.01,
+    "paired_parsed": 500,
+    "qwen_missing": 0,
+    "tp": 4,
+    "fp": 62,
+    "fn": 1,
+    "tn": 433,
+    "recall": 0.8,
+    "false_positive_rate": 0.12525252525252525,
+    "caveat": "Small reference-positive count; model agreement rates, not gold-standard accuracy; plug-in uncertainty not propagated."
+  },
+  "supply": 0.02,
+  "prior": 0.15,
+  "theta": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "families": [
+    "group",
+    "conflict"
+  ],
+  "formation": 6000,
+  "active": 1000,
+  "followup": 2000,
+  "interval": 100,
+  "rows": 15360,
+  "compression": "gzip CSV",
+  "caveat": "Only main fitted cases rerun; does not replace the full-grid assumed-classifier benchmark. Rate uncertainty not propagated."
+}
