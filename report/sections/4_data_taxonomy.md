@@ -81,4 +81,15 @@ This check has clear limits. The reference is itself a model, not a human gold s
 
 ## 4.4 Do opposing narratives attract more engagement?
 
-*(Li Yitong: completion, like and "not interested" rates by narrative type.)*
+A common worry is that ranking by engagement amplifies divisive content because people engage with it more (Milli et al., 2025). We checked whether that holds in these logs. For each labelled video we counted, across all users, how often it was shown, watched to the end, liked or marked "not interested", and pooled the rates over impressions. Intervals come from resampling videos, since impressions of the same video are not independent.
+
+**Table 4.3.** Engagement in RecIF by DeepSeek label (95% intervals from 2,000 bootstrap resamples of videos).
+
+| Videos | Videos (impressions) | Watched to end | Liked | "Not interested" |
+|---|---:|---:|---:|---:|
+| Marriage videos with a gender group label | 144 (3,054) | 27% (17–37%) | 4.7% (1.3–9.0%) | 0.03% (0–0.14%) |
+| Other marriage videos | 2,206 (307,921) | 40% (38–42%) | 4.6% (4.3–4.9%) | 0.09% (0.08–0.10%) |
+| Issue videos with an opposing narrative (overview sample) | 38 (23,807) | 36% (30–45%) | 5.0% (3.2–7.6%) | 0.09% (0.04–0.15%) |
+| Issue videos without one (overview sample) | 179 (88,029) | 40% (35–44%) | 5.3% (4.4–6.3%) | 0.08% (0.06–0.11%) |
+
+We find **no sign that opposing narratives are engaged with more**. Group-label videos are liked at the same rate as other marriage videos and, if anything, watched to the end less often; across issues, videos with and without an opposing narrative have overlapping rates on every measure. Two cautions: most group-label videos come from the keyword stratum of our enlarged sample, so they are not a random draw of such videos; and the logs show reactions to what Kuaishou chose to show, not to all such content. The result means that, in this data, any tilt towards these narratives is unlikely to come simply from users rewarding them with engagement; Section 5 instead examines how an individual preference, if present, would be amplified.
