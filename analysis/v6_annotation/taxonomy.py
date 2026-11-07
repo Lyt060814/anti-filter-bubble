@@ -5,6 +5,10 @@ Usage: python -I -X utf8 taxonomy.py LABELS_CSV SOURCE_NAME [COMPARE_CSV COMPARE
 Rows with an empty domain (invalid model output) are counted as missing and left out of every share.
 With COMPARE_CSV, the table adds the other model's share and opposing share for each domain (same impressions).
 Sub-issues are listed only for domains with at least MIN_SUB impressions.
+
+       python -I -X utf8 taxonomy.py --stratified ../v6/results/strat_ds_labels.csv ../v6/results/strat_ds_meta.json
+  opposing-narrative share within each studied domain from the flash-screened, domain-stratified sample (issue #13);
+  writes results/taxonomy_strat_ds.csv and .meta.json.
 Input columns: pid, domain, issue, opposing, narrative_type (as written by analysis/v6/bottom_up_sample.py).
 The sample is impressions drawn uniformly from user histories, so shares are shares of exposures.
 
@@ -172,5 +176,81 @@ def main(path, src, cmp_path=None, cmp_name=None):
     print(json.dumps(summary, ensure_ascii=False))
 
 
+def stratified(labels_path, meta_path, b=2000, seed=0):
+    """Opposing-narrative share within each studied domain from the flash-screened, domain-stratified sample.
+
+    Strata are the screening model's domains; each valid V4 Pro row in stratum h has weight
+    flash_domain_counts[h] / (valid rows in h). Rows are grouped by the V4 Pro domain, so a video the screen put in
+    one domain and V4 Pro in another counts towards the latter. Videos the screen put outside the five sampled
+    strata are not covered. Invalid V4 Pro outputs are dropped within their stratum (missing at random assumed).
+    Intervals: percentile bootstrap within strata.
+    """
+    import numpy as np
+    meta = json.load(open(meta_path, encoding="utf-8"))
+    counts = meta["flash_domain_counts"]
+    n_screen = meta["screen_parsed"]
+    d = pd.read_csv(labels_path, dtype=str, keep_default_na=False)
+    missing = d[d.domain == ""].groupby("stratum").size().to_dict()
+    d = d[d.domain != ""].reset_index(drop=True)
+    d["opp"] = d.opposing.eq("是")
+    strata = sorted(d.stratum.unique())
+
+    def est(x):
+        nh = x.groupby("stratum").size()
+        w = x.stratum.map(lambda h: counts[h] / nh[h])
+        out = {}
+        for dom in IN_SCOPE:
+            m = (x.domain == dom).to_numpy()
+            tot = w[m].sum()
+            out[dom] = {"opposing_share": float((w[m] * x.opp[m]).sum() / tot) if tot > 0 else None,
+                        "domain_share_covered": float(tot / n_screen)}
+        m = x.domain.isin(IN_SCOPE).to_numpy()
+        out["_all_studied"] = {"opposing_share": float((w[m] * x.opp[m]).sum() / w[m].sum()),
+                               "domain_share_covered": float(w[m].sum() / n_screen)}
+        return out
+
+    point = est(d)
+    rng = np.random.default_rng(seed)
+    groups = {h: np.flatnonzero((d.stratum == h).to_numpy()) for h in strata}
+    draws = [est(d.iloc[np.concatenate([rng.choice(g, len(g)) for g in groups.values()])].reset_index(drop=True)) for _ in range(b)]
+    rows = []
+    for dom in IN_SCOPE + ["_all_studied"]:
+        r = {"domain": dom, "domain_en": DOMAIN_EN.get(dom, "five studied domains")}
+        sub = d[d.domain.isin(IN_SCOPE)] if dom == "_all_studied" else d[d.domain == dom]
+        r["v4pro_rows"] = len(sub)
+        r["v4pro_opposing_rows"] = int(sub.opp.sum())
+        for k in ("opposing_share", "domain_share_covered"):
+            v = [x[dom][k] for x in draws if x[dom][k] is not None]
+            r[k] = round(point[dom][k], 4)
+            r[k + "_ci"] = [round(float(np.percentile(v, 2.5)), 4), round(float(np.percentile(v, 97.5)), 4)]
+        if dom != "_all_studied":
+            st = d[d.stratum == dom]
+            r["screen_confirmed"] = round(float((st.domain == dom).mean()), 4) if len(st) else None
+            r["stratum_valid_rows"] = len(st)
+            r["stratum_missing_rows"] = int(missing.get(dom, 0))
+            types = sub[sub.opp].narrative_type.value_counts()
+            r.update({f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}": int(types.get(t, 0)) for t in TYPES})
+        rows.append(r)
+    tab = pd.DataFrame(rows)
+    stem = os.path.join(HERE, "results", "taxonomy_strat_ds")
+    tab.to_csv(stem + ".csv", index=False, encoding="utf-8")
+    try:
+        commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True, cwd=HERE).stdout.strip()
+    except OSError:
+        commit = None
+    json.dump({"script": "analysis/v6_annotation/taxonomy.py --stratified", "commit": commit, "date": time.strftime("%Y-%m-%d"),
+               "inputs": [os.path.relpath(labels_path, HERE).replace("\\", "/"), os.path.relpath(meta_path, HERE).replace("\\", "/")],
+               "weights": "flash_domain_counts[stratum] / valid V4 Pro rows in stratum; rows grouped by V4 Pro domain",
+               "coverage": "only the five flash strata were sampled; studied-domain videos that the screen put elsewhere are not covered, so domain_share_covered is a lower bound",
+               "missing_by_stratum": missing, "screen_parsed": n_screen, "bootstrap": f"{b} resamples within strata, seed {seed}",
+               "evidence": "measured: LLM labels (deepseek-flash screen, DeepSeek V4 Pro labels); no human check"},
+              open(stem + ".meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print(tab.to_string())
+    return tab
+
+
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    if sys.argv[1:2] == ["--stratified"]:
+        stratified(sys.argv[2], sys.argv[3])
+    else:
+        main(*sys.argv[1:5])
