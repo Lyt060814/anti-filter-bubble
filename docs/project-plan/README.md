@@ -6,7 +6,8 @@
 
 | 用途 | 入口 |
 |---|---|
-| **当前研究方向**：问题、理论、研究空白、设计、资源档位与待决策事项 | [Research Plan v5](research_plan_v5.md) |
+| **当前计划**：范围、研究问题、分工、报告结构、时间线 | [Research Plan v6](research_plan_v6.md)、[三人任务](../tasks/README.md) |
+| 定义、命题与理论细节（v6 沿用） | [Research Plan v5](research_plan_v5.md) |
 | v5 可行性核查的原始数字与脚本 | [v5 可行性记录](../context-recovery/plan_v5_feasibility.md)、[analysis/v5_feasibility](../../analysis/v5_feasibility/) |
 | v4（问题与设计已被 v5 取代，定义与命题保留） | [Research Plan v4](research_plan_v4.md)、[v4 可行性记录](../context-recovery/plan_v4_feasibility.md)、[analysis/v4_feasibility](../../analysis/v4_feasibility/) |
 | 已提交的课程提案（中英文各 4 页） | [中英文 PDF、Word、源稿与构建说明](submission/README.md) |
