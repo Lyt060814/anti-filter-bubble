@@ -4,15 +4,17 @@ HKU COMP1110（2026/27 第一学期）小组项目，五人：Fu Yitong、Li Yit
 
 ## 先读什么
 
-1. [交接说明](docs/context-recovery/handoff_2026-11.md)：到 2026-11-06 为止的决策、结果和下一步。
-2. [Research Plan v5](docs/project-plan/research_plan_v5.md)：当前研究方向（问题、定义、命题、设计、分工、待决策事项）。PDF 版同目录。
-3. [v5 可行性记录](docs/context-recovery/plan_v5_feasibility.md)：所有已跑出的数字及其脚本 [analysis/v5_feasibility](analysis/v5_feasibility/)。
-4. 已提交的课程提案：[docs/project-plan/submission](docs/project-plan/submission/README.md)。v1–v4 只作历史背景。
+1. [Research Plan v6](docs/project-plan/research_plan_v6.md)：当前计划（范围、研究问题、分工、报告结构、时间线）。
+2. [三人协作说明与任务](docs/tasks/README.md)：Zhao Dingcheng、Xu Ruicong、Li Yitong 各自的任务、目录、PR 流程和规则。组员开工前先读自己的任务文件。
+3. [Research Plan v5](docs/project-plan/research_plan_v5.md)：定义、命题与理论细节（v6 沿用）；[交接说明](docs/context-recovery/handoff_2026-11.md)：到 11-06 为止的决策和结果。
+4. [v5 可行性记录](docs/context-recovery/plan_v5_feasibility.md)：所有已跑出的数字及其脚本 [analysis/v5_feasibility](analysis/v5_feasibility/)。
+5. 已提交的课程提案：[docs/project-plan/submission](docs/project-plan/submission/README.md)。v1–v4 只作历史背景。
 
 ## 工作原则
 
+- 这是课程项目，目的是体验科研流程，不提交代码。数字要么来自实际运行，要么明确标为"情境假设"并做参数扫描；不把假设写成测量结果。
 - 从第一性原理出发：先想清楚什么重要、什么可测，再选方法；不为好实现而缩小问题。
-- **不手设机制参数**。推荐器对用户操作的反应要从真实模型测出来，用户偏好要从真实日志估计；扫描的实验条件要报告整条曲线，不能假设一个值。
+- 能实测的尽量实测（推荐器对操作的反应、叙事比例）；模拟中的情境参数要报告整条曲线，不能只给一个值。
 - 结论按证据分级：模拟结果不等于线上平台效果；曝光变化不等于信念变化。
 - 写作用平实的中文，少用术语和修饰；引用须核实标题、作者、年份和出处。
 - 改动通过检查后提交并推送，按逻辑拆成多个 commit。
