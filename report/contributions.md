@@ -30,6 +30,7 @@
 - 11-07：按 issue #13 用 DeepSeek 重标结果重做表 4.1（`taxonomy.py` 增加缺失处理、Qwen 对照列、小样本不拆子议题），改写第 4.2 节（区间为主、Qwen 两步高估的对照、案例选择与排除理由），附录加入 A.6 跨大类提示词原文并改准 A.4 末句。产出：`results/taxonomy_deepseek_bu*`、`report/sections/4_data_taxonomy.md`、`11_appendix_a.md`。
 - 11-07：按 issue #10 分析 v2 结果：DeepSeek 5/500（全部在 v0 的 7 条之内），Qwen 66/500，查全率 4/5、查准率 6%；给 `agreement.py` 加上四问分歧定位，发现 63 处分歧全部始于第一问（对象是谁）。更新 `agreement.md` 第 6 节、报告 4.3 节（表 4.2）、附录 A.4，并按 PR #14 意见补写 4.2 的案例选择理由。
 - 11-07：D6 设计用户侧"观点曝光报告"样稿（脚本生成，每个数字注明是示意、公式还是模拟），撰写报告第 6 节（设计启示、对平台和用户的建议、局限）。产出：`analysis/v6_annotation/design_mockup.py`、`figures/exposure_report_mockup.*`、`results/exposure_report_mockup.*`、`report/sections/6_design.md`。
+- 11-07：按 issue #20 建立第 9 节参考文献：合并全文 37 条引用（APA），新核实 Rogan & Gladen (1978)、Nyhan 等 (2023)、Milli 等 (2025)、Wang, Y. 等 (2023)、OpenOneRec 技术报告 (Zhou 等, 2025)、网信办等四部门 2024 年通知（原文核对）和 2025 年快手"一键破茧"报道；统一正文引用写法，删去各节末尾列表；编写双向核对脚本。产出：`report/sections/9_references.md`、`analysis/v6_annotation/check_references.py`。
 
 ## Li Yitong
 - 11-07：审阅并合并组员的 PR（#1–#15）；用 DeepSeek 完成 v0/v1/v2 双模型核查和 3,000 条自下而上重标，发现开源模型系统性高估；起草报告第 3 节（概念与理论，含偏斜的三层分解、6 条命题和两个算例）。
