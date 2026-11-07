@@ -25,3 +25,28 @@
 - 影响的报告部分：第 4 节的叙事比例、第 5 节的标签。
 - 确切提示词：见 `analysis/v5_feasibility/label_pilot.py` 和 `analysis/v6/bottom_up_sample.py` 中的 `SYSTEM` 与 `TEMPLATE`，报告附录会原样列出。
 - 输出如何使用：作为标签；准确率用更强的前沿模型交叉核查（任务 D3）估计后使用。
+
+### 2026-11-07 · Zhao Dingcheng · Claude Code（Claude Opus 5.5）
+- 用途：按任务 D1、D2 起草叙事类型定义和 v1 标注提示词；之后按同一条指令继续做 D3–D6，入稿时在下面补记。
+- 影响的报告部分：第 4 节对叙事类型和标注方法的描述（定义与提示词会进附录）；间接影响所有用 v1 提示词得到的标签和比例。
+- 确切提示词：
+  > 你是 Zhao Dingcheng 的研究助手，在 COMP1110 小组项目仓库 github.com/Lyt060814/anti-filter-bubble 上工作。
+  >
+  > 开始前按顺序阅读：CLAUDE.md、docs/tasks/README.md、docs/tasks/zhao_dingcheng.md、report/README.md，以及 docs/project-plan/research_plan_v6.md。需要定义和命题细节时，再看 docs/project-plan/research_plan_v5.md 的第 4 节。
+  >
+  > 你的任务是 zhao_dingcheng.md 里的 D1–D6，按这个顺序做：
+  > 1. 先做 D1（叙事类型定义）和 D2（LLM 标注提示词）。
+  > 2. analysis/v6/results/dual_v0_labels.csv 出现后，做 D3 的核查分析脚本和初稿。如果文件还没出现，就先写脚本框架，用几行假数据测试。
+  > 3. 然后做 D5 相关研究、D4 分类表、D6 曝光报告样稿。
+  >
+  > 工作规则：
+  > - 先从 main 新建分支 dingcheng/d1-d2，在分支上工作；每完成一项就提交、推送，并用 gh pr create 开 PR 到 main，标题带任务编号。不要直接推送 main。
+  > - 只改 analysis/v6_annotation/ 和 report/sections/ 里分给你的文件（2、4、6 节）。
+  > - 仓库是公开的：不提交任何视频描述原文、账号或密钥。不做人工标注，标注全部交给 LLM。
+  > - 报告小节用英文写；内部说明文件用中文。只引用核实过的文献；新加文献要写全作者、年份、出处，并核实过。
+  > - 每张图表都要保存原始数据，加一个 .meta.json，并在 report/figures.md 登记。
+  > - 你生成并进入报告的内容，要在 report/ai_use_log.md 记下模型和原样的提示词。
+  > - 每完成一项实质性工作，在 report/contributions.md 的 Zhao Dingcheng 名下加一行。
+  >
+  > 遇到需要决定或有疑问的地方，写在 PR 描述里，不要自己改动别人的部分。先告诉我你的计划，再开始 D1。
+- 输出如何使用：Claude 起草定义、例子和提示词，Zhao Dingcheng 审阅后采用（审阅后在此补记修改情况）。例子都是编写的，不来自视频描述。

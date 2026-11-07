@@ -13,6 +13,7 @@
 
 ## Zhao Dingcheng
 - 10 月：与 Wang Junbo 搭建初版曝光报告流程，负责候选视频检索和 LLM/VLM 抽取（命题、立场、理由、来源）的提示词与输出格式；与 Fu Yitong 调研相关研究；与 Xu Ruicong 用生成数据测试流程。（来源：11-04 进度记录）
+- 11-07：D1 写四类对立叙事（唯一正确、二元对立、焦虑渲染、群体标签）的定义、判断步骤和正反例，重点划清群体标签与单个反派的边界；D2 据此写 v1 标注提示词和解析函数，供双模型核查和全量标注使用。产出：`analysis/v6_annotation/narrative_types.md`、`prompt.md`、`prompt_v1.py`。
 
 ## Li Yitong
 - 10 月：前期文献与数据核查；撰写项目计划的技术部分；与 Xu Ruicong 搭建五种策略的推荐仿真。
