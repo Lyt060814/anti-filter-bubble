@@ -64,12 +64,14 @@ def run():
         issue=21,main_attribute_target=.12,topic_target=.7,upper_attribute_target=1.13,lower_attribute_target=0,
         lower_rationale='null mean .0923 and SD .1266 do not identify a positive contrast; zero corresponds to existing c/t=0 scan',
         null_mean=null['lv_null_mean'],null_sd=null['lv_null_sd'],
+        descriptive_null_subtraction=.12-null['lv_null_mean'],near_null_existing_case=17,near_null_ratio=.2,
+        near_null_achieved_target=Model(ratio=.2).calibration_check()[1],
         measured_sources={name:hashlib.sha256((source/name).read_bytes()).hexdigest() for name in ('l4_onerec_v0.json','l4_null.json')},
         seeds=list(range(20)),theta=[0,.5,1,2],supply=.02,prior=.15,formation=FORM,active=ACTIVE,followup=FOLLOW,
         TPR=.8,FPR=.02,S1b=.5,NI_note='~40% of watched response differs in denominator from 78% of neutral mention; prior .39 sensitivity numerically covers ~.40',
         raw_formation='l4_main_formation.csv.gz',raw_endpoints='l4_main_endpoints.csv.gz',compression='gzip CSV',
         limitations='Supply-reference total skew; no platform/personal decomposition. Classifier filtering acts independently of embedding contrast.')
-    f,axes=plt.subplots(1,2,figsize=(10,4))
+    f,axes=plt.subplots(1,3,figsize=(13,4))
     for theta in (0,.5,1,2):
         group=[r for r in formation if r['scenario']=='L4_main' and r['theta']==theta]
         values=np.array([r['V_supply'] for r in group]).reshape(-1,20)
@@ -79,9 +81,13 @@ def run():
     axes[0].axhline(0,color='grey',linestyle='--',label='zero-contrast lower')
     axes[0].set(xlabel='Formation exposures',ylabel='Total skew vs supply',title='L4 main attribute target +0.12');axes[0].legend(fontsize=7)
     group=[r for r in summary if r['scenario']=='L4_main' and r['theta']==2 and r['step']==ACTIVE]
-    for i,r in enumerate(group):axes[1].errorbar(i,r['V_or_delta_V'],yerr=r['ci_half'],fmt='o',color=plt.cm.tab10(i/10))
-    axes[1].set(xticks=range(6),xticklabels=ARMS,ylabel='Endpoint change in total skew',title='Main-case controls, theta=2')
+    for i,r in enumerate(group):
+        ax=axes[2] if r['strategy']=='S6' else axes[1]
+        ax.errorbar(0 if r['strategy']=='S6' else i,r['V_or_delta_V'],yerr=r['ci_half'],fmt='o',color=plt.cm.tab10(i/10))
+    axes[1].set(xticks=range(5),xticklabels=ARMS[:5],ylabel='Endpoint change in total skew',title='Feedback/history controls, theta=2')
     axes[1].axhline(0,color='grey',lw=.5)
+    axes[2].set(xticks=[0],xticklabels=['S6'],ylabel='Endpoint change in total skew',title='Output filtering: separate mechanism',ylim=(-1.7,.05))
+    axes[2].axhline(0,color='grey',lw=.5)
     fig('l4_main',details,['l4_main.py','calibrated_model.py','calibrated_run.py','revised_common.py'])
     for r in cal:print(r)
     for r in summary:
