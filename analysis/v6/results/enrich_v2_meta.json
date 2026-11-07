@@ -1,0 +1,9 @@
+{
+  "source": "logs/enrich_ds_labels.csv",
+  "prompt_version": "v2",
+  "model": "deepseek-v4-pro",
+  "n": 2955,
+  "parsed": 2880,
+  "seconds": 4776,
+  "date": "2026-11-07"
+}
