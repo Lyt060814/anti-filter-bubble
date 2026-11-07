@@ -1,0 +1,82 @@
+{
+  "evidence_type": "scenario assumption / synthetic simulation",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "independent_unit": "seed: four-user population, one user per theta",
+  "theta": [
+    0,
+    0.5,
+    1,
+    2
+  ],
+  "coefficient_ratios": [
+    0.0,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.59,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "defaults": {
+    "ratio": 0.15,
+    "theta": 2.0,
+    "t": 1.0,
+    "tau": 1.0,
+    "eta": 0.05,
+    "decay": 0.002,
+    "a": -1.0,
+    "gamma": 1.0,
+    "noise": 0.05
+  },
+  "formation_steps": 600,
+  "intervention_steps": 200,
+  "followup_steps": 400,
+  "script": "analysis/v6_simulation/experiments.py",
+  "git_commit": "d477c2107bbb5f7cc555ba54ddcd951af9e44354",
+  "utc": "2026-11-07T05:39:09.064106+00:00",
+  "interval": "mean +/- t(19,0.975)=2.093 * sample SD / sqrt(20); pointwise Monte Carlo CI",
+  "sources": [
+    "docs/tasks/xu_ruicong.md",
+    "docs/project-plan/research_plan_v5.md section 4",
+    "docs/context-recovery/plan_v5_feasibility.md section 3.4"
+  ],
+  "csv_snapshot_interval": 20,
+  "decay_scan": [
+    0,
+    0.002
+  ],
+  "plotted_ratios": [
+    0,
+    0.15,
+    0.59,
+    1
+  ],
+  "all_ratios_available_in_csv": true
+}

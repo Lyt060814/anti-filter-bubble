@@ -14,6 +14,34 @@
 
 ## 已有记录
 
+### 2026-11-07 · Xu Ruicong · Codex（GPT-6；本会话未提供更细模型版本）
+- 用途：实现、执行和检查 R1–R5；生成模拟图、样本量计算和英文模拟小节。
+- 影响的报告部分：第 5 节模拟与察觉部分，F-R2、F-R3、F-R3P、F-R4，以及运行截图。仅最终实际产出入稿；没有复测 OneRec 或真实数据。
+- 确切提示词（原样）：
+
+```text
+你是 Xu Ruicong 的研究助手，在 COMP1110 小组项目仓库 github.com/Lyt060814/anti-filter-bubble 上工作。
+
+开始前按顺序阅读：CLAUDE.md、docs/tasks/README.md、docs/tasks/xu_ruicong.md、report/README.md，以及 docs/project-plan/research_plan_v6.md 和 docs/project-plan/research_plan_v5.md 的第 4 节（定义与命题 0–4，尤其是命题 2 和 4）。
+
+你的任务是 xu_ruicong.md 里的 R1–R5：用 Python（numpy、matplotlib）实现透明推荐模型的模拟，并完成察觉所需样本量的计算。不需要任何数据或 GPU。按这个顺序做：
+1. 先做 R1：在 analysis/v6_simulation/ 实现模型，通过两项自检（c=0 时 V 不增长；一步更新的 ΔV 与命题 2 的一阶公式相符）。
+2. 然后做 R2 形成、R3 逃离（十种策略，含"不感兴趣"负向和 OneRec 式反向两种实现，以及停止后的持续性）、R4 察觉。
+3. 最后做 R5，写报告的模拟小节。
+
+工作规则：
+- 先从 main 新建分支 ruicong/r1-model，在分支上工作；每完成一项就提交、推送，并用 gh pr create 开 PR 到 main，标题带任务编号。不要直接推送 main。
+- 只改 analysis/v6_simulation/ 和 report/sections/5_case_study.md 里的模拟部分。
+- 所有参数都是情境假设：要在代码和图注里标明，并按任务说明做参数扫描（c/t 从 0 到 1，θ 取 0、0.5、1、2，每个设定 20 个随机种子，报告均值和 95% 区间），不要只报一个值。需要用到的实测数字（c/t 约 0.15 和 0.59、议题占比中位数 1.6%、p90 3.6%、OneRec 里"不感兴趣"约为中性提及效果的 78% 且方向为正）都写在任务说明里，引用时注明出处。
+- 每个设定、每个种子的结果都存成 CSV；每张图配一个 .meta.json（参数、种子、脚本、git 提交号、证据类型）；图存 PNG（300 dpi）和 PDF 两种，并在 report/figures.md 登记；放一张运行输出的截图到 report/screenshots/。
+- 报告小节用英文写。你生成并进入报告的内容，要在 report/ai_use_log.md 记下模型和原样的提示词；每完成一项实质性工作，在 report/contributions.md 的 Xu Ruicong 名下加一行。
+- 仓库是公开的：不提交任何密钥或数据原文。
+
+遇到需要决定或有疑问的地方，写在 PR 描述里。先告诉我你的计划和模型的具体实现方式，再开始 R1。
+```
+
+- 输出如何使用：代码实际运行；图和英文模拟小节作为初稿，等待 Xu Ruicong 与组员审阅。参数、分类器质量与种子人群为情境假设，实测锚点只引用仓库记录。
+
 ### 2026-11-04 至 11-07 · Li Yitong · Claude Code（Claude Opus 5.5）
 - 用途：一段很长的对话，用于研究设计与数据分析。主要阶段：根据老师反馈重新设计研究问题（v4、v5、v6）；推导定义与命题；编写并运行可行性实验脚本；检索并核实文献；撰写计划、任务说明和进度记录。
 - 影响的报告部分：第 3 节的定义与命题、第 4–5 节使用的实验脚本与数字、相关研究的文献核实（入稿文字待写作阶段补记）。

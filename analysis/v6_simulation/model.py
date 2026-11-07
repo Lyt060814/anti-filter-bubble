@@ -12,6 +12,13 @@ def logit(p):
     return np.log(p) - np.log1p(-p)
 
 
+def reference_logit(reference):
+    # A pair of masses avoids loss of precision when conditional p rounds to 1.
+    if isinstance(reference, tuple):
+        return np.log(reference[0])-np.log(reference[1])
+    return logit(reference)
+
+
 @dataclass
 class Config:
     ratio: float = 0.15
@@ -55,7 +62,7 @@ class Model:
         p = pi[self.A].sum() / m if m > 0 else np.nan
         # Use group log masses to avoid rounding p to 1 at extreme logits.
         va, vb = pi[self.A].sum(), pi[self.B].sum()
-        v = np.log(va / vb) - logit(reference) if va > 0 and vb > 0 else np.nan
+        v = np.log(va / vb) - reference_logit(reference) if va > 0 and vb > 0 else np.nan
         return m, p, v
 
     def contrast(self, u, j):
