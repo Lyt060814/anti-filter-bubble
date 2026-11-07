@@ -53,3 +53,4 @@
 - D3（同一会话）：确切提示词为"开始 D3"。Claude 编写并运行 `agreement.py`，起草 `agreement.md` 的数字与解读；数字来自脚本对 `dual_v0_labels.csv` 的实际运行。分歧类型由关键词规则归类，Claude 逐条读过两个模型的依据并核对。
 - D5（同一会话）：确切提示词为"开始 D5"。Claude 根据仓库内已核实的文献笔记（`docs/project-plan/references_verified.md`、`docs/research/`）起草第 2 节英文全文和参考文献条目；新增文献的作者、年份、出处和页码通过 Crossref API 与 arXiv 页面核实。影响报告第 2 节和第 9 节的参考文献。输出如何使用：待 Zhao Dingcheng 审阅后补记。
 - D4（同一会话）：确切提示词为"开始 D4"。Claude 编写并运行 `taxonomy.py`，起草第 4.2、4.3 节英文全文；表 4.1 由脚本生成，4.3 的数字来自 D3 的 `agreement_v0.json`。"典型争论"是 Claude 根据 LLM 给出的议题名编写的示意，不来自视频描述。影响报告第 4 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
+- D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。

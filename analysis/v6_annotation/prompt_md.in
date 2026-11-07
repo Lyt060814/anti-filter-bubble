@@ -1,19 +1,34 @@
-# D2 LLM 标注提示词（v1，2026-11-07，Zhao Dingcheng）
+# D2 LLM 标注提示词（当前 v2，2026-11-07，Zhao Dingcheng）
 
-把 [D1 的定义](narrative_types.md)改写成给 LLM 用的提示词，用于婚恋议题视频的标注，以及双模型核查（D3）。提示词的正式文本在 [prompt_v1.py](prompt_v1.py)，下面第 4 节是它的原样副本。修改提示词时改 `prompt_v1.py`，修改说明文字时改 `prompt_md.in`，然后按第 5 节的命令重新生成本文，不要直接编辑本文。
+把 [D1 的定义](narrative_types.md)改写成给 LLM 用的提示词，用于婚恋议题视频的标注，以及双模型核查（D3）。当前版本是 v2，正式文本在 [prompt_v2.py](prompt_v2.py)，下面第 5 节是它的原样副本；v1 保留在 [prompt_v1.py](prompt_v1.py)，供复现。修改提示词时改 `prompt_v2.py`（或新建下一版并改 `make_prompt_md.py` 里的 `CURRENT`），修改说明文字时改 `prompt_md.in`，然后按第 6 节的命令重新生成本文，不要直接编辑本文。
 
 ## 1. 怎样使用
 
-`prompt_v1.py` 里的 `SYSTEM`、`TEMPLATE`、`FIELDS`、`parse` 与 [analysis/v6/dual_model_check.py](../v6/dual_model_check.py) 中的同名对象接口相同，可以直接替换：
+`prompt_v2.py` 里的 `SYSTEM`、`TEMPLATE`、`FIELDS`、`parse` 与 [analysis/v6/dual_model_check.py](../v6/dual_model_check.py) 中的同名对象接口相同，可以直接替换：
 
 ```python
 sys.path.insert(0, "<仓库>/analysis/v6_annotation")
-from prompt_v1 import PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse
+from prompt_v2 import PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse
 ```
 
-输出字段不变（`issue`、`group_label`、`narrative_type`、`genre`、`reason`），所以 D3 的分析脚本对 v0 和 v1 的结果都能用。`python -I prompt_v1.py` 会自检模板和解析函数。
+v2 在原有的 `issue`、`group_label`、`narrative_type`、`genre`、`reason` 之外，多了四个问题字段 `q1_target`、`q2_generalize`、`q3_negative`、`q4_endorse`。D3 的分析脚本只用原有字段，对 v0、v1、v2 的结果都能用；四个问题字段如果也写进 CSV，可以用来分析分歧出在哪一问。`python -I -X utf8 prompt_v2.py` 会自检模板、六个示例和解析函数。
 
-## 2. 相对 v0 改了什么
+## 2. v1 → v2 改了什么（issue #10）
+
+v1 在同一批 500 条上让 Qwen 判出 51% 群体标签、DeepSeek 只判出 0.6%，分析见 [agreement.md](agreement.md) 第 5 节。v2 针对两个方向分别修改：
+
+| 问题 | v1 的写法 | v2 的做法 |
+|---|---|---|
+| Qwen 把"对象：……"前缀当套话，494 条里 481 条写"对象：群体" | `reason` 放第一位，以"对象：个人／群体"开头 | 四个问题各成一个字段（`q1_target` 等），先答问题再给标签，`reason` 放到最后；去掉前缀 |
+| 婆婆、丈夫、继母被写成"群体" | 只问"对象是不是一类人" | 对象默认是"个人"；角色称呼都算具体人物；只有明确的群体指称或贬义称号才算群体 |
+| 标签和四问可能对不上 | 解析只查两条矛盾 | `parse` 检查标签是否由四问的答案推出，不一致就拒绝 |
+| DeepSeek 认为"部分女性"不算推广 | 推广要求"都""没一个"这类全称说法 | 泛指一类人的贬义总结也算推广 |
+| DeepSeek 把字幕里明说的标签也排除 | "只标视频认同的""描述者的概括不算" | 视频自己的标题、字幕、旁白、博主原话默认认同，除非明确反驳 |
+| "批判家暴男"被判成针对男性 | 没有规定 | 按具体恶行定义的人不算性别群体，除非把恶行说成某一性别的普遍特征 |
+| DeepSeek 在 v1 下没有判出任何其他三类叙事 | 只强调"有冲突不等于有立场" | 加上正面信号：博主直接给出劝告、评判或结论，就是在表达立场 |
+| 示例 | 4 个，其中一个写了"对象：群体（农村出身男性）" | 6 个，加入"夫妻搞笑互动""批判家暴者""字幕说女生只看钱"；示例只给完整 JSON，不给前缀 |
+
+## 3. v0 → v1 改了什么（历史）
 
 | 问题 | v0 / v5 试点 | v1 的做法 |
 |---|---|---|
@@ -24,18 +39,20 @@ from prompt_v1 import PROMPT_VERSION, SYSTEM, TEMPLATE, FIELDS, parse
 | 几类同时符合时不一致 | 没有顺序 | 规定顺序：群体标签 → 唯一正确 → 二元对立 → 焦虑渲染 |
 | 非性别的群体标签 | 无处可放 | `narrative_type` 记"群体标签"，`group_label` 记"无" |
 | 什么时候"无法判断" | 只列出了取值 | 写明条件：描述太短、太乱，或看不出视频是否认同 |
-| 先下结论、后找理由 | `reason` 放在最后 | 要求先输出 `reason`，并先写对象是"个人"还是"群体"，让模型先说依据再给标签；D3 也可以用这个前缀给分歧归类 |
+| 先下结论、后找理由 | `reason` 放在最后 | 要求先输出 `reason`，并先写对象是"个人"还是"群体"（v2 撤回了这一改动，见上节） |
 | 前后矛盾的输出 | 只检查取值范围 | `parse` 额外拒绝两类矛盾：性别标签不配"群体标签"、`issue` 为"否"却有标签 |
 
-## 3. 需要 Li Yitong 留意的地方
+## 4. 需要 Li Yitong 留意的地方
 
-- **解析更严**：两条一致性规则会让少量输出变成解析失败。请在 meta 里照常记录各模型的解析数；如果失败超过约 2%，告诉我，我改提示词，而不是放宽解析。
-- **长度**：模板约 2,100 字，加上最多 1,200 字的描述，在 Qwen 的 `max_model_len=4096` 以内。`reason` 放宽到 40 字，Qwen 的 `max_tokens=250` 应该够用。
-- **示例**：四个示例都是编写的，不来自视频描述。
+- **CSV 字段**：`dual_model_check.py` 目前只把 `issue`、`group_label`、`narrative_type`、`genre`、`reason` 写进 CSV。建议把 `q1_target`–`q4_endorse` 也写进去（只是标签，不含描述原文），这样 D3 可以看出两个模型在哪一问上分歧。
+- **解析拒绝**：v2 的一致性检查比 v1 严。API 模型被拒会重试；Qwen 被拒记为缺失。请在 meta 里记录拒绝条数，超过约 2% 告诉我。
+- **长度**：模板约 2,950 字，比 v1 长约 870 字；加上最多 1,200 字的描述，估计仍在 Qwen 的 `max_model_len=4096` 以内，但请看一下有没有被截断的提示。输出多了四个短字段，Qwen 的 `max_tokens=250` 应该够用。
+- **扩充参照阳性**：`deepseek_label.py enrich` 目前用 v0 提示词。全量标注改用 DeepSeek 后，参照最好和全量标注用同一版提示词（v2），否则校准的是另一套规则。
+- **示例**：六个示例都是编写的，不来自视频描述。
 
-## 4. 提示词原文（由 prompt_v1.py 生成）
+## 5. 提示词原文（由 prompt_v2.py 生成）
 
-版本：`PROMPT_VERSION = "v1"`。
+版本：`PROMPT_VERSION = "v2"`。
 
 **System**
 
@@ -49,8 +66,8 @@ SYSTEM_PLACEHOLDER
 TEMPLATE_PLACEHOLDER
 ```
 
-## 5. 重新生成第 4 节
+## 6. 重新生成第 5 节
 
 ```bash
-cd analysis/v6_annotation && python -I make_prompt_md.py
+cd analysis/v6_annotation && python -I -X utf8 make_prompt_md.py
 ```
