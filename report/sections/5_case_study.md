@@ -14,12 +14,12 @@ This section asks how a feed tilts and how a user can undo it, for the narrative
 
 **Result 3: OneRec does not separate the group-label narrative from other issue videos.** We put 10 group-label videos (A) or 10 genre-matched other issue videos (B) in a section and compared $V$ on held-out videos. A positive difference means the model amplifies the narrative a user engages with. To rule out near-duplicates of the same story, injected and held-out videos never share a first-level semantic ID. As a null, we drew random "pseudo-narratives" of the same size and genre mix from videos without a group label and ran the same test.
 
-**Table 5.1.** Response of $V$ (log-odds of A against B) to adding A rather than B to a user's history. Mean over users, standard error in brackets.
+**Table 5.1.** Response of $V$ (log-odds of A against B) to adding A rather than B to a user's history. Mean over users, standard error in brackets. The DeepSeek set uses the v0 prompt of the enriched sample (Section 4.3); 85 of its videos are also flagged under v2.
 
 | A set (labels) | Users | "Watched" section | "Not interested" section | Video task, 20 appended |
 |---|---:|---:|---:|---:|
 | Group label, pilot (Qwen; 30 videos) | 30 | +1.13 (0.12) | +0.63 (0.07) | +1.43 (0.08) |
-| Group label (DeepSeek; 171 videos) | 50 | +0.12 (0.07) | +0.06 (0.05) | −0.11 (0.07) |
+| Group label (DeepSeek, v0 prompt; 171 videos) | 50 | +0.12 (0.07) | +0.06 (0.05) | −0.11 (0.07) |
 | Random pseudo-narrative, one draw | 50 | +0.19 (0.04) | +0.08 (0.03) | +0.15 (0.08) |
 | Random pseudo-narratives, 10 draws: mean (SD across draws) | 30 | +0.09 (0.13) | +0.02 (0.09) | — |
 

@@ -82,7 +82,7 @@ No video was labelled by hand. To estimate label quality, the open model, the re
 
 A common worry is that ranking by engagement amplifies divisive content because people engage with it more (Milli et al., 2025). We checked whether that holds in these logs. For each labelled video we counted, across all users, how often it was shown, watched to the end, liked or marked "not interested", and pooled the rates over impressions. Intervals come from resampling videos, since impressions of the same video are not independent.
 
-**Table 4.4.** Engagement in RecIF by DeepSeek label (95% intervals from 2,000 bootstrap resamples of videos).
+**Table 4.4.** Engagement in RecIF by DeepSeek label (gender group labels from the v0 prompt of the enriched sample; 95% intervals from 2,000 bootstrap resamples of videos).
 
 | Videos | Videos (impressions) | Watched to end | Liked | "Not interested" |
 |---|---:|---:|---:|---:|

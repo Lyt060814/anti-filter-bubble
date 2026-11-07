@@ -159,3 +159,4 @@
 - 影响的报告部分：第 4.2–4.4 节的比例与表格、第 5.1 节的标签、第 5.3 节的参照比例。
 - 确切提示词：`analysis/v6/deepseek_label.py`（`BU_TEMPLATE` 等）、`analysis/v6_annotation/prompt_v0`–`prompt_v2.py` 中的系统提示与模板；v2 与跨大类提示词原文见附录 A。
 - 输出如何使用：作为标签，用模型间一致性估计质量；不当作人工金标准。
+- 整合（同一会话）：确切提示词为"继续"和"ruicong的在改，你继续完成你的工作吧"。Claude 编写 `report/build_report.sh` 合成全文 PDF；压缩第 5.1–5.3 节（数字不变，5.2–5.3 为 Xu Ruicong 的部分，已告知其核对），把上限情境的图移入附录 B；按 #27、#28、#29 的结果同步摘要、第 4.4 节表注、第 5 节、第 6 节图注、第 7 节和第 8、10 节；编写并运行 `analysis/v6/retry_invalid.py`、`enrich_exposures.py`。输出如何使用：待 Li Yitong 通读后采用。
