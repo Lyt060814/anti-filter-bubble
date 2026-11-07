@@ -183,8 +183,10 @@ def main():
         for c in ("add_A", "add_B"):
             res[f"video_rec:{c}"] = summarise(recs["video_rec"], c)
         res["video_rec:add_A-vs-add_B"] = summarise(recs["video_rec"], "add_A", "add_B")
+        res["per_user"] = {k: [{c: list(v) for c, v in u.items()} for u in lst] for k, lst in recs.items()}
+        res["pids"] = {"A_inject": A_inj, "A_eval": A_ev, "B_inject": B_inj, "B_eval": B_ev}
         out[attr] = res
-        print(attr, json.dumps(res, ensure_ascii=False), flush=True)
+        print(attr, json.dumps({k: v for k, v in res.items() if k not in ("per_user", "pids")}, ensure_ascii=False), flush=True)
     json.dump(out, open(out_path, "w"), ensure_ascii=False, indent=2)
 
 

@@ -1,5 +1,11 @@
 # 生成式 AI 使用记录
 
+### 2026-11-07 · Xu Ruicong · Codex（GPT-6）· R5 整合精简
+- 确切提示词：`继续给我完成之前的任务`。
+- 依据：#16 合并审阅要求对齐命题编号、总偏斜记号，并将参数细节移入附录 B。
+- 影响部分：第 5 节模拟正文精简与图注、analysis/v6_simulation/appendix_b.md；数值未改变。
+- 使用方式：作为整合稿提交审阅；不修改其他作者的报告文件，保留模拟范围标记。
+
 ### 2026-11-07 · Xu Ruicong · Codex（GPT-6）· R5 校准后重写
 - 确切追加提示词（原样）：
 ```text
@@ -131,6 +137,6 @@
 
 ### 2026-11-07 · Li Yitong · Claude Code（Claude Opus 5.5）
 - 用途：起草报告第 3 节（Concepts and Theory）英文初稿，内容来自 `docs/project-plan/research_plan_v5.md` 第 4 节与 v6 第 3 节，算例数字用脚本计算。
-- 影响的报告部分：第 3 节全文；第 1 节全文；第 4.1 节。
+- 影响的报告部分：第 3 节全文；第 1 节全文；第 4.1 节；第 7 节初稿。
 - 确切提示词：会话中让 Claude 按任务说明开展工作的指令："我觉得可以，就以性别婚恋作为case study。……下一步就开始实际干活了，我的两个队员分别是dingcheng和ruicong。开始吧"；任务 L6 写在 `docs/tasks/li_yitong.md`。
 - 输出如何使用：待 Li Yitong 审阅修改后采用。
