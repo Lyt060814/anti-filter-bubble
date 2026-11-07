@@ -23,7 +23,7 @@ Our contributions are:
 1. a definition of a viewpoint cocoon that separates it from topic interest, with an exact split of a user's skew into a platform layer and a personal layer (Section 3);
 2. a set of propositions showing that the property that lets a recommender build a cocoon is the same one that lets a user take it apart, and what each kind of control can and cannot reach (Section 3);
 3. a data-driven map of where opposing narratives appear in a real feed, and evidence that an open-source model greatly overstates them (Section 4);
-4. experiments showing that a recommender trained only on logs can respond to "not interested" in the wrong direction, and simulations comparing the cost and persistence of user strategies (Section 5); and
+4. experiments showing that a recommender trained only on logs responds strongly to topics but barely to the group-label narrative, and responds to "not interested" in the wrong direction, together with simulations comparing the cost and persistence of user strategies (Section 5); and
 5. design implications for a user-side "viewpoint exposure report" (Section 6).
 
 The rest of the report is organised accordingly; Section 7 discusses limitations and ethics.
