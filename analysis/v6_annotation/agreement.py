@@ -6,6 +6,9 @@ Usage:
       needs CSV columns pid, stratum (cue_word / random_exposure_weighted), exposures, a reference label column
       (deepseek_group_label or group_label) and optionally qwen_group_label; META_JSON needs total_exposures
       (exposures of the whole candidate pool). Writes exposure-weighted shares, precision and recall.
+  python -I agreement.py --enrich V0_LABELS V2_LABELS EXPOSURES META [DUAL_V2_LABELS]
+      exact exposure-weighted group-label share in the enriched sample (cue words by exposures, random draws by
+      draw counts; issue #27); with the 500-video check added to the random stratum as a pooled estimate.
   python -I agreement.py --selftest
 
 Input: the CSV written by analysis/v6/dual_model_check.py (pid, exposures, {qwen,deepseek,gpt}_{issue,group_label,
@@ -377,6 +380,102 @@ def selftest_stratified(tmp):
     return r
 
 
+def enrich_units(labels_path, exposures_path, meta, extra_noncue=None):
+    """Weighted units for the enriched sample (analysis/v6/enrich_exposures.py design).
+
+    Cue-word stratum: a census of videos, each weighted by its exposures. Random stratum: exposure-weighted draws
+    with replacement, de-duplicated; each video is expanded to its number of draws, and each draw stands for
+    non_cue_exposures / (valid draws). extra_noncue (optional): another exposure-weighted sample of non-cue videos
+    from the same pool (pid, group_label), each row counted as one draw; videos already in the random stratum are
+    not counted twice. Returns a frame with columns stratum, y (positive) and w (weight summing to 1).
+    """
+    lab = pd.read_csv(labels_path, dtype=str, keep_default_na=False)
+    exp = pd.read_csv(exposures_path, dtype=str, keep_default_na=False)
+    assert (lab.pid.values == exp.pid.values).all() and (lab.stratum.values == exp.stratum.values).all()
+    d = lab.assign(exposures=exp.exposures.astype(float), draws=pd.to_numeric(exp.draws, errors="coerce").fillna(0))
+    d = d[d.group_label != ""]
+    total, e_cue, e_non = meta["candidate_pool_exposures"], meta["cue_word_exposures"], meta["non_cue_exposures"]
+    cue = d[d.stratum == CUE]
+    cue_units = pd.DataFrame({"stratum": CUE, "pid": cue.pid, "y": cue.group_label.isin(POS), "units": cue.exposures})
+    rnd = d[d.stratum == RAND]
+    rnd_units = pd.DataFrame({"stratum": RAND, "pid": rnd.pid, "y": rnd.group_label.isin(POS), "units": rnd.draws})
+    if extra_noncue is not None:
+        x = extra_noncue[~extra_noncue.pid.isin(set(d.pid))]
+        rnd_units = pd.concat([rnd_units, pd.DataFrame({"stratum": RAND, "pid": x.pid, "y": x.group_label.isin(POS), "units": 1.0})])
+    cue_units["w"] = cue_units.units / cue_units.units.sum() * e_cue / total
+    rnd_units["w"] = rnd_units.units / rnd_units.units.sum() * e_non / total
+    return pd.concat([cue_units, rnd_units], ignore_index=True)
+
+
+def enrich_estimate(units, rng):
+    """Exposure-weighted positive share with a bootstrap that resamples cue videos and random draws."""
+    point = float((units.w * units.y).sum())
+    by = {s: units[units.stratum == s] for s in (CUE, RAND)}
+    share_cue = float((by[CUE].w * by[CUE].y).sum() / by[CUE].w.sum())
+    share_rnd = float((by[RAND].w * by[RAND].y).sum() / by[RAND].w.sum())
+    w_cue = float(by[CUE].w.sum())
+    cue_y, cue_u = by[CUE].y.to_numpy(), by[CUE].units.to_numpy()
+    draws_y = np.repeat(by[RAND].y.to_numpy(), by[RAND].units.round().astype(int).to_numpy())
+    vals = []
+    for _ in range(B):
+        i = rng.integers(0, len(cue_y), len(cue_y))
+        j = rng.integers(0, len(draws_y), len(draws_y))
+        pc = (cue_u[i] * cue_y[i]).sum() / cue_u[i].sum()
+        vals.append(w_cue * pc + (1 - w_cue) * draws_y[j].mean())
+    ci = [round(float(np.percentile(vals, 2.5)), 4), round(float(np.percentile(vals, 97.5)), 4)]
+    return {"share": round(point, 4), "ci": ci, "cue_share_exposure_weighted": round(share_cue, 4),
+            "random_share_draw_weighted": round(share_rnd, 4), "w_cue": round(w_cue, 4),
+            "cue_videos": int(len(by[CUE])), "random_units": int(len(by[RAND])), "random_draws": int(len(draws_y)),
+            "positives": {"cue": int(by[CUE].y.sum()), "random": int(by[RAND].y.sum())}}
+
+
+def enrich(labels_by_version, exposures_path, meta_path, dual_path=None, write=True):
+    """Exact exposure-weighted gender group-label share in the enriched sample (issue #27)."""
+    meta = json.load(open(meta_path, encoding="utf-8"))
+    rng = np.random.default_rng(SEED)
+    res = {"meta": rel(meta_path), "exposures": rel(exposures_path), "pool_exposures": meta["candidate_pool_exposures"],
+           "cue_word_exposures": meta["cue_word_exposures"], "estimates": {}}
+    extra = None
+    if dual_path:
+        dual = pd.read_csv(dual_path, dtype=str, keep_default_na=False)
+        lab = pd.read_csv(labels_by_version["v2"], dtype=str, keep_default_na=False)
+        cue_pids = set(lab[lab.stratum == CUE].pid)
+        dn = dual[~dual.pid.isin(cue_pids) & (dual.deepseek_group_label != "")]
+        extra = pd.DataFrame({"pid": dn.pid, "group_label": dn.deepseek_group_label})
+        res["dual_noncue_rows"] = int(len(extra))
+        res["dual_note"] = ("the 500-video check also kept the first unique videos of an exposure-weighted draw with replacement, "
+                            "and its draw counts are not recorded, so each of its rows counts as one draw")
+    for ver, path in labels_by_version.items():
+        res["estimates"][f"{ver}_enriched_only"] = enrich_estimate(enrich_units(path, exposures_path, meta), rng)
+        if extra is not None and ver == "v2":
+            res["estimates"]["v2_pooled_with_500_check"] = enrich_estimate(enrich_units(path, exposures_path, meta, extra), rng)
+    if write:
+        stem = os.path.join(HERE, "results", "agreement_enrich")
+        json.dump(res, open(stem + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        json.dump({"script": "analysis/v6_annotation/agreement.py --enrich", "commit": git_commit(), "date": time.strftime("%Y-%m-%d"),
+                   "inputs": [rel(p) for p in labels_by_version.values()] + [rel(exposures_path), rel(meta_path)] + ([rel(dual_path)] if dual_path else []),
+                   "weights": "cue stratum: each video by its exposures, scaled to the cue-word share of pool exposures; random stratum: each video by its number of draws, scaled to the non-cue share",
+                   "intervals": f"percentile bootstrap ({B} resamples, seed {SEED}) over cue videos and random draws",
+                   "evidence": "measured: DeepSeek V4 Pro labels; no human check"},
+                  open(stem + ".meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    return res
+
+
+def selftest_enrich(tmp):
+    # Pool exposures 1000: cue 100 (videos with 60 and 40 exposures; the 60 one positive),
+    # non-cue 900 (draws: positive video drawn twice, negative video drawn 8 times) -> share = .06 + .9 * .2 = .24
+    lab = pd.DataFrame({"pid": ["1", "2", "3", "4"], "stratum": [CUE, CUE, RAND, RAND],
+                        "group_label": ["针对女性", "无", "针对男性", "无"]})
+    exp = pd.DataFrame({"pid": ["1", "2", "3", "4"], "stratum": [CUE, CUE, RAND, RAND], "exposures": [60, 40, 5, 3], "draws": ["", "", 2, 8]})
+    lp, ep = os.path.join(tmp, "enrich_lab.csv"), os.path.join(tmp, "enrich_exp.csv")
+    lab.to_csv(lp, index=False)
+    exp.to_csv(ep, index=False)
+    meta = {"candidate_pool_exposures": 1000, "cue_word_exposures": 100, "non_cue_exposures": 900}
+    r = enrich_estimate(enrich_units(lp, ep, meta), np.random.default_rng(0))
+    assert abs(r["share"] - 0.24) < 1e-9, r
+    return r
+
+
 def selftest():
     assert abs(kappa([1, 1, 0, 0], [1, 1, 0, 0]) - 1) < 1e-9
     assert abs(kappa([1, 0, 1, 0], [1, 1, 0, 0]) - 0) < 1e-9
@@ -404,11 +503,16 @@ def selftest():
     assert r["change_from_v9"]["qwen"]["pos_to_neg"] == 0
     print("selftest ok:", json.dumps(m["binary_counts"]), "kappa", m["kappa_binary"])
     print("stratified selftest ok:", json.dumps(selftest_stratified(tmp)))
+    print("enrich selftest ok:", json.dumps(selftest_enrich(tmp)))
 
 
 if __name__ == "__main__":
     if sys.argv[1:] == ["--selftest"]:
         selftest()
+    elif sys.argv[1:2] == ["--enrich"]:
+        # --enrich V0_LABELS V2_LABELS EXPOSURES META [DUAL_V2_LABELS]
+        a = sys.argv[2:]
+        print(json.dumps(enrich({"v0": a[0], "v2": a[1]}, a[2], a[3], a[4] if len(a) > 4 else None), ensure_ascii=False, indent=1))
     elif sys.argv[1:2] == ["--stratified"]:
         print(json.dumps(stratified(sys.argv[2], sys.argv[3]), ensure_ascii=False, indent=1))
     else:

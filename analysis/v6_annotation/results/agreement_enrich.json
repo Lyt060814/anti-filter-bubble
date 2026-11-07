@@ -1,0 +1,61 @@
+{
+  "meta": "../v6/results/enrich_exposures_meta.json",
+  "exposures": "../v6/results/enrich_exposures.csv",
+  "pool_exposures": 1515814,
+  "cue_word_exposures": 6529,
+  "estimates": {
+    "v0_enriched_only": {
+      "share": 0.0079,
+      "ci": [
+        0.0047,
+        0.0114
+      ],
+      "cue_share_exposure_weighted": 0.2674,
+      "random_share_draw_weighted": 0.0067,
+      "w_cue": 0.0043,
+      "cue_videos": 947,
+      "random_units": 1893,
+      "random_draws": 2226,
+      "positives": {
+        "cue": 159,
+        "random": 15
+      }
+    },
+    "v2_enriched_only": {
+      "share": 0.0022,
+      "ci": [
+        0.0008,
+        0.004
+      ],
+      "cue_share_exposure_weighted": 0.1101,
+      "random_share_draw_weighted": 0.0017,
+      "w_cue": 0.0043,
+      "cue_videos": 886,
+      "random_units": 1994,
+      "random_draws": 2327,
+      "positives": {
+        "cue": 137,
+        "random": 4
+      }
+    },
+    "v2_pooled_with_500_check": {
+      "share": 0.0034,
+      "ci": [
+        0.0017,
+        0.0056
+      ],
+      "cue_share_exposure_weighted": 0.1101,
+      "random_share_draw_weighted": 0.0029,
+      "w_cue": 0.0043,
+      "cue_videos": 886,
+      "random_units": 2389,
+      "random_draws": 2722,
+      "positives": {
+        "cue": 137,
+        "random": 8
+      }
+    }
+  },
+  "dual_noncue_rows": 499,
+  "dual_note": "the 500-video check also kept the first unique videos of an exposure-weighted draw with replacement, and its draw counts are not recorded, so each of its rows counts as one draw"
+}

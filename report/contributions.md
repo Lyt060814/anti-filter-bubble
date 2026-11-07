@@ -34,6 +34,7 @@
 - 11-07：按 issue #20 建立第 9 节参考文献：合并全文 37 条引用（APA），新核实 Rogan & Gladen (1978)、Nyhan 等 (2023)、Milli 等 (2025)、Wang, Y. 等 (2023)、OpenOneRec 技术报告 (Zhou 等, 2025)、网信办等四部门 2024 年通知（原文核对）和 2025 年快手"一键破茧"报道；统一正文引用写法，删去各节末尾列表；编写双向核对脚本。产出：`report/sections/9_references.md`、`analysis/v6_annotation/check_references.py`。
 - 11-07：按 issue #13 给 `taxonomy.py` 加上按大类分层的加权估计（层权重为粗筛条数／有效样本数，层内自助法区间），用 2 万条粗筛、669 条精标的样本估计五个研究大类内对立叙事的比例（合计 14%，10%–17%），新增表 4.2 并改写 4.2 节读法，表号顺延。产出：`results/taxonomy_strat_ds*`、`report/sections/4_data_taxonomy.md`。
 - 11-07：按 issue #27 分析扩充样本：v2 下性别群体标签按曝光加权约 0.4%（暂定，0.2%–0.9%），用四问字段定位 v0→v2 在关键词层的变化，确认 DeepSeek 两次标注一致；用补齐数据重跑表 4.2；按要求把第 4.2–4.3 节压缩约三分之一（表 4.1 去子议题列、表 4.2 压成 4 列、细节移入附录 A.4）；第 6 节与样稿改用表 4.2 的 17%。产出：`analysis/v6_annotation/enrich_v2.py`、`results/enrich_v2*`、`report/sections/4_data_taxonomy.md`、`11_appendix_a.md`、`6_design.md`。
+- 11-07：按 issue #27 用补齐的曝光字段给出扩充样本的精确加权比例（`agreement.py --enrich`：关键词层按曝光、随机层按抽中次数加权，自助法区间）：v2 为 0.22%（0.08%–0.40%），与 500 条样本合并为 0.34%；更新表 4.3 与第 4.3 节的区间式表述。
 
 ## Li Yitong
 - 11-07：审阅并合并组员的 PR（#1–#15）；用 DeepSeek 完成 v0/v1/v2 双模型核查和 3,000 条自下而上重标，发现开源模型系统性高估；起草报告第 3 节（概念与理论，含偏斜的三层分解、6 条命题和两个算例）。
