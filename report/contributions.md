@@ -28,6 +28,7 @@
 - 11-07：撰写附录 A（英文）：共同规则、四类叙事的定义与正反例、性别群体标签的四步判断、提示词 v0→v1→v2 的变化与结果、v2 提示词原文；把"渣男/渣女"的处理写进 D1 定义。产出：`report/sections/11_appendix_a.md`。
 - 11-07：按 issue #13 用 DeepSeek 重标结果重做表 4.1（`taxonomy.py` 增加缺失处理、Qwen 对照列、小样本不拆子议题），改写第 4.2 节（区间为主、Qwen 两步高估的对照、案例选择与排除理由），附录加入 A.6 跨大类提示词原文并改准 A.4 末句。产出：`results/taxonomy_deepseek_bu*`、`report/sections/4_data_taxonomy.md`、`11_appendix_a.md`。
 - 11-07：按 issue #10 分析 v2 结果：DeepSeek 5/500（全部在 v0 的 7 条之内），Qwen 66/500，查全率 4/5、查准率 6%；给 `agreement.py` 加上四问分歧定位，发现 63 处分歧全部始于第一问（对象是谁）。更新 `agreement.md` 第 6 节、报告 4.3 节（表 4.2）、附录 A.4，并按 PR #14 意见补写 4.2 的案例选择理由。
+- 11-07：D6 设计用户侧"观点曝光报告"样稿（脚本生成，每个数字注明是示意、公式还是模拟），撰写报告第 6 节（设计启示、对平台和用户的建议、局限）。产出：`analysis/v6_annotation/design_mockup.py`、`figures/exposure_report_mockup.*`、`results/exposure_report_mockup.*`、`report/sections/6_design.md`。
 
 ## Li Yitong
 - 11-07：审阅并合并组员的 PR（#1–#15）；用 DeepSeek 完成 v0/v1/v2 双模型核查和 3,000 条自下而上重标，发现开源模型系统性高估；起草报告第 3 节（概念与理论，含偏斜的三层分解、6 条命题和两个算例）。
