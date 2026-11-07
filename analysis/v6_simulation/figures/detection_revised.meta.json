@@ -1,42 +1,94 @@
 {
   "script": "analysis/v6_simulation/detection_revised.py",
-  "git_commit": "76c0a2e6169422f2687263828193fd95cdf8aaa1",
-  "source_sha256": "56bb0030e3611b9d18814dd34d4a46f9ef976cb9f3a2d3f5be69baff3b8a1a45",
+  "git_commit": "45fbd88acd0c281e1b2d84bde6a189c1cda543af",
+  "source_sha256": "5e12ddc4d5f2c7790d5ff9ad16e56dc4c43767a4cc7e6468e542efbdb8daf6ec",
   "source_hash_format": "UTF-8 normalized LF",
   "evidence_type": "analytic approximation with scenario classifier; repository-reported pilot anchors",
   "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
   "numpy": "2.3.1",
   "matplotlib": "3.10.3",
-  "p0_sources": {
-    "0.014": "DeepSeek v0 cross-check; agreement.md section 2",
-    "0.006": "DeepSeek v1 cross-check; agreement.md section 5; unstable definition",
-    "0.018": "Qwen v5 pilot; research_plan_v5.md section 4",
-    "0.41": "conflict narrative v5 pilot; research_plan_v5.md section 4"
-  },
+  "p0_sources": [
+    {
+      "version": "DeepSeek v2",
+      "p0": 0.01,
+      "source": "dual_v2_labels.csv; main reference"
+    },
+    {
+      "version": "DeepSeek v0",
+      "p0": 0.014,
+      "source": "agreement.md section 2"
+    },
+    {
+      "version": "DeepSeek v1",
+      "p0": 0.006,
+      "source": "agreement.md section 5; unstable definition"
+    },
+    {
+      "version": "Qwen v5",
+      "p0": 0.018,
+      "source": "research_plan_v5.md section 4"
+    },
+    {
+      "version": "Conflict v5",
+      "p0": 0.41,
+      "source": "research_plan_v5.md section 4"
+    }
+  ],
+  "main_reference": "DeepSeek v2",
   "topic_rate_sources": "RecIF median 1.6%, p90 3.6%; Xu task R4 / v5 section 4",
   "classifier_cases": [
     [
+      "assumed",
       0.8,
       0.02
     ],
     [
+      "recall_0.7",
       0.7,
       0.02
     ],
     [
+      "recall_0.9",
       0.9,
       0.02
     ],
     [
+      "fpr_0",
       0.8,
       0
     ],
     [
+      "fpr_0.05",
       0.8,
       0.05
+    ],
+    [
+      "Qwen_vs_DeepSeek_v2",
+      0.8,
+      0.12525252525252525
     ]
   ],
-  "classifier_status": "assumed; v0/v1 Qwen checks unreliable; awaiting validated v2",
+  "classifier_status": "five assumed cases plus measured Qwen-vs-DeepSeek v2 cross-check; not gold-standard accuracy",
+  "v2_cross_check": {
+    "source": "analysis/v6/results/dual_v2_labels.csv",
+    "source_sha256": "21bd694aeb20eba468eb6fc21323c273a828008d74fec128494c50a509279710",
+    "reference": "DeepSeek v2, not human gold standard",
+    "total_rows": 500,
+    "reference_parsed": 500,
+    "reference_positive": 5,
+    "p0": 0.01,
+    "paired_parsed": 500,
+    "qwen_missing": 0,
+    "tp": 4,
+    "fp": 62,
+    "fn": 1,
+    "tn": 433,
+    "recall": 0.8,
+    "false_positive_rate": 0.12525252525252525,
+    "caveat": "Small reference-positive count; model agreement rates, not gold-standard accuracy; plug-in uncertainty not propagated."
+  },
+  "input_script": "analysis/v6_simulation/v2_detection_inputs.py",
+  "input_script_sha256": "ab1712a679644e5933bbb1ce0e174e80449ee370f4c754c9b0e65bd6a7575615",
   "odds_range": [
     2,
     8
