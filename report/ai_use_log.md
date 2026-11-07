@@ -143,3 +143,10 @@
 - 影响的报告部分：第 3 节全文；第 1 节全文；第 4.1 节；第 4.4 节（表 4.3 由脚本计算）；第 7 节初稿。
 - 确切提示词：会话中让 Claude 按任务说明开展工作的指令："我觉得可以，就以性别婚恋作为case study。……下一步就开始实际干活了，我的两个队员分别是dingcheng和ruicong。开始吧"；任务 L6 写在 `docs/tasks/li_yitong.md`。
 - 输出如何使用：待 Li Yitong 审阅修改后采用。
+- 第 4.4、5.1 节及第 1、7 节随 L4 修改（同一会话）：确切提示词为"看一下进度，推进一下"。Claude 编写并在服务器上运行 `analysis/v6/engagement_by_label.py`（L5）、`analysis/v5_feasibility/onerec_viewpoint_probe.py` 的 DeepSeek 标签复测（L4）和 `analysis/v6/onerec_null_distribution.py`（随机对照），起草第 4.4 节、第 5 节开头与 5.1 节（表 5.1）英文全文，并按 L4 结果改写第 1 节贡献第 4 条、第 7.1 与 7.5 节；起草第 8、10 节。数字来自脚本的实际运行。输出如何使用：待 Li Yitong 审阅修改后采用。
+
+### 2026-11-06 至 11-07 · Li Yitong · DeepSeek V4 Pro、DeepSeek V4 Flash（官方 API）、GPT-6.1 Sol（API 中转）
+- 用途：作为研究方法的一部分给视频描述打标签（不是写报告）。DeepSeek V4 Pro 是参考标注模型（双模型核查、自下而上 3,000 条重标、关键词富集样本、分层样本、L4 的群体标签集合）；V4 Flash 只用于分层抽样的初筛；GPT-6.1 Sol 在 150 条样本上作为第二个参考模型核查 DeepSeek。
+- 影响的报告部分：第 4.2–4.4 节的比例与表格、第 5.1 节的标签、第 5.3 节的参照比例。
+- 确切提示词：`analysis/v6/deepseek_label.py`（`BU_TEMPLATE` 等）、`analysis/v6_annotation/prompt_v0`–`prompt_v2.py` 中的系统提示与模板；v2 与跨大类提示词原文见附录 A。
+- 输出如何使用：作为标签，用模型间一致性估计质量；不当作人工金标准。
