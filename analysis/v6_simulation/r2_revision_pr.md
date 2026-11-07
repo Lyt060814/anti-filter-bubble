@@ -13,4 +13,6 @@ Checks: c=0 invariance; signed first-order feedback before projection; norm boun
 
 ## Review dependencies
 
+Important result: with rare A supply (2%), symmetric +c/-c attribute updates are dominated by frequent B interactions. The assumed theta range need not overcome that imbalance: the main trajectories drift toward B rather than amplify A. This is a substantive model limitation/counterexample, not a failed check to tune away. The 50% supply sensitivity separates this count imbalance from preference effects. We must not retain the earlier unconditional conclusion that positive theta guarantees A amplification. Please review whether exposure-centred attribute updates or an explicitly calibrated response model would be more appropriate before extending this model to R3.
+
 Please review/merge R2 first. R3 (#3), R4 (#6), R5 (#7) still contain outdated results and must not be merged yet. After R2 is merged they need separate clean branches from new main; rerun R3, add p0=1.4% and task-specific metadata to R4, and rewrite R5 from corrected results. No automatic merge or main push.
