@@ -8,7 +8,8 @@ Every number on the mock-up is one of three kinds, recorded in the CSV column `k
   - formula: evidence needed for a verdict, from Proposition 6 (section 3.5) with the classifier and
     reference rates stated in the CSV; the group-label case reproduces section 5.3's 6,475 videos per arm;
   - simulation: expected effect of each action relative to doing nothing, from Xu Ruicong's calibrated
-    main case (analysis/v6_simulation/results/calibrated_escape_summary.csv.gz; group family, supply .02,
+    main case, which uses the pilot attribute contrast; section 5.1 treats that contrast as an upper scenario
+    (OneRec's contrast with DeepSeek labels is near zero). Main case (analysis/v6_simulation/results/calibrated_escape_summary.csv.gz; group family, supply .02,
     prior .15, fitted ratio, theta 2, end of the 1,000-exposure active phase). These are synthetic results,
     not measured effects on Kuaishou.
 """
@@ -45,7 +46,7 @@ FILTER_V2_TOPIC_KEPT = math.exp(-0.1453)
 ACTIONS = [("Delete these videos from my history", "S5", "lasts after you stop; needs accurate labels"),
            ("Hide these videos (filter)", "S6", "works only while on; keeps 86% with a weaker classifier"),
            ("\"Not interested\", if it acts as negative feedback", "S1a", "depends on how the platform uses it"),
-           ("\"Not interested\", if it behaves as in our OneRec test", "S1b", "may not help at all"),
+           ("\"Not interested\", if it behaves as in our OneRec test", "S1b", "barely helps; in OneRec it raised the topic's share"),
            ("Turn off personalisation", "S8", "removes only the personal layer"),
            ("Skip these videos quickly", "S2", ""),
            ("Watch other videos on the topic to the end", "S3", "ordinary videos barely offset it")]
@@ -122,11 +123,13 @@ def draw(eff, rows, path_png, path_pdf):
     # 3. Actions
     card(ax, 0.05, 0.200, 0.90, 0.385)
     ax.text(0.08, 0.563, "3  What you can do, and what it may cost", fontsize=10, weight="bold", color=ink)
-    ax.text(0.08, 0.543, "Expected change in this narrative's share vs doing nothing (simulation, not measured on the app).",
+    ax.text(0.08, 0.545, "Expected change in this narrative's share vs doing nothing. Simulation, upper scenario:",
             fontsize=7.5, color=grey)
-    ax.text(0.62, 0.520, "effect", fontsize=7.5, color=grey, weight="bold")
-    ax.text(0.80, 0.520, "topic kept", fontsize=7.5, color=grey, weight="bold")
-    yy = 0.497
+    ax.text(0.08, 0.531, "assumes the recommender can tell the narrative apart; not measured on the app.",
+            fontsize=7.5, color=grey)
+    ax.text(0.62, 0.512, "effect", fontsize=7.5, color=grey, weight="bold")
+    ax.text(0.80, 0.512, "topic kept", fontsize=7.5, color=grey, weight="bold")
+    yy = 0.490
     for label, code, note in ACTIONS:
         e = eff[code]
         ax.text(0.08, yy, label, fontsize=8, color=ink)
@@ -137,7 +140,7 @@ def draw(eff, rows, path_png, path_pdf):
         ax.barh(yy - 0.004, 0.15 * bar, left=0.62, height=0.010, color=accent)
         ax.text(0.62, yy - 0.020, strength(e["odds_factor"]), fontsize=7, color=ink)
         ax.text(0.80, yy - 0.004, f"{1 + e['topic_change']:.0%}", fontsize=8, color=ink, va="center")
-        yy -= 0.040
+        yy -= 0.038
     ax.text(0.08, yy - 0.002, "Leave the topic entirely: the narrative disappears, and so does everything else on the topic.",
             fontsize=7.5, color=ink)
 
@@ -183,6 +186,7 @@ def main():
         commit = None
     meta = {"script": "analysis/v6_annotation/design_mockup.py", "commit": commit, "date": time.strftime("%Y-%m-%d"),
             "inputs": ["analysis/v6_simulation/results/calibrated_escape_summary.csv.gz"],
+            "simulation_scenario": "upper scenario: pilot (Qwen-label) attribute contrast; section 5.1 measures a near-zero contrast with DeepSeek labels",
             "simulation_case": "group family, supply .02, prior .15, topic target .70, attribute target 1.13, fitted ratio 1.28, decay .0002, main_grid, theta 2, step 1000",
             "evidence": "mock-up: example-user numbers are invented; evidence thresholds are formula results; action effects are synthetic simulation results",
             "check_group_label_needed_vs_section_5_3": {"this_script": round(rows[1]["needed"]), "section_5_3": 6475}}
