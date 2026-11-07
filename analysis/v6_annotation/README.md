@@ -9,6 +9,7 @@
 | [agreement.py](agreement.py) | 双模型核查分析：混淆矩阵、查准率与查全率（Wilson 区间）、Cohen's kappa（自助法区间）、校正比例、分歧归类、版本对比；`--selftest` 用假数据自检 | D3 |
 | [agreement.md](agreement.md) | 核查结果与解读（当前为 v0） | D3 |
 | [taxonomy.py](taxonomy.py) | 自下而上抽样的分类表：各大类曝光占比、对立叙事比例、叙事类型、子议题（关键词归并 LLM 自由填写的议题名） | D4 |
+| [design_mockup.py](design_mockup.py) | 观点曝光报告样稿（图 6.1）：每个数字注明示意／公式／模拟，图存在 `figures/` | D6 |
 | `results/` | `agreement_<版本>.json`、混淆矩阵、分歧清单（只含 pid、标签和类别）、`.meta.json`（D3）；`taxonomy_<来源>*`（D4） | D3、D4 |
 
 这里只放定义、提示词、分析脚本和数值汇总。所有例子都是编写的，不含视频描述原文；标签由 LLM 在服务器上生成，见 [analysis/v6](../v6/README.md)。
