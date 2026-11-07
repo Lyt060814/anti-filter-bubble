@@ -3,6 +3,9 @@
 Usage (keys from `source ~/.fb_api_env`):
   python -I deepseek_label.py bottomup RECIF_DIR BOTTOM_UP_LABELS_CSV OUT_PREFIX
       re-label the 3,000 bottom-up impressions with an all-domain prompt (common rules from D1)
+  python -I deepseek_label.py stratified RECIF_DIR N_SCREEN PER_DOMAIN OUT_PREFIX
+      screen N_SCREEN exposure-weighted impressions with deepseek-flash (cross-domain prompt), then relabel up to
+      PER_DOMAIN impressions in each studied domain (by the flash domain) with V4 Pro; strata sizes go to meta
   python -I deepseek_label.py enrich RECIF_DIR N_RANDOM OUT_PREFIX
       marriage-and-family candidates: all with explicit label/generalisation cue words, plus N_RANDOM
       exposure-weighted random candidates; labelled with the v0 dual-check prompt (stratum recorded)
@@ -61,11 +64,12 @@ def bu_parse(text):
     return d
 
 
-def call(prompts, parse, system):
+def call(prompts, parse, system, model=None, workers=16):
     key = os.environ["DEEPSEEK_API_KEY"]
+    model = model or MODEL
 
     def one(p):
-        body = {"model": MODEL, "messages": [{"role": "system", "content": system}, {"role": "user", "content": p}],
+        body = {"model": model, "messages": [{"role": "system", "content": system}, {"role": "user", "content": p}],
                 "max_tokens": 4000, "response_format": {"type": "json_object"}}
         for attempt in range(5):
             try:
@@ -78,7 +82,7 @@ def call(prompts, parse, system):
                 pass
             time.sleep(2 * (attempt + 1))
         return None
-    with cf.ThreadPoolExecutor(16) as ex:
+    with cf.ThreadPoolExecutor(workers) as ex:
         return list(ex.map(one, prompts))
 
 
@@ -106,6 +110,42 @@ def main():
         cols = ["domain", "issue", "opposing", "narrative_type", "reason"]
         strata = ["bottom_up"] * len(pids)
         meta = {"mode": mode, "template": BU_TEMPLATE, "source": src}
+    elif mode == "stratified":
+        n_screen, per_domain, prefix = int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
+        studied = ["性别与婚恋", "身体与外貌", "家庭与代际", "人生选择与出路", "消费与经济"]
+        rng = np.random.default_rng(31)
+        fb = pq.ParquetFile(f"{recif_dir}/onerec_bench_release.parquet")
+        total = fb.metadata.num_rows * 470
+        picks = []
+        for rg in range(fb.num_row_groups):
+            flat = pc.list_flatten(fb.read_row_group(rg, columns=["hist_video_pid"]).column(0).combine_chunks()).to_numpy()
+            k = rng.binomial(int(n_screen * 1.4), min(1.0, len(flat) / total))
+            picks.append(rng.choice(flat, size=min(k, len(flat)), replace=False))
+        sample = np.concatenate(picks).tolist()
+        rng.shuffle(sample)
+        caps = captions(recif_dir, set(sample))
+        screen = [p for p in sample if caps.get(p)][:n_screen]
+        fl = call([BU_TEMPLATE.format(cap=caps[p][:1200], domains="、".join(f'"{d}"' for d in DOMAINS)) for p in screen],
+                  bu_parse, dmc.SYSTEM, model="deepseek-flash", workers=32)
+        with open(prefix + "_screen.csv", "w", newline="", encoding="utf-8") as f:
+            wr = csv.writer(f)
+            wr.writerow(["pid", "flash_domain", "flash_opposing", "flash_narrative_type"])
+            for p, d in zip(screen, fl):
+                wr.writerow([p, (d or {}).get("domain", ""), (d or {}).get("opposing", ""), (d or {}).get("narrative_type", "")])
+        strata_sizes = {dom: sum(1 for d in fl if d and d["domain"] == dom) for dom in DOMAINS}
+        pids, strata = [], []
+        for dom in studied:
+            members = [p for p, d in zip(screen, fl) if d and d["domain"] == dom]
+            chosen = members if len(members) <= per_domain else [members[i] for i in sorted(rng.choice(len(members), per_domain, replace=False))]
+            pids += chosen
+            strata += [dom] * len(chosen)
+        prompts = [BU_TEMPLATE.format(cap=caps[p][:1200], domains="、".join(f'"{d}"' for d in DOMAINS)) for p in pids]
+        res = call(prompts, bu_parse, dmc.SYSTEM)
+        cols = ["domain", "issue", "opposing", "narrative_type", "reason"]
+        meta = {"mode": mode, "template": BU_TEMPLATE, "screen_model": "deepseek-flash", "n_screen": len(screen),
+                "screen_parsed": sum(d is not None for d in fl), "flash_domain_counts": strata_sizes, "per_domain": per_domain,
+                "sampled_per_stratum": {dom: strata.count(dom) for dom in studied}, "random_seed": 31,
+                "weighting": "stratum = flash domain; within-stratum weight = flash_domain_counts[d] / sampled_per_stratum[d]; screen is exposure-weighted"}
     else:
         n_random, prefix = int(sys.argv[3]), sys.argv[4]
         caps = issue_captions(recif_dir)
