@@ -10,6 +10,7 @@
 | [agreement.md](agreement.md) | 核查结果与解读（当前为 v0） | D3 |
 | [taxonomy.py](taxonomy.py) | 自下而上抽样的分类表：各大类曝光占比、对立叙事比例、叙事类型、子议题（关键词归并 LLM 自由填写的议题名） | D4 |
 | [design_mockup.py](design_mockup.py) | 观点曝光报告样稿（图 6.1）：每个数字注明示意／公式／模拟，图存在 `figures/` | D6 |
+| [check_references.py](check_references.py) | 核对报告各节正文引用与 `9_references.md` 是否一一对应（#20） | 整合 |
 | `results/` | `agreement_<版本>.json`、混淆矩阵、分歧清单（只含 pid、标签和类别）、`.meta.json`（D3）；`taxonomy_<来源>*`（D4） | D3、D4 |
 
 这里只放定义、提示词、分析脚本和数值汇总。所有例子都是编写的，不含视频描述原文；标签由 LLM 在服务器上生成，见 [analysis/v6](../v6/README.md)。
