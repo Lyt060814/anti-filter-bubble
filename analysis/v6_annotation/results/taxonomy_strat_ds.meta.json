@@ -1,6 +1,6 @@
 {
   "script": "analysis/v6_annotation/taxonomy.py --stratified",
-  "commit": "c7335f9",
+  "commit": "f19e090",
   "date": "2026-11-07",
   "inputs": [
     "../v6/results/strat_ds_labels_filled.csv",

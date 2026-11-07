@@ -64,6 +64,7 @@ SUBISSUES = {
 }
 MARKETING = "promotions and marketing"
 MIN_SUB = 30
+TYPE_ABBR = {"唯一正确": "OR", "二元对立": "BO", "焦虑渲染": "AR", "群体标签": "GL"}  # used in the report tables
 
 
 def wilson(k, n, z=1.96):
@@ -125,25 +126,24 @@ def main(path, src, cmp_path=None, cmp_name=None):
     stem = os.path.join(HERE, "results", f"taxonomy_{src}")
     tab.to_csv(stem + ".csv", index=False, encoding="utf-8")
     sub.to_csv(stem + "_subissues.csv", index=False, encoding="utf-8")
-    head = "| Domain | Share of exposures | Opposing narrative (within domain) | Narrative types (count) | Largest sub-issues (n) |"
-    rule = "|---|---:|---:|---|---|"
+    head = "| Domain | Share of exposures | Opposing narrative (within domain) | Types |"
+    rule = "|---|---:|---:|---|"
     if cmp:
-        head += f" {cmp_name.split('_')[0].capitalize()} on the same impressions: share; opposing |"
+        head += f" {cmp_name.split('_')[0].capitalize()}: share; opposing |"
         rule += "---:|"
     md = [head, rule]
     for _, r in tab.iterrows():
         if r.domain == "非议题内容":
-            line = f"| {r.domain_en} | {r.share:.1%} | — | — | — |"
+            line = f"| {r.domain_en} | {r.share:.1%} | — | — |"
             if cmp:
                 line += f" {r[f'{cmp_name}_share']:.1%}; — |"
             md.append(line)
             continue
         tc = sorted(((r[f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}"], TYPE_EN[t]) for t in TYPES), reverse=True)
-        tcs = ", ".join(f"{name} ({c})" for c, name in tc if c > 0)
-        ss = sub[(sub.domain == r.domain) & (sub.subissue != "other")].head(3)
-        sss = ("; ".join(f"{a} ({b})" for a, b in zip(ss.subissue, ss.n)) or "—") if r.n >= MIN_SUB else "(too few to split)"
+        abbr = {v: TYPE_ABBR[k] for k, v in TYPE_EN.items()}
+        tcs = ", ".join(f"{abbr[name]} {c}" for c, name in tc if c > 0)
         star = " *" if r.in_scope else ""
-        line = f"| {r.domain_en}{star} | {r.share:.1%} | {r.opposing_n}/{r.n} ({r.opposing_ci[0]:.0%}–{r.opposing_ci[1]:.0%}) | {tcs or '—'} | {sss} |"
+        line = f"| {r.domain_en}{star} | {r.share:.1%} | {r.opposing_n}/{r.n} ({r.opposing_ci[0]:.0%}–{r.opposing_ci[1]:.0%}) | {tcs or '—'} |"
         if cmp:
             cs, co = r[f"{cmp_name}_share"], r[f"{cmp_name}_opposing_share"]
             line += f" {cs:.1%}; {'—' if co is None else format(co, '.0%')} |"
@@ -234,17 +234,17 @@ def stratified(labels_path, meta_path, b=2000, seed=0):
     tab = pd.DataFrame(rows)
     stem = os.path.join(HERE, "results", "taxonomy_strat_ds")
     tab.to_csv(stem + ".csv", index=False, encoding="utf-8")
-    md = ["| Domain | Screen-flagged impressions confirmed by the reference model | Opposing narrative, weighted share (95% interval) | Narrative types (count) |",
+    md = ["| Domain | Opposing narrative, weighted (95% interval) | Opposing / labelled | Types |",
           "|---|---:|---:|---|"]
     for r in rows:
         lo, hi = r["opposing_share_ci"]
-        share = f"{r['opposing_share']:.0%} ({lo:.0%}–{hi:.0%}); {r['v4pro_opposing_rows']}/{r['v4pro_rows']}"
+        share = f"{r['opposing_share']:.0%} ({lo:.0%}–{hi:.0%})"
+        count = f"{r['v4pro_opposing_rows']}/{r['v4pro_rows']}"
         if r["domain"] == "_all_studied":
-            md.append(f"| All five studied domains | — | {share} | — |")
+            md.append(f"| All five studied domains | {share} | {count} | — |")
             continue
-        tc = sorted(((r[f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}"], TYPE_EN[t]) for t in TYPES), reverse=True)
-        md.append(f"| {r['domain_en']} | {r['screen_confirmed']:.0%} of {r['stratum_valid_rows']} | {share} | "
-                  + ", ".join(f"{n} ({c})" for c, n in tc if c > 0) + " |")
+        tc = sorted(((r[f"type_{TYPE_EN[t].replace(' ', '_').replace('-', '_')}"], t) for t in TYPES), reverse=True)
+        md.append(f"| {r['domain_en']} | {share} | {count} | " + ", ".join(f"{TYPE_ABBR[t]} {c}" for c, t in tc if c > 0) + " |")
     with open(stem + "_table.md", "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(md) + "\n")
     try:
