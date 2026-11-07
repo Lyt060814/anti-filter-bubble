@@ -1,6 +1,6 @@
 # Zhao Dingcheng 的任务（v6）
 
-你负责"叙事是什么、标得准不准、怎样给用户看"：RQ1 的定义与核查、报告第 2、4、6 节。先读 [Research Plan v6](../project-plan/research_plan_v6.md) 和 [协作说明](README.md)。工作目录：`analysis/v6_annotation/`，报告小节写在 `report/sections/`。
+你负责"叙事是什么、标得准不准、怎样给用户看"：RQ1 的定义、标注提示词与核查分析、报告第 2、4、6 节。先读 [Research Plan v6](../project-plan/research_plan_v6.md) 和 [协作说明](README.md)。工作目录：`analysis/v6_annotation/`，报告小节用**英文**写在 `report/sections/`（文件名见 [report/README.md](../../report/README.md)）。图表数据、AI 使用和贡献的记录要求见协作说明的"为最终报告做的准备"。
 
 ## D1 叙事类型定义（11-09）
 
@@ -12,25 +12,29 @@
 - 不算：只刻画一个具体人物的行为，没有推广到群体，包括剧情里的单个反派。LLM 试点正是在这里大量误判（见 [v5 可行性记录第 5 节](../context-recovery/plan_v5_feasibility.md)）。
 - 剧情、段子、个人经历、观点评论都可能含群体标签；判断看内容是否推广，不看体裁。
 
-## D2 标注规范（11-09）
+## D2 LLM 标注提示词（11-09）
 
-写 `analysis/v6_annotation/guide.md`：标注字段、取值、判断顺序、拿不准时怎么办（标"无法判断"并写原因）。字段与 LLM 输出对齐：`issue`（是否婚恋家庭相关）、`group_label`（针对女性 / 针对男性 / 无 / 无法判断）、`narrative_type`、`genre`。可参考组里之前的标注模板和一致性检查代码。
+本项目不做人工标注，全部由 LLM 完成。把 D1 的定义写成给 LLM 用的标注提示词 `analysis/v6_annotation/prompt.md`：
 
-## D3 人工核查（11-11）
+- 字段：`issue`（是否婚恋家庭相关）、`group_label`（针对女性 / 针对男性 / 无 / 无法判断）、`narrative_type`、`genre`、`reason`（一句话依据）；
+- 判断顺序，以及拿不准时如何输出"无法判断"；
+- 两三个写在提示词里的示例（转述，不用原文）。
 
-Li Yitong 会私下发给你约 300 条婚恋议题视频的描述（文件不进仓库）。按 D2 **独立标注**，标注时不看 LLM 的结果。完成后：
+参考 `analysis/v5_feasibility/label_pilot.py` 里试点用的提示词，重点修正它把单个反派判成群体标签的问题。Li Yitong 会用这份提示词在服务器上运行两个模型。
 
-1. 提交 `analysis/v6_annotation/labels_dingcheng.csv`，只含 `pid` 和你的标签，不含描述原文。
-2. 和 LLM 标签比较（Li Yitong 提供，或自己用脚本对齐），写 `analysis/v6_annotation/agreement.md`：
-   - 群体标签的混淆矩阵；
-   - LLM 的查准率和查全率，及其置信区间；
-   - 主要错误类型，各配一个转述的例子。
+## D3 双模型核查结果分析（11-11）
 
-这些数字会进报告第 4 节，并用于校正 LLM 标注的总体比例。
+Li Yitong 用你的提示词，让两个模型各自独立标注同一批约 500 条婚恋视频：开源的 Qwen3-30B（全量标注用）和一个更强的前沿模型（作为参照）。结果只含 `pid`、标签和一句话依据，会提交到 `analysis/v6/results/`。你写 `analysis/v6_annotation/agreement.md`：
+
+1. 以前沿模型为参照，给出群体标签的混淆矩阵、Qwen 的查准率和查全率（带置信区间），以及两个模型的一致率（Cohen's kappa）；
+2. 按两个模型给出的依据，把分歧归成几类，例如"剧情反派被当成群体标签""调侃被当成贬低"；
+3. 一段话说明这种核查的局限：参照本身也是模型，不是人工金标准。
+
+这些数字会进报告第 4 节，并用于校正 Qwen 全量标注得到的比例。
 
 ## D4 分类表与例子（11-12）
 
-等自下而上抽样的结果提交到 `analysis/v6/results/` 后，写报告第 4 节的分类部分：`report/sections/4_taxonomy.md`。内容包括：
+等自下而上抽样的结果提交到 `analysis/v6/results/` 后，写报告第 4 节的分类部分：`report/sections/4_data_taxonomy.md`（英文）。内容包括：
 
 - 大类 → 议题 → 叙事类型的表格，数字来自抽样结果；
 - 每个大类配一两个典型争论的转述；
@@ -38,7 +42,7 @@ Li Yitong 会私下发给你约 300 条婚恋议题视频的描述（文件不�
 
 ## D5 相关研究（11-12）
 
-写 `report/sections/2_related_work.md`，约 1–1.5 页。按四条线组织：
+写 `report/sections/2_related_work.md`（英文），约 1–1.5 页。按四条线组织：
 
 1. 茧房的概念与测量：多数只看类别多样性。
 2. 观点层面的平台审计：集中在政治议题，用黑箱方法。
@@ -49,7 +53,7 @@ Li Yitong 会私下发给你约 300 条婚恋议题视频的描述（文件不�
 
 ## D6 曝光报告样稿（11-12）
 
-设计一个用户侧"观点曝光报告"的样稿（图片加 `report/sections/6_design.md` 说明）。样稿要体现以下几点：
+设计一个用户侧"观点曝光报告"的样稿（图片加 `report/sections/6_design.md` 英文说明）。样稿要体现以下几点：
 
 - 议题占比和叙事偏斜分开显示（兴趣不等于茧房）；
 - 给出参照（平台平均或关闭个性化后的分布）和不确定性：数据不够时写明"还不能判断"，命题 4 的计算说明这在多数情况下会出现；

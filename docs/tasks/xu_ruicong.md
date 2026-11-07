@@ -1,6 +1,6 @@
 # Xu Ruicong 的任务（v6）
 
-你负责案例研究的模拟和察觉计算：RQ2、RQ3 的主要图表，以及报告第 5 节的模拟部分。先读 [Research Plan v6](../project-plan/research_plan_v6.md)、[v5 第 4 节（定义与命题）](../project-plan/research_plan_v5.md) 和 [协作说明](README.md)。工作目录：`analysis/v6_simulation/`。只需要普通电脑上的 Python（numpy、matplotlib），不需要数据和 GPU。
+你负责案例研究的模拟和察觉计算：RQ2、RQ3 的主要图表，以及报告第 5 节的模拟部分。先读 [Research Plan v6](../project-plan/research_plan_v6.md)、[v5 第 4 节（定义与命题）](../project-plan/research_plan_v5.md) 和 [协作说明](README.md)。工作目录：`analysis/v6_simulation/`，报告小节用**英文**写在 `report/sections/5_case_study.md` 的模拟部分。图表数据、AI 使用和贡献的记录要求见协作说明的"为最终报告做的准备"：每个设定、每个种子的结果都要存成 CSV，每张图配 `.meta.json`，并放一张模拟运行输出的截图到 `report/screenshots/`。只需要普通电脑上的 Python（numpy、matplotlib），不需要数据和 GPU。
 
 ## 模型说明（透明推荐模型，即 v5 命题 2 的模型）
 
@@ -75,4 +75,4 @@ $$v_i = t\cdot e_{\text{议题}}\,\mathbb 1[i\in I_k] + c\cdot e_{\text{属性}}
 
 ## R5 报告小节（11-12）
 
-写 `report/sections/5_simulation.md`：模型一段、参数表（注明哪些是情境假设、哪些来自实测）、四张图、每张图配一段结论。图存到 `analysis/v6_simulation/figures/`。
+写 `report/sections/5_case_study.md` 的模拟部分（英文）：模型一段、参数表（注明哪些是情境假设、哪些来自实测）、四张图、每张图配一段结论。图存到 `analysis/v6_simulation/figures/`。
