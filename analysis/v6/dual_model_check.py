@@ -103,11 +103,13 @@ def main():
                     prompts[:n_gpt], 6, {}) + [None] * (len(prompts) - n_gpt)
     print("gpt done", sum(x is not None for x in gpt), round(time.time() - t0), flush=True)
     from vllm import LLM, SamplingParams
-    llm = LLM(model=llm_dir, dtype="bfloat16", tensor_parallel_size=2, max_model_len=4096, gpu_memory_utilization=0.88, seed=0)
+    llm = LLM(model=llm_dir, dtype="bfloat16", tensor_parallel_size=2, max_model_len=6144, gpu_memory_utilization=0.88, seed=0)
     tok = llm.get_tokenizer()
     qp = [tok.apply_chat_template([{"role": "system", "content": SYSTEM}, {"role": "user", "content": p}], tokenize=False, add_generation_prompt=True) for p in prompts]
-    qw = [parse(o.outputs[0].text) for o in llm.generate(qp, SamplingParams(temperature=0.0, max_tokens=250), use_tqdm=False)]
-    cols = ["issue", "group_label", "narrative_type", "genre", "reason"]
+    gens = llm.generate(qp, SamplingParams(temperature=0.0, max_tokens=400), use_tqdm=False)
+    truncated = sum(o.outputs[0].finish_reason == "length" for o in gens)
+    qw = [parse(o.outputs[0].text) for o in gens]
+    cols = list(FIELDS) + ["reason"]
     with open(prefix + "_labels.csv", "w", newline="", encoding="utf-8") as f:
         wr = csv.writer(f)
         wr.writerow(["pid", "exposures"] + [f"{m}_{c}" for m in ("qwen", "deepseek", "gpt") for c in cols])
@@ -116,6 +118,7 @@ def main():
     meta = {"prompt_version": PROMPT_VERSION, "n": len(pids), "n_gpt": n_gpt, "sampling": "exposure-weighted, seed 23, v5 marriage-family keywords",
             "models": {"qwen": "Qwen3-30B-A3B-Instruct-2507 (vLLM, temperature 0)", "deepseek": "deepseek-v4-pro (official API, json mode)",
                        "gpt": "gpt-6.1-sol (relay chat/completions)"},
+            "qwen_truncated_outputs": truncated, "fields": cols,
             "parsed": {"qwen": sum(x is not None for x in qw), "deepseek": sum(x is not None for x in ds), "gpt": sum(x is not None for x in gpt)},
             "system_prompt": SYSTEM, "template": TEMPLATE, "date": time.strftime("%Y-%m-%d")}
     json.dump(meta, open(prefix + "_meta.json", "w"), ensure_ascii=False, indent=2)

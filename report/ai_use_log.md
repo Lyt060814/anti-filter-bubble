@@ -97,3 +97,5 @@
 ```
 - 附加依据：PR #4 于 2026-11-07 的 CHANGES_REQUESTED 审阅；四项要求和选取方案逐项保存在本 PR 描述与 bounded_formation.py。
 - 输出如何使用：实际运行；供给参照总偏斜不再称为平台参照个人偏斜，R3–R5 待 R2 合并后重跑。
+
+- D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。

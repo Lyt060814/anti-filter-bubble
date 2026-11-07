@@ -2,6 +2,10 @@
 
 Usage:
   python -I agreement.py LABELS_CSV [PREV_LABELS_CSV]     e.g. ../v6/results/dual_v1_labels.csv ../v6/results/dual_v0_labels.csv
+  python -I agreement.py --stratified LABELS_CSV META_JSON  enriched sample from analysis/v6/deepseek_label.py enrich;
+      needs CSV columns pid, stratum (cue_word / random_exposure_weighted), exposures, a reference label column
+      (deepseek_group_label or group_label) and optionally qwen_group_label; META_JSON needs total_exposures
+      (exposures of the whole candidate pool). Writes exposure-weighted shares, precision and recall.
   python -I agreement.py --selftest
 
 Input: the CSV written by analysis/v6/dual_model_check.py (pid, exposures, {qwen,deepseek,gpt}_{issue,group_label,
@@ -247,6 +251,99 @@ def analyse(path, prev_path=None, out_dir=None, write=True):
     return res
 
 
+CUE, RAND = "cue_word", "random_exposure_weighted"
+
+
+def stratum_weights(d, total_exposures):
+    """Row weights so that weighted sums estimate exposure-weighted shares of the whole candidate pool.
+
+    Design (analysis/v6/deepseek_label.py enrich): the cue-word stratum is a census of candidates whose
+    description contains a cue word, so each row counts with its own exposures; the random stratum is an
+    exposure-weighted sample of the other candidates, so each row stands for an equal share of their exposures.
+    """
+    e = d["exposures"].astype(float).to_numpy()
+    cue = (d["stratum"] == CUE).to_numpy()
+    rnd = (d["stratum"] == RAND).to_numpy()
+    e_cue = e[cue].sum()
+    if not 0 < e_cue < total_exposures or rnd.sum() == 0:
+        raise ValueError("need exposures > 0 in the cue stratum, total_exposures above that, and a random stratum")
+    w = np.zeros(len(d))
+    w[cue] = e[cue] / total_exposures
+    w[rnd] = (total_exposures - e_cue) / total_exposures / rnd.sum()
+    return w
+
+
+def weighted_metrics(x, y, w):
+    """Exposure-weighted reference share and rated-model precision, recall and false-positive rate."""
+    out = {"reference_share": float((w * y).sum() / w.sum())}
+    if x is not None:
+        out["rated_share"] = float((w * x).sum() / w.sum())
+        out["precision"] = float((w * x * y).sum() / (w * x).sum()) if (w * x).sum() > 0 else None
+        out["recall"] = float((w * x * y).sum() / (w * y).sum()) if (w * y).sum() > 0 else None
+        out["false_positive_rate"] = float((w * x * ~y).sum() / (w * ~y).sum()) if (w * ~y).sum() > 0 else None
+    return out
+
+
+def stratified(path, meta_path, rated="qwen", ref="deepseek", write=True):
+    """Exposure-weighted estimates from the enriched (stratified) sample, with a within-stratum bootstrap."""
+    d = pd.read_csv(path, dtype=str, keep_default_na=False)
+    meta = json.load(open(meta_path, encoding="utf-8"))
+    need = [c for c in ("pid", "stratum", "exposures") if c not in d.columns]
+    if need or "total_exposures" not in meta:
+        raise SystemExit(f"stratified input needs CSV columns pid, stratum, exposures and meta field total_exposures; missing: {need + ([] if 'total_exposures' in meta else ['total_exposures'])}")
+    ref_col = f"{ref}_group_label" if f"{ref}_group_label" in d.columns else "group_label"
+    rated_col = f"{rated}_group_label" if f"{rated}_group_label" in d.columns else None
+    ok = d[ref_col] != ""
+    if rated_col:
+        ok &= d[rated_col] != ""
+    res = {"input": rel(path), "meta": rel(meta_path), "rows": int(len(d)), "rows_used": int(ok.sum()),
+           "missing": int((~ok).sum()), "rows_by_stratum": d.stratum.value_counts().to_dict(),
+           "total_exposures": meta["total_exposures"], "reference": ref, "rated": rated if rated_col else None}
+    d = d[ok].reset_index(drop=True)
+    w = stratum_weights(d, float(meta["total_exposures"]))
+    y = d[ref_col].isin(POS).to_numpy()
+    x = d[rated_col].isin(POS).to_numpy() if rated_col else None
+    res["reference_positives_by_stratum"] = {s: int(y[(d.stratum == s).to_numpy()].sum()) for s in (CUE, RAND)}
+    res["estimates"] = {k: (None if v is None else round(v, 4)) for k, v in weighted_metrics(x, y, w).items()}
+    rng = np.random.default_rng(SEED)
+    groups = [np.flatnonzero((d.stratum == s).to_numpy()) for s in (CUE, RAND)]
+    draws = []
+    for _ in range(B):
+        i = np.concatenate([rng.choice(g, len(g)) for g in groups])
+        sub = d.iloc[i].reset_index(drop=True)
+        draws.append(weighted_metrics(None if x is None else x[i], y[i], stratum_weights(sub, float(meta["total_exposures"]))))
+    res["estimates_ci"] = {}
+    for k in res["estimates"]:
+        v = [r[k] for r in draws if r.get(k) is not None]
+        res["estimates_ci"][k] = [round(float(np.percentile(v, 2.5)), 4), round(float(np.percentile(v, 97.5)), 4)] if len(v) > B / 2 else [None, None]
+    if write:
+        stem = os.path.join(HERE, "results", "agreement_" + os.path.splitext(os.path.basename(path))[0].replace("_labels", ""))
+        os.makedirs(os.path.dirname(stem), exist_ok=True)
+        json.dump(res, open(stem + ".json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        json.dump({"script": "analysis/v6_annotation/agreement.py --stratified", "commit": git_commit(), "date": time.strftime("%Y-%m-%d"),
+                   "weights": "cue stratum: own exposures / total; random stratum: (total - cue exposures) / total / n_random",
+                   "intervals": f"percentile bootstrap within strata ({B} resamples, seed {SEED})",
+                   "evidence": "measured: LLM labels; reference is a stronger LLM, not a human gold standard"},
+                  open(stem + ".meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    return res
+
+
+def selftest_stratified(tmp):
+    # Pool: 10 cue videos (exposures 10 each, 5 positive) and non-cue exposures 900 with 2% positives.
+    rows = [{"pid": i, "stratum": CUE, "exposures": 10, "deepseek_group_label": "针对女性" if i < 5 else "无",
+             "qwen_group_label": "针对女性" if i < 4 else "无"} for i in range(10)]
+    rows += [{"pid": 100 + i, "stratum": RAND, "exposures": 1, "deepseek_group_label": "针对男性" if i < 2 else "无",
+              "qwen_group_label": "针对男性" if i in (0, 50) else "无"} for i in range(100)]
+    p, mp = os.path.join(tmp, "enrich_test_labels.csv"), os.path.join(tmp, "enrich_test_meta.json")
+    pd.DataFrame(rows).to_csv(p, index=False)
+    json.dump({"total_exposures": 1000}, open(mp, "w"))
+    r = stratified(p, mp, write=False)["estimates"]
+    # reference share = (5*10 + 900*0.02) / 1000 = 0.068; recall = (4*10 + 900*0.01) / 68
+    assert abs(r["reference_share"] - 0.068) < 1e-4, r
+    assert abs(r["recall"] - round(49 / 68, 4)) < 1e-4, r
+    return r
+
+
 def selftest():
     assert abs(kappa([1, 1, 0, 0], [1, 1, 0, 0]) - 1) < 1e-9
     assert abs(kappa([1, 0, 1, 0], [1, 1, 0, 0]) - 0) < 1e-9
@@ -273,11 +370,14 @@ def selftest():
     assert m["precision"] == 1.0 and m["recall"] == 0.5
     assert r["change_from_v9"]["qwen"]["pos_to_neg"] == 0
     print("selftest ok:", json.dumps(m["binary_counts"]), "kappa", m["kappa_binary"])
+    print("stratified selftest ok:", json.dumps(selftest_stratified(tmp)))
 
 
 if __name__ == "__main__":
     if sys.argv[1:] == ["--selftest"]:
         selftest()
+    elif sys.argv[1:2] == ["--stratified"]:
+        print(json.dumps(stratified(sys.argv[2], sys.argv[3]), ensure_ascii=False, indent=1))
     else:
         r = analyse(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
         print(json.dumps({k: r["pairs"][k] for k in r["pairs"]}, ensure_ascii=False, indent=1))

@@ -20,6 +20,7 @@
 - 11-07：D3 写双模型核查分析脚本（混淆矩阵、查准率与查全率、kappa、校正比例、分歧归类、版本对比），分析 v0 结果：Qwen 的群体标签查准率 10%、查全率 29%、kappa 0.13，误报主要是把家庭角色和单个人物当成群体。产出：`analysis/v6_annotation/agreement.py`、`agreement.md`、`results/agreement_v0*`。
 - 11-07：D5 撰写报告第 2 节相关研究（英文，四条研究线与研究空白），新增文献（Haroon 2023、Pecher 2026、Vombatkere 2024、Kalimeris 2021、Dean 2020、Zhang 2024、Sukiennik 2025、Yang 2026、Nguyen 2014）逐条用 Crossref 或 arXiv 核实。产出：`report/sections/2_related_work.md`。
 - 11-07：D4 编写分类表脚本（按关键词把 LLM 自由填写的议题名归并为子议题、Wilson 区间），撰写报告第 4.2 节（分类表、读法、典型争论、排除理由）和 4.3 节（标注质量，v0 数字）。产出：`analysis/v6_annotation/taxonomy.py`、`results/taxonomy_qwen_v0*`、`report/sections/4_data_taxonomy.md`。
+- 11-07：按 issue #10 分析 v1 提示词的反常结果（Qwen 阳性 4.0%→51%、DeepSeek 1.4%→0.6%，原因分别是前缀套话和规则过严），写 v2 提示词（四问分字段、一致性检查、对象默认个人、放宽推广与认同、按恶行定义的人不算性别群体），同步 D1 定义；给 `agreement.py` 加上分层抽样（关键词层 + 随机层）的曝光加权估计。产出：`agreement.md` 第 5 节、`results/agreement_v1*`、`prompt_v2.py`、`narrative_types.md`。
 
 ## Li Yitong
 - 10 月：前期文献与数据核查；撰写项目计划的技术部分；与 Xu Ruicong 搭建五种策略的推荐仿真。

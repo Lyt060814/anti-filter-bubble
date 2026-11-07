@@ -1,0 +1,227 @@
+{
+  "input": "../v6/results/dual_v1_labels.csv",
+  "prompt_version": "v1",
+  "n": 500,
+  "missing": {
+    "qwen": 6,
+    "deepseek": 0,
+    "gpt": 350,
+    "gpt_note": "gpt labels only the first n_gpt rows; missing counts include unlabelled rows"
+  },
+  "gpt_rows": 150,
+  "label_counts": {
+    "qwen": {
+      "无": 242,
+      "针对女性": 186,
+      "针对男性": 66
+    },
+    "deepseek": {
+      "无": 497,
+      "针对男性": 2,
+      "针对女性": 1
+    },
+    "gpt": {
+      "无": 148,
+      "无法判断": 1,
+      "针对男性": 1
+    }
+  },
+  "pairs": {
+    "qwen_vs_deepseek": {
+      "rows_with_reference": 500,
+      "rows_both_parsed": 494,
+      "missing_qwen": 6,
+      "binary_counts": {
+        "tp": 2,
+        "fp": 250,
+        "fn": 1,
+        "tn": 241
+      },
+      "tp_same_direction": 1,
+      "qwen_positive_share": 0.5101,
+      "deepseek_positive_share": 0.0061,
+      "deepseek_positive_share_ci": [
+        0.0021,
+        0.0177
+      ],
+      "precision": 0.0079,
+      "precision_ci": [
+        0.0022,
+        0.0285
+      ],
+      "recall": 0.6667,
+      "recall_ci": [
+        0.2077,
+        0.9385
+      ],
+      "false_positive_rate": 0.5092,
+      "false_positive_rate_ci": [
+        0.465,
+        0.5531
+      ],
+      "raw_agreement": 0.4919,
+      "kappa_binary": 0.0037,
+      "kappa_binary_ci": [
+        -0.0081,
+        0.0188
+      ],
+      "kappa_group_label_4class": 0.0033,
+      "kappa_narrative_type": 0.0041,
+      "kappa_narrative_type_ci": [
+        -0.0012,
+        0.0117
+      ],
+      "kappa_issue": 0.4315,
+      "corrected_share_rogan_gladen": 0.0061,
+      "corrected_share_ci": [
+        0.002,
+        0.0142
+      ]
+    },
+    "qwen_vs_gpt": {
+      "rows_with_reference": 150,
+      "rows_both_parsed": 147,
+      "missing_qwen": 3,
+      "binary_counts": {
+        "tp": 1,
+        "fp": 66,
+        "fn": 0,
+        "tn": 80
+      },
+      "tp_same_direction": 1,
+      "qwen_positive_share": 0.4558,
+      "gpt_positive_share": 0.0068,
+      "gpt_positive_share_ci": [
+        0.0012,
+        0.0375
+      ],
+      "precision": 0.0149,
+      "precision_ci": [
+        0.0026,
+        0.0798
+      ],
+      "recall": 1.0,
+      "recall_ci": [
+        0.2065,
+        1.0
+      ],
+      "false_positive_rate": 0.4521,
+      "false_positive_rate_ci": [
+        0.3736,
+        0.533
+      ],
+      "raw_agreement": 0.551,
+      "kappa_binary": 0.0162,
+      "kappa_binary_ci": [
+        0.0,
+        0.0571
+      ],
+      "kappa_group_label_4class": 0.0139,
+      "kappa_narrative_type": 0.0206,
+      "kappa_narrative_type_ci": [
+        0.0,
+        0.0531
+      ],
+      "kappa_issue": 0.4237,
+      "corrected_share_rogan_gladen": 0.0068,
+      "corrected_share_ci": [
+        0.0068,
+        0.0272
+      ]
+    },
+    "deepseek_vs_gpt": {
+      "rows_with_reference": 150,
+      "rows_both_parsed": 150,
+      "missing_deepseek": 0,
+      "binary_counts": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 149
+      },
+      "tp_same_direction": 0,
+      "deepseek_positive_share": 0.0,
+      "gpt_positive_share": 0.0067,
+      "gpt_positive_share_ci": [
+        0.0012,
+        0.0368
+      ],
+      "precision": null,
+      "precision_ci": [
+        null,
+        null
+      ],
+      "recall": 0.0,
+      "recall_ci": [
+        0.0,
+        0.7935
+      ],
+      "false_positive_rate": 0.0,
+      "false_positive_rate_ci": [
+        0.0,
+        0.0251
+      ],
+      "raw_agreement": 0.9933,
+      "kappa_binary": 0.0,
+      "kappa_binary_ci": [
+        0.0,
+        1.0
+      ],
+      "kappa_group_label_4class": 0.0,
+      "kappa_narrative_type": 0.0,
+      "kappa_narrative_type_ci": [
+        0.0,
+        1.0
+      ],
+      "kappa_issue": 0.806
+    }
+  },
+  "disagreement_categories": {
+    "qwen_vs_deepseek": {
+      "个案被说成推广": 122,
+      "调侃或幽默被当作贬低": 62,
+      "其他": 43,
+      "家庭角色被当作性别群体": 23,
+      "方向不同": 1,
+      "漏判（参照判为群体标签）": 1
+    },
+    "qwen_vs_gpt": {
+      "个案被说成推广": 40,
+      "调侃或幽默被当作贬低": 18,
+      "家庭角色被当作性别群体": 8
+    },
+    "deepseek_vs_gpt": {
+      "漏判（参照判为群体标签）": 1
+    }
+  },
+  "change_from_v0": {
+    "common_pids": 500,
+    "qwen": {
+      "positives_prev": 18,
+      "positives_now": 250,
+      "pos_to_neg": 2,
+      "neg_to_pos": 234,
+      "rows": 492,
+      "missing_prev": 2,
+      "missing_now": 6
+    },
+    "deepseek": {
+      "positives_prev": 7,
+      "positives_now": 3,
+      "pos_to_neg": 5,
+      "neg_to_pos": 1,
+      "rows": 500,
+      "missing_prev": 0,
+      "missing_now": 0
+    },
+    "gpt": {
+      "positives_prev": 1,
+      "positives_now": 1,
+      "pos_to_neg": 0,
+      "neg_to_pos": 0,
+      "rows": 150,
+      "missing_prev": 350,
+      "missing_now": 350
+    }
+  }
+}
