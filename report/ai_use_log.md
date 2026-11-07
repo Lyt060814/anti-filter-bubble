@@ -126,6 +126,7 @@
 - D3 续、v2 提示词（同一会话）：确切提示词为"有一个issue assign给我了  你检查一下"和"开始做"。Claude 读取 issue #10，运行 `agreement.py` 分析 v1 结果，起草 `agreement.md` 第 5 节、`prompt_v2.py` 与 D1 定义的修订，并给 `agreement.py` 加上分层加权估计；数字来自脚本的实际运行。影响报告第 4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
 - 附录 A（同一会话）：确切提示词为"先做附录 A"。Claude 根据 `narrative_types.md` 和 `prompt_v2.py` 起草附录 A 的英文全文，v2 提示词原文由脚本从 `prompt_v2.py` 原样复制；例子是编写的。同时改写了第 4.3 节中描述提示词修订的一句。影响附录 A 和第 4.3 节。输出如何使用：待 Zhao Dingcheng 审阅后补记。
 - issue #13（同一会话）：确切提示词为"你看一下新提的issue是什么问题 你什么计划"和"开始做"。Claude 修改并运行 `taxonomy.py`，改写第 4.2 节英文全文，向附录加入 A.6（提示词原文由脚本从 `analysis/v6/deepseek_label.py` 原样复制）；数字来自脚本的实际运行。影响第 4.2 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
+- issue #10 v2 结果（同一会话）：确切提示词为"检查一下现在情况"和"先做 #10"。Claude 给 `agreement.py` 加上四问分歧分析并运行，起草 `agreement.md` 第 6 节、第 4.3 节（含表 4.2）与附录 A.4 的更新，改写 4.2 节案例选择理由；数字来自脚本的实际运行。影响第 4.2、4.3 节和附录 A。输出如何使用：待 Zhao Dingcheng 审阅后补记。
 
 ### 2026-11-07 · Li Yitong · Claude Code（Claude Opus 5.5）
 - 用途：起草报告第 3 节（Concepts and Theory）英文初稿，内容来自 `docs/project-plan/research_plan_v5.md` 第 4 节与 v6 第 3 节，算例数字用脚本计算。
