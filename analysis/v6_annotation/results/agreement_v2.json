@@ -1,0 +1,481 @@
+{
+  "input": "../v6/results/dual_v2_labels.csv",
+  "prompt_version": "v2",
+  "n": 500,
+  "missing": {
+    "qwen": 0,
+    "deepseek": 0,
+    "gpt": 350,
+    "gpt_note": "gpt labels only the first n_gpt rows; missing counts include unlabelled rows"
+  },
+  "gpt_rows": 150,
+  "label_counts": {
+    "qwen": {
+      "无": 434,
+      "针对女性": 61,
+      "针对男性": 5
+    },
+    "deepseek": {
+      "无": 495,
+      "针对女性": 4,
+      "针对男性": 1
+    },
+    "gpt": {
+      "无": 148,
+      "针对女性": 1,
+      "针对男性": 1
+    }
+  },
+  "pairs": {
+    "qwen_vs_deepseek": {
+      "rows_with_reference": 500,
+      "rows_both_parsed": 500,
+      "missing_qwen": 0,
+      "binary_counts": {
+        "tp": 4,
+        "fp": 62,
+        "fn": 1,
+        "tn": 433
+      },
+      "tp_same_direction": 3,
+      "qwen_positive_share": 0.132,
+      "deepseek_positive_share": 0.01,
+      "deepseek_positive_share_ci": [
+        0.0043,
+        0.0232
+      ],
+      "precision": 0.0606,
+      "precision_ci": [
+        0.0238,
+        0.1457
+      ],
+      "recall": 0.8,
+      "recall_ci": [
+        0.3755,
+        0.9638
+      ],
+      "false_positive_rate": 0.1253,
+      "false_positive_rate_ci": [
+        0.0989,
+        0.1573
+      ],
+      "raw_agreement": 0.874,
+      "kappa_binary": 0.0959,
+      "kappa_binary_ci": [
+        0.0165,
+        0.1963
+      ],
+      "kappa_group_label_4class": 0.0836,
+      "kappa_narrative_type": 0.1175,
+      "kappa_narrative_type_ci": [
+        0.0272,
+        0.2109
+      ],
+      "kappa_issue": 0.7874,
+      "corrected_share_rogan_gladen": 0.01,
+      "corrected_share_ci": [
+        0.002,
+        0.02
+      ]
+    },
+    "qwen_vs_gpt": {
+      "rows_with_reference": 150,
+      "rows_both_parsed": 150,
+      "missing_qwen": 0,
+      "binary_counts": {
+        "tp": 1,
+        "fp": 18,
+        "fn": 1,
+        "tn": 130
+      },
+      "tp_same_direction": 1,
+      "qwen_positive_share": 0.1267,
+      "gpt_positive_share": 0.0133,
+      "gpt_positive_share_ci": [
+        0.0037,
+        0.0473
+      ],
+      "precision": 0.0526,
+      "precision_ci": [
+        0.0094,
+        0.2464
+      ],
+      "recall": 0.5,
+      "recall_ci": [
+        0.0945,
+        0.9055
+      ],
+      "false_positive_rate": 0.1216,
+      "false_positive_rate_ci": [
+        0.0783,
+        0.1841
+      ],
+      "raw_agreement": 0.8733,
+      "kappa_binary": 0.0729,
+      "kappa_binary_ci": [
+        -0.0349,
+        0.2535
+      ],
+      "kappa_group_label_4class": 0.0786,
+      "kappa_narrative_type": 0.1308,
+      "kappa_narrative_type_ci": [
+        -0.0124,
+        0.2894
+      ],
+      "kappa_issue": 0.8485,
+      "corrected_share_rogan_gladen": 0.0133,
+      "corrected_share_ci": [
+        0.0067,
+        0.04
+      ]
+    },
+    "deepseek_vs_gpt": {
+      "rows_with_reference": 150,
+      "rows_both_parsed": 150,
+      "missing_deepseek": 0,
+      "binary_counts": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 1,
+        "tn": 147
+      },
+      "tp_same_direction": 1,
+      "deepseek_positive_share": 0.0133,
+      "gpt_positive_share": 0.0133,
+      "gpt_positive_share_ci": [
+        0.0037,
+        0.0473
+      ],
+      "precision": 0.5,
+      "precision_ci": [
+        0.0945,
+        0.9055
+      ],
+      "recall": 0.5,
+      "recall_ci": [
+        0.0945,
+        0.9055
+      ],
+      "false_positive_rate": 0.0068,
+      "false_positive_rate_ci": [
+        0.0012,
+        0.0373
+      ],
+      "raw_agreement": 0.9867,
+      "kappa_binary": 0.4932,
+      "kappa_binary_ci": [
+        -0.0135,
+        1.0
+      ],
+      "kappa_group_label_4class": 0.4949,
+      "kappa_narrative_type": 0.564,
+      "kappa_narrative_type_ci": [
+        -0.009,
+        1.0
+      ],
+      "kappa_issue": 0.7945
+    }
+  },
+  "disagreement_categories": {
+    "qwen_vs_deepseek": {
+      "个案被说成推广": 25,
+      "其他": 25,
+      "调侃或幽默被当作贬低": 6,
+      "家庭角色被当作性别群体": 5,
+      "参照判为其他叙事类型": 1,
+      "方向不同": 1,
+      "漏判（参照判为群体标签）": 1
+    },
+    "qwen_vs_gpt": {
+      "其他": 9,
+      "个案被说成推广": 6,
+      "参照判为其他叙事类型": 2,
+      "漏判（参照判为群体标签）": 1,
+      "调侃或幽默被当作贬低": 1
+    },
+    "deepseek_vs_gpt": {
+      "个案被说成推广": 1,
+      "漏判（参照判为群体标签）": 1
+    }
+  },
+  "question_divergence": {
+    "qwen_vs_deepseek": {
+      "rows": 500,
+      "per_question": {
+        "q1_target": {
+          "agreement": 0.68,
+          "kappa": 0.272,
+          "crosstab": {
+            "个人": {
+              "个人": 42,
+              "其他群体": 0,
+              "性别群体": 7,
+              "无对象": 6
+            },
+            "其他群体": {
+              "个人": 0,
+              "其他群体": 0,
+              "性别群体": 0,
+              "无对象": 1
+            },
+            "性别群体": {
+              "个人": 0,
+              "其他群体": 0,
+              "性别群体": 4,
+              "无对象": 1
+            },
+            "无对象": {
+              "个人": 89,
+              "其他群体": 1,
+              "性别群体": 55,
+              "无对象": 294
+            }
+          }
+        },
+        "q2_generalize": {
+          "agreement": 0.87,
+          "kappa": 0.0895,
+          "crosstab": {
+            "否": {
+              "否": 431,
+              "是": 63
+            },
+            "是": {
+              "否": 2,
+              "是": 4
+            }
+          }
+        },
+        "q3_negative": {
+          "agreement": 0.72,
+          "kappa": 0.2864,
+          "crosstab": {
+            "否": {
+              "否": 312,
+              "是": 133
+            },
+            "是": {
+              "否": 7,
+              "是": 48
+            }
+          }
+        },
+        "q4_endorse": {
+          "agreement": 0.804,
+          "kappa": 0.2359,
+          "crosstab": {
+            "否": {
+              "否": 380,
+              "是": 66
+            },
+            "无法判断": {
+              "否": 13,
+              "是": 3
+            },
+            "是": {
+              "否": 16,
+              "是": 22
+            }
+          }
+        }
+      },
+      "label_disagreements": 63,
+      "first_divergence": {
+        "q1_target: 性别群体 vs 无对象": 55,
+        "q1_target: 性别群体 vs 个人": 7,
+        "q1_target: 无对象 vs 性别群体": 1
+      }
+    },
+    "qwen_vs_gpt": {
+      "rows": 150,
+      "per_question": {
+        "q1_target": {
+          "agreement": 0.7533,
+          "kappa": 0.339,
+          "crosstab": {
+            "个人": {
+              "个人": 11,
+              "其他群体": 0,
+              "性别群体": 4,
+              "无对象": 2
+            },
+            "性别群体": {
+              "个人": 0,
+              "其他群体": 0,
+              "性别群体": 1,
+              "无对象": 1
+            },
+            "无对象": {
+              "个人": 15,
+              "其他群体": 1,
+              "性别群体": 14,
+              "无对象": 101
+            }
+          }
+        },
+        "q2_generalize": {
+          "agreement": 0.8667,
+          "kappa": 0.0683,
+          "crosstab": {
+            "否": {
+              "否": 129,
+              "是": 19
+            },
+            "是": {
+              "否": 1,
+              "是": 1
+            }
+          }
+        },
+        "q3_negative": {
+          "agreement": 0.7867,
+          "kappa": 0.3475,
+          "crosstab": {
+            "否": {
+              "否": 105,
+              "是": 29
+            },
+            "是": {
+              "否": 3,
+              "是": 13
+            }
+          }
+        },
+        "q4_endorse": {
+          "agreement": 0.8067,
+          "kappa": 0.2376,
+          "crosstab": {
+            "否": {
+              "否": 115,
+              "是": 16
+            },
+            "无法判断": {
+              "否": 5,
+              "是": 2
+            },
+            "是": {
+              "否": 6,
+              "是": 6
+            }
+          }
+        }
+      },
+      "label_disagreements": 19,
+      "first_divergence": {
+        "q1_target: 性别群体 vs 无对象": 14,
+        "q1_target: 性别群体 vs 个人": 4,
+        "q1_target: 无对象 vs 性别群体": 1
+      }
+    },
+    "deepseek_vs_gpt": {
+      "rows": 150,
+      "per_question": {
+        "q1_target": {
+          "agreement": 0.92,
+          "kappa": 0.5763,
+          "crosstab": {
+            "个人": {
+              "个人": 8,
+              "性别群体": 1,
+              "无对象": 8
+            },
+            "性别群体": {
+              "个人": 0,
+              "性别群体": 1,
+              "无对象": 1
+            },
+            "无对象": {
+              "个人": 2,
+              "性别群体": 0,
+              "无对象": 129
+            }
+          }
+        },
+        "q2_generalize": {
+          "agreement": 0.9867,
+          "kappa": 0.4932,
+          "crosstab": {
+            "否": {
+              "否": 147,
+              "是": 1
+            },
+            "是": {
+              "否": 1,
+              "是": 1
+            }
+          }
+        },
+        "q3_negative": {
+          "agreement": 0.9467,
+          "kappa": 0.6855,
+          "crosstab": {
+            "否": {
+              "否": 132,
+              "是": 2
+            },
+            "是": {
+              "否": 6,
+              "是": 10
+            }
+          }
+        },
+        "q4_endorse": {
+          "agreement": 0.9267,
+          "kappa": 0.6157,
+          "crosstab": {
+            "否": {
+              "否": 129,
+              "无法判断": 0,
+              "是": 2
+            },
+            "无法判断": {
+              "否": 4,
+              "无法判断": 3,
+              "是": 0
+            },
+            "是": {
+              "否": 5,
+              "无法判断": 0,
+              "是": 7
+            }
+          }
+        }
+      },
+      "label_disagreements": 2,
+      "first_divergence": {
+        "q1_target: 性别群体 vs 个人": 1,
+        "q1_target: 无对象 vs 性别群体": 1
+      }
+    }
+  },
+  "change_from_v1": {
+    "common_pids": 500,
+    "qwen": {
+      "positives_prev": 252,
+      "positives_now": 64,
+      "pos_to_neg": 216,
+      "neg_to_pos": 28,
+      "rows": 494,
+      "missing_prev": 6,
+      "missing_now": 0
+    },
+    "deepseek": {
+      "positives_prev": 3,
+      "positives_now": 5,
+      "pos_to_neg": 1,
+      "neg_to_pos": 3,
+      "rows": 500,
+      "missing_prev": 0,
+      "missing_now": 0
+    },
+    "gpt": {
+      "positives_prev": 1,
+      "positives_now": 2,
+      "pos_to_neg": 0,
+      "neg_to_pos": 1,
+      "rows": 150,
+      "missing_prev": 350,
+      "missing_now": 350
+    }
+  }
+}
