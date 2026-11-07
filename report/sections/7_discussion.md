@@ -1,0 +1,32 @@
+# 7 Discussion, Limitations and Ethics
+
+<!-- L6 draft, Li Yitong, 2026-11-07. The summary of findings will be finalised after Section 5.1 (OneRec, L4) and 4.4 (engagement, L5). -->
+
+## 7.1 What the evidence says
+
+Read together, the three kinds of evidence give a consistent picture, with different strengths.
+
+- **Opposing narratives are concentrated, not everywhere.** In a sample of what Kuaishou users were shown, about 7% of impressions touched a social issue, and roughly one in six of those carried an opposing narrative (Section 4.2). Negative labels on a whole gender, the narrative of our case study, are rare: about 1% of marriage-and-family videos by the reference model. Rarity cuts both ways. It means most users are not drowning in such content, but it also means a personal tilt towards it would be invisible to them (Section 5.3).
+- **A recommender can tilt the mix without changing the topic.** In the OneRec experiments and in the calibrated simulations, a user who engages more with one narrative ends up seeing more of it while their share of marriage videos barely moves (Sections 5.1–5.2). Topic- or category-based "cocoon checks" would not see this (Proposition 2).
+- **What a button does depends on how it is built.** When "not interested" lowers similar content (a negative update), it reduces the tilt; when it behaves as OneRec learned from logs, putting a video in the "not interested" field raises similar recommendations, and the tilt does not fall (Sections 5.1–5.2). The user cannot tell which implementation they face.
+- **The cheapest-looking action is not the most effective.** Watching more of the content one wants to keep barely helps when the target narrative is rare, because ordinary content carries little signal about the narrative (Section 5.2). Deleting history and filtering are stronger, but filtering with an imperfect classifier removes wanted content too, and its effect stops when it is switched off.
+
+## 7.2 Why these methods, and what we gave up
+
+We chose a recommender trained on real logs (OneRec) over a hand-built one so that the response to user actions is measured rather than assumed; the transparent simulation then borrows its scale from those measurements. The alternative, an online audit with controlled accounts on the live app (as in Kaplan et al., 2026), would observe the real system but cannot separate the platform layer from the personal layer and would raise ethical issues about manipulating a live platform. We labelled content with language models instead of by hand to cover thousands of videos; the price is that our "ground truth" is a stronger model, not people. We used generated video descriptions because they are what the data provide; they keep what a video says but flatten its tone, so labels describe the description, not the video.
+
+## 7.3 Limitations
+
+1. **Labels.** Every label comes from a model reading a text description. The reference model (DeepSeek V4 Pro) was checked only against another model (GPT-6.1 Sol) on 150 videos, with very few positives. Prompt changes moved two models in opposite directions (Section 4.3), so the level of rare narratives is sensitive to wording.
+2. **Recommender.** OneRec is an open model trained by Kuaishou's team on the public data, not the recommender running in the app. The live system may handle "not interested" with explicit rules that OneRec lacks. Our OneRec results describe this class of model, not Kuaishou's product.
+3. **Users.** Simulated users follow simple, assumed response rules, with preferences set by scenario rather than estimated for individuals; real per-user exposure on one issue is too sparse in the logs to estimate them (Section 4.1). The calibration matches a few measured responses, not users' whole histories.
+4. **Population.** RecIF covers general Kuaishou users. Our student framing motivates the questions; it is not a claim about students' feeds.
+5. **Exposure is not belief.** We measure what is shown, not what people come to think. Large experiments have found that reducing exposure to like-minded content need not change attitudes (Nyhan et al., 2023).
+
+## 7.4 Ethics
+
+We used only released research data under its licence terms, did not attempt to re-identify users, and kept raw logs and video descriptions out of our public repository; only video IDs, labels and aggregate numbers are shared. No live platform or account was manipulated, and no person was asked to label distressing content. Studying "gender group labels" requires a definition that does not take sides in gender debates: our definition counts a negative label on any gender and does not judge any position on marriage or gender roles (Appendix A). We excluded politically sensitive issues, where labels are less reliable and results harder to discuss openly. The user-side tool in Section 6 is a design proposal: its benefits are plausible but have not been tested with users, and Section 5.3 shows it could not reliably detect a rare narrative from a single user's feed.
+
+## 7.5 Conclusion
+
+A feed can keep a topic and still tilt the views within it. On everyday issues in Chinese short video, this tilt is possible, hard for users to see, and only partly within their power to undo: whether "not interested" helps depends on how the platform built it, watching other content is weak when the narrative is rare, and the platform-wide layer is out of any single user's reach. The most useful lever is therefore on the platform's side: platforms already know each user's exposure, so they could compute and show the within-issue skew (Section 3.2) directly, and implement "not interested" as an explicit negative signal. Future work could test a viewpoint exposure report with real users, replace model labels with human ones on a sample, and repeat the OneRec experiments on the stronger released models.
