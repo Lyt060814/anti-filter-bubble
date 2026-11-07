@@ -17,6 +17,7 @@
 - 11-07：D1 写四类对立叙事（唯一正确、二元对立、焦虑渲染、群体标签）的定义、判断步骤和正反例，重点划清群体标签与单个反派的边界；D2 据此写 v1 标注提示词和解析函数，供双模型核查和全量标注使用。产出：`analysis/v6_annotation/narrative_types.md`、`prompt.md`、`prompt_v1.py`。
 - 11-07：D3 写双模型核查分析脚本（混淆矩阵、查准率与查全率、kappa、校正比例、分歧归类、版本对比），分析 v0 结果：Qwen 的群体标签查准率 10%、查全率 29%、kappa 0.13，误报主要是把家庭角色和单个人物当成群体。产出：`analysis/v6_annotation/agreement.py`、`agreement.md`、`results/agreement_v0*`。
 - 11-07：D5 撰写报告第 2 节相关研究（英文，四条研究线与研究空白），新增文献（Haroon 2023、Pecher 2026、Vombatkere 2024、Kalimeris 2021、Dean 2020、Zhang 2024、Sukiennik 2025、Yang 2026、Nguyen 2014）逐条用 Crossref 或 arXiv 核实。产出：`report/sections/2_related_work.md`。
+- 11-07：D4 编写分类表脚本（按关键词把 LLM 自由填写的议题名归并为子议题、Wilson 区间），撰写报告第 4.2 节（分类表、读法、典型争论、排除理由）和 4.3 节（标注质量，v0 数字）。产出：`analysis/v6_annotation/taxonomy.py`、`results/taxonomy_qwen_v0*`、`report/sections/4_data_taxonomy.md`。
 
 ## Li Yitong
 - 10 月：前期文献与数据核查；撰写项目计划的技术部分；与 Xu Ruicong 搭建五种策略的推荐仿真。
