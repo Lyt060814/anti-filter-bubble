@@ -1,5 +1,14 @@
 # 透明推荐模型模拟
 
+## R2 审阅修订
+
+当前 R2 使用 `python analysis/v6_simulation/bounded_formation.py`。
+按 #4 review：u 范数上限 0.75，初始议题曝光先验 4%，供给扫 2%/10%/50%，主图 2%。
+参照改为供给，输出 `V_supply` 是总偏斜，不是相对平台的个人偏斜。
+六个同质向量组精确聚合 A/B 和四个议题外方向，噪声取零；均为情境假设。
+二轮审阅后属性按供给中心化：A=c(1-s)、B=-cs；264 项诊断全部通过，单调性是非递减，允许有限样本中的并列，不声称差异显著。
+完整说明与待审选择见 `r2_revision_pr.md`。旧 R3–R5 结果不应作为本模型的结果使用。
+
 全部模拟参数为情境假设，不是线上平台估计。只需 Python、numpy、matplotlib。
 
 运行 R1：`python analysis/v6_simulation/model.py`。
