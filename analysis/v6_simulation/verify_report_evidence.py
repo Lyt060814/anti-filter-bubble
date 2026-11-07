@@ -30,7 +30,8 @@ def run():
     screenshot=BASE.parents[1]/'report/screenshots/ruicong_calibrated_run.png'
     evidence=json.loads(screenshot.with_suffix('.meta.json').read_text())
     assert hashlib.sha256(screenshot.read_bytes()).hexdigest()==evidence['screenshot_sha256']
-    assert hashlib.sha256(screenshot.with_name('calibrated_run_output.txt').read_bytes()).hexdigest()==evidence['source_log_sha256']
+    log=screenshot.with_name('calibrated_run_output.txt').read_text(encoding='utf8').encode('utf8')
+    assert hashlib.sha256(log).hexdigest()==evidence['source_log_sha256_normalized_lf']
     report=BASE.parents[1]/'report/sections/5_case_study.md'
     text=report.read_text(encoding='utf8')
     for relative in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',text):assert (report.parent/relative).resolve().exists(),relative

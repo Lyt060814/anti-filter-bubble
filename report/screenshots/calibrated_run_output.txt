@@ -1,0 +1,21 @@
+PASS signed local-feedback formula in calibrated model before coordinate clipping.
+PASS injection calibration: 262 cases; topic matches target; fitted attribute anchors match target.
+PASS formation: 65,520 per-seed snapshots; zero contrast; bounded probabilities.
+Main group final topic-share range across seeds/ratios: 0.1492--0.1532.
+PASS escape: 971,520 seed snapshots; all S0 starts match formation; S7 undefined skew handled.
+Main fitted group S1b minus S1a, paired 20 seeds: mean 0.750443, 95% CI [0.599111, 0.901775].
+PASS persistence: 461,120 records; undefined and right-censored times distinguished.
+Persistence S0: n=20, initial reductions=0, right-censored=0 (matched S0).
+Persistence S1a: n=20, initial reductions=19, right-censored=18 (matched S0).
+Persistence S1b: n=20, initial reductions=12, right-censored=5 (matched S0).
+Persistence S2: n=20, initial reductions=19, right-censored=9 (matched S0).
+Persistence S3: n=20, initial reductions=19, right-censored=7 (matched S0).
+Persistence S4: n=20, initial reductions=19, right-censored=7 (matched S0).
+Persistence S5: n=20, initial reductions=20, right-censored=20 (matched S0).
+Persistence S6: n=20, initial reductions=20, right-censored=0 (matched S0).
+Persistence S7: n=20, initial reductions=0, right-censored=0 (matched S0).
+Persistence S8: n=20, initial reductions=18, right-censored=0 (matched S0).
+Persistence S9: n=20, initial reductions=19, right-censored=18 (matched S0).
+PASS artifacts: PNG 300 dpi/PDF, matching code hashes; every CSV under 100 MB.
+PASS NI calibration: targets .39/.78/1.17 reproduced, 4,320 per-seed endpoint records.
+Evidence: synthetic scenarios fitted to uncertain pilot anchors; no online-platform or belief claim.
