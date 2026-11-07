@@ -6,7 +6,7 @@ What should a tool that helps users see a viewpoint cocoon show, and what must i
 
 ![Viewpoint exposure report mock-up](../../analysis/v6_annotation/figures/exposure_report_mockup.png)
 
-**Figure 6.1.** Mock-up of a viewpoint exposure report for one topic. The example is a heavy user; the median RecIF user saw about 8 marriage videos in their whole history. The user's numbers (part 1) are invented, the evidence thresholds (part 2) come from Proposition 6, and the effects (part 3) are synthetic results from the main simulation case in Section 5.2, relative to doing nothing. That case uses the pilot attribute contrast, which Section 5.1 treats as an upper scenario; none of these effects was measured on Kuaishou.
+**Figure 6.1.** Mock-up of a viewpoint exposure report for one topic. The example is a heavy user; the median RecIF user saw about 8 marriage videos in their whole history. The user's numbers (part 1) are invented, the evidence thresholds (part 2) come from Proposition 6, and the effects (part 3) are synthetic results from the upper scenario of Section 5.2 (the pilot attribute contrast), relative to doing nothing. At the contrast measured in Section 5.1, deleting history and "not interested" change the skew about thirteen times less, while filtering is unaffected; none of these effects was measured on Kuaishou.
 
 **Part 1 keeps interest apart from skew.** The report shows how much of the feed the topic takes up, next to what is typical, and says that watching a lot of one topic is interest, not a cocoon. Our state $(m, V)$ separates the two because they call for different responses; a report that shows topic share alone invites the wrong conclusion.
 
