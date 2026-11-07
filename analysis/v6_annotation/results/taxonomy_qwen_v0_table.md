@@ -1,13 +1,13 @@
-| Domain | Share of exposures | Opposing narrative (within domain) | Narrative types (count) | Largest sub-issues (n) |
-|---|---:|---:|---|---|
-| Non-issue content | 77.7% | — | — | — |
-| Culture and values | 5.5% | 72/164 (37%–52%) | only-right-way (26), group label (17), binary opposition (15), anxiety-raising (14) | history and national memory (23); images of women and men (20); tradition and heritage (13) |
-| Family and generations * | 3.6% | 34/108 (23%–41%) | binary opposition (13), only-right-way (11), anxiety-raising (7), group label (3) | parenting and parent-child relations (50); family conflict and violence (16); in-laws and marrying into a family (9) |
-| Gender and relationships * | 3.3% | 62/98 (53%–72%) | binary opposition (22), anxiety-raising (20), only-right-way (11), group label (9) | dating, break-ups and feelings (61); marriage and spouses (15); gender roles and expectations (10) |
-| Consumption and money * | 3.1% | 38/93 (31%–51%) | anxiety-raising (27), only-right-way (8), binary opposition (3) | promotions and marketing (29); spending values and personal finance (19); prices and housing (11) |
-| Study and ideas | 1.5% | 11/45 (14%–39%) | anxiety-raising (4), binary opposition (3), only-right-way (2), group label (2) | exam and study pressure (26) |
-| Body and appearance * | 1.4% | 36/41 (74%–95%) | anxiety-raising (27), only-right-way (4), binary opposition (4), group label (1) | appearance anxiety (37) |
-| Life choices and paths * | 1.3% | 15/38 (26%–55%) | only-right-way (8), anxiety-raising (6), binary opposition (1) | striving, lying flat and life direction (12); jobs and careers (9); exams and study paths (6) |
-| Other social issues | 1.3% | 21/38 (40%–70%) | anxiety-raising (11), only-right-way (4), group label (4), binary opposition (2) | crime and public safety (11); history and war (9); health (8) |
-| Public order and freedom | 0.9% | 16/26 (43%–78%) | anxiety-raising (8), only-right-way (3), group label (3), binary opposition (2) | (too few to split) |
-| Resources and fairness | 0.6% | 9/17 (31%–74%) | only-right-way (4), binary opposition (2), anxiety-raising (2), group label (1) | (too few to split) |
+| Domain | Share of exposures | Opposing narrative (within domain) | Types |
+|---|---:|---:|---|
+| Non-issue content | 77.7% | — | — |
+| Culture and values | 5.5% | 72/164 (37%–52%) | OR 26, GL 17, BO 15, AR 14 |
+| Family and generations * | 3.6% | 34/108 (23%–41%) | BO 13, OR 11, AR 7, GL 3 |
+| Gender and relationships * | 3.3% | 62/98 (53%–72%) | BO 22, AR 20, OR 11, GL 9 |
+| Consumption and money * | 3.1% | 38/93 (31%–51%) | AR 27, OR 8, BO 3 |
+| Study and ideas | 1.5% | 11/45 (14%–39%) | AR 4, BO 3, OR 2, GL 2 |
+| Body and appearance * | 1.4% | 36/41 (74%–95%) | AR 27, OR 4, BO 4, GL 1 |
+| Life choices and paths * | 1.3% | 15/38 (26%–55%) | OR 8, AR 6, BO 1 |
+| Other social issues | 1.3% | 21/38 (40%–70%) | AR 11, OR 4, GL 4, BO 2 |
+| Public order and freedom | 0.9% | 16/26 (43%–78%) | AR 8, OR 3, GL 3, BO 2 |
+| Resources and fairness | 0.6% | 9/17 (31%–74%) | OR 4, BO 2, AR 2, GL 1 |

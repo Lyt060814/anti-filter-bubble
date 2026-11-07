@@ -1,17 +1,14 @@
 {
   "script": "analysis/v6_annotation/taxonomy.py --stratified",
-  "commit": "19f507f",
+  "commit": "f19e090",
   "date": "2026-11-07",
   "inputs": [
-    "../v6/results/strat_ds_labels.csv",
+    "../v6/results/strat_ds_labels_filled.csv",
     "../v6/results/strat_ds_meta.json"
   ],
   "weights": "flash_domain_counts[stratum] / valid V4 Pro rows in stratum; rows grouped by V4 Pro domain",
   "coverage": "only the five flash strata were sampled; studied-domain videos that the screen put elsewhere are not covered, so domain_share_covered is a lower bound",
-  "missing_by_stratum": {
-    "家庭与代际": 32,
-    "身体与外貌": 47
-  },
+  "missing_by_stratum": {},
   "screen_parsed": 19773,
   "bootstrap": "2000 resamples within strata, seed 0",
   "evidence": "measured: LLM labels (deepseek-flash screen, DeepSeek V4 Pro labels); no human check"

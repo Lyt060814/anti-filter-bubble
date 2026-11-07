@@ -4,8 +4,8 @@ videos,2200.0,illustrative,invented example user
 topic_videos,46.0,illustrative,invented example user
 topic_share,0.02090909090909091,illustrative,invented example user
 typical_topic_share,0.016,illustrative,invented example user
-needed_videos_per_arm: Any opposing narrative,196.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.1: gender and relationships, 11/54 (DeepSeek)"
-needed_videos_per_arm: Group labels,6475.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.2: v2 reference, 5/500 (DeepSeek)"
+needed_videos_per_arm: Any opposing narrative,225.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.2: gender and relationships, weighted 0.1653 (DeepSeek, stratified sample)"
+needed_videos_per_arm: Group labels,6475.0,formula,"Proposition 6, alpha 0.8, beta 0.02, odds x2.0, a .05, power .8; reference Table 4.3: v2 reference on the 500-video check, 5/500 (DeepSeek)"
 S5 odds factor vs S0: Delete these videos from my history,0.2779,simulation,delta_vs_control -1.2807 (95% half-width 0.1492)
 S5 topic exposure kept,0.9916,simulation,"exp(delta_log_m), main case"
 S6 odds factor vs S0: Hide these videos (filter),0.1518,simulation,delta_vs_control -1.8852 (95% half-width 0.0700)

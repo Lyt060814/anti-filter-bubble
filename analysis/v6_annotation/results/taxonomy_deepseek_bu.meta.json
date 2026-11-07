@@ -1,6 +1,6 @@
 {
   "script": "analysis/v6_annotation/taxonomy.py",
-  "commit": "02ee95f",
+  "commit": "f19e090",
   "date": "2026-11-07",
   "input": "../v6/results/bottomup_ds_labels.csv",
   "label_source": "deepseek_bu",

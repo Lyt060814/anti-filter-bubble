@@ -1,6 +1,6 @@
 {
   "script": "analysis/v6_annotation/design_mockup.py",
-  "commit": "c32779a",
+  "commit": "f19e090",
   "date": "2026-11-07",
   "inputs": [
     "analysis/v6_simulation/results/calibrated_escape_summary.csv.gz"

@@ -36,8 +36,10 @@ USER = {"days": 30, "videos": 2200, "topic_videos": 46, "topic_share": 46 / 2200
 # Proposition 6 settings (section 3.5 / 5.3): one-sided a=.05, power .8, classifier alpha=.8, beta=.02, 2x odds
 Z = 1.6449 + 0.8416
 ALPHA, BETA, ODDS = 0.8, 0.02, 2.0
-REFS = [("Any opposing narrative", 11 / 54, "Table 4.1: gender and relationships, 11/54 (DeepSeek)"),
-        ("Group labels", 5 / 500, "Table 4.2: v2 reference, 5/500 (DeepSeek)")]
+_STRAT = pd.read_csv(os.path.join(HERE, "results", "taxonomy_strat_ds.csv"))
+_GENDER_OPP = float(_STRAT.loc[_STRAT.domain == "性别与婚恋", "opposing_share"].iloc[0])
+REFS = [("Any opposing narrative", _GENDER_OPP, f"Table 4.2: gender and relationships, weighted {_GENDER_OPP:.4f} (DeepSeek, stratified sample)"),
+        ("Group labels", 5 / 500, "Table 4.3: v2 reference on the 500-video check, 5/500 (DeepSeek)")]
 
 # Section 5.2: v2-classifier rerun of filtering in the main case, delta log m = -.1453 -> exp = .865 topic kept
 FILTER_V2_TOPIC_KEPT = math.exp(-0.1453)

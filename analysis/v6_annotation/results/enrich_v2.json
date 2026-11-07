@@ -1,0 +1,146 @@
+{
+  "rows": 2955,
+  "missing": {
+    "v0": 115,
+    "v2": 75
+  },
+  "by_stratum": {
+    "v0": {
+      "cue_word": {
+        "k": 159,
+        "n": 947,
+        "share": 0.1679,
+        "ci": [
+          0.1454,
+          0.193
+        ]
+      },
+      "random_exposure_weighted": {
+        "k": 15,
+        "n": 1893,
+        "share": 0.0079,
+        "ci": [
+          0.0048,
+          0.013
+        ]
+      }
+    },
+    "v2": {
+      "cue_word": {
+        "k": 137,
+        "n": 886,
+        "share": 0.1546,
+        "ci": [
+          0.1323,
+          0.1799
+        ]
+      },
+      "random_exposure_weighted": {
+        "k": 4,
+        "n": 1994,
+        "share": 0.002,
+        "ci": [
+          0.0008,
+          0.0051
+        ]
+      }
+    }
+  },
+  "v0_to_v2": {
+    "cue_word": {
+      "rows": 873,
+      "v0_pos": 144,
+      "v2_pos": 133,
+      "both": 82,
+      "v0_only": 62,
+      "v2_only": 51
+    },
+    "random_exposure_weighted": {
+      "rows": 1893,
+      "v0_pos": 15,
+      "v2_pos": 4,
+      "both": 3,
+      "v0_only": 12,
+      "v2_only": 1
+    }
+  },
+  "cue_v0_only_first_no_in_v2": {
+    "q1_target: 个人": 26,
+    "q1_target: 无对象": 24,
+    "q4_endorse: 无法判断": 9,
+    "q2_generalize: 否": 2,
+    "q4_endorse: 否": 1
+  },
+  "cue_v0_only_genre_v2": {
+    "剧情/段子": 28,
+    "观点/评论": 22,
+    "其他": 9,
+    "个人经历": 2,
+    "新闻/普法": 1
+  },
+  "cue_v2_only_q_answers": {
+    "性别群体 / 是 / 是 / 是": 51
+  },
+  "repeat_consistency": {
+    "videos": 105,
+    "same_group_label": 1.0,
+    "same_q1": 0.9905
+  },
+  "exposure_weighted": {
+    "w_cue_from_500_check": {
+      "k": 1,
+      "n": 500,
+      "share": 0.002,
+      "ci": [
+        0.0004,
+        0.0112
+      ]
+    },
+    "p_rand_random_stratum_only": {
+      "k": 4,
+      "n": 1994,
+      "share": 0.002,
+      "ci": [
+        0.0008,
+        0.0051
+      ]
+    },
+    "p_rand_500_check_noncue_only": {
+      "k": 4,
+      "n": 499,
+      "share": 0.008,
+      "ci": [
+        0.0031,
+        0.0204
+      ]
+    },
+    "p_rand_pooled": {
+      "k": 8,
+      "n": 2389,
+      "share": 0.0033,
+      "ci": [
+        0.0017,
+        0.0066
+      ]
+    },
+    "central": 0.0036,
+    "bounds_any_p_cue": [
+      0.0017,
+      0.0178
+    ],
+    "bounds_p_cue_in_per_video_ci": [
+      0.0017,
+      0.0086
+    ],
+    "note": "central uses the w_cue point estimate and the per-video cue share; both bounds take the Wilson ends of w_cue and p_rand; bounds_any_p_cue lets p_cue range over [0, 1], bounds_p_cue_in_per_video_ci over the per-video cue share's Wilson interval",
+    "compare_500_check_v2": {
+      "k": 5,
+      "n": 500,
+      "share": 0.01,
+      "ci": [
+        0.0043,
+        0.0232
+      ]
+    }
+  }
+}

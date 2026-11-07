@@ -1,0 +1,13 @@
+{
+  "script": "analysis/v6_annotation/enrich_v2.py",
+  "commit": "7be4f2c",
+  "date": "2026-11-07",
+  "inputs": [
+    "analysis/v6/results/enrich_ds_labels.csv",
+    "analysis/v6/results/enrich_v2_labels.csv",
+    "analysis/v6/results/dual_v2_labels.csv"
+  ],
+  "intervals": "Wilson 95%",
+  "status": "provisional: exposures per cue-word video and pool exposure totals not yet available (issue #27)",
+  "evidence": "measured: DeepSeek V4 Pro labels; no human check"
+}
