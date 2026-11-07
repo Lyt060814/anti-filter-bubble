@@ -1,8 +1,8 @@
 {
   "evidence_type": "synthetic scenario assumptions",
   "script": "analysis/v6_simulation/bounded_formation.py",
-  "git_commit": "53f5d45e7c08d72c663b08949c1f760b3876acc5",
-  "source_sha256": "41d4347202dba99f5ba953bf53df44babd360f8f9695b539c7a8adbaa3567381",
+  "git_commit": "8360f6c6706ea6deac2e3078518c3d1479f75ac5",
+  "source_sha256": "9ebeb2a7e28cd554da96143087990d88f69268683db072b5b54df333ed66f7da",
   "seeds": [
     0,
     1,
@@ -62,6 +62,7 @@
   "catalogue": "six homogeneous vector groups; exact aggregation of arbitrary item multiplicities",
   "noise": 0,
   "interval": "pointwise mean +/- t19(.975)*SD/sqrt(20)",
+  "attribute_coordinates": "A=c*(1-s); B=-c*s; supply-weighted mean zero; A-B contrast c",
   "sources": [
     "PR #4 review 2026-11-07",
     "analysis/v6_annotation/agreement.md: DeepSeek v0 1.4%; not supply estimate",
