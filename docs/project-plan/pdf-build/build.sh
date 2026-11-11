@@ -4,6 +4,13 @@
 # Needs pandoc, npm (MathJax is installed into pdf-build/node_modules on first run) and Chromium.
 # Relative links to repository files are rewritten to GitHub URLs so they work inside the PDF.
 set -euo pipefail
+# On Windows (Git Bash) the browser needs Windows paths: cygpath -m turns /d/x into D:/x. Elsewhere paths pass through.
+native() { if command -v cygpath >/dev/null 2>&1; then cygpath -m "$1"; else printf '%s' "$1"; fi; }
+file_url() { local p; p="$(native "$1")"; case "$p" in /*) printf 'file://%s' "$p" ;; *) printf 'file:///%s' "$p" ;; esac; }
+# A per-user pandoc install on Windows (winget) lives in %LOCALAPPDATA%\Pandoc and may not be on PATH yet.
+if ! command -v pandoc >/dev/null 2>&1 && [ -n "${LOCALAPPDATA:-}" ] && command -v cygpath >/dev/null 2>&1; then
+  PATH="$PATH:$(cygpath -u "$LOCALAPPDATA")/Pandoc"
+fi
 here="$(cd "$(dirname "$0")" && pwd)"
 repo="$(cd "$here/../../.." && pwd)"
 src="$(realpath "$1")"
@@ -20,10 +27,16 @@ pandoc "$src" -f markdown -t html5 -s \
   --css="../style.css" -V document-css=false \
   --lua-filter="$here/filters.lua" -M source-dir="$rel_dir" \
   -M pagetitle="$title" -o "$html"
-chromium="${CHROMIUM:-$(command -v chromium || command -v chromium-browser || command -v google-chrome)}"
+chromium="${CHROMIUM:-$(command -v chromium || command -v chromium-browser || command -v google-chrome || true)}"
+if [ -z "$chromium" ]; then
+  for c in "/c/Program Files/Google/Chrome/Application/chrome.exe" "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; do
+    [ -x "$c" ] && { chromium="$c"; break; }
+  done
+fi
+[ -n "$chromium" ] || { echo "No Chromium-based browser found; set CHROMIUM to its path" >&2; exit 1; }
 rm -f "$out_pdf"
 "$chromium" --headless=new --no-sandbox --disable-gpu --run-all-compositor-stages-before-draw \
   --virtual-time-budget=30000 --no-pdf-header-footer \
-  --print-to-pdf="$out_pdf" "file://$html" >/dev/null 2>&1 || true
+  --print-to-pdf="$(native "$out_pdf")" "$(file_url "$html")" >/dev/null 2>&1 || true
 [ -s "$out_pdf" ] || { echo "PDF was not produced" >&2; exit 1; }
 echo "$out_pdf"

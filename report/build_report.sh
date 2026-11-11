@@ -5,6 +5,8 @@
 set -euo pipefail
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 out="$repo/report/build"; mkdir -p "$out"
+# Image URLs must use the browser's native path form: file:///D:/... on Windows (Git Bash), file:///home/... elsewhere.
+if command -v cygpath >/dev/null 2>&1; then repo_url="file:///$(cygpath -m "$repo")"; else repo_url="file://$repo"; fi
 {
   echo "# Viewpoint Cocoons in Chinese Short-Video Feeds"
   echo
@@ -16,7 +18,7 @@ out="$repo/report/build"; mkdir -p "$out"
   echo
   for f in $(ls "$repo"/report/sections/*.md | sort -t/ -k1 -V); do
     perl -0pe 's/<!--.*?-->\n?//gs' "$f" | sed -E 's/^# /## /; s/^## ([0-9]+\.[0-9])/### \1/; s/^### ([^0-9])/#### \1/' \
-      | sed -E "s#\]\(\.\./\.\./([^)]+\.(png|jpg|svg))\)#](file://$repo/\1)#g; s#\]\(\.\./(screenshots/[^)]+)\)#](file://$repo/report/\1)#g"
+      | sed -E "s#\]\(\.\./\.\./([^)]+\.(png|jpg|svg))\)#]($repo_url/\1)#g; s#\]\(\.\./(screenshots/[^)]+)\)#]($repo_url/report/\1)#g"
     echo
   done
 } > "$out/report.md"
