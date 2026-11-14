@@ -1,0 +1,36 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the results mean together}
+
+The three questions have a common answer. A feed can keep a topic and tilt the views within it, and the tilt has two sources that call for different responses. The larger part for most users is the platform layer: opposing narratives are more engaging, ranking rewards engagement, and so every user sees more of them than the catalogue contains (\cref{sec:data,sec:logs}). No setting in the app touches this layer, and no comparison a user can make reveals it. The personal layer is added for users who combine heavy interest in a topic with a tendency to finish one narrative. It forms within weeks because the recommender can tell the narrative apart; by the same property the user's behaviour can undo it (\cref{prop:feedback}). The tools on offer do not help: topic-level settings act on the wrong coordinate, and the one narrative-level button has the wrong sign.
+
+Responsibility is therefore shared, but unevenly. A user can lower their own personal layer by changing what they finish, and must keep doing so. Only the platform can see the skew without months of counting, publish the reference that makes it visible to others, repair the button, and decide how much its ranking should amplify what provokes.
+
+\subsection{Why this design, and what else we considered}
+
+\paragraph{Log-odds as the scale.} We measure skew in log-odds and not as a difference in shares. A rise from 2\% to 4\% and one from 20\% to 40\% both double a share but mean different things, and a difference in shares has no natural split into layers; on the log-odds scale the split of \cref{eq:decomp} is exact, and the softmax recommender responds additively (\cref{prop:feedback}).
+
+\paragraph{Platform average as the reference.} Defining $V$ against the platform share makes it a statement about personalisation. Defining it against supply would mix in the platform layer; defining it against a ``balanced'' mix would require us to decide what balance is. We report all three shares and take no position on the right level of supply.
+
+\paragraph{Language-model labels.} Labelling 684{,}210 descriptions by hand was out of reach, and a keyword list has less than half the recall. The cost is that our ground truth is the agreement of two stronger models, not people. We limited the exposure to this risk by validating every decision we rely on, correcting prevalence for the measured error rates, and using the four-way type, the least reliable decision, only in aggregate.
+
+\paragraph{Simulation fitted to a measured response.} A simulator with assumed responses can produce any result. Ours has no free parameter in the recommender: both response curves come from the probe, and the population it implies matches the logs in the two respects we could check, the funnel of \cref{fig:logs}a and the level of the most skewed users. The users are another matter. Their preferences are scenario parameters, which is why we report a range of them and a sweep over the one quantity that matters most (\cref{fig:formation}c).
+
+\subsection{Limitations}
+
+\paragraph{One narrative, one platform, one model.} The case study concerns gender group labels on Kuaishou. \Cref{fig:formation}c shows that the result depends on how sharply the recommender separates the narrative, and other narratives will sit elsewhere on that curve. OneRec is an open model trained on the logs, not the production system, which adds retrieval stages, business rules and its own treatment of negative feedback. The finding about ``not interested'' is a finding about a model that learns from logged engagement alone.
+
+\paragraph{Descriptions, not videos.} Labels are assigned to text descriptions. Tone, irony and what is shown on screen are lost, and a description can state a group label that the video goes on to mock. The rebuttal rule catches the explicit cases only.
+
+\paragraph{Exposure, not belief.} Everything here concerns what users are shown. Field experiments on other platforms found that large changes in exposure moved attitudes little~\citep{guess2023feed,nyhan2023likeminded}. We do not claim that a viewpoint cocoon changes what anyone thinks about marriage, only that it changes what they meet, without their knowledge and without a working way to object.
+
+\paragraph{Simulated users.} Simulated users have fixed preferences and perfect consistency. Real preferences drift, possibly in response to exposure itself, which would make formation faster and escape harder than we report. Scrolling past a video one is inclined to finish takes an effort that the simulation counts as free.
+
+\subsection{Ethics}
+
+The study used public research data under its licence terms, re-identified no user, and released no video descriptions. No live platform or account was manipulated: all interventions were applied to an offline model. Two risks remain. Choosing which narratives to track is a value judgement; we restricted the taxonomy to forms of argument (one right way, binary opposition, anxiety, group labels) and not to positions, and the report design refrains from saying which view is right. A tool that reads a user's feed to compute their skew handles sensitive data, and a filter tuned to hide a narrative could as easily be tuned to hide dissent. Both should run on the user's device, under the user's control, and show what they remove.
+
+\section{Conclusion}
+
+A check that counts topics will tell a heavy viewer of marriage videos that they like marriage videos. It will not tell them that within the topic they are shown hostile generalisations about a whole gender at \nTotalOddsStrong{} times the rate at which such videos exist, that about a third of this excess, on the log-odds scale, is added for everyone and the rest for them, that confirming it would take months of counting, or that the button offered as a remedy feeds the problem. These are measurable quantities with a simple definition. The most useful next steps are a user study of the exposure report, human labels on a validation sample, and the same probes on the larger released recommenders and on other narratives.

@@ -1,0 +1,111 @@
+\section{Proofs of the Propositions}
+\label{app:proofs}
+
+Throughout, $\pi(i)\propto q_i\exp\langle u,v_i\rangle$ as in \cref{eq:softmax}, and $\mathbb{E}_G$ denotes the exposure-weighted mean over a set $G$ of videos.
+
+\paragraph{\Cref{prop:feedback}.} After the update $u\mapsto u+\eta v_j$, each video's weight is multiplied by $e^{\eta s_j(i)}$, so $\pi'(i)=\pi(i)e^{\eta s_j(i)}/Z$ with $Z=\sum_i\pi(i)e^{\eta s_j(i)}$. For any set $G$,
+\[
+  \log\pi'(G)-\log\pi(G)=\log\mathbb{E}_G\bigl[e^{\eta s_j}\bigr]-\log Z=\eta\,\bar s_j(G)+\tfrac{\eta^2}{2}\operatorname{Var}_G(s_j)-\log Z+O(\eta^3).
+\]
+Since $V=\log\pi(\A)-\log\pi(\B)-\logit\pbar$ and $\pbar$ does not depend on $u$, the normalising term cancels and $\Delta V=\eta\,[\bar s_j(\A)-\bar s_j(\B)]+O(\eta^2)$. The same argument applied to $\logit m=\log\pi(\I_k)-\log\pi(\I\setminus\I_k)$ gives $\Delta\logit m=\eta\,t_j+O(\eta^2)$. \qed
+
+\paragraph{\Cref{prop:topic}.} If every video in $\I_k$ has its exposure multiplied by $\lambda>0$ before renormalisation, then $\pi'(\A)/\pi'(\B)=\lambda\pi(\A)/\lambda\pi(\B)$, so $p$ and therefore $V$ are unchanged. For the second claim, take two feeds with the same exposure in every category and different $p$; this is possible whenever no category boundary separates $\A$ from $\B$. A statistic that depends on category shares takes the same value on both. \qed
+
+\paragraph{\Cref{prop:filter}.} After filtering, the exposure that reaches the screen is $\pi(\A)(1-\mathrm{TPR})$ for the narrative and $\pi(\B)(1-\mathrm{FPR})$ for the retained set. Taking the log of their ratio gives $\logit p'=\logit p+\log\frac{1-\mathrm{TPR}}{1-\mathrm{FPR}}$. Their sum, as a share of the original feed, is $m\,[p(1-\mathrm{TPR})+(1-p)(1-\mathrm{FPR})]$. \qed
+
+\paragraph{\Cref{prop:reach}.} $\Lambda=\logit\pbar-\logit\psup$ involves only the catalogue and the population average, so no change to one user's $u$ alters it. At $u=u_0$ the feed is the non-personalised one, whose within-issue share we identify with $\pbar$; hence $V=0$ and, by \cref{eq:decomp}, the total skew equals $\Lambda$. The same identity shows that the total is below $\Lambda$ exactly when $V<0$. If the state relaxes towards $u_0$ in the absence of signals, a state with $V<0$ is not stationary without them. \qed
+
+\paragraph{\Cref{prop:detect}.} With $n$ videos in each sample the observed shares $\hat q_u,\hat q_0$ are approximately normal with variances $q_u(1-q_u)/n$ and $q_0(1-q_0)/n$. A one-sided level-$a$ test of $q_u>q_0$ has power $1-\gamma$ when $q_u-q_0=(z_a+z_\gamma)\sqrt{[q_u(1-q_u)+q_0(1-q_0)]/n}$. Solving for $n$ and substituting $q_u-q_0=(\alpha-\beta)(p_u-p_0)$ gives \cref{eq:detect}. \qed
+
+\section{Labelling Rule and Prompt}
+\label{app:prompt}
+
+The open model received each video description with the instructions below (translated from the Chinese original). A video is a \emph{gender group label} when the answers to Q3 are (a), (a), (a), (a), and a \emph{rebuttal} when they are (a), (a), (a), (b).
+
+\begin{tcolorbox}[enhanced,colback=panel,colframe=rule,boxrule=0.5pt,arc=2pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fontupper=\footnotesize\ttfamily]
+You will read the text description of one short video. Judge only what the description says. Answer in JSON with the listed options.\\[3pt]
+Q1 domain: gender\_marriage | body\_appearance | family\_generations | life\_choices | consumption\_money | none\\[3pt]
+Q2 narrative (skip if Q1 = none): Does the video push a position by\\
+\hspace*{1em}(a) presenting one choice as the only acceptable one,\\
+\hspace*{1em}(b) reducing the issue to two camps with nothing between,\\
+\hspace*{1em}(c) threatening loss or failure, or\\
+\hspace*{1em}(d) attaching a negative trait to a whole group of people?\\
+Give the single dominant type, or none.\\[3pt]
+Q3 (only if Q1 = gender\_marriage) answer all four:\\
+\hspace*{1em}target: (a) a whole gender | (b) a specific person or couple | (c) other\\
+\hspace*{1em}content: (a) negative trait or blame | (b) neutral or positive\\
+\hspace*{1em}scope: (a) all or most members | (b) some members or one case\\
+\hspace*{1em}voice: (a) asserted by the video | (b) quoted in order to rebut it | (c) unclear
+\end{tcolorbox}
+
+\section{Simulation Model and Parameters}
+\label{app:sim}
+
+The simulator tracks four groups of videos $g\in\{\A,\ \B\text{ (ordinary)},\ \text{rebuttal},\ \text{other}\}$. The recommender keeps a profile $h_g$, an exponentially weighted count of the signals the user gave to each group, and forms two centred features from the profile shares $r_g=h_g/\sum_{g'}|h_{g'}|$:
+\[
+  f_T=r_{\text{issue}}-m_0,\qquad f_A=r_{\A}-r_{\text{rebuttal}}-\kappa\,r_{\text{issue}},
+\]
+where $r_{\text{issue}}$ sums the three issue groups and $\kappa$ is chosen so that a user who finishes issue videos in platform proportions has $f_A=0$. The next video is drawn with log-odds
+\[
+  \log\pi(g)=\log\pi_0(g)+\Delta_T\,\mathbf{1}[g\text{ on issue}]+\Delta_A\,a_g+\text{const},\qquad
+  \Delta_\bullet=S_\bullet\tanh\!\bigl(G_\bullet f_\bullet/S_\bullet\bigr),
+\]
+with $a_g=+1$ for $\A$, $-1$ for rebuttals and $0$ otherwise, and $\pi_0$ the platform shares. This is \cref{eq:softmax} with a two-dimensional state and a saturating read-out. \Cref{tab:simparams} lists the parameters. The recommender's parameters are fixed by the logs and the probe; the user's are scenario choices.
+
+\begin{table}[H]
+\caption{Parameters of the simulation.}
+\label{tab:simparams}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}L{6.9cm} L{4.1cm} Y@{}}
+\toprule
+Parameter & Value & Source\\
+\midrule
+Platform topic share $m_0$; narrative share $\pbar$ & 2.4\%; 6.2\% & logs (\cref{sec:logs})\\
+Supply share $\psup$; rebuttal share of issue & 4.1\%; 1.5\% & logs\\
+Topic channel: gain $G_T$, saturation $S_T$ & \nGainT; 2.8 & fit to \cref{fig:probe}a\\
+Narrative channel: gain $G_A$, saturation $S_A$ & \nGainA; 1.5 & fit to \cref{fig:probe}a\\
+Profile length & 200 finished videos & history length used in the probe\\
+Weight of a ``not interested'' signal & $+0.38$ of a finished video & reproduces \cref{fig:probe}b\\
+\midrule
+Probability of finishing an ordinary video & 0.38 & median in the logs\\
+Topic interest $\varphi$ (log-odds) & 0.8 (fan); 0 (casual) & scenario\\
+Narrative preference $\theta$ (log-odds) & $-1$, 0, 1, 2; rebuttals $-\theta/2$ & scenario, swept in \cref{tab:theta}\\
+Videos per day & 180 & median active day in the logs\\
+Simulated users per setting & 400 & --\\
+Formation; action; after stopping & 16{,}000; 3{,}000; 4{,}000 videos & --\\
+\midrule
+Blocklist filter (recall, false-positive rate) & 0.45, 0.01 & keyword list on the validation set\\
+Classifier filter (recall, false-positive rate) & 0.79, 0.01 & \cref{tab:quality}\\
+\str{5}: rebuttals found by search & 3 per 100 feed videos & scenario\\
+\str{9}: ``show less of this topic'' & $-1.5$ log-odds on the issue & scenario\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Additional Results}
+\label{app:more}
+
+\begin{table}[H]
+\caption{Probe of OneRec: change in log-odds when $k$ videos are injected into the history of 200 users (mean and 95\% interval). Columns: topic log-odds after issue videos; narrative log-odds after group-label videos, after other issue videos, and after group-label videos placed in the ``not interested'' field.}
+\label{tab:probe}
+\centering\small
+\begin{tabular}{@{}rllll@{}}
+\toprule
+$k$ & Topic & Narrative & Narrative (other issue) & Narrative (``not interested'')\\
+\midrule
+\tabinput{generated/tab_probe_body}
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Skew formed by a topic fan after 89 days as a function of the narrative preference $\theta$ (150 simulated users each).}
+\label{tab:theta}
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+\tabinput{generated/tab_theta_body}
+\bottomrule
+\end{tabular}
+\end{table}

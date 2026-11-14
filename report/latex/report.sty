@@ -1,0 +1,117 @@
+% Style for the COMP1110 final report (pdfLaTeX).
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{report}[2026/11/15 COMP1110 final report style]
+
+\RequirePackage[a4paper,margin=2.5cm,headheight=14pt,headsep=14pt,footskip=28pt]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{tgpagella}
+\RequirePackage[scale=0.92]{tgheros}
+\RequirePackage[sc]{mathpazo}
+\linespread{1.03}
+\RequirePackage{microtype}
+\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{booktabs,tabularx,array,multirow,makecell,colortbl}
+\RequirePackage{enumitem}
+\RequirePackage{pifont}
+\RequirePackage{xspace}
+\RequirePackage{float}
+\RequirePackage{wrapfig}
+\RequirePackage[font=small,labelfont=bf,labelsep=period,skip=7pt]{caption}
+\RequirePackage{subcaption}
+\RequirePackage[explicit]{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage{hyperref}
+\RequirePackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+% ---------- colours
+\definecolor{ink}{HTML}{1A1A1A}
+\definecolor{mute}{HTML}{5F6670}
+\definecolor{rule}{HTML}{C9CED6}
+\definecolor{linkblue}{HTML}{1F4E79}
+\definecolor{narr}{HTML}{C0502E}
+\definecolor{topic}{HTML}{2B5C8A}
+\definecolor{panel}{HTML}{F6F7F9}
+\definecolor{warm}{HTML}{FBF3EE}
+\definecolor{rowhl}{HTML}{F3F6FA}
+\hypersetup{colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue,pdfborder={0 0 0}}
+
+% ---------- headings
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{#1}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.8em}{#1}
+\titleformat{\subsubsection}{\normalsize\bfseries\itshape}{\thesubsubsection}{0.8em}{#1}
+\titlespacing*{\section}{0pt}{2.4ex plus .6ex minus .2ex}{1.1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.9ex plus .5ex minus .2ex}{0.8ex plus .2ex}
+\titleformat{\paragraph}[runin]{\normalsize\bfseries}{}{0pt}{#1}
+\titlespacing*{\paragraph}{0pt}{1.25ex plus .4ex minus .2ex}{0.9em}
+
+% ---------- paragraphs, lists, floats
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.62em plus 0.15em minus 0.1em}
+\setlist{leftmargin=1.5em,itemsep=0.25em,topsep=0.2em,parsep=0pt}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.8}
+\setlength{\textfloatsep}{14pt plus 3pt minus 3pt}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\belowcaptionskip}{0pt}
+\captionsetup[table]{skip=5pt,position=top}
+
+% ---------- header and footer
+\newcommand{\shorttitle}{}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{{\color{rule}\hrule width\headwidth height\headrulewidth}}
+\fancyhead[L]{\footnotesize\color{mute}\shorttitle}
+\fancyhead[R]{\footnotesize\color{mute}COMP1110 Final Report}
+\fancyfoot[C]{\small\thepage}
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \fancyhead[L]{\footnotesize\color{mute}COMP1110 Computing and Data Science in Everyday Life \textperiodcentered{} Group Project}%
+  \fancyhead[R]{\footnotesize\color{mute}15 November 2026}%
+  \fancyfoot[C]{\small\thepage}}
+
+% ---------- theorem-like environments
+\newtheoremstyle{prop}{0.7em}{0.5em}{\itshape}{}{\bfseries}{.}{0.5em}{\thmname{#1}\thmnumber{ #2}\thmnote{ \normalfont\bfseries(#3)}}
+\theoremstyle{prop}
+\newtheorem{proposition}{Proposition}
+\newtheoremstyle{defn}{0.7em}{0.5em}{}{}{\bfseries}{.}{0.5em}{\thmname{#1}\thmnumber{ #2}\thmnote{ \normalfont\bfseries(#3)}}
+\theoremstyle{defn}
+\newtheorem{definition}{Definition}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{definition}{Definition}{Definitions}
+
+% ---------- boxes
+\newtcolorbox{disclaimerbox}{enhanced,breakable=false,colback=warm,colframe=narr!70!black,boxrule=0.5pt,arc=2pt,
+  left=8pt,right=8pt,top=6pt,bottom=6pt,fontupper=\small}
+\newtcolorbox{rqbox}{enhanced,colback=panel,colframe=rule,boxrule=0.5pt,arc=2pt,left=8pt,right=8pt,top=5pt,bottom=5pt,
+  before skip=0.8em,after skip=0.8em}
+
+% ---------- small helpers
+\definecolor{cmarkgreen}{HTML}{2F7D4F}
+\definecolor{xmarkgrey}{HTML}{A9B0B9}
+\newcommand{\cmark}{\textcolor{cmarkgreen}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{xmarkgrey}{\ding{55}}}
+\newcommand{\pmark}{\textcolor{mute}{\small partly}}
+\newcommand{\logit}{\operatorname{logit}}
+\newcommand{\psup}{p^{\mathrm{sup}}}
+\newcommand{\pbar}{\bar p}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\RQ}[1]{\textbf{RQ#1}}
+\newcommand{\str}[1]{\textsf{S#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+% expandable \input for table bodies (plain \input before \bottomrule breaks \noalign)
+\newcommand{\tabinput}[1]{\@@input #1.tex }
