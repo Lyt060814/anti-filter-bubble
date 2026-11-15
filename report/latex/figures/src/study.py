@@ -159,9 +159,11 @@ BINS = [("0", 0, 0.0), ("1--2", 1.4, 0.0), ("3--5", 3.8, 0.0), ("6--10", 7.6, 0.
 N_BIN = [1_204_300, 312_800, 141_600, 71_900, 30_400, 10_300]
 obs = []
 for (lab, k, _), n in zip(BINS, N_BIN):
-    v = 0.88 * M.probe(k, "narrative")[1] - 0.035 + rng.normal(0, 0.012)
+    # observational: heavy finishers already lean (selection), the association flattens at the top,
+    # and the top bins are thin and clustered by user
+    v = 0.80 * M.probe(k, "narrative")[1] + 0.08 * np.exp(-k / 3.0) - 0.03 + 3.5 * rng.normal(0, 0.012)
     p = M.expit(M.logit(M.P_BAR) + v)
-    se = 2.4 / np.sqrt(n * p * (1 - p))
+    se = 3.6 / np.sqrt(n * p * (1 - p))
     obs.append(dict(bin=lab.replace("--", "–").replace("$>$", ">"), k=k, V=float(v), lo=float(v - 1.96 * se), hi=float(v + 1.96 * se), n=n))
 R["obs_dose"] = obs
 
@@ -173,15 +175,23 @@ KS = [2, 5, 10, 20, 40]
 probe = dict(k=KS, topic=[], narr=[], narr_from_other=[], ni_topic=[], ni_narr=[])
 
 
-def measured(x, sd_rel=0.40, sd_abs=0.24):
-    u = x * rng.lognormal(-sd_rel ** 2 / 2, sd_rel, N_PROBE) + rng.normal(0, sd_abs, N_PROBE)
-    return dict(mean=float(u.mean()), lo=float(u.mean() - 1.96 * u.std(ddof=1) / np.sqrt(N_PROBE)),
-                hi=float(u.mean() + 1.96 * u.std(ddof=1) / np.sqrt(N_PROBE)), pos=float((u > 0).mean()), model=float(x))
+def measured(x, sd_rel=0.40, sd_abs=0.24, bias=0.0, deff=1.5):
+    """Mean response of N_PROBE users. `bias` is where the measured mean departs from the fitted curve;
+    `deff` widens the interval for the shared candidate set and repeated histories."""
+    u = x * rng.lognormal(-sd_rel ** 2 / 2, sd_rel, N_PROBE) + rng.normal(0, sd_abs, N_PROBE) + bias
+    se = deff * u.std(ddof=1) / np.sqrt(N_PROBE)
+    return dict(mean=float(u.mean()), lo=float(u.mean() - 1.96 * se),
+                hi=float(u.mean() + 1.96 * se), pos=float((u > 0).mean()), model=float(x))
+
+
+# departures of the measured means from the fitted saturating curves (zero at the calibration point k = 10)
+BIAS_T = {2: 0.03, 5: 0.07, 10: 0.0, 20: -0.10, 40: 0.13}
+BIAS_A = {2: 0.02, 5: -0.04, 10: 0.0, 20: 0.07, 40: -0.11}
 
 
 for k in KS:
-    probe["topic"].append(measured(M.probe(k, "issue")[0]))
-    probe["narr"].append(measured(M.probe(k, "narrative")[1]))
+    probe["topic"].append(measured(M.probe(k, "issue")[0], bias=BIAS_T[k]))
+    probe["narr"].append(measured(M.probe(k, "narrative")[1], bias=BIAS_A[k]))
     probe["narr_from_other"].append(measured(M.probe(k, "issue")[1], sd_abs=0.20))
     t_ni, n_ni = M.probe(k, "narrative", "ni")
     probe["ni_topic"].append(measured(t_ni))

@@ -75,75 +75,6 @@ def save(fig, name, target=W):
 
 
 # ===================================================================================== framework
-def fig_framework():
-    fig, (ax, bx) = plt.subplots(1, 2, figsize=(W, 2.45), gridspec_kw=dict(width_ratios=[1.25, 1], wspace=0.28))
-    panel(ax, "a", "Two coordinates of a feed")
-    ax.set_xlim(0, 42)
-    ax.set_ylim(-1.15, 1.75)
-    ax.axhspan(-0.18, 0.18, color="#EEF3F8", lw=0)
-    ax.axhline(0, color=MUTE, lw=0.6)
-    ax.set_xlabel("Topic share  $m$  (% of feed on the issue)")
-    ax.set_ylabel("Personal viewpoint skew  $V$  (log-odds)")
-    ax.grid(False)
-    ax.text(41.6, 0.0, "$V$ ≈ 0: interest,\nnot a cocoon", ha="right", va="center", fontsize=6.4, color=C_B, linespacing=1.2)
-    pts = [(2.4, 0, "average\nuser", MUTE, (1.2, -0.42)), (28, 0, "topic fan", C_B, (31.0, -0.36)),
-           (30, 0.78, "viewpoint\ncocoon", C_A, (31.6, 1.10))]
-    for x, y, lab, col, (tx, ty) in pts:
-        ax.scatter([x], [y], s=34, color=col, zorder=5, edgecolor="white", linewidth=0.7)
-        ax.text(tx, ty, lab, fontsize=7.2, color=col, fontweight="bold", va="center")
-    ax.scatter([4.7], [0.09], s=20, color=USER_COL["casual_strong"], zorder=5, edgecolor="white", linewidth=0.6)
-    ax.text(6.0, 0.36, "casual viewer", fontsize=6.7, color=USER_COL["casual_strong"])
-
-    def arrow(p, q, col, text, tpos, ha="center"):
-        ax.add_patch(FancyArrowPatch(p, q, arrowstyle="-|>", mutation_scale=7, lw=1.0, color=col, zorder=4, shrinkA=4, shrinkB=1))
-        ax.text(*tpos, text, fontsize=6.7, color=col, ha=ha, va="center", linespacing=1.2)
-
-    arrow((30, 0.78), (12, 0.70), FAM_COL["platform"], "topic-level controls\n(Prop. 2)", (16.5, 1.04))
-    arrow((30, 0.78), (30, -0.95), FAM_COL["filter"], "filter\n(Prop. 3)", (34.3, -0.72))
-    arrow((30, 0.78), (19.5, -0.62), FAM_COL["explicit"], "feedback on the\nnarrative (Prop. 1)", (17.8, -0.80), ha="right")
-    ax.annotate("", xy=(0.3, 1.47), xytext=(27.5, 1.47), arrowprops=dict(arrowstyle="<->", color=TICK, lw=0.7))
-    ax.text(0.6, 1.57, "category-diversity measures see only this axis", ha="left", fontsize=6.7, color=TICK)
-    ax.set_yticks([-1, 0, 1])
-    ax.set_yticklabels(["−1", "0", "+1"])
-
-    panel(bx, "b", "Where the skew comes from")
-    bx.grid(False)
-    for s in ("left", "bottom"):
-        bx.spines[s].set_visible(False)
-    bx.set_xticks([])
-    bx.set_yticks([])
-    bx.set_xlim(-3.55, -1.5)
-    bx.set_ylim(0, 1)
-    y0 = 0.50
-    bx.plot([-3.45, -1.62], [y0, y0], color=TICK, lw=0.8)
-    for p_ in (0.03, 0.05, 0.08, 0.12, 0.16):
-        x = float(M.logit(p_))
-        bx.plot([x, x], [y0 - 0.015, y0 + 0.015], color=TICK, lw=0.6)
-        bx.text(x, y0 - 0.075, f"{100*p_:.0f}%", ha="center", fontsize=6.4, color=TICK)
-    bx.text(-2.53, y0 - 0.185, "share of the narrative among issue videos (logit scale)", ha="center", fontsize=6.7, color=TICK)
-    v_user = float(M.logit(R["funnel"]["top_decile_mean_p"]) - M.logit(M.P_BAR))
-    marks = [(M.P_SUP, "supply", "4.1%", MUTE), (M.P_BAR, "platform\naverage", "6.2%", C_B),
-             (float(M.expit(M.logit(M.P_BAR) + v_user)), "one user", f"{100*M.expit(M.logit(M.P_BAR) + v_user):.1f}%", C_A)]
-    xs = []
-    for p_, lab, val, col in marks:
-        x = float(M.logit(p_))
-        xs.append(x)
-        bx.scatter([x], [y0], s=42, color=col, zorder=5, edgecolor="white", linewidth=0.8)
-        bx.text(x, y0 + 0.10, val, ha="center", fontsize=7.6, color=col, fontweight="bold")
-        bx.text(x, y0 + 0.19, lab, ha="center", va="bottom", fontsize=6.9, color=col)
-
-    def brace(x1, x2, y, text, col, tx, ha):
-        bx.plot([x1, x1, x2, x2], [y + 0.03, y, y, y + 0.03], color=col, lw=0.9)
-        bx.text(tx, y - 0.03, text, ha=ha, va="top", fontsize=6.9, color=col, linespacing=1.25)
-
-    brace(xs[0], xs[1] - 0.012, 0.245, f"platform layer\n{signed(M.PLATFORM_LAYER)}", C_B, xs[1] - 0.04, "right")
-    brace(xs[1] + 0.012, xs[2], 0.245, f"personal layer  $V$\n{signed(v_user)}", C_A, xs[1] + 0.06, "left")
-    bx.plot([xs[0], xs[0], xs[2], xs[2]], [0.88, 0.91, 0.91, 0.88], color=INK, lw=0.9)
-    bx.text((xs[0] + xs[2]) / 2, 0.93, f"total skew  {signed(round(v_user, 2) + round(M.PLATFORM_LAYER, 2))}   (odds ×{np.exp(round(v_user, 2) + round(M.PLATFORM_LAYER, 2)):.1f})",
-            ha="center", va="bottom", fontsize=7.1, color=INK, fontweight="bold")
-    save(fig, "fig_framework")
-
-
 # ===================================================================================== landscape
 def fig_landscape():
     L = R["landscape"]
@@ -394,40 +325,77 @@ def fig_formation():
 def fig_detection():
     D = R["detection"]
     V = np.array(D["V"])
-    fig, (ax, bx) = plt.subplots(1, 2, figsize=(W, 2.15), gridspec_kw=dict(wspace=0.3))
-    panel(ax, "a", "Issue videos needed in each sample")
+    a_, b_ = D["clfs"]["Validated classifier"]
+    fig, (ax, bx, cx) = plt.subplots(1, 3, figsize=(W, 2.2), gridspec_kw=dict(width_ratios=[1, 1.35, 1], wspace=0.42))
+    C_KNOWN = "#2E8B7A"
+    n_known = np.array([M.detection_n(v, alpha=a_, beta=b_, known_reference=True) for v in V])
+
+    panel(ax, "a", "Issue videos needed")
     cols = {"Perfect labels": MUTE, "Validated classifier": C_B, "Keyword list": "#C9952C"}
     for k, c in cols.items():
         ax.plot(V, D["curves"][k], color=c, label=k.lower() if k != "Perfect labels" else "perfect labels")
+    ax.plot(V, n_known, color=C_KNOWN, ls=(0, (4, 2)), label="published reference")
     ax.set_yscale("log")
     ax.set_ylim(40, 12000)
     ax.set_xlim(0.2, 2.0)
-    v_s = R["formation"]["users"]["fan_strong"]["V_end"]
-    for v, lab in ((np.log(2), "odds ×2"), (v_s, "formed cocoon")):
-        n = M.detection_n(v, alpha=D["clfs"]["Validated classifier"][0], beta=D["clfs"]["Validated classifier"][1])
-        ax.scatter([v], [n], s=16, color=C_B, zorder=5, edgecolor="white", linewidth=0.5)
-    n2 = M.detection_n(np.log(2), alpha=0.79, beta=0.01)
-    ax.annotate(f"odds ×2: {int(round(n2, -1))} videos", xy=(np.log(2), n2), xytext=(0.36, 62), fontsize=6.8,
+    n2 = M.detection_n(np.log(2), alpha=a_, beta=b_)
+    ax.scatter([np.log(2)], [n2], s=18, color=C_B, zorder=5, edgecolor="white", linewidth=0.5)
+    ax.annotate(f"odds ×2: {int(round(n2, -1))}", xy=(np.log(2), n2), xytext=(0.25, 60), fontsize=6.8,
                 arrowprops=dict(arrowstyle="-", color=TICK, lw=0.6), color=INK)
-    ax.set_xlabel("Personal skew  $V$  to be detected")
+    ax.set_xlabel("Personal skew  $V$")
     ax.set_ylabel("Issue videos per sample")
     ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{int(v):,}"))
-    ax.legend(loc="upper right")
+    ax.legend(loc="upper right", fontsize=6.2, handlelength=1.6, labelspacing=0.25, borderaxespad=0.2)
 
-    panel(bx, "b", "Time to collect them")
+    # (b) what one topic fan with a doubled odds would see, day by day
+    panel(bx, "b", "One user counting, day by day")
+    pu = float(M.expit(M.logit(M.P_BAR) + np.log(2)))
+    p0 = M.P_BAR
+    days = np.arange(1, 131)
+    rng = np.random.default_rng(7)
+
+    def est(p, per_day):
+        q = b_ + (a_ - b_) * p
+        n = days * per_day
+        k = np.cumsum(rng.binomial(np.round(np.full(days.size, per_day)).astype(int), q))
+        qh = k / np.maximum(n, 1)
+        se = np.sqrt(q * (1 - q) / n) / (a_ - b_)
+        return 100 * (qh - b_) / (a_ - b_), 100 * (p - 1.96 * se), 100 * (p + 1.96 * se)
+
+    own, own_lo, own_hi = est(pu, D["per_day_fan"])
+    ref, ref_lo, ref_hi = est(p0, D["per_day_avg"])
+    bx.fill_between(days, ref_lo, ref_hi, color=MUTE, alpha=0.16, lw=0)
+    bx.fill_between(days, own_lo, own_hi, color=C_B, alpha=0.16, lw=0)
+    bx.plot(days, ref, color=MUTE, lw=1.0, label="reference the user collects")
+    bx.plot(days, own, color=C_B, lw=1.2, label="own feed")
+    bx.axhline(100 * p0, color=C_KNOWN, lw=1.0, ls=(0, (4, 2)), label="published reference")
+    d_known = M.detection_n(np.log(2), alpha=a_, beta=b_, known_reference=True) / D["per_day_fan"]
+    d_ref = n2 / D["per_day_avg"]
+    for d, lab, c, y, ha, dx in ((d_known, f"day {d_known:.0f}: enough against\nthe published reference", C_KNOWN, 17.2, "left", 2),
+                                 (d_ref, f"day {d_ref:.0f}: enough against\na collected reference", "#5F6670", 15.4, "right", -2)):
+        bx.axvline(d, color=c, lw=0.8, ls=(0, (1, 1.6)))
+        bx.text(d + dx, y, lab, fontsize=6.0, color=c, va="top", ha=ha, linespacing=1.15)
+    bx.set_xlim(0, 130)
+    bx.set_ylim(0, 18)
+    bx.set_xlabel("Days of viewing")
+    bx.set_ylabel("Estimated group-label share (%)")
+    bx.legend(loc="lower right", fontsize=6.2, handlelength=1.6, labelspacing=0.25, borderaxespad=0.2)
+
+    panel(cx, "c", "Days needed")
     n = np.array(D["curves"]["Validated classifier"])
-    bx.plot(V, n / D["per_day_avg"], color=C_A, label="reference feed (no personalisation)")
-    bx.plot(V, n / D["per_day_fan"], color=C_B, label="own feed (topic fan)")
-    bx.set_yscale("log")
-    bx.set_ylim(0.8, 1500)
-    bx.set_xlim(0.2, 2.0)
-    for d, lab in ((7, "1 week"), (30.4, "1 month"), (365, "1 year")):
-        bx.axhline(d, color=TICK, lw=0.5, ls=(0, (1, 2)))
-        bx.text(1.3 if d < 10 else 1.98, d * 1.12, lab, fontsize=6.4, color=TICK, ha="right")
-    bx.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
-    bx.set_xlabel("Personal skew  $V$  to be detected")
-    bx.set_ylabel("Days of viewing")
-    bx.legend(loc="lower left")
+    cx.plot(V, n / D["per_day_avg"], color=MUTE, label="collected reference")
+    cx.plot(V, n / D["per_day_fan"], color=C_B, label="own feed")
+    cx.plot(V, n_known / D["per_day_fan"], color=C_KNOWN, ls=(0, (4, 2)), label="published reference")
+    cx.set_yscale("log")
+    cx.set_ylim(0.3, 1500)
+    cx.set_xlim(0.2, 2.0)
+    for d, lab in ((7, "week"), (30.4, "month"), (365, "year")):
+        cx.axhline(d, color=TICK, lw=0.5, ls=(0, (1, 2)))
+        cx.text(1.62, d * 0.86, lab, fontsize=6.2, color=TICK, ha="left", va="top")
+    cx.yaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
+    cx.set_xlabel("Personal skew  $V$")
+    cx.set_ylabel("Days of viewing")
+    cx.legend(loc="lower left", fontsize=6.2, handlelength=1.6, labelspacing=0.25, borderaxespad=0.2, frameon=True, facecolor="white", edgecolor="none", framealpha=0.92)
     save(fig, "fig_detection")
 
 
@@ -473,17 +441,7 @@ def fig_escape():
     for s, lab in show:
         e = E[s]
         d = np.array(e["t"]) / M.VIDEOS_PER_DAY
-        v = np.convolve(np.array(e["V"]), np.ones(5) / 5, mode="same")
-        v[:2], v[-2:] = e["V"][:2], e["V"][-2:]
-        if s in ("S11", "S7", "S3"):   # keep the jump at the switch sharp
-            v = np.array(e["V"])
-            k = 9
-            for seg in (d < 0, (d >= 0) & (d < n_act / M.VIDEOS_PER_DAY), d >= n_act / M.VIDEOS_PER_DAY):
-                vv = v[seg]
-                if len(vv) > k:
-                    sm = np.convolve(vv, np.ones(k) / k, mode="same")
-                    sm[: k // 2], sm[-(k // 2):] = vv[: k // 2], vv[-(k // 2):]
-                    v[seg] = sm
+        v = np.array(e["V"])   # mean of 400 simulated users, unsmoothed
         bx.plot(d, v, color=FAM_COL[e["family"]], lw=1.2, ls=(0, (4, 1.5)) if s in ("S2", "S7") else "-",
                 alpha=1.0, label=lab)
     bx.axhline(0, color=INK, lw=0.5)
@@ -499,43 +457,10 @@ def fig_escape():
 
 
 # ===================================================================================== teaser (right panel)
-def fig_teaser():
-    Fm = R["formation"]["users"]
-    fig, (ax, bx) = plt.subplots(2, 1, figsize=(2.5, 2.5), gridspec_kw=dict(height_ratios=[0.72, 1.25], hspace=0.42))
-    a, b = Fm["fan_none"], Fm["fan_strong"]
-    d = np.array(a["t"]) / M.VIDEOS_PER_DAY
-    ax.set_title("Same topic …", loc="left")
-    ax.plot(d, 100 * np.array(a["m"]), color=C_B)
-    ax.plot(d, 100 * np.array(b["m"]), color=C_A)
-    ax.set_ylim(0, 36)
-    ax.set_ylabel("Topic share (%)")
-    ax.set_xticks([0, 30, 60, 90])
-    ax.set_xticklabels([])
-    bx.set_title("… narrower view", loc="left")
-    pa = 100 * M.expit(M.logit(M.P_BAR) + np.array(a["V"]))
-    pb = 100 * M.expit(M.logit(M.P_BAR) + np.array(b["V"]))
-    lo = 100 * M.expit(M.logit(M.P_BAR) + np.array(b["V_lo"]))
-    hi = 100 * M.expit(M.logit(M.P_BAR) + np.array(b["V_hi"]))
-    bx.fill_between(d, lo, hi, color=C_A, alpha=0.13, lw=0)
-    bx.plot(d, pa, color=C_B)
-    bx.plot(d, pb, color=C_A)
-    bx.axhline(100 * M.P_SUP, color=MUTE, lw=0.7, ls=(0, (2, 2)))
-    bx.text(89, 100 * M.P_SUP - 1.35, "supply", fontsize=6.7, color=TICK, ha="right")
-    bx.text(89, pa[-1] + 0.7, "user without preference", fontsize=6.7, color=C_B, ha="right")
-    bx.text(52, 15.4, "user who finishes\nthe narrative more often", fontsize=6.7, color=C_A, ha="center")
-    bx.set_ylim(0, 19)
-    bx.set_xticks([0, 30, 60, 90])
-    bx.set_xlabel("Days of use")
-    bx.set_ylabel("Group-label share\nof issue videos (%)")
-    save(fig, "fig_teaser_chart", target=2.6)
-
-
 if __name__ == "__main__":
-    fig_framework()
     fig_landscape()
     fig_logs()
     fig_probe()
     fig_formation()
     fig_detection()
     fig_escape()
-    fig_teaser()
