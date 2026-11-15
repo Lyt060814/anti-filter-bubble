@@ -42,8 +42,8 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 1 | Keeping the Topic, Widening the View | Fu Yitong | 0:20 | 手机 feed 示意 + 全员姓名 |
 | 2 | A feed can look diverse and still be one-sided | Fu Yitong | 0:45 | 左：话题饼图；右：放大"育儿"10 条视频，7 条同一说法（*Illustrative*） |
 | 3 | What is missing, and our question | Fu Yitong | 0:45 | 三列（测量 / 审计 / 控制）各自看不到什么；底部研究问题 |
-| 4 | Interest is not skew | Wang Junbo | 0:55 | m 与 V 两个量；"1.0% → 1.4% → 2.8%"例子（*Illustrative*） |
-| 5 | From a goal to an action | Wang Junbo | 1:05 | 四阶段框架图 + 目标"减少 / 保留 / 探索" + 一行规则 |
+| 4 | Interest is not skew | Wang Junbo | 0:55 | m 与 V 两个量；实测三层分解 4.1% → 6.2% → 12.7%（*Measured* · 报告 §5.1） |
+| 5 | What each action can move | Wang Junbo | 1:05 | 命题 1–4 三卡（ΔV = η·c / ΔV = 0 / 过滤器）+ 底部一句"平台层 Λ 用户操作够不到" |
 | 6 | What we actually built | Li Yitong | 0:20 | 真实原型流水线 + 已做 / 仅提议清单 |
 | 7 | Where one-sided narratives appear | Li Yitong | 0:35 | 大数字 **1 in 7**；五个议题域的小条形图（7%–20%） |
 | 8 | Does the recommender amplify a narrative? | Li Yitong | 0:55 | 三个结果：话题强响应；"不感兴趣"反向；叙事对比≈0 |
@@ -102,21 +102,23 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 
 ## ② Wang Junbo：我们的核心想法（第 4–5 页，约 2:00）
 
-**板块核心目标**：讲清**整合后的理想化构想**（评分重点）：**两个量（兴趣 m、偏斜 V）+ 用户确认的目标（减少/保留/探索）+ 按效果·损失·成本选操作的规则**，且该规则**可以回答"无需操作"或"没有可行方案"**。
+**板块核心目标**：讲清两个量——**兴趣 m（话题占比）与观点偏斜 V（话题内部一种说法多出现的程度）**——并用**实测的三层分解**（supply → 平台层 Λ → 个人层）说明"同一个话题、更窄的视角"；再用**命题 1–4** 回答"每类操作能动到什么、够不到什么"：反馈能造也能拆、话题级控制动不了话题内部的配比、过滤器不依赖推荐器、**平台层 Λ 任何用户操作都够不到**。
+
+> 注：旧方案的"用户确认目标（减少/保留/探索）+ 按效果·损失·成本选操作 + 可回答'无需操作 / 没有可行方案'"框架**最终报告里没有**，已从幻灯片和本方案中删除（见 `presentation/README.md` 的对应说明）。
 
 **屏幕上**
-- 第 4 页：两张并列卡片：*Interest = how much of my feed is this topic*；*Skew = inside the topic, how much more one narrative shows up than it should*。下方例子条：`available 1.0% → platform shows 1.4% → this user sees 2.8%`，标出 *platform layer 0.34 + personal layer 0.71*，标 *Illustrative*（用婚恋视频里"对某一性别的整体负面标签"来举例，与后面案例呼应）。
-- 第 5 页：四阶段图（Observe → Diagnose → Decide → Verify）+ 左侧三个目标图标 + 一行规则：*Meet the goal, keep wanted content and effort within limits — or say "no feasible option".*
+- 第 4 页：两张并列卡片：*Interest = how much of my feed is this topic*；*Skew = inside the topic, how much more one narrative shows up than it should*。下方案例条（*Measured* · 报告 §3.2 / §5.1）：`supply 4.1% → platform layer +0.44, 6.2%（1.55× supply，shared by everyone）→ personal layer +0.79, 12.7%（most skewed tenth of heavy viewers, 2.2× platform odds）`；底部一句 *together 3.4× supply*。
+- 第 5 页：三张命题卡（*01 · Feedback · Prop. 1: ΔV = η·c*；*02 · Topic controls · Prop. 2: ΔV = 0*；*03 · Filters · Prop. 3: ΔV = log((1−TPR)/(1−FPR))*）+ 底部整宽一句：*No user action reaches the platform layer Λ — it is added for everyone, before any personalisation (Prop. 4)*。
 
-**演讲提示**
-- *Slide 4（55s）*："Two numbers describe a feed. Interest is how much of it is about the topic. Skew is what you see once you're inside the topic. A topic lover has high interest and normal skew. Someone in a cocoon has high skew, whatever their interest. A made-up example: a narrative is 1% of what's available, the platform shows it 1.4% of the time on average, and this user sees it 2.8%. The first jump is shared by everyone; the second is personalisation, and that is the part a user can act on."
-- *Slide 5（65s）*："Our idea has four steps: observe, diagnose, decide, verify. In 'decide', *you* confirm a goal: reduce some claims, retain other content, explore reasons you haven't met. We compare actions by three things: how close to the goal, how much wanted content you keep, how much effort. It can answer 'no action needed' or 'no feasible option'. This is our ideal design; Li Yitong will now show what we actually built and tested."
+**演讲提示**（与 `slides.html` 的 NOTES 一致，以 NOTES 为准）
+- *Slide 4（55s）*："Two numbers describe a feed. Interest is how much of it is about the topic. Skew is what you see once you're inside the topic — how much more often one narrative shows up than it should. A topic lover has high interest and ordinary skew; a cocoon is high skew, whatever the interest. Our case study, measured in the logs: a gender group label is 4.1% of the marriage videos on offer. Ranking alone lifts it to 6.2% — the platform layer, 1.55 times supply, shared by everyone. The most skewed tenth of heavy viewers see 12.7% — personalisation adds 2.2 times the odds again. Together, 3.4 times supply. The platform layer belongs to everyone; the personal layer is yours — and that is the part a user can act on."
+- *Slide 5（65s）*："So what can each action actually move? Four propositions. One: any feedback moves your skew in proportion to one quantity — how sharply the recommender separates the narrative from the rest of the topic. The same quantity builds a cocoon and takes it apart. And the sign of 'not interested' is the platform's choice: in a recommender trained on logged behaviour, the button is read as interest. Two: topic-level controls — 'show less of this topic', every category-based cocoon check — hit all videos in the topic equally, so they cannot change the mix inside it; the skew only falls because the topic does. Three: a filter acts on what reaches the screen, so it is the one action that needs no cooperation from the recommender. Four: no user action reaches the platform layer — it is added for everyone, before any personalisation. Zhao Dingcheng will now show the data."
 
-**技巧**：第 4 页用手势把两个量分左右；"platform layer / personal layer"一句话："the first is shared by everyone, the second is yours"；第 5 页顺着箭头讲；明确说"这是设计，后面讲哪些测过"；强调目标由**用户确认**。
+**技巧**：第 4 页用手势把两个量分左右；"platform layer / personal layer"一句话："the first is shared by everyone, the second is yours"；第 5 页按 01→02→03 讲，最后用底部那句收束（这是第 4–5 页唯一要背下来的结论）；提到 "not interested" 时强调"**它的符号是平台决定的**——在这个模型里被当成兴趣"；数字都按报告口径讲（整份报告是理想化项目、数据是构造的，如被问到如实说明）。
 
-**坑**：把 1.0/1.4/2.8 说成真实数据；术语（entropy、log-odds）；讲成一堆框；忘了"可以说无需操作/无可行方案"；把目标说成"我们判断用户想要什么"。
+**坑**：把 4.1/6.2/12.7 讲成"我们真实跑快手 App 的结果"（是公开日志 + 开源模型的理想化情景）；术语（log-odds、entropy）；把命题讲成一堆公式框（每张卡只留一句白话）；忘了收束句"平台层够不到"；交接对象说成 Li Yitong（**现在是 Zhao Dingcheng 讲第 6 页**）。
 
-**时长**：2:00（55 + 65）。**超时就砍**：第 5 页四阶段的逐步解释，保留"目标 + 三个比较量 + 可以说无可行方案"。
+**时长**：2:00（55 + 65）。**超时就砍**：第 5 页命题 2、3 的展开，保留 Prop 1 的"同一个量"和 Prop 4 的"平台层够不到"。
 
 ## ③ Li Yitong：真实原型 + 数据地图 + 推荐器实验与理论（第 6–9 页，约 2:20）
 
@@ -212,7 +214,7 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 时间 | 谁 | 内容 | 交接句 |
 |---|---|---|---|
 | 0:00–1:50 | Fu Yitong | 问题、例子、gap、研究问题 | "…Wang Junbo will show how we make this measurable." |
-| 1:50–3:50 | Wang Junbo | 兴趣 vs 偏斜；目标→行动 | "…Li Yitong will now show what we actually built and tested." |
+| 1:50–3:50 | Wang Junbo | 兴趣 vs 偏斜（三层分解）；命题 1–4 | "…Zhao Dingcheng will now show the data." |
 | 3:50–6:10 | Li Yitong | 真实原型；1/7；OneRec；动作能动什么 | "…Xu Ruicong will show how this plays out over thousands of videos." |
 | 6:10–8:00 | Xu Ruicong | 模拟；可察觉性；报告与决策 | "…Dingcheng will now show all of this on one real case." |
 | 8:00–10:00 | Zhao Dingcheng | 婚恋与家庭案例；总结 | "Thank you." |
@@ -221,7 +223,7 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 
 # 5 彩排与提交安排（11-14 → 11-17）
 
-1. **11-14（今天）**：确认分工与页码；每人读完自己对应的期末报告章节（Fu：§1–2；Wang：§3、§7；Li：§4、§5.2、§6.1；Xu：§6.2–6.4、§7；Zhao：§5.2–5.4、附录 A.3–A.4、§10）；把 cue lines 改成自己的话。
+1. **11-14（今天）**：确认分工与页码；每人读完自己对应的期末报告章节（Fu：§1–2；Wang：§3、§5.1；Li：§4、§5.1、§5.2；Xu：§5.3、§6、§7；Zhao：§4、§10）；把 cue lines 改成自己的话。（章节号按最终版报告；旧方案的 §7 是设计章，最终版 §7 是 escape 成本。）
 2. **11-15**：期末报告提交；完成幻灯片初版；**每人独立计时**自己的板块（±10 秒）。
 3. **11-16**：全组连续彩排 2 次（手机计时、带交接），目标 9:30–9:50；检查每页姓名；**当天提交 Moodle**（.pptx 或 PDF），之后只改格式。
 4. **11-17 17:30 前**：到场测试投影、字体、翻页；每人带一张 cue card，不带逐字稿。
@@ -248,15 +250,15 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 1 | 第 3 页 "Audits"；第 7 页五域小条形图 | ~15s |
 | 2 | 第 9 页表格，只留一句；第 13 页例子之一 | ~15s |
 | 3 | 第 10 页缩到两点；第 12 页只留教训 ②③ | ~20s |
-| **不可砍** | 第 2 页例子；第 5 页"目标 + 可说无可行方案"；第 8 页"按钮反向"；第 14 页"标注脆弱"故事；第 15 页三句话 | – |
+| **不可砍** | 第 2 页例子；第 5 页"平台层 Λ 够不到 + Prop 1 同一个量"；第 8 页"按钮反向"；第 14 页"标注脆弱"故事；第 15 页三句话 | – |
 
 # 附：幻灯片与期末报告的对应
 
 | 汇报页 | 报告章节 | 证据类型 |
 |---|---|---|
 | 2–3 | §1、§2 | – |
-| 4 | §3.1–3.2 | 推导 + 示意例子 |
-| 5 | §3.3–3.6、图 1 | 设计 + 推导 |
+| 4 | §3.1–3.2、§5.1 | 实测 + 推导 |
+| 5 | §3.3（命题 1–4） | 推导 |
 | 6 | §5.1、§8.1 | – |
 | 7 | §5.2、表 1 | 实测 |
 | 8 | §6.1、表 3 | 实测 |
