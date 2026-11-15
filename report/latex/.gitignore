@@ -12,3 +12,4 @@ figures/src/*.done
 figures/src/__pycache__/
 figures/src/fonts/cache/
 *.xdv
+figures/src/covers_raw/
