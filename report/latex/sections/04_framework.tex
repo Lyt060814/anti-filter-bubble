@@ -15,7 +15,7 @@ The \emph{topic share} and the \emph{within-issue share} of user $u$ are
 \end{equation}
 \end{definition}
 
-The topic share measures interest. The within-issue share measures what the user meets once on the topic. Category-diversity measures are functions of topic shares alone, so they place every feed on the horizontal axis of \cref{fig:framework}a and cannot see its height.
+The topic share measures interest. The within-issue share measures what the user meets once on the topic. Category-diversity measures are functions of topic shares alone: they can tell how much of a feed is about the issue, but not what the user meets within it. Two users with the same $m_u$ may differ arbitrarily in $p_u$, as the two feeds of \cref{fig:teaser} do.
 
 \subsection{Three layers of skew}
 \label{sec:layers}
@@ -32,13 +32,14 @@ Whether $p_u$ is high depends on the reference. We use two: the \emph{supply sha
 The \emph{viewpoint skew} of user $u$ is the personal layer $V_u=\logit p_u-\logit\pbar$. A user is in a \emph{viewpoint cocoon} when $V_u$ is large, whatever the value of $m_u$.
 \end{definition}
 
-The platform layer $\Lambda$ is shared by everyone: ranking that favours a narrative raises it in all feeds. The personal layer is what personalisation adds for one user. Supply is described and not judged, since calling supply itself ``skewed'' would need an outside standard, such as the distribution of views in society, which we do not have. We assume that a feed without personalisation shows the narrative at the platform share $\pbar$; $V_u$ is then also the user's skew relative to what they would see with personalisation switched off. \Cref{fig:framework}b shows the split with the values measured in \cref{sec:platform,sec:logs}: group-label videos are 4.1\% of the marriage videos on offer and 6.2\% of those shown, and a user in the most skewed tenth of heavy viewers sees \nTopDecileShare\%. Reporting $V_u$ alone would hide that the platform already shows the narrative 1.5 times as often as supply; reporting the total alone would hide that personalisation more than doubles the odds again.
+The platform layer $\Lambda$ is shared by everyone: ranking that favours a narrative raises it in all feeds. The personal layer is what personalisation adds for one user. Supply is described and not judged, since calling supply itself ``skewed'' would need an outside standard, such as the distribution of views in society, which we do not have. We assume that a feed without personalisation shows the narrative at the platform share $\pbar$; $V_u$ is then also the user's skew relative to what they would see with personalisation switched off. With the values measured in \cref{sec:platform,sec:logs}, group-label videos are 4.1\% of the marriage videos on offer and 6.2\% of those shown, and a user in the most skewed tenth of heavy viewers sees \nTopDecileShare\%. Reporting $V_u$ alone would hide that the platform already shows the narrative 1.5 times as often as supply; reporting the total alone would hide that personalisation more than doubles the odds again.
+
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{figures/fig_framework.pdf}
-  \caption{The framework. \textbf{(a)} A feed has a topic share $m$ and a personal viewpoint skew $V$. Interest moves a user to the right; a viewpoint cocoon is a position high above the axis. The arrows show how three kinds of action move a cocooned user (\cref{prop:feedback,prop:topic,prop:filter}). \textbf{(b)} The exact split of total skew into a platform layer and a personal layer (\cref{eq:decomp}), with the values of the case study.}
-  \label{fig:framework}
+  \includegraphics[width=\textwidth]{figures/fig_overview.pdf}
+  \caption{Study design. \textbf{\cnum{1} Data:} Kuaishou's public RecIF logs record what 160{,}412 users were shown and how they reacted; OneRec, trained on the same logs, reads a history of semantic video IDs and scores candidate videos. \textbf{\cnum{2} Labelling:} a screen narrows the logs to candidate videos, an open model labels each one by domain, narrative type and the four-part group-label rule, and two stronger models check a sample of 1{,}200. \textbf{\cnum{3} Evidence:} the logs describe what users were shown; probes edit histories given to OneRec and read the change in its scores; a transparent simulation, whose recommender is fitted to the probes, follows users for months; and a statistical bound says how many videos a user would have to count. \textbf{\cnum{4} Questions:} each kind of evidence answers the research questions marked on it.}
+  \label{fig:overview}
 \end{figure}
 
 \subsection{How user actions move the state}
@@ -60,7 +61,7 @@ For small $\eta$, feedback on video $j$ changes the state by
 where $c_j=\bar s_j(\A)-\bar s_j(\B)$ is the \emph{narrative contrast} of $j$ and $t_j=\bar s_j(\I_k)-\bar s_j(\I\setminus\I_k)$ its \emph{topic contrast}.
 \end{proposition}
 
-Three consequences follow. \emph{First}, formation and escape depend on the same quantity. A user who finishes more $\A$ than $\B$ videos gains skew at a rate proportional to $c$; if the recommender does not separate the narrative ($c\approx0$), preferences cannot build a personal skew and feedback cannot remove one. \emph{Second}, feedback on a narrative video moves the user along a line of slope $c/t$ in the plane of $\logit m$ and $V$, a log-odds version of \cref{fig:framework}a: each unit of skew removed by a rejection costs $t/c$ units of topic log-odds. \emph{Third}, the sign of $\eta$ for a button such as ``not interested'' is the platform's choice, not the user's.
+Three consequences follow. \emph{First}, formation and escape depend on the same quantity. A user who finishes more $\A$ than $\B$ videos gains skew at a rate proportional to $c$; if the recommender does not separate the narrative ($c\approx0$), preferences cannot build a personal skew and feedback cannot remove one. \emph{Second}, feedback on a narrative video moves the user along a line of slope $c/t$ in the plane of $\logit m$ and $V$: each unit of skew removed by a rejection costs $t/c$ units of topic log-odds. \emph{Third}, the sign of $\eta$ for a button such as ``not interested'' is the platform's choice, not the user's.
 
 \begin{proposition}[Topic-level controls]
 \label{prop:topic}
