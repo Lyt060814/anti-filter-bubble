@@ -151,6 +151,8 @@ mac("RhoEntV", R["funnel"]["rho_ent"])
 mac("RhoEntM", R["funnel"]["rho_ent_m"])
 mac("TopDecileShare", 100 * R["funnel"]["top_decile_mean_p"], "{:.1f}")
 mac("TopDecileV", M.logit(R["funnel"]["top_decile_mean_p"]) - M.logit(M.P_BAR))
+mac("TopDecileTotalOdds", np.exp(M.logit(R["funnel"]["top_decile_mean_p"]) - M.logit(M.P_SUP)), "{:.1f}")
+mac("TopDecileLayerShare", 100 * M.PLATFORM_LAYER / (M.logit(R["funnel"]["top_decile_mean_p"]) - M.logit(M.P_SUP)), "{:.0f}")
 
 # observational dose-response: A videos finished among the previous 200 -> skew of the next issue impressions
 BINS = [("0", 0, 0.0), ("1--2", 1.4, 0.0), ("3--5", 3.8, 0.0), ("6--10", 7.6, 0.0), ("11--20", 14.2, 0.0), ("$>$20", 26.5, 0.0)]
@@ -300,6 +302,15 @@ mac("DetNKeywordDouble", f"{int(round(M.detection_n(np.log(2), alpha=0.45, beta=
 mac("IssuePerDayAvg", ISSUE_PER_DAY_AVG, "{:.1f}")
 mac("IssuePerDayFan", ISSUE_PER_DAY_FAN, "{:.0f}")
 mac("DetRefDaysDouble", M.detection_n(np.log(2), alpha=ALPHA, beta=BETA) / ISSUE_PER_DAY_AVG, "{:.0f}")
+# worked example for a doubling, and the one-sample case with a published reference
+_pu = float(M.expit(M.logit(M.P_BAR) + np.log(2)))
+mac("ExPu", 100 * _pu, "{:.1f}")
+mac("ExQzero", BETA + (ALPHA - BETA) * M.P_BAR, "{:.3f}")
+mac("ExQu", BETA + (ALPHA - BETA) * _pu, "{:.3f}")
+mac("ExGapOneIn", 1 / (_pu - M.P_BAR), "{:.0f}")
+_nk = M.detection_n(np.log(2), alpha=ALPHA, beta=BETA, known_reference=True)
+mac("DetNKnownDouble", f"{int(round(_nk, -1)):,}")
+mac("DetDaysFanKnown", _nk / ISSUE_PER_DAY_FAN, "{:.0f}")
 
 # =====================================================================================
 # 6. Escape

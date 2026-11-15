@@ -117,7 +117,7 @@ STRATEGIES = {
     "S2": dict(name="``Not interested'' (as implemented)", family="explicit"),
     "S3": dict(name="``Not interested'' (true negative)", family="explicit"),
     "S4": dict(name="Finish more of the other issue videos", family="implicit"),
-    "S5": dict(name="Seek out rebuttal videos", family="implicit"),
+    "S5": dict(name="Seek out rebuttals, then S1", family="implicit"),
     "S6": dict(name="Delete the narrative from history, then S1", family="history"),
     "S7": dict(name="Clear the whole history", family="history"),
     "S8": dict(name="Switch personalisation off", family="platform"),
@@ -220,14 +220,16 @@ def mean_field(phi, theta, gain_scale=1.0, iters=4000, damp=0.02):
     return float(m), float(logit(p[A] / m) - logit(P_BAR))
 
 
-def detection_n(V, p0=P_BAR, alpha=1.0, beta=0.0, level=0.05, power=0.8):
-    """Issue videos needed in each sample to detect a personal skew V (Proposition on detection)."""
+def detection_n(V, p0=P_BAR, alpha=1.0, beta=0.0, level=0.05, power=0.8, known_reference=False):
+    """Issue videos needed in each sample to detect a personal skew V (Proposition on detection).
+    With known_reference the reference share is taken as known, so only the user's sample is needed."""
     from scipy.stats import norm
     pu = expit(logit(p0) + V)
     q0 = beta + (alpha - beta) * p0
     qu = beta + (alpha - beta) * pu
     z = norm.ppf(1 - level) + norm.ppf(power)
-    return z ** 2 * (qu * (1 - qu) + q0 * (1 - q0)) / (qu - q0) ** 2
+    var = qu * (1 - qu) + (0.0 if known_reference else q0 * (1 - q0))
+    return z ** 2 * var / (qu - q0) ** 2
 
 
 if __name__ == "__main__":
