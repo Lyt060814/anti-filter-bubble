@@ -78,6 +78,16 @@ body.paper #grain{mix-blend-mode:multiply;opacity:.22}
 body.static .pan{translate:0 -120px}
 .ink{color:var(--ink)}
 svg text{font-family:var(--serif);font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1}
+/* slides 13-15 (Zhao Dingcheng) */
+.zfoot{left:680px;top:1012px;font-size:17px;letter-spacing:3px;color:var(--sepia);z-index:21}
+.zsq{position:absolute;width:32px;height:32px;border-radius:2px;background:rgba(236,229,211,.12);transition:background .6s ease}
+.zsq.t{background:#cfc7b3}.zsq.r{background:var(--rose)}
+.zrow{display:grid;grid-template-columns:500px 140px 180px;align-items:baseline;border-bottom:1px solid rgba(236,229,211,.18);padding:9px 0 8px;font:600 31px/1.15 var(--serif)}
+.zrow small{display:block;font:400 16px/1.45 var(--mono);color:var(--ash);margin-top:3px;letter-spacing:.5px}
+.zrow small.rose{color:var(--rose)}
+.zrow span.mono{font-size:31px;text-align:right}
+.zrow.zhead{font:400 16px var(--mono);letter-spacing:3px;color:var(--ash);padding:16px 0 6px}
+.zrow.zhead span+span{text-align:right}
 </style></head>
 <body>
 <div id="stage">
@@ -284,6 +294,91 @@ svg text{font-family:var(--serif);font-variant-numeric:lining-nums;font-feature-
   <div class="abs rise" style="--d:1.6s;left:1292px;top:350px;width:480px;font:600 41px/1.22 var(--serif)">Any effect on the <span class="it rose">real app</span>, or on what people believe.</div>
   <div class="abs rise" style="--d:2.4s;left:120px;top:730px;width:1680px;font:italic 500 56px/1.15 var(--serif)">A user cannot easily see or undo skew inside a topic. The platform, which sees every exposure, is <span class="rose">better placed to measure and correct it.</span></div>
   <div class="abs mono rise ash" style="--d:3.4s;left:120px;top:930px;font-size:22px;letter-spacing:2px">NEXT · HUMAN-LABELLED CHECK SET · PLATFORM-SIDE MEASUREMENT · USER STUDY OF THE REPORT</div>
+</section>
+
+<!-- 13 CASE STUDY (Zhao Dingcheng) -->
+<section class="slide" id="s13" data-speaker="Zhao Dingcheng" data-bg="drift">
+  <div class="k rise">13 — Case study · gender &amp; marriage</div>
+  <div class="h rise" style="--d:.15s">Same topic, narrower view</div>
+  <div class="abs mono rise" style="--d:.4s;left:120px;top:262px;font-size:20px;letter-spacing:3px;color:var(--ash)">USER 1 · FOLLOWS THE TOPIC</div>
+  <div class="abs mono rise" style="--d:.5s;left:560px;top:262px;font-size:20px;letter-spacing:3px;color:var(--rose)">USER 2 · NARROWER VIEW</div>
+  <div id="z13a" class="abs rise" style="--d:.5s;left:120px;top:304px;width:380px;height:380px"></div>
+  <div id="z13b" class="abs rise" style="--d:.7s;left:560px;top:304px;width:380px;height:380px"></div>
+  <div class="abs mono rise" style="--d:1.2s;left:120px;top:712px;font-size:18px;letter-spacing:3px;color:var(--ash)">TOPIC SHARE · WHAT A COCOON CHECK SEES</div>
+  <div class="abs big rise" style="--d:1.3s;left:120px;top:742px;font-size:60px">30%</div>
+  <div class="abs big rise" style="--d:1.3s;left:560px;top:742px;font-size:60px">30%</div>
+  <div class="abs it rise ash" style="--d:1.5s;left:760px;top:752px;font-size:34px">no difference</div>
+  <div class="abs mono rise" style="--d:2.6s;left:120px;top:838px;font-size:18px;letter-spacing:3px;color:var(--ash)">GROUP-LABEL SHARE IN THE TOPIC · WHAT WE MEASURE</div>
+  <div class="abs big rise" style="--d:2.7s;left:120px;top:868px;font-size:60px">6%</div>
+  <div class="abs big rose rise" style="--d:2.9s;left:560px;top:868px;font-size:60px">13%</div>
+  <div class="abs it rose rise" style="--d:3.1s;left:760px;top:878px;font-size:34px">odds ×2.2</div>
+  <div class="abs rise" style="--d:.9s;left:1060px;top:262px;width:740px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:4px">THE ISSUE</div>
+    <div style="font:600 40px/1.18 var(--serif);margin-top:8px">Gender &amp; marriage: <span class="rose">2.4%</span> of all impressions, and <span class="rose">24%</span> of them take a side</div>
+    <div class="mono ash" style="font-size:17px;letter-spacing:1px;margin-top:8px">§4.3 · Table 4</div></div>
+  <div class="abs rise" style="--d:1.4s;left:1060px;top:470px;width:740px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:4px">THE NARRATIVE</div>
+    <div class="it" style="font-size:42px;line-height:1.15;margin-top:8px">A negative label on a whole gender</div>
+    <div class="ty" style="font-size:27px;margin-top:10px;color:var(--sepia)">“Women today only look at the bride price.”</div>
+    <div class="mono ash" style="font-size:17px;letter-spacing:1px;margin-top:10px">whole gender · negative · generalised · in its own voice · Table 2</div></div>
+  <div class="abs rise" style="--d:1.9s;left:1060px;top:704px;width:740px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:4px">OUR FAN</div>
+    <div style="font:600 36px/1.2 var(--serif);margin-top:8px">Loves the topic; finishes <span class="rose">91%</span> of group-label videos, 58% of the rest</div>
+    <div class="mono ash" style="font-size:17px;letter-spacing:1px;margin-top:8px">§5.3</div></div>
+  <div class="abs mono rise" style="--d:3.4s;left:1060px;top:916px;width:760px;font-size:22px;line-height:1.6;letter-spacing:0;color:var(--bone)"><span class="rose">①</span> Does it narrow? <span class="rose">②</span> Can she notice? <span class="rose">③</span> Can she get out?</div>
+  <div class="abs mono zfoot">IDEALISED STUDY · CONSTRUCTED DATA · NOT MEASURED</div>
+</section>
+
+<!-- 14 FORMATION (Zhao Dingcheng) -->
+<section class="slide" id="s14" data-speaker="Zhao Dingcheng" data-bg="converge:.7:.3">
+  <div class="k rise">14 — Formation · RQ2</div>
+  <div class="h rise" style="--d:.15s">Same topic share. Twice the odds.</div>
+  <div class="card rise" style="--d:.4s;left:120px;top:262px;width:1680px;height:196px"></div>
+  <div class="abs rise" style="--d:.6s;left:170px;top:286px;width:360px">
+    <div class="mono ash" style="font-size:20px;letter-spacing:3px">SUPPLY · ON THE PLATFORM</div>
+    <div class="big" style="font-size:76px"><span data-count="4.1" data-dec="1">4.1</span>%</div></div>
+  <div class="abs rise" style="--d:1s;left:560px;top:318px;color:var(--rose);font-size:56px">→</div>
+  <div class="abs rise" style="--d:1.2s;left:640px;top:286px;width:470px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:3px">PLATFORM LAYER · +0.44 · ×1.55</div>
+    <div class="big" style="font-size:76px"><span data-count="6.2" data-dec="1" data-late="1.2">6.2</span>%</div>
+    <div class="mono ash" style="font-size:20px;letter-spacing:1px">shown on average: everyone gets it</div></div>
+  <div class="abs rise" style="--d:1.8s;left:1120px;top:318px;color:var(--rose);font-size:56px">→</div>
+  <div class="abs rise" style="--d:2s;left:1200px;top:286px;width:560px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:3px">PERSONAL LAYER · +0.79 · ×2.2</div>
+    <div class="big rose" style="font-size:76px"><span data-count="12.7" data-dec="1" data-late="2">12.7</span>%</div>
+    <div class="mono ash" style="font-size:20px;letter-spacing:1px">her feed: hers alone · total ×3.4 vs supply</div></div>
+  <div class="abs mono rise" style="--d:2.4s;left:120px;top:478px;font-size:17px;letter-spacing:1px;color:var(--ash)">§3.2 · §5.1 · Figure 2b</div>
+  <div class="abs mono rise" style="--d:.8s;left:120px;top:528px;font-size:19px;letter-spacing:3px;color:var(--ash)">WHY · 10 VIDEOS ADDED TO A HISTORY · ONEREC PROBE</div>
+  <svg id="z14a" class="abs" width="820" height="340" style="left:120px;top:566px" viewBox="0 0 820 340"></svg>
+  <div class="abs mono rise" style="--d:1s;left:1000px;top:528px;font-size:19px;letter-spacing:3px;color:var(--ash)">HOW FAST · DAYS OF USE · SIMULATION</div>
+  <svg id="z14b" class="abs" width="820" height="340" style="left:990px;top:566px" viewBox="0 0 820 340"></svg>
+  <div class="abs it rise" style="--d:4.4s;left:120px;top:924px;width:1680px;font-size:38px;color:var(--sepia)">Her topic share stops moving. Her view keeps narrowing.</div>
+  <div class="abs mono zfoot">IDEALISED STUDY · CONSTRUCTED DATA · NOT MEASURED</div>
+</section>
+
+<!-- 15 NOTICE, ESCAPE, TAKEAWAY (Zhao Dingcheng) -->
+<section class="slide" id="s15" data-speaker="Zhao Dingcheng" data-bg="diverge:.5:.5">
+  <div class="k rise">15 — Notice · escape · takeaway</div>
+  <div class="h rise" style="--d:.15s;font-size:72px">490 videos to notice. A button that feeds it.</div>
+  <div class="abs rise" style="--d:.5s;left:120px;top:262px;width:760px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:4px">② CAN SHE NOTICE?</div>
+    <div class="big" style="font-size:112px;margin-top:4px"><span data-count="490" data-late=".7">490</span></div>
+    <div class="lab2" style="font-size:32px">issue videos per sample, to tell a doubling from chance</div></div>
+  <svg id="z15a" class="abs" width="760" height="170" style="left:120px;top:486px" viewBox="0 0 760 170"></svg>
+  <div class="abs mono rise" style="--d:2.4s;left:120px;top:660px;font-size:17px;letter-spacing:1px;color:var(--ash)">§6 · Figure 8</div>
+  <div class="abs rise" style="--d:1.2s;left:980px;top:262px;width:820px">
+    <div class="mono rose" style="font-size:20px;letter-spacing:4px">③ CAN SHE GET OUT? · 17 DAYS OF TRYING</div>
+    <div class="zrow zhead mono"><span>ACTION</span><span>Δ TILT</span><span>TOPIC KEPT</span></div>
+    <div class="zrow"><span>Scroll past them<small>while you keep it up</small></span><span class="mono">−1.1</span><span class="mono">93%</span></div>
+    <div class="zrow"><span>Press “not interested”<small class="rose">read as interest: weaker than scrolling past</small></span><span class="mono">−0.9</span><span class="mono">94%</span></div>
+    <div class="zrow"><span>“Show less of this topic”<small>removes the topic, not the tilt</small></span><span class="mono">−0.8</span><span class="mono rose">2%</span></div>
+    <div class="zrow"><span>Filter with a classifier<small>only while it is on</small></span><span class="mono">−2.6</span><span class="mono">90%</span></div></div>
+  <div class="abs it rose rise" style="--d:2.6s;left:980px;top:676px;width:820px;font-size:34px">Stop, and half the gain is gone in about a week. <span class="mono ash" style="font-style:normal;font-size:17px;letter-spacing:1px">§7 · Table 5</span></div>
+  <svg class="abs" width="1680" height="4" style="left:120px;top:754px"><path class="draw" pathLength="1" style="--d:3s" d="M0 2 H1680" stroke="#8d887d" stroke-width="1.5"/></svg>
+  <div class="abs rise" style="--d:3.3s;left:120px;top:778px;width:1680px;font:italic 500 38px/1.2 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:26px">1&nbsp;&nbsp;</span>Counting topics can’t see it: measure the view <span class="rose">inside</span> the topic.</div>
+  <div class="abs rise" style="--d:3.8s;left:120px;top:848px;width:1680px;font:italic 500 38px/1.2 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:26px">2&nbsp;&nbsp;</span>Escape is a habit, not a button, and today’s button <span class="rose">feeds the tilt</span>.</div>
+  <div class="abs rise" style="--d:4.3s;left:120px;top:918px;width:1680px;font:italic 500 38px/1.2 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:26px">3&nbsp;&nbsp;</span>Only the platform sees it without months of counting: <span class="rose">publish the reference, fix the button</span>.</div>
+  <div class="abs mono zfoot">IDEALISED STUDY · CONSTRUCTED DATA · NOT MEASURED</div>
 </section>
 
 <div id="hud-sp"><small>SPEAKER</small><b id="hud-name"></b></div>
@@ -531,6 +626,77 @@ enter[10]=()=>{
 };
 
 enter[12]=()=>{};
+
+/* ---------- slides 13-15 (Zhao Dingcheng): idealised report, constructed data ---------- */
+// Formation series from report/latex/figures/src/results.json (formation.users), days = videos / 180.
+const ZFORM={"fan_strong":{"d":[0.0,2.2,4.4,6.7,8.9,11.1,13.3,15.6,17.8,20.0,22.2,24.4,26.7,28.9,31.1,33.3,35.6,37.8,40.0,42.2,44.4,46.7,48.9,51.1,53.3,55.6,57.8,60.0,62.2,64.4,66.7,68.9,71.1,73.3,75.6,77.8,80.0,82.2,84.4,86.7,88.6],"V":[0.0,0.016,0.027,0.042,0.066,0.093,0.132,0.178,0.225,0.295,0.342,0.4,0.453,0.5,0.54,0.586,0.623,0.639,0.679,0.704,0.725,0.73,0.732,0.745,0.758,0.767,0.776,0.774,0.775,0.777,0.771,0.775,0.775,0.772,0.779,0.78,0.775,0.774,0.782,0.786,0.796],"m":[0.024,0.03,0.0392,0.0532,0.0764,0.1056,0.1353,0.1652,0.1916,0.2163,0.235,0.2491,0.2602,0.2694,0.2774,0.2828,0.2866,0.2888,0.2911,0.293,0.2943,0.2949,0.2952,0.296,0.2966,0.2969,0.2973,0.2974,0.2976,0.2979,0.2978,0.2981,0.298,0.2979,0.2981,0.2982,0.2981,0.2981,0.2983,0.2985,0.2987]},"casual_strong":{"d":[0.0,2.2,4.4,6.7,8.9,11.1,13.3,15.6,17.8,20.0,22.2,24.4,26.7,28.9,31.1,33.3,35.6,37.8,40.0,42.2,44.4,46.7,48.9,51.1,53.3,55.6,57.8,60.0,62.2,64.4,66.7,68.9,71.1,73.3,75.6,77.8,80.0,82.2,84.4,86.7,88.6],"V":[0.0,0.016,0.028,0.03,0.038,0.037,0.042,0.038,0.041,0.043,0.046,0.047,0.047,0.041,0.039,0.043,0.051,0.047,0.047,0.051,0.056,0.054,0.056,0.061,0.069,0.066,0.069,0.069,0.068,0.07,0.068,0.071,0.074,0.075,0.077,0.079,0.08,0.079,0.085,0.09,0.093],"m":[0.024,0.0251,0.0265,0.0269,0.0278,0.0282,0.0286,0.0287,0.0287,0.0291,0.0293,0.0296,0.0305,0.0308,0.0315,0.0318,0.0328,0.0329,0.0339,0.0348,0.0358,0.0361,0.0366,0.0372,0.038,0.0392,0.0394,0.0402,0.0401,0.0413,0.0411,0.0419,0.0421,0.0423,0.0431,0.0438,0.0446,0.0456,0.0464,0.0473,0.0487]}};
+Object.assign(NOTES,{
+ "13":"Let's follow one person. She loves marriage and relationship videos, the biggest everyday issue in the feed, where about a quarter of the videos take a side. She tends to finish videos that put a negative label on a whole gender, like 'women today only look at the bride price'. Here are two feeds with exactly the same thirty percent of marriage videos. A topic check scores them the same. But one meets these labels twice as often. Three questions: does her view narrow, can she notice, and can she get out?",
+ "14":"Does her view narrow? It narrows in two steps. These videos are 4.1 percent of what exists, but the platform shows them 6.2 percent of the time. That first step, about one and a half times the odds, everyone gets. The second step is hers alone: her feed reaches 12.7 percent, more than twice the platform's odds. Why? The recommender tells this narrative apart almost as sharply as it tells topics apart: ten such videos in a history push the narrative up for 99 percent of users. In the simulation, her topic share settles within about six weeks, but the tilt keeps growing, half of it in under a month. A casual viewer with the same taste barely moves. A viewpoint cocoon needs volume.",
+ "15":"Can she notice? Her own feed gives her enough videos in nine days, but a fair comparison feed, without personalisation, takes about four months. Can she get out? 'Not interested' does worse than simply scrolling past, because the recommender reads it as interest. 'Show less of this topic' removes the topic, not the tilt. A filter works, but only while it is on, and whatever she does, about a week after she stops, half of the gain is gone. So: measure the view, not just the topic. Escape is a habit, not a button. And the platform is the one that can see this. Thank you."
+});
+CUM.push(CUM[CUM.length-1]+35,CUM[CUM.length-1]+85,CUM[CUM.length-1]+120);
+
+enter[13]=()=>{
+  const topic=[...Array(100).keys()].filter(i=>(i*37+11)%100<30); // the same 30 topic videos in both feeds
+  const pick=[topic[4],topic[17],topic[9],topic[25]];
+  [['z13a',2,0],['z13b',4,.2]].forEach(([id,nr,dd])=>{
+    const g=$('#'+id);g.innerHTML='';
+    for(let i=0;i<100;i++){const s=document.createElement('div');s.className='zsq'+(topic.includes(i)?' t':'');
+      s.style.left=(i%10)*38+'px';s.style.top=Math.floor(i/10)*38+'px';g.appendChild(s);
+      const k=pick.indexOf(i);if(k>=0&&k<nr)later(2.2+dd+k*.25,()=>s.classList.add('r'))}
+  });
+};
+
+enter[14]=()=>{
+  countups($('#s14'));
+  const a=$('#z14a');a.innerHTML='';const x0=380,sc=330;
+  el('rect',{x:x0-.12*sc,y:8,width:.24*sc,height:282,fill:'rgba(141,136,125,.18)',stroke:ASH,'stroke-dasharray':'6 6','stroke-width':1.5,class:'fade',style:'--d:3.2s'},a);
+  el('text',{x:x0,y:318,fill:ASH,'font-size':20,'text-anchor':'middle','font-style':'italic',class:'fade',style:'--d:3.3s'},a,'random-split null, ±2 SD');
+  el('line',{x1:x0,x2:x0,y1:8,y2:290,stroke:ASH,'stroke-width':2},a);
+  const rows=[['Topic','after 10 issue videos',1.01,BONE,'100% of users'],['Narrative','after 10 group-label videos',.67,ROSE,'99% of users'],['Narrative','after 10 other issue videos',-.05,ASH,'']];
+  rows.forEach(([w,lab,v,col,pos],i)=>{
+    const y=26+i*92;
+    el('text',{x:0,y:y+24,fill:BONE,'font-size':32,'font-style':'italic',class:'fade',style:'--d:'+(.8+i*.4)+'s'},a,w);
+    el('text',{x:0,y:y+54,fill:ASH,'font-size':24,class:'fade',style:'--d:'+(.8+i*.4)+'s'},a,lab);
+    const r=el('rect',{x:x0,y:y+4,width:0,height:44,fill:col},a);
+    const t=el('text',{x:x0+12,y:y+38,fill:col,'font-size':40},a,'');
+    tw(1.1,1+i*.45,u=>{const w_=v*sc*u;
+      if(w_>=0){r.setAttribute('x',x0);r.setAttribute('width',Math.max(2,w_))}else{r.setAttribute('x',x0+w_);r.setAttribute('width',-w_)}
+      t.setAttribute('x',x0+Math.max(w_,0)+14);t.textContent=(v<0?'−':'+')+Math.abs(v*u).toFixed(2)});
+    if(pos)el('text',{x:x0+v*sc+120,y:y+38,fill:ASH,'font-size':22,class:'fade',style:'--d:'+(2.4+i*.4)+'s'},a,pos);
+  });
+  const b=$('#z14b');b.innerHTML='';const L=64,R=720,T=16,B=270;
+  const X=d=>L+(R-L)*d/90,YV=v=>B-(B-T)*v/.9,YM=m=>B-(B-T)*m/.6;
+  el('line',{x1:L,x2:R,y1:B,y2:B,stroke:ASH,'stroke-width':2},b);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ROSE,'stroke-width':2},b);el('line',{x1:R,x2:R,y1:T,y2:B,stroke:BONE,'stroke-width':1.5,'stroke-dasharray':'4 6'},b);
+  [0,.4,.8].forEach(v=>el('text',{x:L-10,y:YV(v)+7,fill:ROSE,'font-size':22,'text-anchor':'end'},b,v.toFixed(1)));
+  [0,.3,.6].forEach(m=>el('text',{x:R+10,y:YM(m)+7,fill:BONE,'font-size':22},b,Math.round(m*100)+'%'));
+  [0,30,60,90].forEach(d=>el('text',{x:X(d),y:B+30,fill:ASH,'font-size':22,'text-anchor':'middle'},b,'day '+d));
+  const path=(s,key,Y)=>'M'+s.d.map((d,j)=>X(d).toFixed(1)+' '+Y(s[key][j]).toFixed(1)).join(' L');
+  el('path',{d:path(ZFORM.fan_strong,'m',YM),stroke:BONE,'stroke-width':3,'stroke-dasharray':'10 8',fill:'none',class:'fade',style:'--d:1.2s'},b);
+  el('path',{d:path(ZFORM.casual_strong,'V',YV),stroke:ASH,'stroke-width':3,fill:'none',pathLength:1,class:'draw',style:'--d:1.6s'},b);
+  el('path',{d:path(ZFORM.fan_strong,'V',YV),stroke:ROSE,'stroke-width':6,fill:'none',pathLength:1,class:'draw',style:'--d:2s','stroke-linejoin':'round'},b);
+  el('text',{x:R-8,y:YM(.30)+38,fill:BONE,'font-size':24,'text-anchor':'end','font-style':'italic',class:'fade',style:'--d:2s'},b,'her topic share: flat at 30%');
+  el('text',{x:R-8,y:YV(.78)-14,fill:ROSE,'font-size':26,'text-anchor':'end','font-style':'italic',class:'fade',style:'--d:3.6s'},b,'her skew V: +0.78');
+  el('text',{x:R-8,y:YV(.09)-12,fill:ASH,'font-size':22,'text-anchor':'end','font-style':'italic',class:'fade',style:'--d:3.8s'},b,'casual viewer, same taste: +0.09');
+  el('circle',{cx:X(24),cy:YV(.39),r:9,fill:ROSE,class:'pop',style:'--d:3.4s;transform-origin:'+X(24)+'px '+YV(.39)+'px'},b);
+  el('text',{x:X(24)-14,y:YV(.39)-14,fill:BONE,'font-size':22,'text-anchor':'end','font-style':'italic',class:'fade',style:'--d:3.5s'},b,'half by day 24');
+};
+
+enter[15]=()=>{
+  countups($('#s15'));
+  const s=$('#z15a');s.innerHTML='';const L=0,R=700,X=d=>L+(R-L)*d/120;
+  const bars=[['her own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months']];
+  bars.forEach(([lab,d,col,val],i)=>{
+    const y=8+i*66;
+    el('text',{x:0,y:y+20,fill:BONE,'font-size':24,'font-style':'italic',class:'fade',style:'--d:'+(1.2+i*.5)+'s'},s,lab);
+    const r=el('rect',{x:L,y:y+30,width:0,height:22,fill:col},s);
+    const t=el('text',{x:L+10,y:y+49,fill:col,'font-size':24},s,'');
+    if(d>60)t.setAttribute('fill',INK);tw(1.2,1.4+i*.5,u=>{const w=X(d)*u;r.setAttribute('width',Math.max(2,w));t.setAttribute('x',d>60?14:w+12);t.textContent=val});
+  });
+  [[7,'1 wk'],[30,'1 mo'],[120,'4 mo']].forEach(([d,l])=>{el('line',{x1:X(d),x2:X(d),y1:146,y2:156,stroke:ASH,'stroke-width':2},s);el('text',{x:X(d),y:168,fill:ASH,'font-size':18,'text-anchor':d===120?'end':'middle'},s,l)});
+  el('line',{x1:L,x2:R,y1:146,y2:146,stroke:ASH,'stroke-width':1.5},s);
+};
 
 /* ---------- navigation ---------- */
 const slides=$$('.slide'),NSL=slides.length;let cur=-1,t0=null,timerOn=false;

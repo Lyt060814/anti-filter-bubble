@@ -1,0 +1,12 @@
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+figures/src/.*.html
+figures/src/*.log
+figures/src/*.done
+figures/src/__pycache__/

@@ -1,0 +1,40 @@
+\begin{figure}[H]
+  \centering\vspace{-0.4em}
+  \begin{minipage}[c]{0.525\textwidth}
+    \includegraphics[width=\linewidth]{figures/fig_concept.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.42\textwidth}
+    \includegraphics[width=\linewidth]{figures/fig_teaser_chart.pdf}
+  \end{minipage}
+  \caption{A viewpoint cocoon. \textbf{Left:} two feeds with the same share of gender-and-marriage videos (each square is one of 100 videos). A check that counts topics sees no difference, although User~2 meets videos that label a whole gender about twice as often. \textbf{Right:} in a simulation calibrated to the open OneRec recommender, two users who like the topic equally reach the same topic share, while the within-topic mix drifts for the one who finishes group-label videos more often (band: 10th--90th percentile).}
+  \label{fig:teaser}
+\end{figure}
+
+\section{Introduction}
+\label{sec:intro}
+
+A university student who opens a short-video app meets, between the cooking clips and the football highlights, a steady stream of arguments about how to live: whether to marry and whom, how a body should look, whether to sit the civil-service examination or go abroad, what is worth spending money on. Many of these videos do not inform so much as take a side. They present one choice as the only sensible one, or reduce a question to two camps, or attach a fault to an entire group of people. We call these \emph{opposing narratives}.
+
+Public debate about such feeds is usually framed around the ``information cocoon''~\citep{sunstein2006infotopia} or ``filter bubble''~\citep{pariser2011filter}: the worry that a recommender shows people more and more of what they already like. Research on the question, and the tools built in response to it, measure how narrow a feed is across \emph{topics} or content categories~\citep{nguyen2014exploring,li2022cocoon,sukiennik2024deep}. In 2025 Chinese platforms, after a national campaign against algorithm-related harms~\citep{cac2024qinglang}, launched self-assessments that tell users how concentrated their feed is over such categories~\citep{shiqi2025kuaishou}.
+
+A measure over topics has a blind spot, illustrated in \cref{fig:teaser}. Two users may both give a third of their feed to marriage videos. The first sees the usual range of stories, advice and jokes. The second sees, within the same topic, twice as many videos saying that women only care about money or that men cannot be trusted. A topic-level check gives both the same score. If either has a problem it is the second, yet she may be perfectly happy with the topic itself and have no wish to see less of it. Her feed has kept the topic and narrowed the view. We call this a \emph{viewpoint cocoon}.
+
+Audits of platforms at the level of viewpoints do exist, but they treat political ideology or misinformation on YouTube and TikTok, and observe the platform from outside~\citep{haroon2023youtube,hosseinmardi2024bots,pecher2026tiktok}. Studies of user controls report how much unwanted content a button removes, not how much wanted content goes with it~\citep{ricks2022button,liu2024train,kaplan2026foryou}. No study separates viewpoint skew within an everyday issue from interest in that issue, and then follows the skew from formation to detection to escape. This report does so, guided by three questions.
+
+\begin{rqbox}
+\small
+\begin{description}[leftmargin=3.2em,style=sameline,itemsep=0.2em,topsep=0pt]
+  \item[\RQ{1}] \textbf{Prevalence.} Across the everyday issues in a short-video feed, how common are opposing narratives, of which types, and do they draw more engagement?
+  \item[\RQ{2}] \textbf{Formation and detection.} For a user who tends to finish one narrative, how far and how fast does the recommender tilt the mix within the topic? How many videos must the user count before the tilt can be told from chance?
+  \item[\RQ{3}] \textbf{Escape.} How much does each action open to the user reduce the tilt, at what cost in lost topic and effort, and for how long? Which part of the tilt can no user action reach?
+\end{description}
+\end{rqbox}
+
+We answer them on public data from Kuaishou: the RecIF interaction logs and OneRec, an open generative recommender trained on those logs~\citep{zhou2025openonerec}. Gender-and-marriage videos that attach a negative label to a whole gender serve as the case study. The report makes four contributions.
+
+\begin{enumerate}
+  \item \textbf{A definition that separates interest from skew} (\cref{sec:framework}). We describe a feed by a topic share $m$ and a viewpoint skew $V$, split the total skew exactly into a platform layer and a personal layer, and derive five propositions on what feedback, topic controls and filters can and cannot change.
+  \item \textbf{A map of opposing narratives in everyday issues} (\cref{sec:data}). Social issues take \nIssueShare\% of impressions; \nOppShare\% of these carry an opposing narrative, and such videos are finished, liked, shared and above all commented on more often.
+  \item \textbf{Evidence on formation from three sides} (\cref{sec:formation,sec:detection}). Logs, controlled edits of the histories given to OneRec, and a transparent simulation fitted to those edits agree: the recommender separates the narrative about two-thirds as sharply as it separates the topic, which is enough to raise a fan's odds of meeting it by a factor of \nOddsStrong{} within three months. Noticing a doubling takes about \nDetNDouble{} issue videos in each of two samples.
+  \item \textbf{A price list for escape} (\cref{sec:escape,sec:design}). Of eleven strategies, those that platforms offer as topic-level settings remove the skew by removing the topic; the ``not interested'' button is read as interest and does worse than scrolling past; nothing lasts beyond about a week once old habits return. We condense the results into a design for a viewpoint exposure report.
+\end{enumerate}
