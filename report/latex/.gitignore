@@ -10,3 +10,5 @@ figures/src/.*.html
 figures/src/*.log
 figures/src/*.done
 figures/src/__pycache__/
+figures/src/fonts/cache/
+*.xdv

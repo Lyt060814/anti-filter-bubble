@@ -6,5 +6,5 @@ cd "$(dirname "$0")"
 if [ "${1:-}" = "--data" ]; then
   (cd figures/src && python3 study.py && python3 plots.py && python3 schematics.py)
 fi
-latexmk -pdf -interaction=nonstopmode -halt-on-error -quiet main.tex
+latexmk -xelatex -interaction=nonstopmode -halt-on-error -quiet main.tex
 echo "built $(pwd)/main.pdf ($(pdfinfo main.pdf | awk '/Pages/{print $2}') pages)"
