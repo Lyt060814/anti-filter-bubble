@@ -22,6 +22,7 @@ body.paper #hud-rq{color:#9a9384}body.paper #hud-rq span.on{color:#b0213f}
 .trow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;border-bottom:1px solid rgba(236,229,211,.18);padding:22px 0 20px;font:600 34px/1.2 var(--serif)}
 .trow .ty{font-size:28px;line-height:1.35;color:var(--sepia)}.trow .ty.rose{color:var(--rose)}
 .tk{font:600 34px/1.22 var(--serif);margin-top:22px;padding-left:34px;position:relative}
+#s2i{transition:opacity 1s ease}#s2i.gone{opacity:0;pointer-events:none}
 .tk::before{content:'—';position:absolute;left:0;color:var(--ash)}
 svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{font-family:var(--serif)}
 """
@@ -49,7 +50,7 @@ def read_script(path):
 
 
 notes = read_script(REPO / "presentation/script_v3.md")
-dur = [15, 50, 35, 35, 45, 30, 45, 50, 55, 45, 45, 55, 25, 40]
+dur = [22, 68, 70, 35, 45, 30, 45, 50, 55, 45, 45, 55, 25, 40]
 cum = [0]
 for d in dur:
     cum.append(cum[-1] + d)

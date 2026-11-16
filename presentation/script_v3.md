@@ -7,22 +7,22 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Fu Yitong（第 1–3 页，约 1:40）
+## Fu Yitong（第 1–3 页，约 2:40）
 
-**Slide 1 · 0:15**
-> Hello everyone. We are Fu Yitong, Wang Junbo, Zhao Dingcheng, Li Yitong and Xu Ruicong. Our project is about what happens *inside* the topics your short-video feed shows you.
+**Slide 1 · 0:22**
+> You just wanted to relax. Then: "No internship by sophomore summer? You are lagging behind." *(停一拍)* Thanks, I was about to have a nice evening. *(停一拍)* Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.
 
-**Slide 2 · 0:50**
-> Here are two feeds. *(指两组方格)* Each square is a video, and the pale ones are about marriage. In both feeds, that is thirty percent. Chinese apps now offer a "cocoon check", and it would give these two feeds exactly the same score.
+**Slide 2 · 1:08**
+> Everyone has heard of the information cocoon: your feed shows you more of what you already like. You may think, bro, that's cliché. But we have something special. Most research defines a cocoon by topic: by that definition, you are in a cocoon if your feed is stuck on a few topics, like football or relationships. But this can be misleading.
 >
-> Now look inside the topic. The red squares are videos that pin a negative trait on a whole gender, like *(指右边)* "Women today only look at the bride price." Feed A meets one of these in every sixteen marriage videos. Feed B meets one in every eight: twice the odds.
->
-> Feed B has kept the topic, but narrowed the view. We call this a **viewpoint cocoon**.
+> *(两个方格出现)* Look, here are two users, and each square is a video. *(指图例)* Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like "Not married by thirty? You are gonna die alone." A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a **viewpoint cocoon**.
 
-**Slide 3 · 0:35**
-> Today's tools cannot see this. *(左边逐条)* Cocoon checks, and most research, count how narrow your *topics* are. Studies of viewpoints focus on politics, and look at the platform from outside. Studies of buttons ask what a button removes, not what it costs you.
+**Slide 3 · 1:10**
+> That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew.
 >
-> *(指底部)* So we ask four questions. How common are such videos? How does a cocoon form? Can a user notice it? And can they get out? Wang Junbo will show how we make this measurable.
+> *(指四个问题)* Our work follows this one measure through four questions. RQ1: how common is a viewpoint cocoon? RQ2: how does it form? RQ3: how many videos until you can notice it? RQ4: how much does each way out cost?
+>
+> So how do we answer them? That is our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.
 
 ---
 

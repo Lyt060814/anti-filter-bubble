@@ -3,16 +3,17 @@ const enter={},leave={};
 enter[1]=()=>{sil.on=true;sil.t0=performance.now();if(STATIC)drawSil(0);else requestAnimationFrame(silLoop)};
 leave[1]=()=>{sil.on=false};
 
-/* 2: two feeds with the same topic share; group labels appear inside the topic */
+/* 2: the usual topic definition, then two feeds with the same topic share; one-sided videos appear inside the topic */
 enter[2]=()=>{
+  const intro=$('#s2i');intro.classList.remove('gone');later(24.6,()=>intro.classList.add('gone'));
   const topic=[...Array(100).keys()].filter(i=>(i*37+11)%100<30);
   const pick=[topic[4],topic[17],topic[9],topic[25]];
   [['g2a',2,0],['g2b',4,.15]].forEach(([id,nr,dd])=>{
     const g=$('#'+id);g.innerHTML='';
     for(let i=0;i<100;i++){const s=document.createElement('div');s.className='zsq';s.style.width=s.style.height='34px';
       s.style.left=(i%10)*40+'px';s.style.top=Math.floor(i/10)*40+'px';g.appendChild(s);
-      if(topic.includes(i))later(.6+dd+(i%10)*.04,()=>s.classList.add('t'));
-      const k=pick.indexOf(i);if(k>=0&&k<nr)later(3+dd+k*.3,()=>s.classList.add('r'))}
+      if(topic.includes(i))later(32.6+dd+(i%10)*.04,()=>s.classList.add('t'));
+      const k=pick.indexOf(i);if(k>=0&&k<nr)later(36+dd+k*.3,()=>s.classList.add('r'))}
   });
 };
 
