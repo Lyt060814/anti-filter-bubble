@@ -1,22 +1,18 @@
 \section{Data, Labels and the Narrative Landscape (RQ1)}
 \label{sec:data}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig_overview.pdf}
-  \caption{Study design. Language-model labels turn the logs into exposure counts for issues and narratives. Four kinds of evidence, each with a different strength, are then combined: the logs describe what users were shown, probing shows how the recommender responds to a controlled change, the simulation follows the consequences over months, and a statistical bound says what a user could notice.}
-  \label{fig:overview}
-\end{figure}
+
+
 
 \subsection{Data}
 
 \Cref{fig:overview} summarises the design. RecIF is the public interaction log released with the OpenOneRec project~\citep{zhou2025openonerec}. Our extract holds 160{,}412 users and 75.3 million impressions. Each impression records the video, a text description of its content, and the user's feedback: whether the video was watched to the end, liked, commented on, shared, or marked ``not interested''. We never see the videos themselves. OneRec-1.7B, released by the same project, is a generative recommender trained on these logs: it reads a user's history as a sequence of semantic video IDs, grouped by feedback type, and generates the IDs of videos to recommend. Because its vocabulary is closed, the probability it assigns to any candidate video can be computed exactly.
 
-We chose logs with an open recommender over the two alternatives. Scripted accounts on the live app~\citep{haroon2023youtube,kaplan2026foryou} observe the production system, but cannot separate supply from ranking, are limited to a few hundred accounts, and manipulate a live service. A purely synthetic simulation~\citep{chaney2018confounding,jiang2019degenerate} is transparent but its responses are assumed. Logs give exposure for a whole population, and the open model lets us measure the response to a user action instead of assuming it.
+We chose logs with an open recommender over the two alternatives. Scripted accounts on the live app~\citep{haroon2023youtube,kaplan2026foryou} observe the production system, but cannot separate supply from ranking, are costly to run at scale, and manipulate a live service. A purely synthetic simulation~\citep{chaney2018confounding,jiang2019degenerate} is transparent but its responses are assumed. Logs give exposure for a whole population, and the open model lets us measure the response to a user action instead of assuming it.
 
 \subsection{Labelling pipeline}
 
-\paragraph{Taxonomy.} We first read 500 uniformly sampled impressions and grouped the social issues that recur into five domains (\cref{tab:landscape}). Politically sensitive issues are excluded: labels for them are contested, and they are hard to discuss openly. Across domains, four types of opposing narrative recur (\cref{tab:taxonomy}). The case study uses the sharpest of them in the largest domain: a \emph{gender group label} is a video that (i) targets a whole gender, not a person, (ii) attributes a negative trait or blame, (iii) generalises it to all or most members, and (iv) asserts it in its own voice. A video that quotes such a claim in order to rebut it is a \emph{rebuttal} and belongs to the retained set.
+\paragraph{Taxonomy.} To design the categories, not to label data, we first read 500 uniformly sampled impressions and grouped the social issues that recur into five domains (\cref{tab:landscape}). Politically sensitive issues are excluded: labels for them are contested, and they are hard to discuss openly. Across domains, four types of opposing narrative recur (\cref{tab:taxonomy}). The case study uses the sharpest of them in the largest domain: a \emph{gender group label} is a video that (i) targets a whole gender, not a person, (ii) attributes a negative trait or blame, (iii) generalises it to all or most members, and (iv) asserts it in its own voice. A video that quotes such a claim in order to rebut it is a \emph{rebuttal} and belongs to the retained set.
 
 \begin{table}[t]
 \caption{The four types of opposing narrative. Examples are paraphrased from video descriptions in the gender-and-marriage domain.}
@@ -34,9 +30,9 @@ Group label & attaches a negative trait to a whole group of people & ``Women tod
 \end{tabularx}
 \end{table}
 
-\paragraph{Labels.} A recall-oriented screen, made of keywords and of embedding similarity to seed descriptions, selects 684{,}210 candidate videos (5.9 million impressions). An open model run locally, Qwen3-30B, then reads each description and answers a fixed sequence of questions: which domain, if any; whether the video carries an opposing narrative and of which type; and the four questions of the group-label rule (prompt in \cref{app:prompt}). Of the candidates, 212{,}480 are labelled as gender-and-marriage videos; these form the case-study corpus, with 1.77 million impressions.
+\paragraph{Labels.} A recall-oriented screen, made of keywords and of embedding similarity to seed descriptions, selects about 1.12 million candidate videos (9.6 million impressions). An open model run locally, Qwen3-30B, then reads each description and answers a fixed sequence of questions: which domain, if any; whether the video carries an opposing narrative and of which type; and the four questions of the group-label rule (prompt in \cref{app:prompt}). It assigns 684{,}210 candidates (5.9 million impressions) to one of the five domains; these form the \emph{issue corpus}. The 212{,}480 gender-and-marriage videos among them, with 1.77 million impressions, form the case-study corpus.
 
-\paragraph{Quality.} No video was labelled by hand, so label quality is established by agreement with stronger models. Two reference models, DeepSeek V4 Pro and GPT-6.1 Sol, independently relabelled 1{,}200 videos, sampled in proportion to exposure and enriched with videos the open model had flagged. Where the two agree (93\% of decisions) their label is the reference; the rest are settled by a third pass with the full guideline. \Cref{tab:quality} reports Cohen's $\kappa$~\citep{cohen1960kappa}. Agreement is substantial or better on the scale of \citet{landis1977agreement} for every decision except the four-way type, which we therefore use only in aggregate. For the group-label decision the open model has recall $\alpha=0.79$ and false-positive rate $\beta=0.010$. All prevalence figures below are corrected for these rates~\citep{rogan1978prevalence}, and the same two numbers describe the classifier a user-side tool could realistically run (\cref{sec:detection}).
+\paragraph{Quality.} No video was labelled by hand, so label quality is established by agreement with stronger models. Two reference models, DeepSeek V4 Pro and GPT-6.1 Sol, independently relabelled 1{,}200 videos, sampled in proportion to exposure and enriched with videos the open model had flagged; all rates below are weighted back to exposure. Where the two agree (93\% of decisions) their label is the reference; the rest are settled by a third pass with the full guideline. \Cref{tab:quality} reports Cohen's $\kappa$~\citep{cohen1960kappa}. Agreement is substantial or better on the scale of \citet{landis1977agreement} for every decision except the four-way type, which we therefore use only in aggregate. For the group-label decision the open model has recall $\alpha=0.79$ and false-positive rate $\beta=0.010$. Shares computed on the issue corpus, which rest on the open model's labels, are corrected for these rates~\citep{rogan1978prevalence}; the same two numbers describe the classifier a user-side tool could realistically run (\cref{sec:detection}).
 
 \begin{table}[t]
 \caption{Label quality on 1{,}200 validation videos. $\kappa$ is Cohen's kappa; precision and recall are those of the open model against the reference label.}
@@ -54,15 +50,7 @@ Gender group label (yes/no) & 0.78 & 0.86 & 0.84 & 0.79\\
 \end{tabular}
 \end{table}
 
-\subsection{Results: how common, which types, how engaging}
-
-To estimate prevalence without relying on the screen, we drew 20{,}000 impressions uniformly from all users' histories, so that a video counts in proportion to how often it was shown, and labelled them with the reference models.
-
-\paragraph{About one impression in thirteen is on a social issue, and almost a fifth of those take a side.} The five domains account for \nIssueShare\% of impressions (\cref{tab:landscape}, \cref{fig:landscape}a). Of these issue impressions, \nOppShare\% (95\% CI \nOppShareLo--\nOppShareHi) carry an opposing narrative. The share is highest for gender and marriage (24\%) and body and appearance (21\%), and lowest for family matters (9\%).
-
-\paragraph{Each domain has its own way of taking sides.} Body-and-appearance videos argue mostly through anxiety, life-choice videos through the one right way, and gender-and-marriage videos through binary oppositions and group labels (\cref{fig:landscape}b). Group labels are rare outside gender and marriage, where they make up 6.2\% of impressions.
-
-\paragraph{Opposing narratives are engaging, and ranking shows more of them than supply contains.} Compared with other issue videos of the same domain and length, an opposing narrative is more likely to be finished (odds ratio 1.19), liked (1.22) and shared (1.33), and far more likely to be commented on (1.85; \cref{fig:landscape}c). Group labels draw the most comments of all (2.41). They are also marked ``not interested'' 2.4 times as often, so the engagement they attract is not approval; this matches the finding that engagement-based ranking amplifies divisive content that users do not say they want~\citep{milli2025engagement}. In every domain the exposure share of opposing narratives exceeds their share among distinct videos, by a factor of 1.2 to 1.5 in odds (last column of \cref{tab:landscape}). This is the platform layer of \cref{eq:decomp}, and it is present before any personalisation.
+\subsection{Results: what every user is shown}
 
 \begin{table}[t]
 \caption{Social issues and opposing narratives in a uniform sample of 20{,}000 impressions. ``Opposing'' is the share of the domain's impressions that carry an opposing narrative (95\% Wilson interval). ``Amplification'' is the odds of an opposing narrative among impressions divided by its odds among distinct videos, computed on the issue corpus.}
@@ -83,6 +71,17 @@ Domain & $n$ & \% of all & Opposing, \% & \makecell[r]{One\\right way} & \makece
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{figures/fig_landscape.pdf}
-  \caption{The narrative landscape. \textbf{(a)} Share of all impressions taken by each domain, with the part that carries an opposing narrative. \textbf{(b)} Opposing narratives as a share of each domain's impressions, by type. \textbf{(c)} Odds ratios of four kinds of engagement for opposing narratives against other issue videos, from logistic regressions on 5.9 million issue impressions with domain and video-length controls and standard errors clustered by user.}
+  \caption{The narrative landscape. \textbf{(a)} Share of all impressions taken by each domain, with the part that carries an opposing narrative. \textbf{(b)} Opposing narratives as a share of each domain's impressions, by type. \textbf{(c)} Odds ratios of four kinds of engagement for opposing narratives against other issue videos, from logistic regressions on the 5.9 million impressions of the issue corpus with domain and video-length controls and standard errors clustered by user.}
   \label{fig:landscape}
 \end{figure}
+
+To estimate prevalence without relying on the screen or the open model, we drew 20{,}000 impressions uniformly from all users' histories, so that a video counts in proportion to how often it was shown, and labelled them with the reference models. Engagement and supply, which need many more videos, are computed on the issue corpus.
+
+\paragraph{About one impression in thirteen is on a social issue, and almost a fifth of those take a side.} The five domains account for \nIssueShare\% of impressions (\cref{tab:landscape}, \cref{fig:landscape}a). Of these issue impressions, \nOppShare\% (95\% CI \nOppShareLo--\nOppShareHi) carry an opposing narrative. The share is highest for gender and marriage (24\%) and body and appearance (21\%), and lowest for family matters (9\%).
+
+\paragraph{Each domain has its own way of taking sides.} Body-and-appearance videos argue mostly through anxiety, life-choice videos through the one right way, and gender-and-marriage videos through binary oppositions and group labels (\cref{fig:landscape}b). Group labels are rare outside gender and marriage, where they make up 6.2\% of impressions.
+
+\paragraph{Opposing narratives are engaging.} Compared with other issue videos of the same domain and length, an opposing narrative is more likely to be finished (odds ratio 1.19), liked (1.22) and shared (1.33), and far more likely to be commented on (1.85; \cref{fig:landscape}c). Group labels draw the most comments of all (2.41). They are also marked ``not interested'' 2.4 times as often, so the engagement they attract is not simply approval; this matches the finding that engagement-based ranking amplifies divisive content that users do not say they want~\citep{milli2025engagement}. These are associations: ranking may itself show such videos to users who engage more, so the odds ratios describe what opposing narratives receive, not what they cause.
+
+\paragraph{Ranking shows them more often than supply contains them.}\label{sec:platform} If ranking rewards engagement, opposing narratives should take a larger share of what is shown than of what is available. In every domain they do, by a factor of 1.2 to 1.5 in odds (last column of \cref{tab:landscape}). RecIF records impressions in the recommended feed, not search results, so the gap reflects how the platform distributes videos, of which ranking is the main part, rather than what users looked for. For the case-study narrative the gap is slightly larger. Among the 212{,}480 distinct videos of the case-study corpus, 4.1\% carry a gender group label; among its 1.77 million impressions, 6.2\% do. By \cref{eq:decomp} the platform layer is $\Lambda=\logit 0.062-\logit 0.041=+\nPlatformLayer$, an odds ratio of \nPlatformOdds{} that every user receives regardless of their history. \Cref{sec:formation} asks what personalisation adds on top of it.
+

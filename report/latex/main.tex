@@ -1,43 +1,46 @@
-\pdfoutput=1
 \documentclass[10pt,a4paper]{article}
 \usepackage{report}
 \input{generated/numbers}
 
 \renewcommand{\shorttitle}{Same Topic, Narrower View}
-\hypersetup{pdftitle={Same Topic, Narrower View: Viewpoint Cocoons in Short-Video Feeds and the Cost of Escaping Them},
+\hypersetup{pdftitle={Same Topic, Narrower View: Measuring and Escaping Viewpoint Cocoons in Short-Video Feeds},
   pdfauthor={Fu Yitong, Li Yitong, Wang Junbo, Xu Ruicong, Zhao Dingcheng}}
 
 \begin{document}
 \thispagestyle{firstpage}
 
-\begin{center}
-  {\LARGE\bfseries Same Topic, Narrower View:\\[3pt] Viewpoint Cocoons in Short-Video Feeds\\[3pt] and the Cost of Escaping Them\par}
-  \vspace{0.6em}
-  {\large Fu Yitong \quad Li Yitong \quad Wang Junbo \quad Xu Ruicong \quad Zhao Dingcheng\par}
-  \vspace{0.25em}
-  {\small\color{mute} The University of Hong Kong\par}
-\end{center}
-\vspace{0.2em}
+% title block laid out as in the reference papers' arXiv style
+\vspace*{0.12cm}
+{\centering\parbox{0.85\textwidth}{\centering\Large\bfseries
+  Same Topic, Narrower View: Measuring and Escaping Viewpoint Cocoons in Short-Video Feeds\par}\par}
+\vspace{0.32cm}
+{\centering\setlength{\tabcolsep}{0.9em}\renewcommand{\arraystretch}{1.05}%
+  \begin{tabular}{ccccc}
+    Fu Yitong & Li Yitong & Wang Junbo & Xu Ruicong & Zhao Dingcheng\\
+    {\small\color{mute}3036482371} & {\small\color{mute}3036289377} & {\small\color{mute}3036482682} &
+    {\small\color{mute}3036291100} & {\small\color{mute}3036292283}
+  \end{tabular}\par}
+\vspace{0.10in}
 
-\input{sections/00_disclaimer}
 \input{sections/01_abstract}
 \input{sections/02_introduction}
-\input{sections/03_related}
 \input{sections/04_framework}
 \input{sections/05_data}
 \input{sections/06_formation}
 \input{sections/07_detection}
 \input{sections/08_escape}
-\input{sections/09_design}
+\input{sections/03_related}
 \input{sections/10_discussion}
-\input{sections/11_backmatter}
 
+\clearpage
 {\footnotesize\setlength{\bibsep}{2.5pt plus 1pt}
 \bibliographystyle{abbrvnat}
 \bibliography{references}
 }
 
+\clearpage
 \appendix
+\input{sections/11_backmatter}
 \input{sections/12_appendix}
 
 \end{document}

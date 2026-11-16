@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[explicit]{titlesec}
+\definecolor{mute}{HTML}{5F6670}
+\titleformat{\section}{\normalsize\bfseries}{}{0pt}{#1}
+\titlespacing*{\section}{0pt}{1.2ex plus .3ex}{0.4ex}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\linespread{1.04}
+\pagestyle{plain}
+
+\begin{document}
+
+{\centering
+  {\LARGE\bfseries Individual Self-Reflection\par}
+  \vspace{0.45em}
+  {\color{mute}Li Yitong \quad\textperiodcentered\quad UID 3036289377 \quad\textperiodcentered\quad Group 55\par}
+}
+\vspace{0.8em}
+My role was to set the direction of the project and hold it together. After the proposal feedback I led the redesign of the study and derived its definitions, the split of skew into a platform and a personal layer, and the propositions. I ran the data and model work on a GPU server, divided the remaining work into parallel tracks for Zhao Dingcheng and Xu Ruicong, wrote their task descriptions and reviewed every pull request, and finally directed the writing of the report. Almost all of this went through AI assistants. That is the experience I want to reflect on, because it taught me that what separates people now is not whether they use AI but who does the thinking. Some people accept whatever the AI says; others hand it everything and cannot answer a question about their own project. Neither works, however capable the AI is.
+
+\section{When the plan drifted}
+
+Our project plan was criticised as ``vague'' and ``more like a UX design prompt than a specific data science problem''. I asked the AI to revise it, and it did, several times. Each version was more formal than the last, with new notation and four research questions, yet when I read the fourth one I could no longer see the project I had set out to do. So I stopped and wrote down, in my own words, what I had originally imagined: measure how strongly one user is enclosed within one view on one topic; let a real recommender push simulated users into that state; then test which actions get them out, and at what cost. I asked whether this picture rested on a misunderstanding of recommender systems, and when it turned out that it did not, I went back to the feedback with that picture in mind.
+
+Part of the feedback was right. Our key terms had no definitions, and we were trying to do too much at once, so I asked for a question that was well defined, focused and backed by mathematical definitions, and I cut a research question about whether models can recognise stance because it sat too far from the centre. Part of it I did not accept. The user's side of the problem was the point of the project, not a design add-on; I reread the group project guidelines to check that such a topic was acceptable, and concluded that what was missing was a way to make the user's side measurable, not a different topic. Our final report follows my three steps almost exactly: a definition of viewpoint skew, a simulation of how it forms, and a price list for escaping it. Looking back, the drift was partly my own fault. In October I had accepted a plan that looked complete because it had reports, goals and intervention policies, without asking the simplest question: what exactly is being measured?
+
+\section{Questions that changed the model}
+
+The most useful things I contributed were questions, not answers. While reading the redesigned plan I asked: sometimes a whole platform leans one way, so can our theory tell that apart from a personal cocoon? If skew is measured only against what other users see, a lean that every user shares is invisible. That question led to splitting total skew into a platform layer and a personal layer, which became the centre of our theory and of our conclusion that part of the skew is beyond any user's reach. Another question was more modest: an early scaffold of the simulation reduced a viewpoint weight by a factor of 0.7 every time a user pressed ``not interested'', and I asked where that number came from. It was a placeholder, not a measurement. From then on every number in the project had to be either measured or labelled as a scenario parameter and swept. I learned that the questions worth asking are usually about references and sources: compared with what, and how do we know?
+
+\section{Why AI drifts, and what that means for a team}
+
+Working this way showed me how AI goes wrong. It answers the latest instruction as well as it can, so when I pointed out a flaw it patched that spot, sometimes with sentences that fixed the local problem and broke the flow of the argument. When we cut a design section from the report, the AI's first revision added a new ``main question'' and a closing slogan that no longer fitted; when it proposed how to end the discussion, it followed the last thing we had talked about rather than the structure of the report. Each answer was fluent and confident, and each needed someone who remembered what the whole report was for. I also overruled it on larger decisions: it argued for keeping our design section in a shorter form, and I removed it entirely because it pulled the report away from a single research question.
+
+The same applied to the team. Both teammates I coordinated also worked through AI assistants, and my review of their pull requests was the same kind of check. The most effective safeguard was not my reading but the way the work was set up: when Zhao Dingcheng split the labelling prompt into separate fields, disagreements between two models could be traced to a single question. A good workflow makes the AI's mistakes visible to a person.
+
+\section{What I would do differently}
+
+I would write down my own answer before asking the AI, so that its first draft cannot become my frame without my noticing. I would ask it to argue against its own proposal and to list what it had assumed. I would mark every number with the kind of evidence behind it from the first day, rather than sorting this out at the end. And I would keep a short decision log that records which choices were made by people and why. This would also have helped my teammates: Fu Yitong and Wang Junbo did most of their hands-on work early in the project, and as coordinator I did not do enough to keep that work visible as the project changed.
+
+\section{What I take away}
+
+AI made our group much faster, but it did not make judgement cheaper; it made it more important. The skill I developed in this project is less about prompting than about knowing when a fluent answer is wrong, and being willing to stop, go back to my own idea of the problem, and steer.
+
+\end{document}

@@ -1,19 +1,19 @@
 \section{Proofs of the Propositions}
 \label{app:proofs}
 
-Throughout, $\pi(i)\propto q_i\exp\langle u,v_i\rangle$ as in \cref{eq:softmax}, and $\mathbb{E}_G$ denotes the exposure-weighted mean over a set $G$ of videos.
+Throughout, $\pi(i)\propto q_i\exp\langle x,v_i\rangle$ as in \cref{eq:softmax}, with $x$ the state of one user, and $\mathbb{E}_G$ denotes the exposure-weighted mean over a set $G$ of videos.
 
-\paragraph{\Cref{prop:feedback}.} After the update $u\mapsto u+\eta v_j$, each video's weight is multiplied by $e^{\eta s_j(i)}$, so $\pi'(i)=\pi(i)e^{\eta s_j(i)}/Z$ with $Z=\sum_i\pi(i)e^{\eta s_j(i)}$. For any set $G$,
+\paragraph{\Cref{prop:feedback}.} After the update $x\mapsto x+\eta v_j$, each video's weight is multiplied by $e^{\eta s_j(i)}$, so $\pi'(i)=\pi(i)e^{\eta s_j(i)}/Z$ with $Z=\sum_i\pi(i)e^{\eta s_j(i)}$. For any set $G$,
 \[
   \log\pi'(G)-\log\pi(G)=\log\mathbb{E}_G\bigl[e^{\eta s_j}\bigr]-\log Z=\eta\,\bar s_j(G)+\tfrac{\eta^2}{2}\operatorname{Var}_G(s_j)-\log Z+O(\eta^3).
 \]
-Since $V=\log\pi(\A)-\log\pi(\B)-\logit\pbar$ and $\pbar$ does not depend on $u$, the normalising term cancels and $\Delta V=\eta\,[\bar s_j(\A)-\bar s_j(\B)]+O(\eta^2)$. The same argument applied to $\logit m=\log\pi(\I_k)-\log\pi(\I\setminus\I_k)$ gives $\Delta\logit m=\eta\,t_j+O(\eta^2)$. \qed
+Since $V=\log\pi(\A)-\log\pi(\B)-\logit\pbar$ and $\pbar$ does not depend on $x$, the normalising term cancels and $\Delta V=\eta\,[\bar s_j(\A)-\bar s_j(\B)]+O(\eta^2)$. The same argument applied to $\logit m=\log\pi(\I_k)-\log\pi(\I\setminus\I_k)$ gives $\Delta\logit m=\eta\,t_j+O(\eta^2)$. \qed
 
-\paragraph{\Cref{prop:topic}.} If every video in $\I_k$ has its exposure multiplied by $\lambda>0$ before renormalisation, then $\pi'(\A)/\pi'(\B)=\lambda\pi(\A)/\lambda\pi(\B)$, so $p$ and therefore $V$ are unchanged. For the second claim, take two feeds with the same exposure in every category and different $p$; this is possible whenever no category boundary separates $\A$ from $\B$. A statistic that depends on category shares takes the same value on both. \qed
+\paragraph{\Cref{prop:topic}.} If every video in $\I_k$ has its exposure multiplied by $\lambda>0$ before renormalisation, then $\pi'(\A)/\pi'(\B)=\lambda\pi(\A)/\lambda\pi(\B)$, so $p$ and therefore $V$ are unchanged. For the second claim, suppose no category separates $\A$ from $\B$, so that every category containing videos of $\A$ also contains videos of $\B$. Then exposure can be moved between $\A$ and $\B$ inside each category without changing any category's total, which changes $p$ and $V$ but no category share; a statistic of category shares takes the same value before and after. \qed
 
-\paragraph{\Cref{prop:filter}.} After filtering, the exposure that reaches the screen is $\pi(\A)(1-\mathrm{TPR})$ for the narrative and $\pi(\B)(1-\mathrm{FPR})$ for the retained set. Taking the log of their ratio gives $\logit p'=\logit p+\log\frac{1-\mathrm{TPR}}{1-\mathrm{FPR}}$. Their sum, as a share of the original feed, is $m\,[p(1-\mathrm{TPR})+(1-p)(1-\mathrm{FPR})]$. \qed
+\paragraph{\Cref{prop:filter}.} After filtering, the exposure that reaches the screen is $\pi(\A)(1-\mathrm{TPR})$ for the narrative and $\pi(\B)(1-\mathrm{FPR})$ for the retained set. Taking the log of their ratio gives $\logit p'=\logit p+\log\frac{1-\mathrm{TPR}}{1-\mathrm{FPR}}$. Their sum is $\pi(\I_k)\,[p(1-\mathrm{TPR})+(1-p)(1-\mathrm{FPR})]$, so the number of issue videos shown falls by the bracketed factor. (If hidden slots are refilled with other videos, the topic share falls slightly further, as in \cref{tab:escape}.) \qed
 
-\paragraph{\Cref{prop:reach}.} $\Lambda=\logit\pbar-\logit\psup$ involves only the catalogue and the population average, so no change to one user's $u$ alters it. At $u=u_0$ the feed is the non-personalised one, whose within-issue share we identify with $\pbar$; hence $V=0$ and, by \cref{eq:decomp}, the total skew equals $\Lambda$. The same identity shows that the total is below $\Lambda$ exactly when $V<0$. If the state relaxes towards $u_0$ in the absence of signals, a state with $V<0$ is not stationary without them. \qed
+\paragraph{\Cref{prop:reach}.} $\Lambda=\logit\pbar-\logit\psup$ involves only the catalogue and the population average, so no change to one user's $x$ alters it. At $x=x^0$ the feed is the non-personalised one, whose within-issue share is $\pbar$ by the assumption of \cref{sec:layers}; hence $V=0$ and, by \cref{eq:decomp}, the total skew equals $\Lambda$. The same identity shows that the total is below $\Lambda$ exactly when $V<0$. If the state relaxes towards $x^0$ in the absence of signals, a state with $V<0$ is not stationary without them. \qed
 
 \paragraph{\Cref{prop:detect}.} With $n$ videos in each sample the observed shares $\hat q_u,\hat q_0$ are approximately normal with variances $q_u(1-q_u)/n$ and $q_0(1-q_0)/n$. A one-sided level-$a$ test of $q_u>q_0$ has power $1-\gamma$ when $q_u-q_0=(z_a+z_\gamma)\sqrt{[q_u(1-q_u)+q_0(1-q_0)]/n}$. Solving for $n$ and substituting $q_u-q_0=(\alpha-\beta)(p_u-p_0)$ gives \cref{eq:detect}. \qed
 
@@ -60,7 +60,7 @@ with $a_g=+1$ for $\A$, $-1$ for rebuttals and $0$ otherwise, and $\pi_0$ the pl
 \toprule
 Parameter & Value & Source\\
 \midrule
-Platform topic share $m_0$; narrative share $\pbar$ & 2.4\%; 6.2\% & logs (\cref{sec:logs})\\
+Platform topic share $m_0$; narrative share $\pbar$ & 2.4\%; 6.2\% & logs (\cref{sec:platform})\\
 Supply share $\psup$; rebuttal share of issue & 4.1\%; 1.5\% & logs\\
 Topic channel: gain $G_T$, saturation $S_T$ & \nGainT; 2.8 & fit to \cref{fig:probe}a\\
 Narrative channel: gain $G_A$, saturation $S_A$ & \nGainA; 1.5 & fit to \cref{fig:probe}a\\

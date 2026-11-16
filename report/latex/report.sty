@@ -1,17 +1,25 @@
-% Style for the COMP1110 final report (pdfLaTeX).
+% Style for the COMP1110 final report (XeLaTeX: text, math and figures all set in TeX Gyre Pagella).
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{report}[2026/11/15 COMP1110 final report style]
 
 \RequirePackage[a4paper,margin=2.5cm,headheight=14pt,headsep=14pt,footskip=28pt]{geometry}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{lmodern}
-\RequirePackage{tgpagella}
-\RequirePackage[scale=0.92]{tgheros}
-\RequirePackage[sc]{mathpazo}
-\linespread{1.03}
+\RequirePackage{amsmath,mathtools}
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+\setmainfont{TeX Gyre Pagella}
+\setmathfont{TeX Gyre Pagella Math}
+\setmonofont[Scale=MatchLowercase]{Latin Modern Mono}
+% Type sizes and leading as in the reference papers' arXiv style (10pt on 11pt body)
+\renewcommand{\normalsize}{\@setfontsize\normalsize\@xpt{11}%
+  \abovedisplayskip 7pt plus2pt minus5pt\belowdisplayskip\abovedisplayskip
+  \abovedisplayshortskip 0pt plus3pt\belowdisplayshortskip 4pt plus3pt minus3pt}
+\renewcommand{\small}{\@setfontsize\small\@ixpt{10}}
+\renewcommand{\footnotesize}{\@setfontsize\footnotesize\@ixpt{10}}
+\renewcommand{\large}{\@setfontsize\large\@xiipt{14}}
+\renewcommand{\Large}{\@setfontsize\Large\@xivpt{16}}
+\normalsize
 \RequirePackage{microtype}
-\RequirePackage{amsmath,amssymb,amsthm,mathtools}
+\RequirePackage{amsthm}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{booktabs,tabularx,array,multirow,makecell,colortbl}
@@ -52,7 +60,8 @@
 
 % ---------- paragraphs, lists, floats
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.62em plus 0.15em minus 0.1em}
+\setlength{\emergencystretch}{1.5em}
+\setlength{\parskip}{0.5pc}
 \setlist{leftmargin=1.5em,itemsep=0.25em,topsep=0.2em,parsep=0pt}
 \renewcommand{\topfraction}{0.92}
 \renewcommand{\bottomfraction}{0.8}
@@ -91,8 +100,6 @@
 \crefname{definition}{Definition}{Definitions}
 
 % ---------- boxes
-\newtcolorbox{disclaimerbox}{enhanced,breakable=false,colback=warm,colframe=narr!70!black,boxrule=0.5pt,arc=2pt,
-  left=8pt,right=8pt,top=6pt,bottom=6pt,fontupper=\small}
 \newtcolorbox{rqbox}{enhanced,colback=panel,colframe=rule,boxrule=0.5pt,arc=2pt,left=8pt,right=8pt,top=5pt,bottom=5pt,
   before skip=0.8em,after skip=0.8em}
 
@@ -109,9 +116,11 @@
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\RQ}[1]{\textbf{RQ#1}}
-\newcommand{\str}[1]{\textsf{S#1}}
+\newcommand{\str}[1]{S#1}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 % expandable \input for table bodies (plain \input before \bottomrule breaks \noalign)
 \newcommand{\tabinput}[1]{\@@input #1.tex }
+% numbered markers in captions, matching the numbered badges inside the figures
+\DeclareRobustCommand{\cnum}[1]{\tikz[baseline=(c.base)]\node[circle,fill=mute,text=white,inner sep=0.5pt,minimum size=1.15em,font=\fontsize{6.5}{6.5}\selectfont\bfseries](c){#1};}
