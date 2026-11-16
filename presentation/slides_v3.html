@@ -96,7 +96,6 @@ body.paper #hud-rq{color:#9a9384}body.paper #hud-rq span.on{color:#b0213f}
 .trow{display:grid;grid-template-columns:260px 1fr;align-items:baseline;border-bottom:1px solid rgba(236,229,211,.18);padding:22px 0 20px;font:600 34px/1.2 var(--serif)}
 .trow .ty{font-size:28px;line-height:1.35;color:var(--sepia)}.trow .ty.rose{color:var(--rose)}
 .tk{font:600 34px/1.22 var(--serif);margin-top:22px;padding-left:34px;position:relative}
-#s2i{transition:opacity 1s ease}#s2i.gone{opacity:0;pointer-events:none}
 .tk::before{content:'—';position:absolute;left:0;color:var(--ash)}
 svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{font-family:var(--serif)}
 </style></head>
@@ -123,79 +122,103 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="abs mono rise" style="--d:2s;left:122px;top:840px;font-size:23px;letter-spacing:2px;line-height:1.9;color:var(--bone)">FU YITONG · WANG JUNBO · ZHAO DINGCHENG<br>LI YITONG · XU RUICONG</div>
 </section>
 
-<!-- 2 THE PUZZLE -->
-<section class="slide" id="s2" data-speaker="Fu Yitong" data-bg="drift">
-  <div class="k rise">02 — The puzzle</div>
-  <!-- opening: the usual definition, by topic (fades out when the two feeds arrive) -->
-  <div id="s2i" class="abs" style="left:0;top:0;width:1920px;height:1080px">
-    <div class="abs rise" style="--d:.3s;left:120px;top:210px;width:1500px;font:italic 500 72px/1.08 var(--serif)">Your feed shows you more of what you already like.</div>
-    <div class="abs rise ash" style="--d:7.5s;left:120px;top:470px;width:1500px;font:italic 500 46px/1.15 var(--serif)">Most research measures that by <span class="sep">topic</span>:</div>
-    <div class="abs rise" style="--d:12.5s;left:120px;top:560px;width:1600px;display:flex;gap:26px;font:400 34px var(--mono);letter-spacing:3px">
-      <span style="border:2px solid var(--bone);padding:10px 26px">FOOTBALL</span><span style="border:2px solid var(--bone);padding:10px 26px">RELATIONSHIPS</span><span style="border:2px solid var(--bone);padding:10px 26px">…</span></div>
-    <div class="abs rise" style="--d:19s;left:120px;top:730px;width:1500px;font:600 52px/1.15 var(--serif)">A feed stuck on a few topics = a cocoon. <span class="it rose">But this can be misleading.</span></div>
-  </div>
-  <div class="h rise" style="--d:25s">Same topic. Which user is in a cocoon?</div>
-  <div class="abs mono rise" style="--d:25.4s;left:120px;top:262px;font-size:22px;letter-spacing:4px;color:var(--bone)">USER 1</div>
-  <div class="abs mono rise" style="--d:25.4s;left:600px;top:262px;font-size:22px;letter-spacing:4px;color:var(--rose)">USER 2</div>
-  <div id="g2a" class="abs rise" style="--d:25.4s;left:120px;top:304px;width:400px;height:400px"></div>
-  <div id="g2b" class="abs rise" style="--d:25.6s;left:600px;top:304px;width:400px;height:400px"></div>
-  <div class="abs mono rise" style="--d:44s;left:120px;top:730px;font-size:18px;letter-spacing:3px;color:var(--ash)">MARRIAGE VIDEOS IN THE FEED · ALL A TOPIC CHECK CAN COUNT</div>
-  <div class="abs big rise" style="--d:44.2s;left:120px;top:760px;font-size:62px">30%</div>
-  <div class="abs big rise" style="--d:44.2s;left:600px;top:760px;font-size:62px">30%</div>
-  <div class="abs it rise ash" style="--d:46s;left:800px;top:772px;font-size:36px">same cocoon level</div>
-  <div class="abs mono rise" style="--d:54s;left:120px;top:858px;font-size:18px;letter-spacing:3px;color:var(--ash)">RED VIDEOS · A GENDER GROUP LABEL, SHARE OF MARRIAGE VIDEOS</div>
-  <div class="abs big rise" style="--d:54.2s;left:120px;top:888px;font-size:62px">1 in 16</div>
-  <div class="abs big rose rise" style="--d:54.4s;left:600px;top:888px;font-size:62px">1 in 8</div>
-  <div class="abs it rose rise" style="--d:55.2s;left:880px;top:900px;font-size:36px">twice as often</div>
-  <div class="card rise" style="--d:26s;left:1110px;top:262px;width:690px;height:510px"></div>
-  <div class="abs rise" style="--d:26.4s;left:1150px;top:296px;width:620px">
-    <div class="mono ash" style="font-size:18px;letter-spacing:4px">EACH SQUARE = ONE VIDEO</div>
-    <div id="lg1" class="rise" style="--d:29s;display:flex;align-items:center;gap:22px;margin-top:22px"><span style="width:34px;height:34px;border-radius:2px;background:rgba(236,229,211,.14);flex:none"></span><span class="it" style="font-size:38px">everything else in the feed</span></div>
-    <div id="lg2" class="rise" style="--d:32s;display:flex;align-items:center;gap:22px;margin-top:20px"><span style="width:34px;height:34px;border-radius:2px;background:#cfc7b3;flex:none"></span><span class="it" style="font-size:38px">marriage videos</span></div>
-    <div id="lg3" class="rise" style="--d:34.5s;display:flex;align-items:center;gap:22px;margin-top:20px"><span style="width:34px;height:34px;border-radius:2px;background:var(--rose);flex:none"></span><span class="it rose" style="font-size:38px">marriage videos with a very one-sided message</span></div>
-    <div class="ty rise" style="--d:37s;font-size:27px;line-height:1.4;margin-top:30px;color:var(--sepia)">“Not married by thirty? You are gonna die alone.”</div>
-    <div class="mono ash rise" style="--d:39s;font-size:17px;line-height:1.5;margin-top:18px">In our study we count one kind: a negative label on a whole gender, e.g. “Women today only look at the bride price.”</div></div>
-  <div class="abs it rise" style="--d:61s;left:1110px;top:808px;width:700px;font-size:44px;line-height:1.15">Same topic, <span class="rose">narrower view</span>.<br><span class="rose">A viewpoint cocoon.</span></div>
-  <div class="abs mono rise ash" style="--d:62s;left:1110px;top:945px;width:700px;font-size:16px;line-height:1.6;letter-spacing:1px">Users are illustrative. Rates from the logs: 6.2% of what is shown on average · 12.7% for the most skewed tenth of heavy viewers.</div>
+<!-- 2 THE USUAL DEFINITION -->
+<section class="slide" id="s2" data-speaker="Fu Yitong" data-bg="converge:.75:.5">
+  <div class="k rise">02 — The usual definition</div>
+  <div class="h rise" style="--d:.15s">A cocoon, as usually measured</div>
+  <div class="abs rise" style="--d:.6s;left:120px;top:300px;width:1500px;font:italic 500 66px/1.1 var(--serif)">"Your feed shows you more of what you already like."</div>
+  <div class="abs rise ash" style="--d:1.4s;left:120px;top:470px;width:1500px;font:italic 500 46px/1.15 var(--serif)">Most research measures that by <span class="sep">topic</span>:</div>
+  <div class="abs rise" style="--d:2s;left:120px;top:560px;width:1600px;display:flex;gap:26px;font:400 34px var(--mono);letter-spacing:3px">
+    <span style="border:2px solid var(--bone);padding:10px 26px">FOOTBALL</span><span style="border:2px solid var(--bone);padding:10px 26px">RELATIONSHIPS</span><span style="border:2px solid var(--bone);padding:10px 26px">…</span></div>
+  <div class="abs rise" style="--d:2.8s;left:120px;top:730px;width:1600px;font:600 52px/1.15 var(--serif)">A feed stuck on a few topics = a cocoon.</div>
+  <div class="abs it rose rise" style="--d:3.8s;left:120px;top:820px;width:1600px;font-size:60px">But this can be misleading.</div>
 </section>
 
-<!-- 3 GAP: two differences, four questions -->
+<!-- 3 THE PUZZLE -->
 <section class="slide" id="s3" data-speaker="Fu Yitong" data-bg="drift">
-  <div class="k rise">03 — The gap</div>
-  <div class="h rise" style="--d:.15s">Two differences from existing work</div>
-  <div class="abs mono rise" style="--d:.4s;left:130px;top:232px;font-size:20px;letter-spacing:5px;color:var(--ash)">WHAT OTHERS DO</div>
-  <div class="abs mono rise" style="--d:.4s;left:1080px;top:232px;font-size:20px;letter-spacing:5px;color:var(--rose)">WHAT WE DO</div>
-  <!-- first difference -->
-  <div class="abs mono rise" style="--d:1s;left:30px;top:292px;font-size:17px;letter-spacing:3px;color:var(--rose);writing-mode:vertical-rl;transform:rotate(180deg)">FIRST</div>
-  <div class="abs rise ash" style="--d:1.2s;left:130px;top:290px;width:820px;font:italic 500 44px/1.15 var(--serif)"><span class="strike" style="--d:3.5s">Count how narrow your topics are</span></div>
-  <div class="abs rise" style="--d:5s;left:1080px;top:290px;width:760px;font:600 44px/1.15 var(--serif)">Measure the view <span class="it rose">inside</span> a topic</div>
-  <div class="abs mono rise ash" style="--d:9s;left:1080px;top:392px;width:760px;font-size:20px;line-height:1.5;letter-spacing:1px">so you can keep a topic you like and still escape the skew</div>
-  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none" stroke="#8d887d" stroke-width="2.5">
-    <path class="draw" pathLength="1" style="--d:4.4s" d="M960 322 H1040 M1018 304 L1044 322 L1018 340"/>
-    <path class="draw" pathLength="1" style="--d:34s" d="M960 732 H1040 M1018 714 L1044 732 L1018 750"/>
-    <path class="draw" pathLength="1" style="--d:15s" d="M120 470 H1800" stroke-width="1.5"/>
-  </svg>
-  <!-- four questions -->
-  <div class="abs mono rise" style="--d:15.5s;left:122px;top:490px;font-size:19px;letter-spacing:5px;color:var(--ash)">ONE MEASURE, FOUR QUESTIONS</div>
-  <div class="abs rise" style="--d:16s;left:120px;top:530px;width:410px;font:italic 500 30px/1.15 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:24px">RQ1</span><br>How common is a viewpoint cocoon?</div>
-  <div class="abs rise" style="--d:21s;left:560px;top:530px;width:410px;font:italic 500 30px/1.15 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:24px">RQ2</span><br>How does it form?</div>
-  <div class="abs rise" style="--d:24s;left:1000px;top:530px;width:410px;font:italic 500 30px/1.15 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:24px">RQ3</span><br>How many videos until you notice?</div>
-  <div class="abs rise" style="--d:28s;left:1440px;top:530px;width:390px;font:italic 500 30px/1.15 var(--serif)"><span class="mono rose" style="font-style:normal;font-size:24px">RQ4</span><br>What does each way out cost?</div>
-  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none"><path class="draw" pathLength="1" style="--d:31s" d="M120 668 H1800" stroke="#8d887d" stroke-width="1.5"/></svg>
-  <!-- second difference -->
-  <div class="abs mono rise" style="--d:32s;left:30px;top:712px;font-size:17px;letter-spacing:3px;color:var(--rose);writing-mode:vertical-rl;transform:rotate(180deg)">SECOND</div>
-  <div class="abs rise ash" style="--d:32.2s;left:130px;top:700px;width:820px;font:italic 500 44px/1.15 var(--serif)"><span class="strike" style="--d:44s">Look from the outside: fake accounts</span></div>
-  <div class="abs rise" style="--d:34.5s;left:1080px;top:700px;width:760px;font:600 44px/1.15 var(--serif)">Look from the <span class="it rose">inside</span></div>
-  <div class="abs mono rise ash" style="--d:47s;left:130px;top:786px;width:820px;font-size:20px;line-height:1.5;letter-spacing:1px">cannot tell why a feed is one-sided</div>
-  <div class="abs rise" style="--d:50s;left:130px;top:860px;display:flex;gap:20px;font:400 22px var(--mono);letter-spacing:2px">
-    <span style="border:2px solid var(--bone);padding:10px 20px">CREATORS POST IT</span><span style="border:2px solid var(--bone);padding:10px 20px">THE PLATFORM PROMOTES IT</span><span style="border:2px solid var(--bone);padding:10px 20px">YOU KEEP WATCHING IT</span></div>
-  <div class="abs it rose rise" style="--d:63s;left:130px;top:945px;font-size:40px">We can separate the three.</div>
-  <div class="abs rise" style="--d:64s;left:1080px;top:786px;width:780px;font:italic 500 33px/1.2 var(--serif);color:var(--sepia)">Public Kuaishou logs + an open recommender</div>
+  <div class="k rise">03 — The puzzle</div>
+  <div class="h rise" style="--d:0.15s">Same topic. Which user is in a cocoon?</div>
+  <div class="abs mono rise" style="--d:0.15s;left:120px;top:262px;font-size:22px;letter-spacing:4px;color:var(--bone)">USER 1</div>
+  <div class="abs mono rise" style="--d:0.15s;left:600px;top:262px;font-size:22px;letter-spacing:4px;color:var(--rose)">USER 2</div>
+  <div id="g2a" class="abs rise" style="--d:0.15s;left:120px;top:304px;width:400px;height:400px"></div>
+  <div id="g2b" class="abs rise" style="--d:0.15s;left:600px;top:304px;width:400px;height:400px"></div>
+  <div class="abs mono rise" style="--d:2.47s;left:120px;top:730px;font-size:18px;letter-spacing:3px;color:var(--ash)">MARRIAGE VIDEOS IN THE FEED · ALL A TOPIC CHECK CAN COUNT</div>
+  <div class="abs big rise" style="--d:2.5s;left:120px;top:760px;font-size:62px">30%</div>
+  <div class="abs big rise" style="--d:2.5s;left:600px;top:760px;font-size:62px">30%</div>
+  <div class="abs it rise ash" style="--d:2.73s;left:800px;top:772px;font-size:36px">same cocoon level</div>
+  <div class="abs mono rise" style="--d:3.77s;left:120px;top:858px;font-size:18px;letter-spacing:3px;color:var(--ash)">RED VIDEOS · A GENDER GROUP LABEL, SHARE OF MARRIAGE VIDEOS</div>
+  <div class="abs big rise" style="--d:3.8s;left:120px;top:888px;font-size:62px">1 in 16</div>
+  <div class="abs big rose rise" style="--d:3.82s;left:600px;top:888px;font-size:62px">1 in 8</div>
+  <div class="abs it rose rise" style="--d:3.93s;left:880px;top:900px;font-size:36px">twice as often</div>
+  <div class="card rise" style="--d:0.15s;left:1110px;top:262px;width:690px;height:510px"></div>
+  <div class="abs rise" style="--d:0.18s;left:1150px;top:296px;width:620px">
+    <div class="mono ash" style="font-size:18px;letter-spacing:4px">EACH SQUARE = ONE VIDEO</div>
+    <div id="lg1" class="rise" style="--d:0.52s;display:flex;align-items:center;gap:22px;margin-top:22px"><span style="width:34px;height:34px;border-radius:2px;background:rgba(236,229,211,.14);flex:none"></span><span class="it" style="font-size:38px">everything else in the feed</span></div>
+    <div id="lg2" class="rise" style="--d:0.91s;display:flex;align-items:center;gap:22px;margin-top:20px"><span style="width:34px;height:34px;border-radius:2px;background:#cfc7b3;flex:none"></span><span class="it" style="font-size:38px">marriage videos</span></div>
+    <div id="lg3" class="rise" style="--d:1.24s;display:flex;align-items:center;gap:22px;margin-top:20px"><span style="width:34px;height:34px;border-radius:2px;background:var(--rose);flex:none"></span><span class="it rose" style="font-size:38px">marriage videos with a very one-sided message</span></div>
+    <div class="ty rise" style="--d:1.56s;font-size:27px;line-height:1.4;margin-top:30px;color:var(--sepia)">“Not married by thirty? You are gonna die alone.”</div>
+    <div class="mono ash rise" style="--d:1.82s;font-size:17px;line-height:1.5;margin-top:18px">In our study we count one kind: a negative label on a whole gender, e.g. “Women today only look at the bride price.”</div></div>
+  <div class="abs it rise" style="--d:4.68s;left:1110px;top:808px;width:700px;font-size:44px;line-height:1.15">Same topic, <span class="rose">narrower view</span>.<br><span class="rose">A viewpoint cocoon.</span></div>
+  <div class="abs mono rise ash" style="--d:4.81s;left:1110px;top:945px;width:700px;font-size:16px;line-height:1.6;letter-spacing:1px">Users are illustrative. Rates from the logs: 6.2% of what is shown on average · 12.7% for the most skewed tenth of heavy viewers.</div>
 </section>
 
-<!-- 4 TWO DIALS -->
-<section class="slide" id="s4" data-speaker="Wang Junbo" data-bg="quiet">
-  <div class="k rise">04 — The idea</div>
+<!-- 4 GAP: two differences around one thread -->
+<section class="slide" id="s4" data-speaker="Fu Yitong" data-bg="drift">
+  <div class="k rise">04 — The gap</div>
+  <div class="h rise" style="--d:0.15s">Two differences, one thread</div>
+
+  <!-- zone labels (left column) -->
+  <div class="abs rise" style="--d:0.5s;left:120px;top:236px;width:220px"><div class="mono rose" style="font-size:17px;letter-spacing:4px">DIFFERENCE</div><div class="it" style="font-size:96px;line-height:.9;color:var(--bone)">1</div><div class="mono ash" style="font-size:16px;letter-spacing:3px;margin-top:6px">WHAT WE MEASURE</div></div>
+  <div class="abs rise" style="--d:1.4s;left:120px;top:440px;width:220px"><div class="mono rose" style="font-size:17px;letter-spacing:4px">THE THREAD</div><div class="it" style="font-size:56px;line-height:1;color:var(--bone);margin-top:8px">RQ1–4</div><div class="mono ash" style="font-size:16px;letter-spacing:3px;margin-top:6px">ONE MEASURE</div></div>
+  <div class="abs rise" style="--d:2.88s;left:120px;top:712px;width:220px"><div class="mono rose" style="font-size:17px;letter-spacing:4px">DIFFERENCE</div><div class="it" style="font-size:96px;line-height:.9;color:var(--bone)">2</div><div class="mono ash" style="font-size:16px;letter-spacing:3px;margin-top:6px">WHERE WE LOOK FROM</div></div>
+
+  <!-- rules between zones -->
+  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none" stroke="#8d887d">
+    <path class="draw" pathLength="1" style="--d:0.6s" d="M120 412 H1800" stroke-width="1.5"/>
+    <path class="draw" pathLength="1" style="--d:1.35s" d="M120 684 H1800" stroke-width="1.5"/>
+    <path class="draw" pathLength="1" style="--d:0.4s" d="M900 322 H960 M940 306 L964 322 L940 338" stroke-width="2.5"/>
+    <path class="draw" pathLength="1" style="--d:3.06s" d="M900 790 H960 M940 774 L964 790 L940 806" stroke-width="2.5"/>
+  </svg>
+
+  <!-- zone 1: what we measure -->
+  <div class="abs mono rise ash" style="--d:1.0s;left:380px;top:244px;font-size:18px;letter-spacing:4px">OTHERS COUNT</div>
+  <div class="abs mono rise rose" style="--d:0.45s;left:990px;top:244px;font-size:18px;letter-spacing:4px">WE MEASURE</div>
+  <div class="abs rise ash" style="--d:0.15s;left:380px;top:284px;width:520px;font:italic 500 42px/1.15 var(--serif)"><span class="strike" style="--d:0.32s">How narrow your topics are</span></div>
+  <div class="abs rise" style="--d:0.47s;left:990px;top:284px;width:810px;font:600 46px/1.12 var(--serif)">The view <span class="it rose">inside</span> a topic</div>
+  <div class="abs mono rise ash" style="--d:0.81s;left:990px;top:352px;width:810px;font-size:19px;line-height:1.5;letter-spacing:1px">so you can keep a topic you like and still escape the skew</div>
+
+  <!-- zone 2: the thread -->
+  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none">
+    <path class="draw" pathLength="1" style="--d:1.44s;stroke-width:4;stroke:#e23a5a" d="M440 505 H1760 M1738 489 L1764 505 L1738 521"/>
+    <g class="pop" style="--d:1.46s"><circle cx="440" cy="505" r="26" fill="#0c0c0d" stroke="#e23a5a" stroke-width="4"/><text x="440" y="514" fill="#ece5d3" font-size="26" font-family="PM" text-anchor="middle">1</text></g>
+    <g class="pop" style="--d:1.91s"><circle cx="880" cy="505" r="26" fill="#0c0c0d" stroke="#e23a5a" stroke-width="4"/><text x="880" y="514" fill="#ece5d3" font-size="26" font-family="PM" text-anchor="middle">2</text></g>
+    <g class="pop" style="--d:2.18s"><circle cx="1320" cy="505" r="26" fill="#0c0c0d" stroke="#e23a5a" stroke-width="4"/><text x="1320" y="514" fill="#ece5d3" font-size="26" font-family="PM" text-anchor="middle">3</text></g>
+    <g class="pop" style="--d:2.54s"><circle cx="1650" cy="505" r="26" fill="#0c0c0d" stroke="#e23a5a" stroke-width="4"/><text x="1650" y="514" fill="#ece5d3" font-size="26" font-family="PM" text-anchor="middle">4</text></g>
+  </svg>
+  <div class="abs mono rise ash" style="--d:1.42s;left:380px;top:432px;font-size:17px;letter-spacing:4px">THE SAME MEASURE, FOLLOWED FROM START TO FINISH</div>
+  <div class="abs rise" style="--d:1.48s;left:380px;top:556px;width:360px;font:italic 500 32px/1.15 var(--serif)">How common is a viewpoint cocoon?</div>
+  <div class="abs rise" style="--d:1.93s;left:820px;top:556px;width:360px;font:italic 500 32px/1.15 var(--serif)">How does it form?</div>
+  <div class="abs rise" style="--d:2.2s;left:1260px;top:556px;width:290px;font:italic 500 32px/1.15 var(--serif)">How many videos until you notice it?</div>
+  <div class="abs rise" style="--d:2.56s;left:1590px;top:556px;width:230px;font:italic 500 32px/1.15 var(--serif)">What does each way out cost?</div>
+
+  <!-- zone 3: where we look from -->
+  <div class="abs mono rise ash" style="--d:2.92s;left:380px;top:712px;font-size:18px;letter-spacing:4px">OTHERS LOOK FROM OUTSIDE</div>
+  <div class="abs mono rise rose" style="--d:3.11s;left:990px;top:712px;font-size:18px;letter-spacing:4px">WE LOOK FROM INSIDE</div>
+  <div class="abs rise ash" style="--d:2.93s;left:380px;top:748px;width:520px;font:italic 500 40px/1.15 var(--serif)"><span class="strike" style="--d:3.96s">Fake accounts</span></div>
+  <div class="abs rise" style="--d:3.13s;left:990px;top:748px;width:810px;font:600 44px/1.12 var(--serif)">Public Kuaishou logs <span class="it rose">+</span> an open recommender</div>
+  <!-- outside: one opaque bar -->
+  <div class="abs fade" style="--d:4.14s;left:380px;top:836px;width:500px;height:62px;background:rgba(236,229,211,.14);border:2px dashed var(--ash);display:flex;align-items:center;justify-content:center;font:400 20px var(--mono);letter-spacing:2px;color:var(--bone)">A ONE-SIDED FEED&nbsp;&nbsp;<span class="rose" style="font-size:34px">?</span></div>
+  <div class="abs mono rise ash" style="--d:4.23s;left:380px;top:914px;width:520px;font-size:18px;line-height:1.5;letter-spacing:1px">cannot tell where it comes from</div>
+  <!-- inside: the same bar, split in three -->
+  <div class="abs wipe" style="--d:4.5s;left:990px;top:836px;width:270px;height:62px;background:rgba(236,229,211,.16);border:2px solid var(--bone);display:flex;align-items:center;justify-content:center;font:400 17px var(--mono);letter-spacing:1px;color:var(--bone)">CREATORS POST IT</div>
+  <div class="abs wipe" style="--d:4.86s;left:1260px;top:836px;width:285px;height:62px;background:rgba(184,154,104,.28);border:2px solid var(--sepia);display:flex;align-items:center;justify-content:center;font:400 17px var(--mono);letter-spacing:1px;color:var(--bone)">PLATFORM PROMOTES IT</div>
+  <div class="abs wipe" style="--d:5.22s;left:1545px;top:836px;width:255px;height:62px;background:rgba(226,58,90,.3);border:2px solid var(--rose);display:flex;align-items:center;justify-content:center;font:400 17px var(--mono);letter-spacing:1px;color:var(--bone)">YOU KEEP WATCHING</div>
+  <div class="abs it rose rise" style="--d:5.67s;left:990px;top:914px;font-size:38px">We can separate the three.</div>
+</section>
+
+<!-- 5 TWO DIALS -->
+<section class="slide" id="s5" data-speaker="Wang Junbo" data-bg="quiet">
+  <div class="k rise">05 — The idea</div>
   <div class="h rise" style="--d:.15s">Interest and skew are two different dials</div>
   <svg id="c4" class="abs" width="1140" height="740" style="left:100px;top:250px" viewBox="0 0 1140 740"></svg>
   <div class="abs rise" style="--d:.6s;left:1300px;top:300px;width:520px">
@@ -207,10 +230,10 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="abs rise" style="--d:4.4s;left:1300px;top:780px;width:520px;font:600 40px/1.2 var(--serif)">A cocoon is high skew, <span class="it rose">whatever the interest.</span></div>
 </section>
 
-<!-- 5 TWO LAYERS (PAPER) -->
-<section class="slide" id="s5" data-speaker="Wang Junbo" data-paper="1" data-bg="quiet">
+<!-- 6 TWO LAYERS (PAPER) -->
+<section class="slide" id="s6" data-speaker="Wang Junbo" data-paper="1" data-bg="quiet">
   <div class="paperbg"></div>
-  <div class="k rise" style="color:#b0213f">05 — Two layers</div>
+  <div class="k rise" style="color:#b0213f">06 — Two layers</div>
   <div class="h rise ink" style="--d:.15s">Part of the tilt is everyone's. Part is yours.</div>
   <svg id="s5s" class="abs" width="1000" height="1080" style="left:0;top:0" fill="none"></svg>
   <div class="abs ink rise" style="--d:.6s;left:980px;top:270px;width:840px">
@@ -226,9 +249,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp stampin" style="--d:3.6s;left:1640px;top:262px;rotate:3deg;color:#3b362c;font-size:22px">From the logs</div>
 </section>
 
-<!-- 6 HOW WE STUDIED IT -->
-<section class="slide" id="s6" data-speaker="Wang Junbo" data-bg="drift">
-  <div class="k rise">06 — How we studied it</div>
+<!-- 7 HOW WE STUDIED IT -->
+<section class="slide" id="s7" data-speaker="Wang Junbo" data-bg="drift">
+  <div class="k rise">07 — How we studied it</div>
   <div class="h rise" style="--d:.15s">Four ways into a closed recommender</div>
   <div class="card rise" style="--d:.4s;left:120px;top:262px;width:800px;height:150px"></div>
   <div class="abs rise" style="--d:.5s;left:156px;top:286px;width:740px">
@@ -244,9 +267,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="abs mono rise ash" style="--d:3.4s;left:120px;top:930px;font-size:19px;letter-spacing:1px">Logs and model: OpenOneRec project (Kuaishou), public research release · we never see the videos, only their text descriptions</div>
 </section>
 
-<!-- 7 LABELS -->
-<section class="slide" id="s7" data-speaker="Zhao Dingcheng" data-rq="1" data-bg="quiet">
-  <div class="k rise">07 — Labels · RQ1</div>
+<!-- 8 LABELS -->
+<section class="slide" id="s8" data-speaker="Zhao Dingcheng" data-rq="1" data-bg="quiet">
+  <div class="k rise">08 — Labels · RQ1</div>
   <div class="h rise" style="--d:.15s">One model labels, two stronger ones check</div>
   <div class="abs mono rise" style="--d:.4s;left:120px;top:262px;font-size:20px;letter-spacing:4px;color:var(--ash)">FOUR WAYS A VIDEO TAKES A SIDE · EXAMPLES PARAPHRASED</div>
   <div class="abs" style="left:120px;top:300px;width:1060px">
@@ -269,9 +292,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="abs it rise ash" style="--d:3.2s;left:120px;top:912px;width:1680px;font-size:30px">We count labels against either gender, and take no side on marriage.</div>
 </section>
 
-<!-- 8 PREVALENCE -->
-<section class="slide" id="s8" data-speaker="Zhao Dingcheng" data-rq="1" data-bg="converge:.2:.55">
-  <div class="k rise">08 — Finding · RQ1</div>
+<!-- 9 PREVALENCE -->
+<section class="slide" id="s9" data-speaker="Zhao Dingcheng" data-rq="1" data-bg="converge:.2:.55">
+  <div class="k rise">09 — Finding · RQ1</div>
   <div class="h rise" style="--d:.15s;font-size:74px">One in five takes a side, and ranking favours them</div>
   <div id="c8a" class="abs" style="left:120px;top:330px;width:500px;height:560px"></div>
   <svg id="c8b" class="abs" width="540" height="420" style="left:690px;top:330px" viewBox="0 0 540 420"></svg>
@@ -282,9 +305,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp m stampin" style="--d:4.2s;left:1600px;top:262px;rotate:3deg;font-size:22px">From the logs</div>
 </section>
 
-<!-- 9 PROBE -->
-<section class="slide" id="s9" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.28:.62">
-  <div class="k rise">09 — Experiment · RQ2</div>
+<!-- 10 PROBE -->
+<section class="slide" id="s10" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.28:.62">
+  <div class="k rise">10 — Experiment · RQ2</div>
   <div class="h rise" style="--d:.15s;font-size:80px">Change a history, and the recommender follows</div>
   <svg id="c9a" class="abs" width="800" height="560" style="left:110px;top:280px" viewBox="0 0 800 560"></svg>
   <div class="abs mono rise" style="--d:.5s;left:1000px;top:286px;font-size:19px;letter-spacing:3px;color:var(--ash)">HOW MUCH MORE LIKELY IT RECOMMENDS · LOG-ODDS</div>
@@ -294,9 +317,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp m stampin" style="--d:4s;left:1560px;top:226px;rotate:-3deg;font-size:22px">OneRec probe</div>
 </section>
 
-<!-- 10 FORMATION -->
-<section class="slide" id="s10" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.7:.3">
-  <div class="k rise">10 — Formation · RQ2</div>
+<!-- 11 FORMATION -->
+<section class="slide" id="s11" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.7:.3">
+  <div class="k rise">11 — Formation · RQ2</div>
   <div class="h rise" style="--d:.15s">Three months: same topic, twice the odds</div>
   <svg id="c10" class="abs" width="1300" height="600" style="left:110px;top:270px" viewBox="0 0 1300 600"></svg>
   <div class="abs rise" style="--d:.6s;left:1480px;top:290px;width:340px">
@@ -309,9 +332,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4s;left:1480px;top:690px;rotate:2deg;font-size:22px">Simulation · 400 users</div>
 </section>
 
-<!-- 11 DETECTION -->
-<section class="slide" id="s11" data-speaker="Xu Ruicong" data-rq="3" data-bg="quiet">
-  <div class="k rise">11 — Noticing · RQ3</div>
+<!-- 12 DETECTION -->
+<section class="slide" id="s12" data-speaker="Xu Ruicong" data-rq="3" data-bg="quiet">
+  <div class="k rise">12 — Noticing · RQ3</div>
   <div class="h rise" style="--d:.15s">To notice it, you need a second feed</div>
   <div class="abs rise" style="--d:.5s;left:120px;top:270px;width:760px;font:italic 500 38px/1.25 var(--serif);color:var(--sepia)">Is a coin loaded? Ten flips cannot tell you, and you need a fair coin to compare with.</div>
   <div class="abs rise" style="--d:1.2s;left:120px;top:470px;width:700px">
@@ -322,9 +345,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp n stampin" style="--d:3.2s;left:1600px;top:250px;rotate:2deg;font-size:22px">Counting bound</div>
 </section>
 
-<!-- 12 ESCAPE PRICE -->
-<section class="slide" id="s12" data-speaker="Xu Ruicong" data-rq="4" data-bg="quiet">
-  <div class="k rise">12 — Escape · RQ4</div>
+<!-- 13 ESCAPE PRICE -->
+<section class="slide" id="s13" data-speaker="Xu Ruicong" data-rq="4" data-bg="quiet">
+  <div class="k rise">13 — Escape · RQ4</div>
   <div class="h rise" style="--d:.15s">Every way out has a price</div>
   <div class="abs mono rise" style="--d:.3s;left:120px;top:214px;font-size:21px;letter-spacing:2px;color:var(--sepia)">A TOPIC FAN AT TWICE THE ODDS TRIES ELEVEN WAYS OUT FOR 17 DAYS</div>
   <svg id="c12" class="abs" width="1080" height="700" style="left:100px;top:262px" viewBox="0 0 1080 700"></svg>
@@ -334,9 +357,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4.6s;left:1600px;top:206px;rotate:2deg;font-size:22px">Simulation</div>
 </section>
 
-<!-- 13 NOTHING LASTS -->
-<section class="slide" id="s13" data-speaker="Xu Ruicong" data-rq="4" data-bg="diverge:.5:.5">
-  <div class="k rise">13 — Escape · RQ4</div>
+<!-- 14 NOTHING LASTS -->
+<section class="slide" id="s14" data-speaker="Xu Ruicong" data-rq="4" data-bg="diverge:.5:.5">
+  <div class="k rise">14 — Escape · RQ4</div>
   <div class="h rise" style="--d:.15s">… and nothing lasts</div>
   <svg id="c13" class="abs" width="1200" height="640" style="left:100px;top:260px" viewBox="0 0 1200 640"></svg>
   <div class="abs rise" style="--d:3.4s;left:1380px;top:330px;width:440px;font:600 40px/1.22 var(--serif)">Stop, and <span class="it rose">half the gain</span> is gone in about a week.</div>
@@ -344,9 +367,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4.6s;left:1380px;top:830px;rotate:-2deg;font-size:22px">Simulation · 400 users</div>
 </section>
 
-<!-- 14 TAKEAWAY -->
-<section class="slide" id="s14" data-speaker="Fu Yitong" data-bg="diverge:.5:.5">
-  <div class="k rise">14 — Takeaway</div>
+<!-- 15 TAKEAWAY -->
+<section class="slide" id="s15" data-speaker="Fu Yitong" data-bg="diverge:.5:.5">
+  <div class="k rise">15 — Takeaway</div>
   <div class="h rise" style="--d:.15s">Keep the topic, widen the view</div>
   <div class="card rise" style="--d:.4s;left:120px;top:262px;width:800px;height:420px"></div>
   <div class="card rise" style="--d:.8s;left:1000px;top:262px;width:800px;height:420px;border-color:rgba(226,58,90,.7)"></div>
@@ -375,8 +398,8 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
 </div>
 
 <script>
-const NOTES={"1": "You just wanted to relax. Then: \"No internship by sophomore summer? You are lagging behind.\" [停一拍] Thanks, I was about to have a nice evening. [停一拍] Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.", "2": "Everyone has heard of the information cocoon: your feed shows you more of what you already like. You may think, bro, that's cliché. But we have something special. Most research defines a cocoon by topic: by that definition, you are in a cocoon if your feed is stuck on a few topics, like football or relationships. But this can be misleading. [两个方格出现] Look, here are two users, and each square is a video. [指图例] Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like \"Not married by thirty? You are gonna die alone.\" A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a viewpoint cocoon.", "3": "That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew. [指四个问题] Our work follows this one measure through four questions. RQ1: how common is a viewpoint cocoon? RQ2: how does it form? RQ3: how many videos until you can notice it? RQ4: how much does each way out cost? So how do we answer them? That is our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.", "4": "A feed has two separate dials. [横轴] Interest: how much of your feed is the topic. [纵轴] Skew: inside the topic, how much more often one view shows up than it actually exists. A topic fan who sees all sides is fine. A cocoon is high skew, whatever the interest. Feeds A and B sit at the same interest, one above the other. A cocoon check reads only this bottom axis, so it cannot tell them apart.", "5": "Where does the skew come from? Picture a stage that is tilted for everyone, and one person who leans further on their own. [逐级指数字] Among the marriage videos on offer, about one in twenty-four carries a gender label. Ranking shows them to everyone at one in sixteen. That is the platform layer: the tilted stage. For the most skewed tenth of heavy viewers, their own history pushes it to one in eight. That is the personal layer. And everything a user can press, whether like, skip or \"not interested\", reaches only the inner ring.", "6": "We cannot open Kuaishou's app, so we found four ways in. Its public logs from 160,000 users tell us what people were actually shown. OneRec, a recommender trained on those logs, lets us change a history and watch how it reacts. A simulation runs that reaction forward for months. And a counting bound tells us what a user could notice. Zhao Dingcheng starts with the first question.", "7": "An open model reads every video description. [指左边] Videos take sides in four ways; the sharpest is the group label. [指下方] It counts only if all four hold: a whole gender, a negative trait, all or most of them, and in the video's own voice. Quoting it to rebut it does not count. [指右边] Two stronger models, DeepSeek and GPT, relabelled 1,200 videos. Our model agrees with them well, a kappa of 0.78, and we correct every share for the errors it still makes. We count labels against either gender, and take no side on marriage.", "8": "So how common are they? [点阵] Social issues are about eight percent of everything shown, and within them about one video in five takes a side. [中间] These videos draw more reactions: nearly twice the comments. But they are also marked \"not interested\" more often: these are associations, and the attention is not simply approval. [右边] And ranking shows them more often than they exist, in every issue area, by up to one and a half times the odds. For gender labels, that is the one in sixteen you saw a moment ago: the platform layer, and everyone gets it. But what does a user's own history add? Li Yitong.", "9": "To see how the recommender reacts, we ran a controlled experiment on OneRec. [左边] We take a real user's history, swap in ten new videos, and compute exactly what the model would recommend next, for two hundred users. [右边] Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it. [指红框，放慢] And remember this one: if the same ten videos are marked \"not interested\", the narrative still goes up. The button is read as interest.", "10": "One edit is one step. To follow months of use, we built a simulation whose recommender responds the way the probe measured. Take a topic fan who tends to finish group-label videos. [沿红线] After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled. [指虚线] Meanwhile the topic share sits flat at thirty percent, so a cocoon check sees nothing. A casual viewer with the same taste barely moves. Could this fan notice? Xu Ruicong.", "11": "Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with. To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. [指条形] Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.", "12": "Suppose she wants fewer of those videos but still wants to see marriage and family content. We simulated eleven strategies for about seventeen days. [说明坐标] Further right means more of the original topic share is kept. Higher up means a bigger drop in personal skew. [先左后右] Turning off personalisation leaves only eight percent of the original topic share. Scrolling past those videos keeps ninety-three percent and reduces personal skew more. [指右侧两点] Now compare two strategies where she scrolls past. In one, she also taps “Not interested.” Under the feedback we modelled, that extra tap makes the improvement smaller.", "13": "And when the user stops, [沿曲线回升] every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button. Fu Yitong will close.", "14": "So what does this mean? [左] A user can lower their own layer: change what they finish, use a filter, and keep doing it. [右] But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make \"not interested\" mean not interested, and decide how much ranking amplifies what provokes. Our evidence comes from logs, an open model and simulation, and we measure what people see, not what they believe. Next time a check calls your feed diverse, look inside the topic. Thank you."};
-const CUM=[0, 22, 90, 160, 195, 240, 270, 315, 365, 420, 465, 510, 565, 590, 630]; // cumulative end times (s)
+const NOTES={"1": "You just wanted to relax. Then: \"No internship by sophomore summer? You are lagging behind.\" [停一拍] Thanks, I was about to have a nice evening. [停一拍] Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.", "2": "Everyone has heard of the information cocoon: your feed shows you more of what you already like. You may think, bro, that's cliché. But we have something special. Most research defines a cocoon by topic: by that definition, you are in a cocoon if your feed is stuck on a few topics, like football or relationships. But this can be misleading.", "3": "[翻页] Look, here are two users, and each square is a video. [指图例] Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like \"Not married by thirty? You are gonna die alone.\" A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a viewpoint cocoon.", "4": "That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew. [指四个问题] Our work follows this one measure through four questions. RQ1: how common is a viewpoint cocoon? RQ2: how does it form? RQ3: how many videos until you can notice it? RQ4: how much does each way out cost? So how do we answer them? That is our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.", "5": "A feed has two separate dials. [横轴] Interest: how much of your feed is the topic. [纵轴] Skew: inside the topic, how much more often one view shows up than it actually exists. A topic fan who sees all sides is fine. A cocoon is high skew, whatever the interest. Feeds A and B sit at the same interest, one above the other. A cocoon check reads only this bottom axis, so it cannot tell them apart.", "6": "Where does the skew come from? Picture a stage that is tilted for everyone, and one person who leans further on their own. [逐级指数字] Among the marriage videos on offer, about one in twenty-four carries a gender label. Ranking shows them to everyone at one in sixteen. That is the platform layer: the tilted stage. For the most skewed tenth of heavy viewers, their own history pushes it to one in eight. That is the personal layer. And everything a user can press, whether like, skip or \"not interested\", reaches only the inner ring.", "7": "We cannot open Kuaishou's app, so we found four ways in. Its public logs from 160,000 users tell us what people were actually shown. OneRec, a recommender trained on those logs, lets us change a history and watch how it reacts. A simulation runs that reaction forward for months. And a counting bound tells us what a user could notice. Zhao Dingcheng starts with the first question.", "8": "An open model reads every video description. [指左边] Videos take sides in four ways; the sharpest is the group label. [指下方] It counts only if all four hold: a whole gender, a negative trait, all or most of them, and in the video's own voice. Quoting it to rebut it does not count. [指右边] Two stronger models, DeepSeek and GPT, relabelled 1,200 videos. Our model agrees with them well, a kappa of 0.78, and we correct every share for the errors it still makes. We count labels against either gender, and take no side on marriage.", "9": "So how common are they? [点阵] Social issues are about eight percent of everything shown, and within them about one video in five takes a side. [中间] These videos draw more reactions: nearly twice the comments. But they are also marked \"not interested\" more often: these are associations, and the attention is not simply approval. [右边] And ranking shows them more often than they exist, in every issue area, by up to one and a half times the odds. For gender labels, that is the one in sixteen you saw a moment ago: the platform layer, and everyone gets it. But what does a user's own history add? Li Yitong.", "10": "To see how the recommender reacts, we ran a controlled experiment on OneRec. [左边] We take a real user's history, swap in ten new videos, and compute exactly what the model would recommend next, for two hundred users. [右边] Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it. [指红框，放慢] And remember this one: if the same ten videos are marked \"not interested\", the narrative still goes up. The button is read as interest.", "11": "One edit is one step. To follow months of use, we built a simulation whose recommender responds the way the probe measured. Take a topic fan who tends to finish group-label videos. [沿红线] After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled. [指虚线] Meanwhile the topic share sits flat at thirty percent, so a cocoon check sees nothing. A casual viewer with the same taste barely moves. Could this fan notice? Xu Ruicong.", "12": "Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with. To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. [指条形] Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.", "13": "Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. [说明坐标] Up means skew removed; right means more of the topic kept. [左下] Turning personalisation off, or \"show less of this topic\", removes the skew by removing the topic. [右边] Scrolling past the labels keeps the topic and works. Pressing \"not interested\" on the same videos works worse than scrolling past, because, as Li Yitong said, each press is read as interest. [顶部] A filter goes furthest, and it needs no help from the recommender.", "14": "And when the user stops, [沿曲线回升] every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button. Fu Yitong will close.", "15": "So what does this mean? [左] A user can lower their own layer: change what they finish, use a filter, and keep doing it. [右] But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make \"not interested\" mean not interested, and decide how much ranking amplifies what provokes. Our evidence comes from logs, an open model and simulation, and we measure what people see, not what they believe. Next time a check calls your feed diverse, look inside the topic. Thank you."};
+const CUM=[0, 22, 44, 90, 160, 195, 240, 270, 315, 365, 420, 465, 510, 565, 590, 630]; // cumulative end times (s)
 // Simulation series and escape results from report/latex/figures/src/results.json
 const FORM={"fan":{"d":[0.0,1.11,2.22,3.33,4.44,5.56,6.67,7.78,8.89,10.0,11.11,12.22,13.33,14.44,15.56,16.67,17.78,18.89,20.0,21.11,22.22,23.33,24.44,25.56,26.67,27.78,28.89,30.0,31.11,32.22,33.33,34.44,35.56,36.67,37.78,38.89,40.0,41.11,42.22,43.33,44.44,45.56,46.67,47.78,48.89,50.0,51.11,52.22,53.33,54.44,55.56,56.67,57.78,58.89,60.0,61.11,62.22,63.33,64.44,65.56,66.67,67.78,68.89,70.0,71.11,72.22,73.33,74.44,75.56,76.67,77.78,78.89,80.0,81.11,82.22,83.33,84.44,85.56,86.67,87.78],"V":[0.0,0.008,0.016,0.023,0.027,0.03,0.042,0.048,0.066,0.079,0.093,0.115,0.132,0.153,0.178,0.196,0.225,0.261,0.295,0.311,0.342,0.372,0.4,0.429,0.453,0.47,0.5,0.524,0.54,0.567,0.586,0.607,0.623,0.63,0.639,0.659,0.679,0.686,0.704,0.718,0.725,0.734,0.73,0.728,0.732,0.736,0.745,0.749,0.758,0.767,0.767,0.766,0.776,0.775,0.774,0.782,0.775,0.78,0.777,0.769,0.771,0.773,0.775,0.774,0.775,0.773,0.772,0.772,0.779,0.778,0.78,0.782,0.775,0.777,0.774,0.78,0.782,0.78,0.786,0.794],"m":[0.024,0.0266,0.03,0.0339,0.0392,0.0455,0.0532,0.0643,0.0764,0.0897,0.1056,0.1205,0.1353,0.1498,0.1652,0.1789,0.1916,0.204,0.2163,0.226,0.235,0.2425,0.2491,0.2551,0.2602,0.2646,0.2694,0.2737,0.2774,0.2807,0.2828,0.285,0.2866,0.2879,0.2888,0.29,0.2911,0.2918,0.293,0.2938,0.2943,0.2949,0.2949,0.295,0.2952,0.2956,0.296,0.2963,0.2966,0.2969,0.2969,0.297,0.2973,0.2974,0.2974,0.2975,0.2976,0.2978,0.2979,0.2977,0.2978,0.2979,0.2981,0.298,0.298,0.2979,0.2979,0.2979,0.2981,0.298,0.2982,0.2982,0.2981,0.2981,0.2981,0.2982,0.2983,0.2983,0.2985,0.2987]},"casual":{"d":[0.0,1.11,2.22,3.33,4.44,5.56,6.67,7.78,8.89,10.0,11.11,12.22,13.33,14.44,15.56,16.67,17.78,18.89,20.0,21.11,22.22,23.33,24.44,25.56,26.67,27.78,28.89,30.0,31.11,32.22,33.33,34.44,35.56,36.67,37.78,38.89,40.0,41.11,42.22,43.33,44.44,45.56,46.67,47.78,48.89,50.0,51.11,52.22,53.33,54.44,55.56,56.67,57.78,58.89,60.0,61.11,62.22,63.33,64.44,65.56,66.67,67.78,68.89,70.0,71.11,72.22,73.33,74.44,75.56,76.67,77.78,78.89,80.0,81.11,82.22,83.33,84.44,85.56,86.67,87.78],"V":[0.0,0.009,0.016,0.022,0.028,0.027,0.03,0.033,0.038,0.036,0.037,0.041,0.042,0.039,0.038,0.04,0.041,0.042,0.043,0.043,0.046,0.045,0.047,0.046,0.047,0.044,0.041,0.039,0.039,0.04,0.043,0.048,0.051,0.05,0.047,0.045,0.047,0.046,0.051,0.054,0.056,0.053,0.054,0.052,0.056,0.057,0.061,0.066,0.069,0.068,0.066,0.066,0.069,0.07,0.069,0.066,0.068,0.072,0.07,0.072,0.068,0.069,0.071,0.073,0.074,0.076,0.075,0.075,0.077,0.079,0.079,0.081,0.08,0.079,0.079,0.084,0.085,0.088,0.09,0.088],"m":[0.024,0.0244,0.0251,0.0257,0.0265,0.0268,0.0269,0.0274,0.0278,0.028,0.0282,0.0285,0.0286,0.0287,0.0287,0.0287,0.0287,0.0286,0.0291,0.0291,0.0293,0.0297,0.0296,0.0302,0.0305,0.0307,0.0308,0.0311,0.0315,0.0318,0.0318,0.0323,0.0328,0.0328,0.0329,0.0333,0.0339,0.0343,0.0348,0.0354,0.0358,0.0361,0.0361,0.036,0.0366,0.0366,0.0372,0.0375,0.038,0.0387,0.0392,0.0391,0.0394,0.0397,0.0402,0.0402,0.0401,0.0406,0.0413,0.0412,0.0411,0.0413,0.0419,0.0421,0.0421,0.0424,0.0423,0.0424,0.0431,0.0434,0.0438,0.0442,0.0446,0.0451,0.0456,0.046,0.0464,0.0465,0.0473,0.0484]}};
 const ESC={"S0":{"kept":1.001,"dV":0.01},"S1":{"kept":0.933,"dV":-1.11},"S2":{"kept":0.942,"dV":-0.87},"S3":{"kept":0.914,"dV":-1.42},"S4":{"kept":0.97,"dV":-0.62},"S5":{"kept":0.95,"dV":-2.06},"S6":{"kept":0.933,"dV":-1.12},"S7":{"kept":0.552,"dV":-0.62},"S8":{"kept":0.08,"dV":-0.78},"S9":{"kept":0.016,"dV":-0.77},"S10":{"kept":0.92,"dV":-1.34},"S11":{"kept":0.902,"dV":-2.56}};
@@ -466,21 +489,20 @@ enter[1]=()=>{sil.on=true;sil.t0=performance.now();if(STATIC)drawSil(0);else req
 leave[1]=()=>{sil.on=false};
 
 /* 2: the usual topic definition, then two feeds with the same topic share; one-sided videos appear inside the topic */
-enter[2]=()=>{
-  const intro=$('#s2i');intro.classList.remove('gone');later(24.6,()=>intro.classList.add('gone'));
+enter[3]=()=>{
   const topic=[...Array(100).keys()].filter(i=>(i*37+11)%100<30);
   const pick=[topic[4],topic[17],topic[9],topic[25]];
   [['g2a',2,0],['g2b',4,.15]].forEach(([id,nr,dd])=>{
     const g=$('#'+id);g.innerHTML='';
     for(let i=0;i<100;i++){const s=document.createElement('div');s.className='zsq';s.style.width=s.style.height='34px';
       s.style.left=(i%10)*40+'px';s.style.top=Math.floor(i/10)*40+'px';g.appendChild(s);
-      if(topic.includes(i))later(32.6+dd+(i%10)*.04,()=>s.classList.add('t'));
-      const k=pick.indexOf(i);if(k>=0&&k<nr)later(36+dd+k*.3,()=>s.classList.add('r'))}
+      if(topic.includes(i))later(1+dd+(i%10)*.04,()=>s.classList.add('t'));
+      const k=pick.indexOf(i);if(k>=0&&k<nr)later(1.5+dd+k*.3,()=>s.classList.add('r'))}
   });
 };
 
 /* 4: interest (x) against skew (y) */
-enter[4]=()=>{
+enter[5]=()=>{
   const s=$('#c4');s.innerHTML='';const L=120,R=1080,T=40,B=600;
   el('line',{x1:L,x2:R+30,y1:B,y2:B,stroke:BONE,'stroke-width':2.5},s);el('line',{x1:L,x2:L,y1:B,y2:T-10,stroke:BONE,'stroke-width':2.5},s);
   el('path',{d:`M${R+14} ${B-10} L${R+34} ${B} L${R+14} ${B+10}`,stroke:BONE,'stroke-width':2.5,fill:'none'},s);
@@ -503,7 +525,7 @@ enter[4]=()=>{
 };
 
 /* 5: concentric layers */
-enter[5]=()=>{
+enter[6]=()=>{
   const svg=$('#s5s');svg.innerHTML='';const cx=470,cy=640,PA='#b0213f',IN='#0a0a0b';
   const defs=el('defs',{},svg);const pat=el('pattern',{id:'hat5',width:14,height:14,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);el('line',{x1:0,y1:0,x2:0,y2:14,stroke:'rgba(10,10,11,.22)','stroke-width':3},pat);
   el('circle',{cx,cy,r:310,fill:'url(#hat5)',stroke:IN,'stroke-width':3,'stroke-dasharray':'14 10',class:'rise',style:'--d:1.8s;transform-origin:'+cx+'px '+cy+'px'},svg);
@@ -522,7 +544,7 @@ enter[5]=()=>{
 };
 
 /* 6: four kinds of evidence */
-enter[6]=()=>{
+enter[7]=()=>{
   const w=$('#w6');
   const cards=[['READ THE LOGS','What each user was actually shown','RQ1 · RQ2'],['PROBE THE MODEL','OneRec-1.7B, trained on these logs: edit a history, see what it recommends','RQ2'],['SIMULATE','Run that response forward for months; try every way out','RQ2 · RQ4'],['COUNT','How many videos a user needs to tell a tilt from chance','RQ3']];
   w.innerHTML=cards.map(([h,t,rq],i)=>`<div class="card rise" style="--d:${1.8+i*.35}s;left:${i*420}px;top:0;width:390px;height:380px"></div>
@@ -533,7 +555,7 @@ enter[6]=()=>{
 };
 
 /* 8: prevalence, engagement, supply vs shown */
-enter[8]=()=>{
+enter[9]=()=>{
   const c=$('#c8a');
   c.innerHTML='<div class="big rose" style="font-size:118px;opacity:0" data-b>1 in 5</div><div class="dotg" style="position:relative;width:240px;height:240px;margin:22px 0 26px"></div><div class="lab" style="font-size:32px;line-height:1.2;width:480px;opacity:0" data-t>issue videos shown carry an opposing narrative<br><span class="ash mono" style="font-size:20px">18.4% of issue videos<br>issues are 7.9% of all shown</span></div>';
   const b=c.querySelector('[data-b]'),t=c.querySelector('[data-t]'),g=c.querySelector('.dotg');
@@ -564,7 +586,7 @@ enter[8]=()=>{
 };
 
 /* 9: the probe */
-enter[9]=()=>{
+enter[10]=()=>{
   const s=$('#c9a');s.innerHTML='';
   el('text',{x:10,y:30,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},s,"A REAL USER'S HISTORY");
   const swap=[2,5,7,10,13,15,18,21,24,27];
@@ -592,7 +614,7 @@ enter[9]=()=>{
 };
 
 /* 10: formation over 90 days */
-enter[10]=()=>{
+enter[11]=()=>{
   const b=$('#c10');b.innerHTML='';const L=90,R=1220,T=30,B=520;
   const X=d=>L+(R-L)*d/90,YV=v=>B-(B-T)*v/.9,YM=m=>B-(B-T)*m/.6;
   el('line',{x1:L,x2:R,y1:B,y2:B,stroke:ASH,'stroke-width':2},b);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ROSE,'stroke-width':2},b);el('line',{x1:R,x2:R,y1:T,y2:B,stroke:BONE,'stroke-width':1.5,'stroke-dasharray':'4 6'},b);
@@ -613,8 +635,8 @@ enter[10]=()=>{
 };
 
 /* 11: days to collect each sample */
-enter[11]=()=>{
-  countups($('#s11'));
+enter[12]=()=>{
+  countups($('#s12'));
   const s=$('#c11');s.innerHTML='';const L=0,R=860,X=d=>L+(R-L)*d/120;
   const bars=[['your own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months'],['a reference the platform publishes',6,BONE,'6 days · 310 videos']];
   bars.forEach(([lab,d,col,val],i)=>{const y=10+i*130;
@@ -626,7 +648,7 @@ enter[11]=()=>{
 };
 
 /* 12: skew removed against topic kept */
-enter[12]=()=>{
+enter[13]=()=>{
   const s=$('#c12');s.innerHTML='';const L=130,R=1040,T=30,B=580;
   const X=k=>L+(R-L)*k,Y=r=>B-(B-T)*(r+.2)/3.0;
   el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:ASH,'stroke-width':2},s);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ASH,'stroke-width':2},s);
@@ -653,7 +675,7 @@ enter[12]=()=>{
 };
 
 /* 13: during the action and after it stops */
-enter[13]=()=>{
+enter[14]=()=>{
   const s=$('#c13');s.innerHTML='';const L=110,R=1120,T=20,B=540,D0=-6,D1=38;
   const X=d=>L+(R-L)*(d-D0)/(D1-D0),Y=v=>B-(B-T)*(v+2)/3;
   el('rect',{x:X(0),y:T,width:X(16.7)-X(0),height:B-T,fill:'rgba(236,229,211,.06)'},s);
@@ -674,7 +696,7 @@ enter[13]=()=>{
     el('text',{x:X(lx),y:Y(t.V[j])+(k==='S0'?-16:k==='S2'?-16:40),fill:c,'font-size':28,'font-style':'italic','font-family':'CG',class:'fade',style:`--d:${1.4+i*.5}s`},s,lab)});
 };
 
-enter[14]=()=>{};
+enter[15]=()=>{};
 function updRQ(s){const q=s.dataset.rq;$('#hud-rq').style.visibility=s.id==='s1'?'hidden':'visible';$$('#hud-rq span').forEach(e=>e.classList.toggle('on',e.dataset.q===q))}
 /* ---------- navigation ---------- */
 const slides=$$('.slide'),NSL=slides.length;let cur=-1,t0=null,timerOn=false;
