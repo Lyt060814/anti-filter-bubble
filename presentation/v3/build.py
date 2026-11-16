@@ -1,5 +1,5 @@
 """Assemble presentation/slides_v3.html from the v2 deck's fonts, styles and engine plus new slides."""
-import json, sys
+import json, re, sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -26,22 +26,29 @@ body.paper #hud-rq{color:#9a9384}body.paper #hud-rq span.on{color:#b0213f}
 svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{font-family:var(--serif)}
 """
 
-notes = {
- 1: "Hello everyone. We are Fu Yitong, Wang Junbo, Zhao Dingcheng, Li Yitong and Xu Ruicong. Our project asks what happens inside the topics your short-video feed shows you.",
- 2: "Here are two feeds. In both, about thirty percent of the videos are about marriage. Short-video apps now offer a cocoon check, and it would give these two feeds the same score. Now look inside the topic. The red squares are videos that pin a negative label on a whole gender, like 'women today only look at the bride price'. Feed A meets one in sixteen. Feed B meets one in eight: twice the odds. Both rates come from the viewing logs. Feed B has kept the topic and narrowed the view. That is what we call a viewpoint cocoon.",
- 3: "Today's tools cannot see this. Cocoon checks and most research count how narrow your topics are. Studies of viewpoints look at politics, from outside the app. Studies of buttons ask what a button removes, not what it costs you. So we ask four questions: how common such videos are, how a cocoon forms, whether a user can notice it, and what getting out costs. Wang Junbo will show how we make this measurable.",
- 4: "A feed has two separate dials. Interest is how much of your feed is the topic. Skew is how much more often one view shows up than it actually exists. A topic fan with high interest and normal skew is fine. A cocoon is high skew, whatever the interest. Feeds A and B have the same interest, so a cocoon check, which reads only this axis, cannot tell them apart.",
- 5: "Where does the skew come from? Picture a stage that is tilted for everyone, and a person who leans further on their own. Among the marriage videos on offer, about one in twenty-four carries a gender label. Ranking shows them to everyone at one in sixteen: that is the platform layer, the tilted stage. For the most skewed tenth of heavy viewers, their own history pushes it to one in eight: the personal layer. Everything a user can press, like, skip or 'not interested', reaches only the inner ring.",
- 6: "We cannot open Kuaishou's app, so we found four ways in. Its public logs, a hundred and sixty thousand users, show what people were shown. OneRec, a recommender trained on those logs, lets us edit a history and watch the response. A simulation runs that response forward for months. And a counting bound tells us what a user could notice. Zhao Dingcheng starts with the first question.",
- 7: "First we need to find these videos among millions. An open model reads each video description and answers a fixed list of questions. Videos take sides in four ways; the group label is the sharpest. To check the model, two stronger models relabelled twelve hundred videos. Our model agrees with them well, kappa 0.78 on group labels, and we correct every share for the errors it still makes. We count labels against either gender, and we take no side on marriage.",
- 8: "So how common are they? Social issues are about eight percent of everything shown, and within them about one video in five takes a side. These videos get more reactions, nearly twice the comments. But they are also marked 'not interested' more often, so the attention is not approval. And ranking shows them more often than they exist, in every issue area. For gender labels, 4.1 percent of the videos on offer become 6.2 percent of what is shown. That is the platform layer, for everyone. What does a user's own history add? Li Yitong.",
- 9: "To see how the recommender reacts, we ran a controlled experiment on OneRec. We took a real user's history, swapped in ten new videos, and computed exactly what the model would recommend next, for two hundred users. Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero: the model really does tell this narrative apart, so it can amplify it. One more result to remember: if the same ten videos are marked 'not interested', the narrative still goes up. The button is read as interest.",
- 10: "One edit is one step. To follow weeks of use, we built a simulation whose recommender responds as the probe measured. Take a topic fan who tends to finish group-label videos. After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled. The topic share, the dashed line, sits flat at thirty percent the whole time, so a cocoon check sees nothing. A casual viewer with the same taste barely moves. Could this fan notice? Xu Ruicong.",
- 11: "Noticing means telling a real tilt from bad luck, like telling a loaded coin from a fair one. Ten flips are not enough, and you also need a fair coin to compare with. To see a doubling, a user needs about four hundred and ninety labelled issue videos from their own feed, and as many from a feed without personalisation. Their own feed gives that in nine days. The reference takes about four months. If the platform published the reference, six days would do.",
- 12: "Now suppose the fan wants out, but wants to keep the topic. We tried eleven ways out for seventeen days. Up is skew removed; right is topic kept. Turning personalisation off, or 'show less of this topic', removes the skew by removing the topic. Scrolling past the label keeps the topic and works. Pressing 'not interested' on the same videos works worse than scrolling past: remember, each press is read as interest. A filter goes furthest and needs no help from the recommender.",
- 13: "And when the user stops, every curve climbs back. Half of the gain is gone in about a week. Escape is a habit, not a button. Fu Yitong will close.",
- 14: "So what does this mean? A user can lower their own layer: change what they finish, use a filter, and keep doing it. But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make 'not interested' mean not interested, and decide how much ranking amplifies what provokes. Our evidence comes from logs, an open model and simulation; we measure what people see, not what they believe. Next time a check calls your feed diverse, look inside the topic. Thank you.",
-}
+def read_script(path):
+    """Speaker notes per slide from script_v3.md: the quoted lines under each '**Slide N' heading."""
+    notes, cur = {}, None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"\*\*Slide (\d+)", line)
+        if m:
+            cur = int(m.group(1)); notes[cur] = []
+        elif line.startswith("## "):
+            cur = None
+        elif cur and line.startswith(">"):
+            t = line[1:].strip()
+            if t:
+                notes[cur].append(t)
+    out = {}
+    for k, ps in notes.items():
+        t = " ".join(ps)
+        t = re.sub(r"\*\(([^)]*)\)\*", r"[\1]", t)   # stage cues
+        t = t.replace("**", "").replace("*", "")
+        out[k] = t
+    return out
+
+
+notes = read_script(REPO / "presentation/script_v3.md")
 dur = [15, 50, 35, 35, 45, 30, 40, 55, 55, 45, 45, 55, 25, 40]
 cum = [0]
 for d in dur:

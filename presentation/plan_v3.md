@@ -112,7 +112,8 @@ v3 是另起的一套幻灯片 [slides_v3.html](slides_v3.html)，沿用 v2 的�
 
 - 打开 `slides_v3.html`（Chrome/Edge），按键与 v2 相同：→/空格 翻页，N 讲稿，T 计时，F 全屏。地址后加 `?static` 关闭动画，用于导出 PDF。
 - 导出 PDF：Chrome 打开 `slides_v3.html?static`，逐页截图或打印；提交前检查 14 页的讲者姓名都在右上角。
-- 修改：编辑 `v3/` 下的 `sections.html`（页面）、`enters.js`（图表）或 `build.py`（讲稿和计时），再运行 `python3 presentation/v3/build.py .` 重新生成。`v3/data.json` 是从报告 `results.json` 导出的模拟曲线。
+- 完整演讲稿见 [script_v3.md](script_v3.md)，幻灯片里按 N 看到的讲稿由它生成。
+- 修改：编辑 `v3/` 下的 `sections.html`（页面）、`enters.js`（图表）、`build.py`（计时）或 `script_v3.md`（讲稿），再运行 `python3 presentation/v3/build.py .` 重新生成。`v3/data.json` 是从报告 `results.json` 导出的模拟曲线。
 
 # 附：幻灯片与最终报告的对应
 
