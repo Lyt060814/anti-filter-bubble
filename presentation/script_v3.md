@@ -51,46 +51,49 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Li Yitong（第 9–10 页，约 1:40）
+## Li Yitong（第 9–11 页，约 2:15）
 
-**Slide 9 · 0:55**
-> To see how the recommender reacts, we ran a controlled experiment on OneRec. *(左边)* We take a real user's history, swap in ten new videos, and compute exactly what the model would recommend next, for two hundred users.
+**Slide 9 · 0:40**
+> What does your own history add? To answer that, look at what is behind the feed. *(指手机)* You scroll. Everything you do, finishing a video, skipping it, liking it, goes into your history. *(沿箭头)* A recommender reads that history and predicts the next video you are most likely to finish, and you scroll again. Swipe after swipe, it is a loop. *(指下方)* If you know ChatGPT, you know the idea: ChatGPT reads the words so far and predicts the next word; a recommender reads the videos so far and predicts the next video. We use OneRec, a recommender of exactly this kind that Kuaishou trained on these same logs. We do two things with it: one turn of the loop with the real model, our probe, and three months of turns with a copy tuned to it, our simulation.
+
+**Slide 10 · 0:55**
+> First, one turn of the loop. *(左边)* We take a real user's history, swap in ten new videos, and compute exactly what OneRec would recommend next, for two hundred users.
 >
 > *(右边)* Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it.
 >
 > *(指红框，放慢)* And remember this one: if the same ten videos are marked "not interested", the narrative still goes **up**. The button is read as interest.
 
-**Slide 10 · 0:45**
-> One edit is one step. To follow months of use, we built a simulation whose recommender responds the way the probe measured. Take a topic fan who tends to finish group-label videos. *(沿红线)* After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled.
+**Slide 11 · 0:45**
+> One turn is one step. To follow months of scrolling, we run the loop with a simple recommender tuned so that one turn matches OneRec. Take a topic fan who tends to finish group-label videos. *(沿红线)* After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled.
 >
-> *(指虚线)* Meanwhile the topic share sits flat at thirty percent, so a cocoon check sees nothing. A casual viewer with the same taste barely moves.
+> *(指虚线)* The topic share stops growing at about thirty percent after a month, but the skew keeps climbing, so a cocoon check sees nothing new. A casual viewer with the same taste barely moves.
 >
 > Could this fan notice? Xu Ruicong.
 
 ---
 
-## Xu Ruicong（第 11–13 页，约 2:05）
+## Xu Ruicong（第 12–14 页，约 2:05）
 
-**Slide 11 · 0:45**
+**Slide 12 · 0:45**
 > Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with.
 >
 > To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. *(指条形)* Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.
 
-**Slide 12 · 0:55**
+**Slide 13 · 0:55**
 > Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. *(说明坐标)* Up means skew removed; right means more of the topic kept.
 >
 > *(左下)* Turning personalisation off, or "show less of this topic", removes the skew by removing the topic. *(右边)* Scrolling past the labels keeps the topic and works. Pressing "not interested" on the same videos works *worse* than scrolling past, because, as Li Yitong said, each press is read as interest. *(顶部)* A filter goes furthest, and it needs no help from the recommender.
 
-**Slide 13 · 0:25**
+**Slide 14 · 0:25**
 > And when the user stops, *(沿曲线回升)* every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button.
 >
 > Fu Yitong will close.
 
 ---
 
-## Fu Yitong（第 14 页，约 0:40）
+## Fu Yitong（第 15 页，约 0:40）
 
-**Slide 14 · 0:40**
+**Slide 15 · 0:40**
 > So what does this mean? *(左)* A user can lower their own layer: change what they finish, use a filter, and keep doing it.
 >
 > *(右)* But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make "not interested" mean not interested, and decide how much ranking amplifies what provokes.
@@ -104,5 +107,5 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 ## 排练提示
 
 - **说数字后停半秒。** 比例统一说 "one in sixteen"，不念百分比。
-- **三处伏笔都要讲出来：** 第 9 页 "remember this"，第 12 页 "as Li Yitong said"，第 14 页 "make 'not interested' mean not interested"。
-- **超时先砍：** 第 7 页的四类例句（不念），然后第 11 页最后一句（平台公布参照只需 6 天）。
+- **三处伏笔都要讲出来：** 第 10 页 "remember this"，第 13 页 "as Li Yitong said"，第 15 页 "make 'not interested' mean not interested"。
+- **超时先砍：** 第 7 页的四类例句（不念），然后第 12 页最后一句（平台公布参照只需 6 天）。

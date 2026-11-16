@@ -83,7 +83,7 @@ enter[8]=()=>{
 };
 
 /* 9: the probe */
-enter[9]=()=>{
+enter[10]=()=>{
   const s=$('#c9a');s.innerHTML='';
   el('text',{x:10,y:30,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},s,"A REAL USER'S HISTORY");
   const swap=[2,5,7,10,13,15,18,21,24,27];
@@ -111,20 +111,20 @@ enter[9]=()=>{
 };
 
 /* 10: formation over 90 days */
-enter[10]=()=>{
+enter[11]=()=>{
   const b=$('#c10');b.innerHTML='';const L=90,R=1220,T=30,B=520;
   const X=d=>L+(R-L)*d/90,YV=v=>B-(B-T)*v/.9,YM=m=>B-(B-T)*m/.6;
   el('line',{x1:L,x2:R,y1:B,y2:B,stroke:ASH,'stroke-width':2},b);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ROSE,'stroke-width':2},b);el('line',{x1:R,x2:R,y1:T,y2:B,stroke:BONE,'stroke-width':1.5,'stroke-dasharray':'4 6'},b);
   [[0,'×1'],[.4,'×1.5'],[.78,'×2.2']].forEach(([v,l])=>el('text',{x:L-14,y:YV(v)+8,fill:ROSE,'font-size':26,'text-anchor':'end'},b,l));
   el('text',{x:L-14,y:T-6,fill:ROSE,'font-size':20,'text-anchor':'end','font-family':'PM'},b,'ODDS');
   [0,.3,.6].forEach(m=>el('text',{x:R+12,y:YM(m)+8,fill:BONE,'font-size':26},b,Math.round(m*100)+'%'));
-  el('text',{x:R+12,y:T-6,fill:BONE,'font-size':20,'font-family':'PM'},b,'TOPIC');
+  el('text',{x:R+12,y:T-30,fill:BONE,'font-size':20,'font-family':'PM'},b,'TOPIC');
   [0,30,60,90].forEach(d=>el('text',{x:X(d),y:B+40,fill:ASH,'font-size':26,'text-anchor':'middle'},b,'day '+d));
   const path=(s,key,Y)=>'M'+s.d.map((d,j)=>X(d).toFixed(1)+' '+Y(s[key][j]).toFixed(1)).join(' L');
   el('path',{d:path(FORM.fan,'m',YM),stroke:BONE,'stroke-width':3,'stroke-dasharray':'12 9',fill:'none',class:'fade',style:'--d:1.2s'},b);
   el('path',{d:path(FORM.casual,'V',YV),stroke:ASH,'stroke-width':3,fill:'none',pathLength:1,class:'draw',style:'--d:1.6s'},b);
   el('path',{d:path(FORM.fan,'V',YV),stroke:ROSE,'stroke-width':7,fill:'none',pathLength:1,class:'draw',style:'--d:2s','stroke-linejoin':'round'},b);
-  el('text',{x:R-12,y:YM(.30)+44,fill:BONE,'font-size':30,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.6s'},b,'topic share: flat at 30%');
+  el('text',{x:R-12,y:YM(.30)+44,fill:BONE,'font-size':30,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.6s'},b,'topic share: stops growing at 30%');
   el('text',{x:R-12,y:YV(.79)-18,fill:ROSE,'font-size':32,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.6s'},b,'topic fan: twice the odds by day 89');
   el('text',{x:R-12,y:YV(.09)-16,fill:ASH,'font-size':26,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.8s'},b,'casual viewer, same taste: barely moves');
   el('circle',{cx:X(24),cy:YV(.39),r:11,fill:ROSE,class:'pop',style:'--d:3.3s;transform-origin:'+X(24)+'px '+YV(.39)+'px'},b);
@@ -132,8 +132,8 @@ enter[10]=()=>{
 };
 
 /* 11: days to collect each sample */
-enter[11]=()=>{
-  countups($('#s11'));
+enter[12]=()=>{
+  countups($('#s12'));
   const s=$('#c11');s.innerHTML='';const L=0,R=860,X=d=>L+(R-L)*d/120;
   const bars=[['your own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months'],['a reference the platform publishes',6,BONE,'6 days · 310 videos']];
   bars.forEach(([lab,d,col,val],i)=>{const y=10+i*130;
@@ -145,7 +145,7 @@ enter[11]=()=>{
 };
 
 /* 12: skew removed against topic kept */
-enter[12]=()=>{
+enter[13]=()=>{
   const s=$('#c12');s.innerHTML='';const L=130,R=1040,T=30,B=580;
   const X=k=>L+(R-L)*k,Y=r=>B-(B-T)*(r+.2)/3.0;
   el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:ASH,'stroke-width':2},s);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ASH,'stroke-width':2},s);
@@ -172,7 +172,7 @@ enter[12]=()=>{
 };
 
 /* 13: during the action and after it stops */
-enter[13]=()=>{
+enter[14]=()=>{
   const s=$('#c13');s.innerHTML='';const L=110,R=1120,T=20,B=540,D0=-6,D1=38;
   const X=d=>L+(R-L)*(d-D0)/(D1-D0),Y=v=>B-(B-T)*(v+2)/3;
   el('rect',{x:X(0),y:T,width:X(16.7)-X(0),height:B-T,fill:'rgba(236,229,211,.06)'},s);
@@ -193,4 +193,4 @@ enter[13]=()=>{
     el('text',{x:X(lx),y:Y(t.V[j])+(k==='S0'?-16:k==='S2'?-16:40),fill:c,'font-size':28,'font-style':'italic','font-family':'CG',class:'fade',style:`--d:${1.4+i*.5}s`},s,lab)});
 };
 
-enter[14]=()=>{};
+enter[15]=()=>{};

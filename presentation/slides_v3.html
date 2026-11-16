@@ -97,6 +97,25 @@ body.paper #hud-rq{color:#9a9384}body.paper #hud-rq span.on{color:#b0213f}
 .trow .ty{font-size:28px;line-height:1.35;color:var(--sepia)}.trow .ty.rose{color:var(--rose)}
 .tk{font:600 34px/1.22 var(--serif);margin-top:22px;padding-left:34px;position:relative}
 .tk::before{content:'—';position:absolute;left:0;color:var(--ash)}
+
+.phone{position:absolute;width:320px;height:640px;border-radius:44px;border:3px solid var(--bone);background:#060607;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.pscreen{position:absolute;left:14px;top:14px;right:14px;bottom:14px;border-radius:32px;overflow:hidden;background:#111}
+.pscroll{position:absolute;left:0;right:0;top:0}
+.on .pscroll{animation:pscroll 14s linear infinite}
+@keyframes pscroll{to{transform:translateY(-1824px)}}
+body.static .pscroll{transform:translateY(-140px)}
+.pcard{position:relative;height:304px;border-bottom:2px solid #000;background:linear-gradient(160deg,#2a2723,#151413)}
+.pcard.r{background:linear-gradient(160deg,#4a1b25,#1d0f12)}
+.pthumb{position:absolute;left:24px;right:24px;top:28px;height:150px;border-radius:6px;background:rgba(236,229,211,.08)}
+.pcard.r .pthumb{background:rgba(226,58,90,.18)}
+.pcap{position:absolute;left:24px;right:58px;top:196px;font:500 21px/1.25 var(--serif);color:var(--bone)}
+.pcard.r .pcap{color:#ffb3c1;font-style:italic}
+.ptag{position:absolute;left:24px;top:40px;font:400 12px var(--mono);letter-spacing:2px;color:var(--rose);background:#000;padding:3px 7px}
+.pnotch{position:absolute;left:50%;top:22px;width:90px;height:22px;margin-left:-45px;border-radius:12px;background:#000}
+.picons{position:absolute;right:26px;top:330px;display:flex;flex-direction:column;gap:22px;font:400 26px var(--mono);color:var(--bone);text-align:center}
+.wchip{display:inline-block;margin-right:10px;padding:6px 14px;border:1.5px solid rgba(236,229,211,.5);font:500 24px var(--serif);color:var(--bone)}
+.vchip{display:inline-block;width:44px;height:44px;margin-right:12px;vertical-align:middle;border-radius:3px;background:#cfc7b3}
+.vchip.r{background:var(--rose)}
 svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{font-family:var(--serif)}
 </style></head>
 <body>
@@ -283,9 +302,52 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp m stampin" style="--d:4.2s;left:1600px;top:262px;rotate:3deg;font-size:22px">From the logs</div>
 </section>
 
-<!-- 9 PROBE -->
-<section class="slide" id="s9" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.28:.62">
-  <div class="k rise">09 — Experiment · RQ2</div>
+<!-- 9 THE FEED IS A LOOP -->
+<section class="slide" id="s9" data-speaker="Li Yitong" data-rq="2" data-bg="quiet">
+  <div class="k rise">09 — Behind the feed · RQ2</div>
+  <div class="h rise" style="--d:.15s">Every swipe feeds the next video</div>
+  <!-- phone -->
+  <div class="phone rise" style="--d:.3s;left:150px;top:236px">
+    <div class="pscreen"><div class="pscroll"><div class="pcard"><div class="pthumb"></div><div class="pcap">Football highlights</div></div><div class="pcard r"><div class="pthumb"></div><div class="pcap">"Women today only look at the bride price."</div><div class=ptag>GROUP LABEL</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">5-minute dinner</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">Wedding vlog: our first year</div></div><div class="pcard r"><div class="pthumb"></div><div class="pcap">"Men all stop trying once the wedding is over."</div><div class=ptag>GROUP LABEL</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">Dorm room tour</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">Football highlights</div></div><div class="pcard r"><div class="pthumb"></div><div class="pcap">"Women today only look at the bride price."</div><div class=ptag>GROUP LABEL</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">5-minute dinner</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">Wedding vlog: our first year</div></div><div class="pcard r"><div class="pthumb"></div><div class="pcap">"Men all stop trying once the wedding is over."</div><div class=ptag>GROUP LABEL</div></div><div class="pcard"><div class="pthumb"></div><div class="pcap">Dorm room tour</div></div></div></div>
+    <div class="pnotch"></div>
+    <div class="picons"><span>♥</span><span>↻</span><span>✕</span></div>
+  </div>
+  <div class="abs mono rise ash" style="--d:.6s;left:150px;top:900px;width:320px;text-align:center;font-size:17px;letter-spacing:2px">A USER, SCROLLING</div>
+  <!-- loop -->
+  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none" stroke="#8d887d" stroke-width="2.5">
+    <path class="draw" pathLength="1" style="--d:.9s" d="M478 380 H612 M592 364 L616 380 L592 396"/>
+    <path class="draw" pathLength="1" style="--d:1.6s" d="M1190 330 H1290 M1270 314 L1294 330 L1270 346"/>
+    <path class="draw" pathLength="1" style="--d:2.3s;stroke:#e23a5a" d="M1560 420 V500 H478 M498 484 L474 500 L498 516"/>
+  </svg>
+  <div class="abs mono rise" style="--d:1s;left:486px;top:300px;width:140px;font-size:14px;line-height:1.35;letter-spacing:1px;color:var(--bone)">finish · skip<br>like · "not<br>interested"</div>
+  <div class="card rise" style="--d:1.2s;left:630px;top:246px;width:550px;height:170px"></div>
+  <div class="abs rise" style="--d:1.3s;left:660px;top:268px;width:500px">
+    <div class="mono sep" style="font-size:18px;letter-spacing:3px">YOUR HISTORY</div>
+    <div style="position:relative;height:36px;margin-top:16px"><div style="position:absolute;left:0px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:44px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:88px;top:0;width:36px;height:36px;border-radius:2px;background:var(--rose)"></div><div style="position:absolute;left:132px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:176px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:220px;top:0;width:36px;height:36px;border-radius:2px;background:var(--rose)"></div><div style="position:absolute;left:264px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:308px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:352px;top:0;width:36px;height:36px;border-radius:2px;background:var(--rose)"></div><div style="position:absolute;left:396px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div><div style="position:absolute;left:440px;top:0;width:36px;height:36px;border-radius:2px;background:#cfc7b3"></div></div>
+    <div class="mono ash" style="font-size:16px;margin-top:16px">every video you watched, and what you did with it</div></div>
+  <div class="card rise" style="--d:1.8s;left:1300px;top:246px;width:500px;height:170px;border-color:rgba(226,58,90,.7)"></div>
+  <div class="abs rise" style="--d:1.9s;left:1330px;top:268px;width:450px">
+    <div class="mono rose" style="font-size:18px;letter-spacing:3px">RECOMMENDER</div>
+    <div style="font:600 38px/1.15 var(--serif);margin-top:12px">predicts the next video</div>
+    <div class="mono ash" style="font-size:16px;margin-top:10px">the one you are most likely to finish</div></div>
+  <div class="abs it rise rose" style="--d:2.5s;left:880px;top:450px;font-size:30px">the next video · swipe after swipe</div>
+  <!-- probe vs simulation -->
+  <div class="abs rise" style="--d:2.8s;left:630px;top:530px;width:1170px;display:flex;gap:30px;font:600 25px/1.3 var(--serif)">
+    <div style="flex:1"><span class="mono sep" style="font-size:16px;letter-spacing:3px">THE PROBE</span><br>one turn of the loop, with the real model</div>
+    <div style="flex:1"><span class="mono sep" style="font-size:16px;letter-spacing:3px">THE SIMULATION</span><br>three months of turns, with a copy tuned to it</div></div>
+  <!-- analogy -->
+  <div class="abs mono rise ash" style="--d:3.2s;left:630px;top:640px;font-size:18px;letter-spacing:4px">A RECOMMENDER IS LIKE A LANGUAGE MODEL</div>
+  <div class="abs rise" style="--d:3.4s;left:630px;top:682px;width:1190px;display:grid;grid-template-columns:190px 470px 60px 1fr;align-items:center;row-gap:22px">
+    <div style="font:italic 500 32px var(--serif)">ChatGPT</div><div style="white-space:nowrap"><span class="wchip">Women</span><span class="wchip">today</span><span class="wchip">only</span><span class="wchip">look</span><span class="wchip">at</span></div><div class="rose" style="font-size:40px">→</div><div><span class="wchip" style="border-color:var(--rose);color:var(--rose)">the</span> <span class="mono ash" style="font-size:16px">next word</span></div>
+    <div style="font:italic 500 32px var(--serif)">OneRec</div><div><span class="vchip"></span><span class="vchip r"></span><span class="vchip"></span><span class="vchip r"></span><span class="vchip"></span></div><div class="rose" style="font-size:40px">→</div><div><span class="vchip r" style="outline:2px solid var(--rose);outline-offset:3px"></span> <span class="mono ash" style="font-size:16px">&nbsp;next video</span></div>
+  </div>
+  <div class="abs mono rise ash" style="--d:3.8s;left:630px;top:880px;width:1190px;font-size:17px;line-height:1.5">OneRec-1.7B: an open recommender trained by Kuaishou on these same logs · our stand-in for the app's own model, which we cannot open</div>
+  <div class="abs mono ash fade" style="--d:1s;left:150px;top:934px;width:320px;text-align:center;font-size:13px;letter-spacing:1px">illustrative feed</div>
+</section>
+
+<!-- 10 PROBE -->
+<section class="slide" id="s10" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.28:.62">
+  <div class="k rise">10 — Experiment · RQ2</div>
   <div class="h rise" style="--d:.15s;font-size:80px">Change a history, and the recommender follows</div>
   <svg id="c9a" class="abs" width="800" height="560" style="left:110px;top:280px" viewBox="0 0 800 560"></svg>
   <div class="abs mono rise" style="--d:.5s;left:1000px;top:286px;font-size:19px;letter-spacing:3px;color:var(--ash)">HOW MUCH MORE LIKELY IT RECOMMENDS · LOG-ODDS</div>
@@ -295,9 +357,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp m stampin" style="--d:4s;left:1560px;top:226px;rotate:-3deg;font-size:22px">OneRec probe</div>
 </section>
 
-<!-- 10 FORMATION -->
-<section class="slide" id="s10" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.7:.3">
-  <div class="k rise">10 — Formation · RQ2</div>
+<!-- 11 FORMATION -->
+<section class="slide" id="s11" data-speaker="Li Yitong" data-rq="2" data-bg="converge:.7:.3">
+  <div class="k rise">11 — Formation · RQ2</div>
   <div class="h rise" style="--d:.15s">Three months: same topic, twice the odds</div>
   <svg id="c10" class="abs" width="1300" height="600" style="left:110px;top:270px" viewBox="0 0 1300 600"></svg>
   <div class="abs rise" style="--d:.6s;left:1480px;top:290px;width:340px">
@@ -310,9 +372,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4s;left:1480px;top:690px;rotate:2deg;font-size:22px">Simulation · 400 users</div>
 </section>
 
-<!-- 11 DETECTION -->
-<section class="slide" id="s11" data-speaker="Xu Ruicong" data-rq="3" data-bg="quiet">
-  <div class="k rise">11 — Noticing · RQ3</div>
+<!-- 12 DETECTION -->
+<section class="slide" id="s12" data-speaker="Xu Ruicong" data-rq="3" data-bg="quiet">
+  <div class="k rise">12 — Noticing · RQ3</div>
   <div class="h rise" style="--d:.15s">To notice it, you need a second feed</div>
   <div class="abs rise" style="--d:.5s;left:120px;top:270px;width:760px;font:italic 500 38px/1.25 var(--serif);color:var(--sepia)">Is a coin loaded? Ten flips cannot tell you, and you need a fair coin to compare with.</div>
   <div class="abs rise" style="--d:1.2s;left:120px;top:470px;width:700px">
@@ -323,9 +385,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp n stampin" style="--d:3.2s;left:1600px;top:250px;rotate:2deg;font-size:22px">Counting bound</div>
 </section>
 
-<!-- 12 ESCAPE PRICE -->
-<section class="slide" id="s12" data-speaker="Xu Ruicong" data-rq="4" data-bg="quiet">
-  <div class="k rise">12 — Escape · RQ4</div>
+<!-- 13 ESCAPE PRICE -->
+<section class="slide" id="s13" data-speaker="Xu Ruicong" data-rq="4" data-bg="quiet">
+  <div class="k rise">13 — Escape · RQ4</div>
   <div class="h rise" style="--d:.15s">Every way out has a price</div>
   <div class="abs mono rise" style="--d:.3s;left:120px;top:214px;font-size:21px;letter-spacing:2px;color:var(--sepia)">A TOPIC FAN AT TWICE THE ODDS TRIES ELEVEN WAYS OUT FOR 17 DAYS</div>
   <svg id="c12" class="abs" width="1080" height="700" style="left:100px;top:262px" viewBox="0 0 1080 700"></svg>
@@ -335,9 +397,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4.6s;left:1600px;top:206px;rotate:2deg;font-size:22px">Simulation</div>
 </section>
 
-<!-- 13 NOTHING LASTS -->
-<section class="slide" id="s13" data-speaker="Xu Ruicong" data-rq="4" data-bg="diverge:.5:.5">
-  <div class="k rise">13 — Escape · RQ4</div>
+<!-- 14 NOTHING LASTS -->
+<section class="slide" id="s14" data-speaker="Xu Ruicong" data-rq="4" data-bg="diverge:.5:.5">
+  <div class="k rise">14 — Escape · RQ4</div>
   <div class="h rise" style="--d:.15s">Skew rebounds after the intervention ends</div>
   <svg id="c13" class="abs" width="1200" height="640" style="left:100px;top:260px" viewBox="0 0 1200 640"></svg>
   <div class="abs rise" style="--d:3.4s;left:1380px;top:330px;width:440px;font:600 40px/1.22 var(--serif)">Stop, and <span class="it rose">half the gain</span> is gone in about a week.</div>
@@ -345,9 +407,9 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
   <div class="stamp s stampin" style="--d:4.6s;left:1380px;top:830px;rotate:-2deg;font-size:22px">Simulation · 400 users</div>
 </section>
 
-<!-- 14 TAKEAWAY -->
-<section class="slide" id="s14" data-speaker="Fu Yitong" data-bg="diverge:.5:.5">
-  <div class="k rise">14 — Takeaway</div>
+<!-- 15 TAKEAWAY -->
+<section class="slide" id="s15" data-speaker="Fu Yitong" data-bg="diverge:.5:.5">
+  <div class="k rise">15 — Takeaway</div>
   <div class="h rise" style="--d:.15s">Keep the topic, widen the view</div>
   <div class="card rise" style="--d:.4s;left:120px;top:262px;width:800px;height:420px"></div>
   <div class="card rise" style="--d:.8s;left:1000px;top:262px;width:800px;height:420px;border-color:rgba(226,58,90,.7)"></div>
@@ -376,8 +438,8 @@ svg text[font-family="PM"]{font-family:var(--mono)}svg text[font-family="CG"]{fo
 </div>
 
 <script>
-const NOTES={"1": "You just wanted to relax. Then: \"No internship by sophomore summer? You are lagging behind.\" [停一拍] Thanks, I was about to have a nice evening. [停一拍] Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.", "2": "Everyone has heard of the information cocoon: your feed shows you more of what you already like. You may think, bro, that's cliché. But we have something special. Most research defines a cocoon by topic: by that definition, you are in a cocoon if your feed is stuck on a few topics, like football or relationships. But this can be misleading.", "3": "[翻页] Look, here are two users, and each square is a video. [指图例] Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like \"Not married by thirty? You are gonna die alone.\" A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a viewpoint cocoon.", "4": "That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew. Our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.", "5": "Fu asked: is it the creators, the platform, or you? First we need one number, skew: how often a view is shown, compared with how often it actually exists. [逐层指] Start with what creators post: that is the baseline. Then what the platform shows everyone: anything above the baseline is the platform layer, and everyone gets it. Then what your own feed shows you: anything above that is your personal layer, built by your own watching. [指左边圆圈] Think of a stage tilted for everyone, and one person leaning further. And anything you can press, whether like, skip or \"not interested\", reaches only your own lean.", "6": "So we ask four questions, and each needs its own evidence. [逐列指] How common are these videos, and how big is the platform layer? We read the logs: 160,000 users, every video labelled by language models. How does a personal layer form? We probe OneRec, a recommender trained on these logs, then simulate months of use. Can a user notice it? We count how many videos it takes. And what does each way out cost? We simulate every option. Zhao Dingcheng starts with the first question.", "7": "How common are these videos? First we have to find them among more than a million video descriptions. [上排] An open model, Qwen, reads every description and answers the same list of questions: is it about an issue, does it take a side, in which way, and is it a group label? [下排] Then we check it. Two stronger models, DeepSeek and GPT, relabel twelve hundred videos on their own. Our model agrees with them well, a kappa of 0.78, and the errors that remain, 21 percent missed and 1 percent wrongly flagged, are corrected in every share we report. [底部] Taking a side comes in four ways; the group label is the sharpest. It only counts in the video's own voice, against either gender, and we take no side on marriage.", "8": "So how common are they? [点阵] Social issues are about eight percent of everything shown, and within them about one video in five takes a side. [中间] These videos draw more reactions: nearly twice the comments. But they are also marked \"not interested\" more often: these are associations, and the attention is not simply approval. [右边] And ranking shows them more often than they exist, in every issue area, by up to one and a half times the odds. For gender labels, that is the one in sixteen you saw a moment ago: the platform layer, and everyone gets it. But what does a user's own history add? Li Yitong.", "9": "To see how the recommender reacts, we ran a controlled experiment on OneRec. [左边] We take a real user's history, swap in ten new videos, and compute exactly what the model would recommend next, for two hundred users. [右边] Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it. [指红框，放慢] And remember this one: if the same ten videos are marked \"not interested\", the narrative still goes up. The button is read as interest.", "10": "One edit is one step. To follow months of use, we built a simulation whose recommender responds the way the probe measured. Take a topic fan who tends to finish group-label videos. [沿红线] After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled. [指虚线] Meanwhile the topic share sits flat at thirty percent, so a cocoon check sees nothing. A casual viewer with the same taste barely moves. Could this fan notice? Xu Ruicong.", "11": "Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with. To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. [指条形] Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.", "12": "Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. [说明坐标] Up means skew removed; right means more of the topic kept. [左下] Turning personalisation off, or \"show less of this topic\", removes the skew by removing the topic. [右边] Scrolling past the labels keeps the topic and works. Pressing \"not interested\" on the same videos works worse than scrolling past, because, as Li Yitong said, each press is read as interest. [顶部] A filter goes furthest, and it needs no help from the recommender.", "13": "And when the user stops, [沿曲线回升] every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button. Fu Yitong will close.", "14": "So what does this mean? [左] A user can lower their own layer: change what they finish, use a filter, and keep doing it. [右] But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make \"not interested\" mean not interested, and decide how much ranking amplifies what provokes. Our evidence comes from logs, an open model and simulation, and we measure what people see, not what they believe. Next time a check calls your feed diverse, look inside the topic. Thank you."};
-const CUM=[0, 22, 44, 90, 140, 180, 220, 265, 315, 370, 415, 460, 515, 540, 580]; // cumulative end times (s)
+const NOTES={"1": "You just wanted to relax. Then: \"No internship by sophomore summer? You are lagging behind.\" [停一拍] Thanks, I was about to have a nice evening. [停一拍] Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.", "2": "Everyone has heard of the information cocoon: your feed shows you more of what you already like. You may think, bro, that's cliché. But we have something special. Most research defines a cocoon by topic: by that definition, you are in a cocoon if your feed is stuck on a few topics, like football or relationships. But this can be misleading.", "3": "[翻页] Look, here are two users, and each square is a video. [指图例] Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like \"Not married by thirty? You are gonna die alone.\" A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a viewpoint cocoon.", "4": "That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew. Our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.", "5": "Fu asked: is it the creators, the platform, or you? First we need one number, skew: how often a view is shown, compared with how often it actually exists. [逐层指] Start with what creators post: that is the baseline. Then what the platform shows everyone: anything above the baseline is the platform layer, and everyone gets it. Then what your own feed shows you: anything above that is your personal layer, built by your own watching. [指左边圆圈] Think of a stage tilted for everyone, and one person leaning further. And anything you can press, whether like, skip or \"not interested\", reaches only your own lean.", "6": "So we ask four questions, and each needs its own evidence. [逐列指] How common are these videos, and how big is the platform layer? We read the logs: 160,000 users, every video labelled by language models. How does a personal layer form? We probe OneRec, a recommender trained on these logs, then simulate months of use. Can a user notice it? We count how many videos it takes. And what does each way out cost? We simulate every option. Zhao Dingcheng starts with the first question.", "7": "How common are these videos? First we have to find them among more than a million video descriptions. [上排] An open model, Qwen, reads every description and answers the same list of questions: is it about an issue, does it take a side, in which way, and is it a group label? [下排] Then we check it. Two stronger models, DeepSeek and GPT, relabel twelve hundred videos on their own. Our model agrees with them well, a kappa of 0.78, and the errors that remain, 21 percent missed and 1 percent wrongly flagged, are corrected in every share we report. [底部] Taking a side comes in four ways; the group label is the sharpest. It only counts in the video's own voice, against either gender, and we take no side on marriage.", "8": "So how common are they? [点阵] Social issues are about eight percent of everything shown, and within them about one video in five takes a side. [中间] These videos draw more reactions: nearly twice the comments. But they are also marked \"not interested\" more often: these are associations, and the attention is not simply approval. [右边] And ranking shows them more often than they exist, in every issue area, by up to one and a half times the odds. For gender labels, that is the one in sixteen you saw a moment ago: the platform layer, and everyone gets it. But what does a user's own history add? Li Yitong.", "9": "What does your own history add? To answer that, look at what is behind the feed. [指手机] You scroll. Everything you do, finishing a video, skipping it, liking it, goes into your history. [沿箭头] A recommender reads that history and predicts the next video you are most likely to finish, and you scroll again. Swipe after swipe, it is a loop. [指下方] If you know ChatGPT, you know the idea: ChatGPT reads the words so far and predicts the next word; a recommender reads the videos so far and predicts the next video. We use OneRec, a recommender of exactly this kind that Kuaishou trained on these same logs. We do two things with it: one turn of the loop with the real model, our probe, and three months of turns with a copy tuned to it, our simulation.", "10": "First, one turn of the loop. [左边] We take a real user's history, swap in ten new videos, and compute exactly what OneRec would recommend next, for two hundred users. [右边] Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it. [指红框，放慢] And remember this one: if the same ten videos are marked \"not interested\", the narrative still goes up. The button is read as interest.", "11": "One turn is one step. To follow months of scrolling, we run the loop with a simple recommender tuned so that one turn matches OneRec. Take a topic fan who tends to finish group-label videos. [沿红线] After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled. [指虚线] The topic share stops growing at about thirty percent after a month, but the skew keeps climbing, so a cocoon check sees nothing new. A casual viewer with the same taste barely moves. Could this fan notice? Xu Ruicong.", "12": "Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with. To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. [指条形] Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.", "13": "Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. [说明坐标] Up means skew removed; right means more of the topic kept. [左下] Turning personalisation off, or \"show less of this topic\", removes the skew by removing the topic. [右边] Scrolling past the labels keeps the topic and works. Pressing \"not interested\" on the same videos works worse than scrolling past, because, as Li Yitong said, each press is read as interest. [顶部] A filter goes furthest, and it needs no help from the recommender.", "14": "And when the user stops, [沿曲线回升] every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button. Fu Yitong will close.", "15": "So what does this mean? [左] A user can lower their own layer: change what they finish, use a filter, and keep doing it. [右] But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make \"not interested\" mean not interested, and decide how much ranking amplifies what provokes. Our evidence comes from logs, an open model and simulation, and we measure what people see, not what they believe. Next time a check calls your feed diverse, look inside the topic. Thank you."};
+const CUM=[0, 22, 44, 90, 140, 180, 220, 265, 315, 355, 400, 445, 490, 545, 570, 610]; // cumulative end times (s)
 // Simulation series and escape results from report/latex/figures/src/results.json
 const FORM={"fan":{"d":[0.0,1.11,2.22,3.33,4.44,5.56,6.67,7.78,8.89,10.0,11.11,12.22,13.33,14.44,15.56,16.67,17.78,18.89,20.0,21.11,22.22,23.33,24.44,25.56,26.67,27.78,28.89,30.0,31.11,32.22,33.33,34.44,35.56,36.67,37.78,38.89,40.0,41.11,42.22,43.33,44.44,45.56,46.67,47.78,48.89,50.0,51.11,52.22,53.33,54.44,55.56,56.67,57.78,58.89,60.0,61.11,62.22,63.33,64.44,65.56,66.67,67.78,68.89,70.0,71.11,72.22,73.33,74.44,75.56,76.67,77.78,78.89,80.0,81.11,82.22,83.33,84.44,85.56,86.67,87.78],"V":[0.0,0.008,0.016,0.023,0.027,0.03,0.042,0.048,0.066,0.079,0.093,0.115,0.132,0.153,0.178,0.196,0.225,0.261,0.295,0.311,0.342,0.372,0.4,0.429,0.453,0.47,0.5,0.524,0.54,0.567,0.586,0.607,0.623,0.63,0.639,0.659,0.679,0.686,0.704,0.718,0.725,0.734,0.73,0.728,0.732,0.736,0.745,0.749,0.758,0.767,0.767,0.766,0.776,0.775,0.774,0.782,0.775,0.78,0.777,0.769,0.771,0.773,0.775,0.774,0.775,0.773,0.772,0.772,0.779,0.778,0.78,0.782,0.775,0.777,0.774,0.78,0.782,0.78,0.786,0.794],"m":[0.024,0.0266,0.03,0.0339,0.0392,0.0455,0.0532,0.0643,0.0764,0.0897,0.1056,0.1205,0.1353,0.1498,0.1652,0.1789,0.1916,0.204,0.2163,0.226,0.235,0.2425,0.2491,0.2551,0.2602,0.2646,0.2694,0.2737,0.2774,0.2807,0.2828,0.285,0.2866,0.2879,0.2888,0.29,0.2911,0.2918,0.293,0.2938,0.2943,0.2949,0.2949,0.295,0.2952,0.2956,0.296,0.2963,0.2966,0.2969,0.2969,0.297,0.2973,0.2974,0.2974,0.2975,0.2976,0.2978,0.2979,0.2977,0.2978,0.2979,0.2981,0.298,0.298,0.2979,0.2979,0.2979,0.2981,0.298,0.2982,0.2982,0.2981,0.2981,0.2981,0.2982,0.2983,0.2983,0.2985,0.2987]},"casual":{"d":[0.0,1.11,2.22,3.33,4.44,5.56,6.67,7.78,8.89,10.0,11.11,12.22,13.33,14.44,15.56,16.67,17.78,18.89,20.0,21.11,22.22,23.33,24.44,25.56,26.67,27.78,28.89,30.0,31.11,32.22,33.33,34.44,35.56,36.67,37.78,38.89,40.0,41.11,42.22,43.33,44.44,45.56,46.67,47.78,48.89,50.0,51.11,52.22,53.33,54.44,55.56,56.67,57.78,58.89,60.0,61.11,62.22,63.33,64.44,65.56,66.67,67.78,68.89,70.0,71.11,72.22,73.33,74.44,75.56,76.67,77.78,78.89,80.0,81.11,82.22,83.33,84.44,85.56,86.67,87.78],"V":[0.0,0.009,0.016,0.022,0.028,0.027,0.03,0.033,0.038,0.036,0.037,0.041,0.042,0.039,0.038,0.04,0.041,0.042,0.043,0.043,0.046,0.045,0.047,0.046,0.047,0.044,0.041,0.039,0.039,0.04,0.043,0.048,0.051,0.05,0.047,0.045,0.047,0.046,0.051,0.054,0.056,0.053,0.054,0.052,0.056,0.057,0.061,0.066,0.069,0.068,0.066,0.066,0.069,0.07,0.069,0.066,0.068,0.072,0.07,0.072,0.068,0.069,0.071,0.073,0.074,0.076,0.075,0.075,0.077,0.079,0.079,0.081,0.08,0.079,0.079,0.084,0.085,0.088,0.09,0.088],"m":[0.024,0.0244,0.0251,0.0257,0.0265,0.0268,0.0269,0.0274,0.0278,0.028,0.0282,0.0285,0.0286,0.0287,0.0287,0.0287,0.0287,0.0286,0.0291,0.0291,0.0293,0.0297,0.0296,0.0302,0.0305,0.0307,0.0308,0.0311,0.0315,0.0318,0.0318,0.0323,0.0328,0.0328,0.0329,0.0333,0.0339,0.0343,0.0348,0.0354,0.0358,0.0361,0.0361,0.036,0.0366,0.0366,0.0372,0.0375,0.038,0.0387,0.0392,0.0391,0.0394,0.0397,0.0402,0.0402,0.0401,0.0406,0.0413,0.0412,0.0411,0.0413,0.0419,0.0421,0.0421,0.0424,0.0423,0.0424,0.0431,0.0434,0.0438,0.0442,0.0446,0.0451,0.0456,0.046,0.0464,0.0465,0.0473,0.0484]}};
 const ESC={"S0":{"kept":1.001,"dV":0.01},"S1":{"kept":0.933,"dV":-1.11},"S2":{"kept":0.942,"dV":-0.87},"S3":{"kept":0.914,"dV":-1.42},"S4":{"kept":0.97,"dV":-0.62},"S5":{"kept":0.95,"dV":-2.06},"S6":{"kept":0.933,"dV":-1.12},"S7":{"kept":0.552,"dV":-0.62},"S8":{"kept":0.08,"dV":-0.78},"S9":{"kept":0.016,"dV":-0.77},"S10":{"kept":0.92,"dV":-1.34},"S11":{"kept":0.902,"dV":-2.56}};
@@ -546,7 +608,7 @@ enter[8]=()=>{
 };
 
 /* 9: the probe */
-enter[9]=()=>{
+enter[10]=()=>{
   const s=$('#c9a');s.innerHTML='';
   el('text',{x:10,y:30,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},s,"A REAL USER'S HISTORY");
   const swap=[2,5,7,10,13,15,18,21,24,27];
@@ -574,20 +636,20 @@ enter[9]=()=>{
 };
 
 /* 10: formation over 90 days */
-enter[10]=()=>{
+enter[11]=()=>{
   const b=$('#c10');b.innerHTML='';const L=90,R=1220,T=30,B=520;
   const X=d=>L+(R-L)*d/90,YV=v=>B-(B-T)*v/.9,YM=m=>B-(B-T)*m/.6;
   el('line',{x1:L,x2:R,y1:B,y2:B,stroke:ASH,'stroke-width':2},b);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ROSE,'stroke-width':2},b);el('line',{x1:R,x2:R,y1:T,y2:B,stroke:BONE,'stroke-width':1.5,'stroke-dasharray':'4 6'},b);
   [[0,'×1'],[.4,'×1.5'],[.78,'×2.2']].forEach(([v,l])=>el('text',{x:L-14,y:YV(v)+8,fill:ROSE,'font-size':26,'text-anchor':'end'},b,l));
   el('text',{x:L-14,y:T-6,fill:ROSE,'font-size':20,'text-anchor':'end','font-family':'PM'},b,'ODDS');
   [0,.3,.6].forEach(m=>el('text',{x:R+12,y:YM(m)+8,fill:BONE,'font-size':26},b,Math.round(m*100)+'%'));
-  el('text',{x:R+12,y:T-6,fill:BONE,'font-size':20,'font-family':'PM'},b,'TOPIC');
+  el('text',{x:R+12,y:T-30,fill:BONE,'font-size':20,'font-family':'PM'},b,'TOPIC');
   [0,30,60,90].forEach(d=>el('text',{x:X(d),y:B+40,fill:ASH,'font-size':26,'text-anchor':'middle'},b,'day '+d));
   const path=(s,key,Y)=>'M'+s.d.map((d,j)=>X(d).toFixed(1)+' '+Y(s[key][j]).toFixed(1)).join(' L');
   el('path',{d:path(FORM.fan,'m',YM),stroke:BONE,'stroke-width':3,'stroke-dasharray':'12 9',fill:'none',class:'fade',style:'--d:1.2s'},b);
   el('path',{d:path(FORM.casual,'V',YV),stroke:ASH,'stroke-width':3,fill:'none',pathLength:1,class:'draw',style:'--d:1.6s'},b);
   el('path',{d:path(FORM.fan,'V',YV),stroke:ROSE,'stroke-width':7,fill:'none',pathLength:1,class:'draw',style:'--d:2s','stroke-linejoin':'round'},b);
-  el('text',{x:R-12,y:YM(.30)+44,fill:BONE,'font-size':30,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.6s'},b,'topic share: flat at 30%');
+  el('text',{x:R-12,y:YM(.30)+44,fill:BONE,'font-size':30,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.6s'},b,'topic share: stops growing at 30%');
   el('text',{x:R-12,y:YV(.79)-18,fill:ROSE,'font-size':32,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.6s'},b,'topic fan: twice the odds by day 89');
   el('text',{x:R-12,y:YV(.09)-16,fill:ASH,'font-size':26,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.8s'},b,'casual viewer, same taste: barely moves');
   el('circle',{cx:X(24),cy:YV(.39),r:11,fill:ROSE,class:'pop',style:'--d:3.3s;transform-origin:'+X(24)+'px '+YV(.39)+'px'},b);
@@ -595,8 +657,8 @@ enter[10]=()=>{
 };
 
 /* 11: days to collect each sample */
-enter[11]=()=>{
-  countups($('#s11'));
+enter[12]=()=>{
+  countups($('#s12'));
   const s=$('#c11');s.innerHTML='';const L=0,R=860,X=d=>L+(R-L)*d/120;
   const bars=[['your own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months'],['a reference the platform publishes',6,BONE,'6 days · 310 videos']];
   bars.forEach(([lab,d,col,val],i)=>{const y=10+i*130;
@@ -608,7 +670,7 @@ enter[11]=()=>{
 };
 
 /* 12: skew removed against topic kept */
-enter[12]=()=>{
+enter[13]=()=>{
   const s=$('#c12');s.innerHTML='';const L=130,R=1040,T=30,B=580;
   const X=k=>L+(R-L)*k,Y=r=>B-(B-T)*(r+.2)/3.0;
   el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:ASH,'stroke-width':2},s);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ASH,'stroke-width':2},s);
@@ -635,7 +697,7 @@ enter[12]=()=>{
 };
 
 /* 13: during the action and after it stops */
-enter[13]=()=>{
+enter[14]=()=>{
   const s=$('#c13');s.innerHTML='';const L=110,R=1120,T=20,B=540,D0=-6,D1=38;
   const X=d=>L+(R-L)*(d-D0)/(D1-D0),Y=v=>B-(B-T)*(v+2)/3;
   el('rect',{x:X(0),y:T,width:X(16.7)-X(0),height:B-T,fill:'rgba(236,229,211,.06)'},s);
@@ -656,7 +718,7 @@ enter[13]=()=>{
     el('text',{x:X(lx),y:Y(t.V[j])+(k==='S0'?-16:k==='S2'?-16:40),fill:c,'font-size':28,'font-style':'italic','font-family':'CG',class:'fade',style:`--d:${1.4+i*.5}s`},s,lab)});
 };
 
-enter[14]=()=>{};
+enter[15]=()=>{};
 function updRQ(s){const q=s.dataset.rq;$('#hud-rq').style.visibility=s.id==='s1'?'hidden':'visible';$$('#hud-rq span').forEach(e=>e.classList.toggle('on',e.dataset.q===q))}
 /* ---------- navigation ---------- */
 const slides=$$('.slide'),NSL=slides.length;let cur=-1,t0=null,timerOn=false;
