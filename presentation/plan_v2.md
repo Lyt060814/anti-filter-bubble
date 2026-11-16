@@ -48,12 +48,14 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 7 | Split the lean in two | Li Yitong | 0:35 | 平台层 Λ 与个人层 V<sub>u</sub> 示意（论文风） |
 | 8 | Does a recommender amplify a narrative? | Li Yitong | 0:55 | OneRec 三个结果：话题 +1.01、叙事 +0.67、"not interested" 反向 |
 | 9 | Same topic share. Twice the odds. | Li Yitong | 0:30 | 三层分解 + 探针条形 + 90 天形成曲线（*Measured / Scenario*） |
-| 10 | Simulation: what helps? | Xu Ruicong | 0:40 | θ 扫描的形成曲线 + 五种动作的 ΔV（*Scenario*） |
-| 11 | Could you notice? Months of counting | Xu Ruicong | 0:35 | 样本量曲线：490 条 / 自己 feed 9 天 / 参照 114 天 / 平台公布后 310 条-6 天 |
-| 12 | What we would show users | Xu Ruicong | 0:35 | 报告原型截图（"Not enough evidence yet"）+ 三条设计原则（*Proposed*） |
+| 10 | How much of the topic survives? | Xu Ruicong | 0:40 | 逃离策略表：personalisation off −0.78 / scroll −1.11 / delete −1.12 / filter −2.56；保留话题 8%/93%/93%/90%（*Scenario · Table 5*） |
+| 11 | The reference is the bottleneck | Xu Ruicong | 0:35 | 两条曲线（自己 feed 9 天 vs 参照 114 天）+ ≈490 条/样本（*Derived · Eq. 6*） |
+| 12 | What should an exposure report show? | Xu Ruicong | 0:35 | 报告内容：29.8% 话题、12.7% vs 6.2%、证据是否足够、选项表（*Proposed · Fig. 10*） |
 | 13 | Same topic, narrower view | Zhao Dingcheng | 0:35 | 两个用户各 100 格：话题都是 30%，群体标签 6% vs 13% |
 | 14 | 490 videos to notice. A button that feeds it. | Zhao Dingcheng | 0:55 | 490 + 17 天尝试的逃离表（报告 Table 5）+ 三条结论 |
 | 15 | What is solid, what is not | Zhao Dingcheng | 0:30 | Measured / Scenario / Not shown 三卡 + 收束句 |
+
+> ⚠️ **待定（需要 Zhao 确认）**：Xu 的新第 10–11 页已经讲了逃离策略表和 490 条门槛，而 Zhao 现在的第 14 页 "490 videos to notice. A button that feeds it." 是同一批数字（逃离表 + 9 天/114 天），会重复。建议把第 14 页换成案例的三个发现：①群体标签带来最多互动（评论 1.85×）但同时被点"不感兴趣"最多（2.4×）；②曝光超供给（6.2% vs 4.1%，平台层）；③无人工标注，靠双强模型参照验证（κ 0.74–0.81）。
 
 **时间分配**：Fu 1:50（0:00–1:50）· Wang 2:00（1:50–3:50）· Li 2:20（3:50–6:10）· Xu 1:50（6:10–8:00）· Zhao 2:00（8:00–10:00）。合计 **10:00**；彩排目标 **9:30–9:50**。
 
@@ -158,14 +160,14 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 **板块核心目标**：展示"如果有这些操作，长期会怎样、有什么代价"，"用户自己能不能发现"，并把结果变成**用户端报告的设计**（含决策规则的教训）。
 
 **屏幕上**
-- 第 10 页：θ 扫描（0 / 0.5 / 1 / 2）的形成曲线 + 五种动作的 ΔV 条形（过滤 −1.6、删历史 −0.09、两类"不感兴趣"≈0）；一句 *Filter ends when switched off; deleting lasts.* 标 *Scenario*。
-- 第 11 页：样本量曲线，标 *doubling: 490*；右栏 490 条/样本、自己 feed 9 天、参照 114 天 ≈ 4 个月、平台公布参照后 310 条-6 天。标 *Derived*。
-- 第 12 页：报告原型截图（突出 **"Not enough evidence yet"**）+ 三条设计原则（interest 与 skew 分开 / 与无个性化 feed 对比 / 证据不足时直说），标 *Proposed · mock-up, invented data*。
+- 第 10 页 "How much of the topic survives?"：START V = +0.78，3,000 条视频 / 约 17 天后，四行策略表（personalisation off −0.78 / scroll past −1.11 / delete then scroll −1.12 / classifier filter −2.56）+ 保留话题条形（8% / 93% / 93% / 90%）；底部 *Deleting first reaches about the same reduction in 3 days versus 2 weeks of scrolling alone. Old habits bring the skew back.* 标 *Scenario · Table 5 / Figure 9*。
+- 第 11 页 "The reference is the bottleneck"：两条曲线（viewing days log scale vs narrative odds to detect）；右栏 ≈490 条/feed、≈114 天（参照 · 关个性化）、≈9 天（自己 feed · 话题粉）；脚注 6.2% baseline · 79% recall · 1% FP · 5% sig · 80% power。标 *Derived · Eq. 6 / Figure 8*。
+- 第 12 页 "What should an exposure report show?"：左 29.8% 话题、your feed 12.7% vs personalisation off 6.2%、证据是否足够（1,610 条）、"Not enough evidence yet"；右 options 表（scroll past / filter，ΔV 与保留话题）；底部 *The reference reveals personal skew. A catalogue comparison is needed to see the skew shared across the platform.* 标 *Proposed · Fig. 10*。
 
 **演讲提示**
-- *Slide 10（40s）*："One probe is one step. Over thousands of videos a feed can lock in or undo itself, depending on how sharply the recommender separates the narrative — that is this sweep. A filter changes the most but only while it is on; deleting from history changes less; the button as built does almost nothing. These are scenario results, not observations of a platform."
-- *Slide 11（35s）*："Could she notice? To tell a doubling from chance she needs about 490 labelled issue videos in each of two samples: nine days on her own feed, four months for a feed without personalisation. So no — unless the platform publishes the reference, and then it is 310 videos and six days."
-- *Slide 12（35s）*："So what should a report do? Keep interest and skew apart, compare with a non-personalised feed, and say 'not enough evidence' when that is true. It is a proposal — the mock-up's user numbers are invented. Dingcheng will now show all of this on one real case."
+- *Slide 10（40s）*："So what actually gets her out? We ran the measured tilt forward 3,000 videos, about 17 days, and tried the actions a user really has. Personalisation off removes the whole personal layer −0.78 but costs the topic: 8% of it survives. Scrolling past the narrative works −1.11 and keeps 93%, but only while she keeps it up. Deleting first then scrolling reaches the same in three days instead of two weeks. A classifier filter is strongest, −2.56, while it is on. And old habits bring the skew back: about half the reduction disappears within a week."
+- *Slide 11（35s）*："Could she notice on her own? To detect double the odds she needs about 490 labelled issue videos in each of two feeds. Her own feed reaches that in nine days; a feed with personalisation off needs about 114 days. The reference is the bottleneck, not her attention. A shared reference from the platform or a research panel would make the comparison practical."
+- *Slide 12（35s）*："So what should a report show? Topic interest and the label share inside it, her own feed against a non-personalised reference, and whether the evidence is enough — if either sample is too small, it must say so. The options table shows what each action buys and what it costs. This is a proposal: the numbers in the example are simulated. Dingcheng will now explain how we defined and identified group labels."
 
 **技巧**：先说为什么模拟（不能在 App 上做实验），再看图，只指 3 个点；第 11 页用对比让数字有感觉（自己 9 天 vs 参照 4 个月；平台公布后 6 天）；第 12 页三条原则各一句。
 
