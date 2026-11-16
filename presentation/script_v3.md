@@ -87,20 +87,21 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 **Slide 14 · 0:25**
 > And when the user stops, *(沿曲线回升)* every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button.
 >
-> Fu Yitong will close.
+> Zhao Dingcheng will close.
 
 ---
 
-## Fu Yitong（第 15 页，约 0:40）
+## Zhao Dingcheng（第 15–16 页，约 0:55）
 
-**Slide 15 · 0:40**
-> So what does this mean? *(左)* A user can lower their own layer: change what they finish, use a filter, and keep doing it.
+**Slide 15 · 0:45**
+> So, four answers. *(上排)* One in five issue videos takes a side, and ranking shows them more often than they exist. A viewer's own history can double the odds in three months, while the topic share stays the same. Noticing takes a second feed and about four months. And every way out costs topic or effort, and fades within a week.
 >
-> *(右)* But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make "not interested" mean not interested, and decide how much ranking amplifies what provokes.
+> *(中间)* So what can you do? Look inside the topic, not just at how much of it you see. Scroll past instead of pressing "not interested". And use a filter, and keep going.
 >
-> Our evidence comes from logs, an open model and simulation, and we measure what people see, not what they believe.
->
-> Next time a check calls your feed diverse, look inside the topic. Thank you.
+> *(底部)* But no user can fix the layer added for everyone, or a button that works backwards: that one is on the platform. Your feed may not do it for you.
+
+**Slide 16 · 0:10**
+> There's a Chinese saying: 兼聽則明. Listen widely, and you see clearly. Thank you.
 
 ---
 
