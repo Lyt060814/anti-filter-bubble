@@ -7,7 +7,7 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Fu Yitong（第 1–4 页，约 2:40）
+## Fu Yitong（第 1–4 页，约 2:20）
 
 **Slide 1 · 0:22**
 > You just wanted to relax. Then: "No internship by sophomore summer? You are lagging behind." *(停一拍)* Thanks, I was about to have a nice evening. *(停一拍)* Videos like this, and a feed that keeps serving them to you, are what our project studies: the information cocoon. How common it is, how it forms, and how to get out.
@@ -18,22 +18,20 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 **Slide 3 · 0:46**
 > *(翻页)* Look, here are two users, and each square is a video. *(指图例)* Dark squares are everything else in the feed. Light squares are marriage videos. Red squares are marriage videos with a very one-sided message, like "Not married by thirty? You are gonna die alone." A topic check can only count the light squares. Both users have thirty percent, so by that definition they are in exactly the same level of cocoon. But it cannot see the red ones, and User 2 meets red twice as often. Her feed kept the topic and narrowed the view. That is what we call a **viewpoint cocoon**.
 
-**Slide 4 · 1:10**
+**Slide 4 · 0:50**
 > That is our first vital difference from existing work: we measure the viewpoint inside a topic. And it means a user does not have to give up a topic they like just to escape the skew.
 >
-> *(指四个问题)* Our work follows this one measure through four questions. RQ1: how common is a viewpoint cocoon? RQ2: how does it form? RQ3: how many videos until you can notice it? RQ4: how much does each way out cost?
->
-> So how do we answer them? That is our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.
+> Our second vital difference: we look from the inside. Most audits look from the outside: they create fake accounts and see what gets recommended. But then you cannot separate the causes of a one-sided feed. Is it because many creators simply post this view? Because the platform loves promoting it? Or because you just keep watching it? With public Kuaishou logs and an open recommender, we can separate the three. Wang Junbo will show how we make this measurable.
 
 ---
 
 ## Wang Junbo（第 5–6 页，约 1:20）
 
-**Slide 5 · 0:50**
-> Fu asked: is it the creators, the platform, or you? To answer, we need one number: how often a view shows up in a feed, compared with how often it actually exists. Take gender labels in marriage videos. *(逐级指)* Among what creators post, about one video in twenty-four carries one. In what the platform shows everyone, one in sixteen. That gap is the platform's doing, and everyone gets it: we call it the **platform layer**. For the most skewed tenth of heavy viewers, it reaches one in eight. That extra is built by their own watching: the **personal layer**. *(指左边圆圈)* Think of a stage tilted for everyone, and one person leaning further. And anything you can press, whether like, skip or "not interested", reaches only your own lean.
+**Slide 5 · 0:40**
+> Fu asked: is it the creators, the platform, or you? First we need one number, skew: how often a view is shown, compared with how often it actually exists. *(逐层指)* Start with what creators post: that is the baseline. Then what the platform shows everyone: anything above the baseline is the **platform layer**, and everyone gets it. Then what your own feed shows you: anything above that is your **personal layer**, built by your own watching. *(指左边圆圈)* Think of a stage tilted for everyone, and one person leaning further. And anything you can press, whether like, skip or "not interested", reaches only your own lean.
 
-**Slide 6 · 0:30**
-> How do we get these numbers, and the rest? Four kinds of evidence. The logs, 160,000 users, show what each person was shown, and language models label what each video says. OneRec, trained on these logs, lets us edit a history and watch the recommender react. A simulation runs that reaction forward for months, including every way out. And a counting bound tells us how many videos a user needs to notice. Zhao Dingcheng starts with how common these videos are.
+**Slide 6 · 0:40**
+> So we ask four questions, and each needs its own evidence. *(逐列指)* How common are these videos, and how big is the platform layer? We read the logs: 160,000 users, every video labelled by language models. How does a personal layer form? We probe OneRec, a recommender trained on these logs, then simulate months of use. Can a user notice it? We count how many videos it takes. And what does each way out cost? We simulate every option. Zhao Dingcheng starts with the first question.
 
 ---
 

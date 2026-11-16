@@ -49,7 +49,7 @@ def read_script(path):
 
 
 notes = read_script(REPO / "presentation/script_v3.md")
-dur = [22, 22, 46, 70, 50, 30, 45, 50, 55, 45, 45, 55, 25, 40]
+dur = [22, 22, 46, 50, 40, 40, 45, 50, 55, 45, 45, 55, 25, 40]
 cum = [0]
 for d in dur:
     cum.append(cum[-1] + d)

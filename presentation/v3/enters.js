@@ -38,12 +38,17 @@ enter[5]=()=>{
 /* 6: four kinds of evidence */
 enter[6]=()=>{
   const w=$('#w6');
-  const cards=[['READ THE LOGS','What each user was actually shown','RQ1 · RQ2'],['PROBE THE MODEL','OneRec-1.7B, trained on these logs: edit a history, see what it recommends','RQ2'],['SIMULATE','Run that response forward for months; try every way out','RQ2 · RQ4'],['COUNT','How many videos a user needs to tell a tilt from chance','RQ3']];
-  w.innerHTML=cards.map(([h,t,rq],i)=>`<div class="card rise" style="--d:${1.8+i*.35}s;left:${i*420}px;top:0;width:390px;height:380px"></div>
-    <div class="abs rise" style="--d:${1.9+i*.35}s;left:${i*420+30}px;top:30px;width:330px">
-      <div class="mono rose" style="font-size:20px;letter-spacing:4px">${String(i+1).padStart(2,'0')} · ${h}</div>
-      <div style="font:600 34px/1.22 var(--serif);margin-top:14px;height:210px">${t}</div>
-      <div class="mono sep" style="font-size:24px;letter-spacing:3px">${rq}</div></div>`).join('');
+  const cols=[['RQ1','How common are such videos?','READ THE LOGS','what each user was actually shown'],
+              ['RQ2','How does a cocoon form?','PROBE + SIMULATE','edit a history in OneRec, then run months of use'],
+              ['RQ3','Can a user notice it?','COUNT','how many videos it takes to tell a tilt from chance'],
+              ['RQ4','What does a way out cost?','SIMULATE','eleven ways out, while acting and after stopping']];
+  w.innerHTML=cols.map(([rq,q,m,d],i)=>`<div class="card rise" style="--d:${.8+i*.45}s;left:${i*425}px;top:0;width:395px;height:500px"></div>
+    <div class="abs rise" style="--d:${.9+i*.45}s;left:${i*425+32}px;top:30px;width:335px">
+      <div class="mono rose" style="font-size:30px;letter-spacing:4px">${rq}</div>
+      <div class="it" style="font-size:42px;line-height:1.12;margin-top:12px;height:200px">${q}</div>
+      <div style="border-top:1.5px solid rgba(236,229,211,.3);padding-top:22px">
+        <div class="mono sep" style="font-size:21px;letter-spacing:3px">${m}</div>
+        <div style="font:600 27px/1.25 var(--serif);margin-top:10px;color:var(--ash)">${d}</div></div></div>`).join('');
 };
 
 /* 8: prevalence, engagement, supply vs shown */
