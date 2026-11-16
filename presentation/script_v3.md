@@ -74,10 +74,10 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ## Xu Ruicong（第 12–14 页，约 2:05）
 
-**Slide 12 · 0:45**
-> Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with.
+**Slide 12 · 0:50**
+> Could she notice? Not by eye: twice the odds means one extra video in every eighteen. So imagine a tool on her phone that flags group-label videos and counts them. *(左边)* Counting her own feed is not enough; she needs something to compare with: a neutral feed, the same app with personalisation off, what anyone would see. *(指两组点)* Each dot is one issue video. After 490 from each, her feed has about fifty flagged and the neutral feed about twenty-eight. Only with that many is a gap like this bigger than luck, like telling a loaded coin from a fair one.
 >
-> To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. *(指条形)* Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.
+> *(右边)* Her own feed gives her 490 in nine days. The neutral feed takes four months, because marriage videos are rare there. *(指小字)* And even then, both feeds share the platform layer, so she would only see her own.
 
 **Slide 13 · 0:55**
 > Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. *(说明坐标)* Up means skew removed; right means more of the topic kept.

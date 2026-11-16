@@ -133,17 +133,25 @@ enter[11]=()=>{
   el('text',{x:X(24)-18,y:YV(.39)-16,fill:BONE,'font-size':28,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.4s'},b,'half-way by day 24');
 };
 
-/* 11: days to collect each sample */
+/* 12: two feeds counted side by side, and the days needed to fill each */
 enter[12]=()=>{
   countups($('#s12'));
-  const s=$('#c11');s.innerHTML='';const L=0,R=860,X=d=>L+(R-L)*d/120;
-  const bars=[['your own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months'],['a reference the platform publishes',6,BONE,'6 days · 310 videos']];
-  bars.forEach(([lab,d,col,val],i)=>{const y=10+i*130;
-    el('text',{x:0,y:y+30,fill:BONE,'font-size':32,'font-style':'italic','font-family':'CG',class:'fade',style:'--d:'+(1.6+i*.6)+'s'},s,lab);
-    const r=el('rect',{x:L,y:y+48,width:0,height:36,fill:col},s);const t=el('text',{x:L+12,y:y+76,fill:col,'font-size':30,'font-family':'PM'},s,'');
-    tw(1.3,1.8+i*.6,u=>{const w=X(d)*u;r.setAttribute('width',Math.max(2,w));if(d>60){t.setAttribute('x',16);t.setAttribute('fill',INK)}else t.setAttribute('x',w+14);t.textContent=val})});
-  [[7,'1 week'],[30,'1 month'],[120,'4 months']].forEach(([d,l])=>{el('line',{x1:X(d),x2:X(d),y1:410,y2:422,stroke:ASH,'stroke-width':2},s);el('text',{x:X(d),y:452,fill:ASH,'font-size':22,'text-anchor':d===120?'end':'middle','font-family':'CG'},s,l)});
-  el('line',{x1:L,x2:R,y1:410,y2:410,stroke:ASH,'stroke-width':1.5},s);
+  // 49 dots per feed, each = 10 videos; red = flagged (≈50 vs ≈28 of 490: 0.101 and 0.058 × 490, report §5)
+  [['g12a',[3,11,22,30,41],1.6],['g12b',[9,26,38],1.9]].forEach(([id,red,d0])=>{
+    const g=$('#'+id);g.innerHTML='';
+    for(let i=0;i<49;i++){const s=document.createElement('span');
+      s.style.cssText=`position:absolute;left:${(i%7)*29}px;top:${Math.floor(i/7)*29}px;width:22px;height:22px;border-radius:50%;background:rgba(236,229,211,.22);transition:background .4s`;
+      g.appendChild(s);if(red.includes(i)){if(STATIC)s.style.background=ROSE;else later(d0+.4+red.indexOf(i)*.2,()=>s.style.background=ROSE)}}
+  });
+  const s=$('#c11');s.innerHTML='';const L=0,R=660,X=d=>L+(R-L)*d/120;
+  const bars=[['your feed','a topic fan sees ~54 issue videos a day',9,ROSE,'9 days'],['a neutral feed','marriage videos are rare there: ~4 a day',114,SEP,'114 days ≈ 4 months']];
+  bars.forEach(([lab,why,d,col,val],i)=>{const y=14+i*170;
+    el('text',{x:0,y:y+28,fill:BONE,'font-size':34,'font-style':'italic','font-family':'CG',class:'fade',style:'--d:'+(2+i*.6)+'s'},s,lab);
+    el('text',{x:0,y:y+60,fill:ASH,'font-size':20,'font-family':'PM',class:'fade',style:'--d:'+(2.1+i*.6)+'s'},s,why);
+    const r=el('rect',{x:L,y:y+80,width:0,height:40,fill:col},s);const t=el('text',{x:L+12,y:y+110,fill:col,'font-size':30,'font-family':'PM'},s,'');
+    tw(1.3,2.2+i*.6,u=>{const w=X(d)*u;r.setAttribute('width',Math.max(2,w));if(d>60){t.setAttribute('x',16);t.setAttribute('fill',INK)}else t.setAttribute('x',w+14);t.textContent=val})});
+  [[7,'1 week'],[30,'1 month'],[120,'4 months']].forEach(([d,l])=>{el('line',{x1:X(d),x2:X(d),y1:380,y2:392,stroke:ASH,'stroke-width':2},s);el('text',{x:X(d),y:422,fill:ASH,'font-size':22,'text-anchor':d===120?'end':'middle','font-family':'CG'},s,l)});
+  el('line',{x1:L,x2:R,y1:380,y2:380,stroke:ASH,'stroke-width':1.5},s);
 };
 
 /* 12: skew removed against topic kept */
