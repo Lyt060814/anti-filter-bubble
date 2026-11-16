@@ -47,17 +47,17 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ## Zhao Dingcheng（第 7–8 页，约 1:35）
 
-**Slide 7 · 0:40**
-> First we have to find these videos among millions. An open model reads each video's description and answers a fixed list of questions. *(指左边)* Videos take sides in four ways, and the group label is the sharpest.
+**Slide 7 · 0:45**
+> An open model reads every video description. *(指左边)* Videos take sides in four ways; the sharpest is the group label. *(指下方)* It counts only if all four hold: a whole gender, a negative trait, all or most of them, and in the video's own voice. Quoting it to rebut it does not count.
 >
-> To check the model, two stronger models, DeepSeek and GPT, relabelled 1,200 videos on their own. Our model agrees with them well, a kappa of 0.78 on group labels, and we correct every share for the errors it still makes. One note: we count labels against *either* gender, and we take no side on marriage itself.
+> *(指右边)* Two stronger models, DeepSeek and GPT, relabelled 1,200 videos. Our model agrees with them well, a kappa of 0.78, and we correct every share for the errors it still makes. We count labels against *either* gender, and take no side on marriage.
 
-**Slide 8 · 0:55**
+**Slide 8 · 0:50**
 > So how common are they? *(点阵)* Social issues are about eight percent of everything shown, and within them about one video in five takes a side.
 >
-> *(中间)* These videos draw more reactions: nearly twice the comments. But they are also marked "not interested" more often, so the attention is not approval.
+> *(中间)* These videos draw more reactions: nearly twice the comments. But they are also marked "not interested" more often: these are associations, and the attention is not simply approval.
 >
-> *(右边)* And ranking shows them more often than they exist, in every issue area we studied. For gender labels, 4.1 percent of the videos on offer become 6.2 percent of what is shown. That is the platform layer, and everyone gets it.
+> *(右边)* And ranking shows them more often than they exist, in every issue area, by up to one and a half times the odds. For gender labels, that is the one in sixteen you saw a moment ago: the platform layer, and everyone gets it.
 >
 > But what does a user's *own* history add? Li Yitong.
 
