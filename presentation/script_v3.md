@@ -38,9 +38,7 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 ## Zhao Dingcheng（第 7–8 页，约 1:35）
 
 **Slide 7 · 0:45**
-> An open model reads every video description. *(指左边)* Videos take sides in four ways; the sharpest is the group label. *(指下方)* It counts only if all four hold: a whole gender, a negative trait, all or most of them, and in the video's own voice. Quoting it to rebut it does not count.
->
-> *(指右边)* Two stronger models, DeepSeek and GPT, relabelled 1,200 videos. Our model agrees with them well, a kappa of 0.78, and we correct every share for the errors it still makes. We count labels against *either* gender, and take no side on marriage.
+> How common are these videos? First we have to find them among more than a million video descriptions. *(上排)* An open model, Qwen, reads every description and answers the same list of questions: is it about an issue, does it take a side, in which way, and is it a group label? *(下排)* Then we check it. Two stronger models, DeepSeek and GPT, relabel twelve hundred videos on their own. Our model agrees with them well, a kappa of 0.78, and the errors that remain, 21 percent missed and 1 percent wrongly flagged, are corrected in every share we report. *(底部)* Taking a side comes in four ways; the group label is the sharpest. It only counts in the video's own voice, against either gender, and we take no side on marriage.
 
 **Slide 8 · 0:50**
 > So how common are they? *(点阵)* Social issues are about eight percent of everything shown, and within them about one video in five takes a side.

@@ -128,29 +128,41 @@
   <div class="abs mono rise ash" style="--d:3.6s;left:120px;top:934px;font-size:19px;letter-spacing:1px">Logs and OneRec-1.7B: OpenOneRec project (Kuaishou), public research release · we see text descriptions, not the videos</div>
 </section>
 
-<!-- 7 LABELS -->
+<!-- 7 LABELS: label at scale, check on a sample -->
 <section class="slide" id="s7" data-speaker="Zhao Dingcheng" data-rq="1" data-bg="quiet">
-  <div class="k rise">07 — Labels · RQ1</div>
-  <div class="h rise" style="--d:.15s">One model labels, two stronger ones check</div>
-  <div class="abs mono rise" style="--d:.4s;left:120px;top:262px;font-size:20px;letter-spacing:4px;color:var(--ash)">FOUR WAYS A VIDEO TAKES A SIDE · EXAMPLES PARAPHRASED</div>
-  <div class="abs" style="left:120px;top:300px;width:1060px">
-    <div class="trow rise" style="--d:.6s;padding:16px 0 14px"><span>One right way</span><span class="ty">"Not married by thirty? Then you have already lost."</span></div>
-    <div class="trow rise" style="--d:.9s;padding:16px 0 14px"><span>Two camps<small style="display:block;font:400 17px/1.3 var(--mono);color:var(--ash);letter-spacing:1px;margin-top:4px">binary opposition</small></span><span class="ty">"Marry for love or for money. There is no third kind."</span></div>
-    <div class="trow rise" style="--d:1.2s;padding:16px 0 14px"><span>Fear of loss<small style="display:block;font:400 17px/1.3 var(--mono);color:var(--ash);letter-spacing:1px;margin-top:4px">anxiety appeal</small></span><span class="ty">"Wait two more years and nobody will want you."</span></div>
-    <div class="trow rise" style="--d:1.5s;padding:16px 0 14px"><span class="rose">Group label</span><span class="ty rose">"Women today only look at the bride price."</span></div>
-  </div>
-  <div class="card rise" style="--d:2s;left:1260px;top:262px;width:540px;height:600px"></div>
-  <div class="abs rise" style="--d:2.2s;left:1300px;top:296px;width:470px">
-    <div class="mono rose" style="font-size:20px;letter-spacing:4px">THE CHECK</div>
-    <div style="font:600 32px/1.25 var(--serif);margin-top:10px">DeepSeek and GPT relabel 1,200 videos independently</div>
-    <div class="big" style="font-size:96px;margin-top:26px">κ 0.78</div>
-    <div class="it" style="font-size:30px;line-height:1.2">our model against them, on group labels</div>
-    <div class="mono ash" style="font-size:17px;letter-spacing:0;margin-top:6px">substantial agreement, well above chance</div>
-    <div class="mono" style="font-size:20px;line-height:1.55;margin-top:24px;color:var(--bone)">It misses 21% of group labels and flags 1% of other videos by mistake; every share we report is corrected for both.</div></div>
-  <div class="abs mono rise" style="--d:2.6s;left:120px;top:700px;font-size:20px;letter-spacing:4px;color:var(--rose)">A GENDER GROUP LABEL · ALL FOUR MUST HOLD</div>
-  <div class="abs rise" style="--d:2.8s;left:120px;top:740px;width:1080px;font:600 31px/1.4 var(--serif)"><span class="mono rose" style="font-size:24px">①</span> a whole gender, not one person &nbsp; <span class="mono rose" style="font-size:24px">②</span> a negative trait or blame<br><span class="mono rose" style="font-size:24px">③</span> all or most of them &nbsp; <span class="mono rose" style="font-size:24px">④</span> in the video's own voice</div>
-  <div class="abs mono rise ash" style="--d:3s;left:120px;top:842px;font-size:19px;letter-spacing:1px">Quoting it in order to rebut it does not count.</div>
-  <div class="abs it rise ash" style="--d:3.2s;left:120px;top:912px;width:1680px;font-size:30px">We count labels against either gender, and take no side on marriage.</div>
+  <div class="k rise">07 — Finding them · RQ1</div>
+  <div class="h rise" style="--d:.15s;font-size:78px;white-space:nowrap;max-width:none">A million descriptions, labelled and checked</div>
+  <div class="abs rise" style="--d:.3s;left:120px;top:262px;width:210px"><div class="mono rose" style="font-size:20px;letter-spacing:4px">01 · LABEL</div><div class="it" style="font-size:34px;margin-top:6px">at scale</div></div>
+  <div class="abs rise" style="--d:1.8s;left:120px;top:522px;width:210px"><div class="mono rose" style="font-size:20px;letter-spacing:4px">02 · CHECK</div><div class="it" style="font-size:34px;margin-top:6px">on a sample</div></div>
+  <div class="card rise" style="--d:0.4s;left:360px;top:240px;width:420px;height:180px"></div>
+  <div class="abs rise" style="--d:0.5s;left:388px;top:262px;width:364px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">INPUT</div><div style="font:600 34px/1.18 var(--serif);margin-top:10px">1.12 million video descriptions</div></div>
+
+  <div class="card rise" style="--d:0.8s;left:850px;top:240px;width:440px;height:180px"></div>
+  <div class="abs rise" style="--d:0.9s;left:878px;top:262px;width:384px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">OPEN MODEL · QWEN</div><div style="font:600 32px/1.18 var(--serif);margin-top:10px">answers a fixed list of questions</div></div>
+
+  <div class="card rise" style="--d:1.2s;left:1360px;top:240px;width:440px;height:180px"></div>
+  <div class="abs rise" style="--d:1.3s;left:1388px;top:262px;width:384px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">OUTPUT · LABELS</div><div style="font:600 28px/1.18 var(--serif);margin-top:10px">on an issue? takes a side? which way? group label?</div></div>
+
+  <div class="card rise" style="--d:2s;left:360px;top:500px;width:420px;height:180px"></div>
+  <div class="abs rise" style="--d:2.1s;left:388px;top:522px;width:364px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">STRONGER MODELS</div><div style="font:600 30px/1.18 var(--serif);margin-top:10px">DeepSeek and GPT relabel 1,200 videos, independently</div></div>
+
+  <div class="card rise" style="--d:2.4s;left:850px;top:500px;width:440px;height:180px;border-color:rgba(226,58,90,.7)"></div>
+  <div class="abs rise" style="--d:2.5s;left:878px;top:522px;width:384px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">AGREEMENT</div><div style="display:flex;align-items:baseline;gap:18px;margin-top:2px"><span class="big" style="font-size:88px">κ 0.78</span></div><div class="mono ash" style="font-size:18px;line-height:1.45;margin-top:10px">our model vs. them, on group labels</div></div>
+
+  <div class="card rise" style="--d:2.8s;left:1360px;top:500px;width:440px;height:180px"></div>
+  <div class="abs rise" style="--d:2.9s;left:1388px;top:522px;width:384px"><div class="mono sep" style="font-size:18px;letter-spacing:3px">CORRECTED</div><div style="font:600 30px/1.18 var(--serif);margin-top:10px">misses 21%, wrongly flags 1%</div><div class="mono ash" style="font-size:18px;line-height:1.45;margin-top:10px">every share we report is corrected for both</div></div>
+
+  <svg class="abs" width="1920" height="1080" style="left:0;top:0" fill="none" stroke="#8d887d" stroke-width="2.5">
+    <path class="draw" pathLength="1" style="--d:.7s" d="M788 330 H842 M822 314 L846 330 L822 346"/>
+    <path class="draw" pathLength="1" style="--d:1.1s" d="M1298 330 H1352 M1332 314 L1356 330 L1332 346"/>
+    <path class="draw" pathLength="1" style="--d:1.6s" d="M1580 426 V460 H570 V492 M554 474 L570 496 L586 474"/>
+    <path class="draw" pathLength="1" style="--d:2.3s" d="M788 590 H842 M822 574 L846 590 L822 606"/>
+    <path class="draw" pathLength="1" style="--d:2.7s" d="M1298 590 H1352 M1332 574 L1356 590 L1332 606"/>
+  </svg>
+  <div class="abs mono rise ash" style="--d:1.7s;left:1600px;top:432px;font-size:16px;letter-spacing:2px">SAMPLE</div>
+  <div class="abs rise" style="--d:3s;left:120px;top:742px;width:210px"><div class="mono rose" style="font-size:20px;letter-spacing:4px">TAKING<br>A SIDE</div><div class="it" style="font-size:28px;margin-top:6px">four ways</div></div>
+<div class="abs rise" style="--d:3.2s;left:360px;top:770px;width:345px"><div class="" style="font:600 28px/1.1 var(--serif)">One right way</div><div class="ty" style="font-size:20px;line-height:1.35;margin-top:6px;color:var(--sepia)">"Not married by thirty? You have already lost."</div></div><div class="abs rise" style="--d:3.4000000000000004s;left:725px;top:770px;width:345px"><div class="" style="font:600 28px/1.1 var(--serif)">Two camps</div><div class="ty" style="font-size:20px;line-height:1.35;margin-top:6px;color:var(--sepia)">"Marry for love or for money. No third kind."</div></div><div class="abs rise" style="--d:3.6s;left:1090px;top:770px;width:345px"><div class="" style="font:600 28px/1.1 var(--serif)">Fear of loss</div><div class="ty" style="font-size:20px;line-height:1.35;margin-top:6px;color:var(--sepia)">"Wait two more years and nobody will want you."</div></div><div class="abs rise" style="--d:3.8000000000000003s;left:1455px;top:770px;width:345px"><div class="rose" style="font:600 28px/1.1 var(--serif)">Group label</div><div class="ty rose" style="font-size:20px;line-height:1.35;margin-top:6px;color:var(--rose)">"Women today only look at the bride price."</div></div>
+  <div class="abs mono rise ash" style="--d:4s;left:360px;top:900px;width:1460px;font-size:18px;letter-spacing:1px;line-height:1.5">Group label: a negative trait pinned on a whole gender, in the video's own voice · quoting it to rebut does not count</div>
 </section>
 
 <!-- 8 PREVALENCE -->
