@@ -112,11 +112,11 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 
 **演讲提示**（与 `slides.html` 的 NOTES 一致，以 NOTES 为准）
 - *Slide 4（55s）*："Two numbers describe a feed. Interest is how much of it is about the topic. Skew is what you see once you're inside the topic — how much more often one narrative shows up than it should. A topic lover has high interest and ordinary skew; a cocoon is high skew, whatever the interest. Our case study, measured in the logs: a gender group label is 4.1% of the marriage videos on offer. Ranking alone lifts it to 6.2% — the platform layer, 1.55 times supply, shared by everyone. The most skewed tenth of heavy viewers see 12.7% — personalisation adds 2.2 times the odds again. Together, 3.4 times supply. The platform layer belongs to everyone; the personal layer is yours — and that is the part a user can act on."
-- *Slide 5（65s）*："So what can each action actually move? Four propositions. One: any feedback moves your skew in proportion to one quantity — how sharply the recommender separates the narrative from the rest of the topic. The same quantity builds a cocoon and takes it apart. In OneRec it is measured, not assumed: the model separates the narrative about two-thirds as sharply as it separates the topic. And the sign of 'not interested' is the platform's choice: in a recommender trained on logged behaviour, the button is read as interest. Two: topic-level controls — 'show less of this topic', every category-based cocoon check — hit all videos in the topic equally, so they cannot change the mix inside it; the skew only falls because the topic does. Three: a filter acts on what reaches the screen, so it is the one action that needs no cooperation from the recommender. Four: no user action reaches the platform layer — it is added for everyone, before any personalisation. Zhao Dingcheng will now show the data."
+- *Slide 5（65s）*："So what can each action actually move? Four propositions. One: any feedback moves your skew in proportion to one quantity — how sharply the recommender separates the narrative from the rest of the topic. The same quantity builds a cocoon and takes it apart. In OneRec it is measured, not assumed: the model separates the narrative about two-thirds as sharply as it separates the topic. And the sign of 'not interested' is the platform's choice: in a recommender trained on logged behaviour, the button is read as interest. Two: topic-level controls — 'show less of this topic', every category-based cocoon check — hit all videos in the topic equally, so they cannot change the mix inside it; the skew only falls because the topic does. Three: a filter acts on what reaches the screen, so it is the one action that needs no cooperation from the recommender. Four: no user action reaches the platform layer — it is added for everyone, before any personalisation. Li Yitong will now show what we actually built."
 
 **技巧**：第 4 页用手势把两个量分左右；"platform layer / personal layer"一句话："the first is shared by everyone, the second is yours"；第 5 页按 01→02→03 讲，最后用底部那句收束（这是第 4–5 页唯一要背下来的结论）；提到 "not interested" 时强调"**它的符号是平台决定的**——在这个模型里被当成兴趣"；数字都按报告口径讲（整份报告是理想化项目、数据是构造的，如被问到如实说明）。
 
-**坑**：把 4.1/6.2/12.7 讲成"我们真实跑快手 App 的结果"（是公开日志 + 开源模型的理想化情景）；术语（log-odds、entropy）；把命题讲成一堆公式框（每张卡只留一句白话）；忘了收束句"平台层够不到"；交接对象说成 Li Yitong（**现在是 Zhao Dingcheng 讲第 6 页**）。
+**坑**：把 4.1/6.2/12.7 讲成"我们真实跑快手 App 的结果"（是公开日志 + 开源模型的理想化情景）；术语（log-odds、entropy）；把命题讲成一堆公式框（每张卡只留一句白话）；忘了收束句"平台层够不到"；交接对象说成 Zhao Dingcheng（**第 6 页是 Li Yitong**）。
 
 **时长**：2:00（55 + 65）。**超时就砍**：第 5 页命题 2、3 的展开，保留 Prop 1 的"同一个量"和 Prop 4 的"平台层够不到"。
 
@@ -214,7 +214,7 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 时间 | 谁 | 内容 | 交接句 |
 |---|---|---|---|
 | 0:00–1:50 | Fu Yitong | 问题、例子、gap、研究问题 | "…Wang Junbo will show how we make this measurable." |
-| 1:50–3:50 | Wang Junbo | 兴趣 vs 偏斜（三层分解）；命题 1–4 | "…Zhao Dingcheng will now show the data." |
+| 1:50–3:50 | Wang Junbo | 兴趣 vs 偏斜（三层分解）；命题 1–4 | "…Li Yitong will now show what we actually built." |
 | 3:50–6:10 | Li Yitong | 真实原型；1/7；OneRec；动作能动什么 | "…Xu Ruicong will show how this plays out over thousands of videos." |
 | 6:10–8:00 | Xu Ruicong | 模拟；可察觉性；报告与决策 | "…Dingcheng will now show all of this on one real case." |
 | 8:00–10:00 | Zhao Dingcheng | 婚恋与家庭案例；总结 | "Thank you." |
