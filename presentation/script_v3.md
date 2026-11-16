@@ -27,33 +27,24 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Wang Junbo（第 5–7 页，约 1:50）
+## Wang Junbo（第 5–6 页，约 1:20）
 
-**Slide 5 · 0:35**
-> A feed has two separate dials. *(横轴)* Interest: how much of your feed is the topic. *(纵轴)* Skew: inside the topic, how much more often one view shows up than it actually exists.
->
-> A topic fan who sees all sides is fine. A cocoon is high skew, whatever the interest. Feeds A and B sit at the same interest, one above the other. A cocoon check reads only this bottom axis, so it cannot tell them apart.
+**Slide 5 · 0:50**
+> Fu asked: is it the creators, the platform, or you? To answer, we need one number: how often a view shows up in a feed, compared with how often it actually exists. Take gender labels in marriage videos. *(逐级指)* Among what creators post, about one video in twenty-four carries one. In what the platform shows everyone, one in sixteen. That gap is the platform's doing, and everyone gets it: we call it the **platform layer**. For the most skewed tenth of heavy viewers, it reaches one in eight. That extra is built by their own watching: the **personal layer**. *(指左边圆圈)* Think of a stage tilted for everyone, and one person leaning further. And anything you can press, whether like, skip or "not interested", reaches only your own lean.
 
-**Slide 6 · 0:45**
-> Where does the skew come from? Picture a stage that is tilted for everyone, and one person who leans further on their own.
->
-> *(逐级指数字)* Among the marriage videos on offer, about one in twenty-four carries a gender label. Ranking shows them to everyone at one in sixteen. That is the **platform layer**: the tilted stage. For the most skewed tenth of heavy viewers, their own history pushes it to one in eight. That is the **personal layer**.
->
-> And everything a user can press, whether like, skip or "not interested", reaches only the inner ring.
-
-**Slide 7 · 0:30**
-> We cannot open Kuaishou's app, so we found four ways in. Its public logs from 160,000 users tell us what people were actually shown. OneRec, a recommender trained on those logs, lets us change a history and watch how it reacts. A simulation runs that reaction forward for months. And a counting bound tells us what a user could notice. Zhao Dingcheng starts with the first question.
+**Slide 6 · 0:30**
+> How do we get these numbers, and the rest? Four kinds of evidence. The logs, 160,000 users, show what each person was shown, and language models label what each video says. OneRec, trained on these logs, lets us edit a history and watch the recommender react. A simulation runs that reaction forward for months, including every way out. And a counting bound tells us how many videos a user needs to notice. Zhao Dingcheng starts with how common these videos are.
 
 ---
 
-## Zhao Dingcheng（第 8–9 页，约 1:35）
+## Zhao Dingcheng（第 7–8 页，约 1:35）
 
-**Slide 8 · 0:45**
+**Slide 7 · 0:45**
 > An open model reads every video description. *(指左边)* Videos take sides in four ways; the sharpest is the group label. *(指下方)* It counts only if all four hold: a whole gender, a negative trait, all or most of them, and in the video's own voice. Quoting it to rebut it does not count.
 >
 > *(指右边)* Two stronger models, DeepSeek and GPT, relabelled 1,200 videos. Our model agrees with them well, a kappa of 0.78, and we correct every share for the errors it still makes. We count labels against *either* gender, and take no side on marriage.
 
-**Slide 9 · 0:50**
+**Slide 8 · 0:50**
 > So how common are they? *(点阵)* Social issues are about eight percent of everything shown, and within them about one video in five takes a side.
 >
 > *(中间)* These videos draw more reactions: nearly twice the comments. But they are also marked "not interested" more often: these are associations, and the attention is not simply approval.
@@ -64,16 +55,16 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Li Yitong（第 10–11 页，约 1:40）
+## Li Yitong（第 9–10 页，约 1:40）
 
-**Slide 10 · 0:55**
+**Slide 9 · 0:55**
 > To see how the recommender reacts, we ran a controlled experiment on OneRec. *(左边)* We take a real user's history, swap in ten new videos, and compute exactly what the model would recommend next, for two hundred users.
 >
 > *(右边)* Ten issue videos raise the topic strongly. Ten group-label videos raise the narrative two-thirds as much, while a random split stays at zero. So the model really does tell this narrative apart, and that means it can amplify it.
 >
 > *(指红框，放慢)* And remember this one: if the same ten videos are marked "not interested", the narrative still goes **up**. The button is read as interest.
 
-**Slide 11 · 0:45**
+**Slide 10 · 0:45**
 > One edit is one step. To follow months of use, we built a simulation whose recommender responds the way the probe measured. Take a topic fan who tends to finish group-label videos. *(沿红线)* After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled.
 >
 > *(指虚线)* Meanwhile the topic share sits flat at thirty percent, so a cocoon check sees nothing. A casual viewer with the same taste barely moves.
@@ -82,28 +73,28 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Xu Ruicong（第 12–14 页，约 2:05）
+## Xu Ruicong（第 11–13 页，约 2:05）
 
-**Slide 12 · 0:45**
+**Slide 11 · 0:45**
 > Noticing means telling a real tilt from bad luck. It is like checking whether a coin is loaded: ten flips are not enough, and you need a fair coin to compare with.
 >
 > To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. *(指条形)* Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.
 
-**Slide 13 · 0:55**
+**Slide 12 · 0:55**
 > Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. *(说明坐标)* Up means skew removed; right means more of the topic kept.
 >
 > *(左下)* Turning personalisation off, or "show less of this topic", removes the skew by removing the topic. *(右边)* Scrolling past the labels keeps the topic and works. Pressing "not interested" on the same videos works *worse* than scrolling past, because, as Li Yitong said, each press is read as interest. *(顶部)* A filter goes furthest, and it needs no help from the recommender.
 
-**Slide 14 · 0:25**
+**Slide 13 · 0:25**
 > And when the user stops, *(沿曲线回升)* every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button.
 >
 > Fu Yitong will close.
 
 ---
 
-## Fu Yitong（第 15 页，约 0:40）
+## Fu Yitong（第 14 页，约 0:40）
 
-**Slide 15 · 0:40**
+**Slide 14 · 0:40**
 > So what does this mean? *(左)* A user can lower their own layer: change what they finish, use a filter, and keep doing it.
 >
 > *(右)* But only the platform can measure the view inside each topic, publish the reference that makes skew visible, make "not interested" mean not interested, and decide how much ranking amplifies what provokes.
@@ -117,5 +108,5 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 ## 排练提示
 
 - **说数字后停半秒。** 比例统一说 "one in sixteen"，不念百分比。
-- **三处伏笔都要讲出来：** 第 10 页 "remember this"，第 13 页 "as Li Yitong said"，第 15 页 "make 'not interested' mean not interested"。
-- **超时先砍：** 第 8 页的四类例句（不念），然后第 12 页最后一句（平台公布参照只需 6 天）。
+- **三处伏笔都要讲出来：** 第 9 页 "remember this"，第 12 页 "as Li Yitong said"，第 14 页 "make 'not interested' mean not interested"。
+- **超时先砍：** 第 7 页的四类例句（不念），然后第 11 页最后一句（平台公布参照只需 6 天）。
