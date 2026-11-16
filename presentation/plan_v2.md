@@ -44,16 +44,16 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 3 | What is missing, and our question | Fu Yitong | 0:45 | 三列（测量 / 审计 / 控制）各自看不到什么；底部研究问题 |
 | 4 | Interest is not skew | Wang Junbo | 0:55 | m 与 V 两个量；实测三层分解 4.1% → 6.2% → 12.7%（*Measured* · 报告 §5.1） |
 | 5 | What each action can move | Wang Junbo | 1:05 | 命题 1–4 三卡（ΔV = η·c / ΔV = 0 / 过滤器）+ 底部一句"平台层 Λ 用户操作够不到" |
-| 6 | What we actually built | Li Yitong | 0:20 | 真实原型流水线 + 已做 / 仅提议清单 |
-| 7 | Where one-sided narratives appear | Li Yitong | 0:35 | 大数字 **1 in 7**；五个议题域的小条形图（7%–20%） |
-| 8 | Does the recommender amplify a narrative? | Li Yitong | 0:55 | 三个结果：话题强响应；"不感兴趣"反向；叙事对比≈0 |
-| 9 | What each action can reach | Li Yitong | 0:30 | 动作表：作用在推荐器状态还是展示结果；平台层 vs 个人层 |
-| 10 | Simulating the escape | Xu Ruicong | 0:40 | 各策略对偏斜的影响 + 保留的话题量（报告图 4 简化） |
-| 11 | Can a user even notice? | Xu Ruicong | 0:35 | 6,475 条议题视频 ≈ 405,000 次观看 vs 用户历史中位数 493 |
-| 12 | What a user-side report should do | Xu Ruicong | 0:35 | 报告原型截图（"Not enough evidence yet"）+ 决策规则的三条教训（*Proposed*） |
-| 13 | Case study: marriage and family | Zhao Dingcheng | 0:35 | 选择理由 + 15 个关键词的数据规模 + "群体标签"四问判断 |
-| 14 | What we found in the case study | Zhao Dingcheng | 0:55 | 三个发现：很稀有；标注很脆弱；没有被"奖励" |
-| 15 | Takeaway | Zhao Dingcheng | 0:30 | 三句话总结 + 四色证据图例 |
+| 6 | How common are one-sided narratives? | Li Yitong | 0:20 | 三个点阵数字：7.9% / 1 in 5（18.4%）/ 6.2%（*Measured*） |
+| 7 | Split the lean in two | Li Yitong | 0:35 | 平台层 Λ 与个人层 V<sub>u</sub> 示意（论文风） |
+| 8 | Does a recommender amplify a narrative? | Li Yitong | 0:55 | OneRec 三个结果：话题 +1.01、叙事 +0.67、"not interested" 反向 |
+| 9 | Same topic share. Twice the odds. | Li Yitong | 0:30 | 三层分解 + 探针条形 + 90 天形成曲线（*Measured / Scenario*） |
+| 10 | Simulation: what helps? | Xu Ruicong | 0:40 | θ 扫描的形成曲线 + 五种动作的 ΔV（*Scenario*） |
+| 11 | Could you notice? Months of counting | Xu Ruicong | 0:35 | 样本量曲线：490 条 / 自己 feed 9 天 / 参照 114 天 / 平台公布后 310 条-6 天 |
+| 12 | What we would show users | Xu Ruicong | 0:35 | 报告原型截图（"Not enough evidence yet"）+ 三条设计原则（*Proposed*） |
+| 13 | Same topic, narrower view | Zhao Dingcheng | 0:35 | 两个用户各 100 格：话题都是 30%，群体标签 6% vs 13% |
+| 14 | 490 videos to notice. A button that feeds it. | Zhao Dingcheng | 0:55 | 490 + 17 天尝试的逃离表（报告 Table 5）+ 三条结论 |
+| 15 | What is solid, what is not | Zhao Dingcheng | 0:30 | Measured / Scenario / Not shown 三卡 + 收束句 |
 
 **时间分配**：Fu 1:50（0:00–1:50）· Wang 2:00（1:50–3:50）· Li 2:20（3:50–6:10）· Xu 1:50（6:10–8:00）· Zhao 2:00（8:00–10:00）。合计 **10:00**；彩排目标 **9:30–9:50**。
 
@@ -125,89 +125,82 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 **板块核心目标**：（1）**单独、清楚地介绍 GitHub 上真实落地的原型**；（2）给出一张"对立叙事在哪里"的数据地图；（3）回答"推荐器会放大吗？按钮管用吗？"；（4）用一句核心洞察串起来：**让推荐器能形成茧房的量，也正是让用户能解开茧房的量**。这是全场信息量最大的部分，**只讲结论**。
 
 **屏幕上**
-- 第 6 页：横向流水线 *RecIF log (162,074 users) → LLM labels on video descriptions → OneRec probes → transparent simulation*；下方两排：✔ *Built and run*（标注与可靠性检查、OneRec 实验、模拟、检测计算）；○ *Proposed, not built*（用户端报告、人工标注、用户测试）。
-- 第 7 页：大数字 **1 in 7**（*five everyday-issue domains, 13%, 95% interval 10–17%*）；小条形图：家庭与代际 7% 到 消费与金钱 20%；小字 *About 7% of impressions touch a social issue · Measured*。
-- 第 8 页：三个并排小图：①话题强响应（2.6% → 5.7%）；②"Not interested" 反而升到 4.0%；③叙事对比 +0.12，落在随机伪叙事范围（−0.18 到 +0.24）内。标 *Measured · OneRec-1.7B, 30–50 held-out users*。
-- 第 9 页：精简三行表（推荐器状态：不感兴趣 / 看别的 / 删历史 → 个人层；展示结果：过滤 → 个人层 + 平台层；关闭个性化 → 去掉个人层）+ 一句 *Same quantity builds the cocoon and takes it apart.* 标 *Derived*。
+- 第 6 页：三个点阵数字——`7.9%` of impressions touch a social issue；`1 in 5`（18.4%，16.6–20.4）issue impressions carry an opposing narrative；`6.2%` of gender-&-marriage impressions carry a negative label on a whole gender（supply 4.1%）。标 *Measured*。
+- 第 7 页：论文风一页：平台层 *what exists and how it is ranked*；个人层 *what your history adds*；底部 `total skew = Λ + V_u · ΔV = η·c`，以及"你的按钮只够到内层"。
+- 第 8 页：OneRec 三行结果：话题 **+1.01**（每 10 条议题视频）；叙事 **+0.67**（≈话题的 2/3）；"not interested" 反向（叙事 **+0.29**、话题 +0.39）。标 *Measured · OneRec-1.7B*。
+- 第 9 页：三层分解 4.1% → 6.2%（+0.44，×1.55）→ 12.7%（+0.79，×2.2，合计 ×3.4）+ 探针条形（+1.01 / +0.67 / −0.05）+ 90 天形成曲线（她 +0.78 vs 随意观众 +0.09）。标 *Measured / Scenario*。
 
 **演讲提示**
-- *Slide 6（20s）*："What did we actually build? A prototype in our repository: a public Kuaishou log of about 160,000 users; language models that label each video's description; probes of a recommender trained on that log; and a small simulator. We did *not* build a user-facing tool or run a user test."
-- *Slide 7（35s）*："First, a map. About 7% of what users are shown touches a social issue. In five everyday-issue domains, about one video in seven carries a one-sided narrative, from 7% in family topics to 20% in money topics. Dingcheng will zoom into one domain at the end."
-- *Slide 8（55s）*："Then we tested whether a recommender amplifies a narrative. We took OneRec, trained by Kuaishou on this log, edited a user's history in one controlled way, and measured how the recommendations changed. One narrative here is a negative label on a whole gender. Result one: the *topic* responds strongly; ten issue videos double the issue share. Result two: 'not interested' goes the *wrong way*, and raises similar recommendations. Result three: the narrative is barely separated from other videos on the issue; the effect is inside the range of random sets. That is a negative result for our own hypothesis, and we report it as it is."
-- *Slide 9（30s）*："Our maths gives one rule: how a feedback action changes your skew is proportional to how well the recommender tells the narrative apart. If it can't, your clicks can't build a cocoon, and your feedback can't remove one. Actions on your history reach your personal layer, not the platform's shared layer; only filters do. Xu Ruicong will show how this plays out over thousands of videos."
+- *Slide 6（20s）*："First, what is out there? About 8% of what users are shown touches a social issue; within those areas about one impression in five carries an opposing narrative — 18.4%. Our case study is the sharpest form: a negative label on a whole gender, 4.1% of the supply on marriage and 6.2% of what is shown."
+- *Slide 7（35s）*："Where does the lean come from? It splits in two: a platform layer — what exists and how it is ranked — the same for everyone, and a personal layer built by your history. Your buttons only reach the inner one."
+- *Slide 8（55s）*："We tested whether a real recommender amplifies. We used OneRec, trained by Kuaishou on this log, changed one user's history in one controlled way, and measured what it recommends next. Topics respond strongly: ten issue videos add about one log-odds. The narrative responds too — two-thirds as much, far outside the random range, so this model does tell the narrative apart. And 'not interested' goes the wrong way: it raises the narrative instead of lowering it."
+- *Slide 9（30s）*："One probe is one step; weeks of use need a simulation, with its scale set by that probe. A heavy viewer of one narrative ends at twice the odds while her topic share never moves — same topic, narrower view, built in weeks. Xu Ruicong will show what it takes to get out, and whether she could notice."
 
 **技巧**
 1. 每页只说**一个结论**，数字不超过 2 个；表格不逐行念。
 2. 第 8 页逐个结果用同一句式 *We did X → the model did Y*；先讲"怎么测"（改一次历史，量一次变化）。
-3. **主动讲负面结果**（≈0、按钮反向）：这是诚实和思考的加分点。
+3. **主动讲"按钮反向"**：这是诚实和思考的加分点；但别再讲"叙事≈0"，最终报告里叙事响应是话题的 2/3。
 4. 命题只讲一句话版本；公式留在报告。
 5. 明确"这是开源模型，不是快手 App 里的推荐器"。
 6. 彩排时**计时每页**，第 6 页和第 9 页必须守住 20s/30s，否则会拖垮后面的人。
 
 **坑**
-- 时间失控（4 页 2:20 很紧）；多讲了标注方法（留给最后一个部分）。
+- 时间失控（4 页 2:20 很紧）；多讲了标注方法（留给第 6 页一句带过）。
 - 说"证明快手的'不感兴趣'失效"——只能说"在这个开源模型里反向"。
-- 把早期试点值 +1.13 当主结果（它是标注较差时的**上限情境**）。
-- 把"≈0"说成"证明没有效应"——应说"和零无法区分（只有 30–50 个用户）"。
-- 把 "1 in 7"（13%，参考模型）和"群体标签 <1%"（更窄的一类）混为一谈。
+- 把 4.1/6.2/12.7 讲成"我们真实跑快手 App 的结果"（公开日志 + 开源模型的理想化情景）。
+- 把 18.4%（叙事在议题曝光中的占比）和 6.2%（群体标签在婚恋曝光中的占比）混为一谈。
+- 把形成曲线（+0.78）说成实测——它是模拟情境，尺度来自探针。
 
-**时长**：2:20（20 + 35 + 55 + 30）。**超时就砍**：第 7 页只留 "1 in 7"；第 9 页只留 "same quantity" 一句。
+**时长**：2:20（20 + 35 + 55 + 30）。**超时就砍**：第 6 页只留 1 in 5；第 9 页只留"同话题、更窄视角"一句。
 
 ## ④ Xu Ruicong：模拟、可察觉性、报告与决策（第 10–12 页，约 1:50）
 
 **板块核心目标**：展示"如果有这些操作，长期会怎样、有什么代价"，"用户自己能不能发现"，并把结果变成**用户端报告的设计**（含决策规则的教训）。
 
 **屏幕上**
-- 第 10 页：报告图 4 的简化版：横轴"保留的话题量"、纵轴"偏斜的变化"，标 *Filter / Delete from history / "Not interested" (negative) / "Not interested" (as OneRec) / Watch other videos*；一句 *A filter stops when switched off; deletion persists.* 标 *Scenario*。
-- 第 11 页：大数字 **6,475 issue videos → ≈ 405,000 watched**（*to notice a doubling of a rare narrative*）对比 *median user history: 493 videos*；标 *Derived*。
-- 第 12 页：报告原型截图（突出 **"Not enough evidence yet"**）+ 三条教训：*① The permitted actions decide the outcome · ② Over-correction is a failure · ③ Sometimes do nothing*，标 *Proposed*。
+- 第 10 页：θ 扫描（0 / 0.5 / 1 / 2）的形成曲线 + 五种动作的 ΔV 条形（过滤 −1.6、删历史 −0.09、两类"不感兴趣"≈0）；一句 *Filter ends when switched off; deleting lasts.* 标 *Scenario*。
+- 第 11 页：样本量曲线，标 *doubling: 490*；右栏 490 条/样本、自己 feed 9 天、参照 114 天 ≈ 4 个月、平台公布参照后 310 条-6 天。标 *Derived*。
+- 第 12 页：报告原型截图（突出 **"Not enough evidence yet"**）+ 三条设计原则（interest 与 skew 分开 / 与无个性化 feed 对比 / 证据不足时直说），标 *Proposed · mock-up, invented data*。
 
 **演讲提示**
-- *Slide 10（40s）*："We can't experiment on the live app, so we built a transparent simulator whose scale is set by the measurements you just saw. At the response we measured there is hardly any skew to correct, so history-based actions change little. A filter changes the most, but only while it's on. Deleting the narrative from your history changes less but lasts. In a stronger scenario the ordering is the same. These are scenario results, not observations of a platform."
-- *Slide 11（35s）*："Could a user simply notice? To see that a rare narrative has doubled, you would need about 6,500 issue videos, roughly 400,000 videos watched, about 800 times the median user's whole history. So an honest user-side tool should say 'not enough evidence yet' instead of a score, and the platform, which knows what it shows, can compute it directly."
-- *Slide 12（35s）*："So what should a report do? Three lessons from our decision rule. One: which action wins depends on which actions the platform really offers; 'not interested' helps only if built as negative feedback. Two: pushing too hard overshoots, leaving you with *less* of a narrative than exists, which is its own distortion. Three: sometimes the right answer is 'no action needed'. Dingcheng will now show all of this on one real case, marriage and family."
+- *Slide 10（40s）*："One probe is one step. Over thousands of videos a feed can lock in or undo itself, depending on how sharply the recommender separates the narrative — that is this sweep. A filter changes the most but only while it is on; deleting from history changes less; the button as built does almost nothing. These are scenario results, not observations of a platform."
+- *Slide 11（35s）*："Could she notice? To tell a doubling from chance she needs about 490 labelled issue videos in each of two samples: nine days on her own feed, four months for a feed without personalisation. So no — unless the platform publishes the reference, and then it is 310 videos and six days."
+- *Slide 12（35s）*："So what should a report do? Keep interest and skew apart, compare with a non-personalised feed, and say 'not enough evidence' when that is true. It is a proposal — the mock-up's user numbers are invented. Dingcheng will now show all of this on one real case."
 
-**技巧**：先说为什么模拟（不能在 App 上做实验），再看图，只指 3 个点；第 11 页用对比让数字有感觉（405,000 vs 493）；"过度纠正"讲成直觉："you can end up with less of it than there should be"；第 12 页三条教训各一句。
+**技巧**：先说为什么模拟（不能在 App 上做实验），再看图，只指 3 个点；第 11 页用对比让数字有感觉（自己 9 天 vs 参照 4 个月；平台公布后 6 天）；第 12 页三条原则各一句。
 
-**坑**：把模拟说成"实验证明过滤最好"；6,475（议题视频数）与 405,000（观看总数）混淆；说"用户永远无法察觉"（应说"对这个稀有叙事需要远超一般用户历史的样本"）；把报告原型说成已实现（它是 mock-up，数字里用户部分是编的）。
+**坑**：把模拟说成"实验证明过滤最好"；把 490（每样本条数）与 9 天/114 天（攒够所需时间）混淆；说"用户永远无法察觉"（应说"要靠平台公布参照才现实"）；把报告原型说成已实现（它是 mock-up，用户数字是编的）。
 
-**时长**：1:50（40 + 35 + 35）。**超时就砍**：第 10 页保留"过滤只在开着时有效 / 删除会持续"；第 12 页保留教训 ②③。
+**时长**：1:50（40 + 35 + 35）。**超时就砍**：第 10 页保留"过滤只在开着时有效 / 删除更持久"；第 12 页只留"证据不足就直说"。
 
 ## ⑤ Zhao Dingcheng：婚恋与家庭案例研究 + 总结（第 13–15 页，约 2:00）
 
-**板块核心目标**：把前面所有抽象想法**落到我们仓库里真实做过的一个案例上**（婚恋与家庭），并用三句话收束全场。这是"从想法到数据"的闭环，也是全场结尾，必须干脆。
+**板块核心目标**：把前面所有抽象想法**落到我们仓库里真实做过的一个案例上**（婚恋与家庭），再用"什么成立、什么不成立"收束全场。这是"从想法到数据"的闭环，也是全场结尾，必须干脆。
 
 **屏幕上**
-- 第 13 页 "Case study: marriage and family"：左：为什么选它（*the largest everyday-issue domain: 1.8% of exposure; 17% carry an opposing narrative*，*Measured*）；中：数据规模（15 个婚恋家庭关键词，260,566 个视频，占曝光 2.0%；中位用户一生只看到 8 条）；右：判断"群体标签"的**四个问题**（Who is the target? Generalised? Negative? Endorsed?）+ 一个**自编例子**（*Invented*）。
-- 第 14 页 "What we found"：三个并排卡片：
-  ① **Rare**：整体负面标签在婚恋视频中约 **0.2%–1%**；
-  ② **Fragile labelling**：同一次提示词修改让两个模型**反向变化**（开源 4% → 51% → 13%；参考模型 1.4% → 0.6% → 1.0%），63 处分歧全部来自"对象是谁"；
-  ③ **Not rewarded**：被标"群体标签"的视频点赞率 4.7% vs 其他 4.6%，看完率 27% vs 40%（*Measured*）。
-- 第 15 页 "Takeaway"：三句话 + 四色图例：
-  1. *Interest ≠ skew: measure both.*
-  2. *What a button does depends on how it is built; the strongest lever is on the platform's side.*
-  3. *A user-side report should show examples, say when evidence is thin, and let users set goals.*
+- 第 13 页 "Same topic, narrower view"：两个用户各 100 格（每格 100 条视频，浅色是话题）；话题都 30%（*a cocoon check sees no difference*）；群体标签 share 6% vs 13%（*odds ×2.2*）；右侧：case 规模 **2.4%** of impressions、**24%** of them take a side（*Measured · Table 4*）+ 群体标签的一句话定义 + 一个自编例子（*Invented*）。
+- 第 14 页 "490 videos to notice. A button that feeds it."：左：**490** 条/样本（自己 feed **9 天** vs 参照 **114 天 ≈ 4 个月**）；右：17 天尝试的逃离表（划过 −1.1/93%、"不感兴趣" −0.9/94%、少看该话题 −0.8 但只留 2% 话题、过滤 −2.6/90%）+ *half the gain is gone in about a week*；底部三条结论。
+- 第 15 页 "What is solid, what is not"：Measured / Scenario / Not shown 三卡 + 收束句 *a user cannot easily see or undo skew inside a topic; the platform is better placed to measure and correct it.*
 
 **演讲提示**
-- *Slide 13（35s）*："Now one real case. We chose marriage and family, the largest everyday issue in the data: about 1.8% of what users are shown, and about one in six of those videos carry a one-sided narrative. We selected videos by 15 keywords like divorce, mother-in-law, bride price: about 260,000 videos, 2% of all impressions. A typical user sees only 8 of them in their whole history. The narrative we study most closely is a negative label on a whole gender. To decide, a model answers four questions: Who is the target? Is a negative trait generalised to the group? Is it a flaw in character or motive? Does the video itself endorse it? A drama villain is not a label; 'girls these days only care about money', endorsed by the video, is."
-- *Slide 14（55s）*："Three findings. One: it is rare, between 0.2% and 1% of marriage videos, depending on the sample. Two: labelling is fragile. We had a strong model and an open model label the same 500 videos. One edit to the prompt moved them in *opposite* directions: the open model went from 4% to 51% flagged, the strong one from 1.4% down to 0.6%. In the final version, the open model flagged 13% against 1%, and 94% of its flags were not confirmed. Every disagreement started at question one: it read a *topic*, 'women and money', as a *target*, 'women'. Three: the logs show no reward for this narrative. These videos are liked as often as other marriage videos, and watched to the end less. So any tilt would not come simply from users rewarding it."
-- *Slide 15（30s）*："To take away three things. One, interest and skew are different, so measure both. Two, what a button does depends on how it is built, so the strongest lever is on the platform's side. Three, a user-side report should show examples, admit when evidence is thin, and let people set their goals. Everything we measured is offline and partly simulated; the rest is a design we propose. Thank you."
+- *Slide 13（35s）*："Now one real case: gender and marriage — 2.4% of all impressions, and a quarter of those videos take a side. Two users follow the topic at the same rate; every square is a hundred videos, the pale ones on the topic. A cocoon check sees both at 30%. Inside, one meets 6% group labels, the other 13%: same topic, twice the odds. To decide what counts as a label, a model asks one question — is a negative trait generalised to a whole gender, and does the video itself endorse it?"
+- *Slide 14（55s）*："Could she notice? About 490 labelled issue videos per sample: nine days on her own feed, four months for a reference feed. And getting out costs: scrolling past −1.1, the button −0.9 because the model reads it as interest, 'show less of this topic' −0.8 but it takes the topic with it, a filter −2.6 only while it is on. Stop, and half the gain is gone in a week. Three things: counting topics cannot see this; escape is a habit, not a button, and today's button feeds the tilt; only the platform sees it without months of counting."
+- *Slide 15（30s）*："What is solid: the prevalence and the recommender's response — measured. How a cocoon forms and what escape costs — scenario. What we cannot show: any effect on the real app, or on what people believe. Thank you."
 
 **技巧**
-1. 第 13 页只教"四个问题"，用**一个例子**；别念关键词列表（只说 3 个）。
-2. 第 14 页每个发现一句"结论 + 一个数字"；"反向变化"这个故事用**手势**（一个向上、一个向下）。
-3. 94% = 1 − 6% 的精确度；也可以只说 "only 6% of its flags were confirmed"，更稳。
-4. 结尾三句话**背熟**，放慢，抬头，说完 "Thank you" 就停。
-5. 一句话伦理声明（可在第 13 页或第 14 页带过）："our definition counts a negative label on *any* gender and judges no position on marriage."
+1. 第 13 页只教"一句话定义"，用**一个例子**（"Women today only look at the bride price"，视频自述的才算）；别说"四个问题"清单。
+2. 第 14 页每个发现一句"结论 + 一个数字"；"按钮反向"用**手势**（往下按、数字往上）。
+3. 结尾把"measured / scenario / not shown"分清楚，说完 "Thank you" 就停。
+4. 一句话伦理声明（可在第 13 页带过）："our definition counts a negative label on *any* gender and judges no position on marriage."
 
 **坑**
-- 把参考模型说成"人工金标准"（它也是模型）。
-- 把"0.2%–1%"说成"确定的发生率"（它依赖样本与提示词）。
-- 把"没有被奖励"说成"算法没有放大"——这里只说**用户没有用互动奖励它**；放大要看 OneRec 的结果。
+- 把参考模型说成"人工金标准"（它是两个更强模型的参照，不是人标）。
+- 把 2.4% / 24% 说成"全部婚恋视频"的占比（它们的口径是曝光与"take a side"）。
+- 把 6% → 13% 讲成"两个不同人群"——是同一话题率下的两个 feed。
 - 把案例讲成"婚恋现象评论"：我们不评价任何婚恋立场。
-- 结尾发散，加新观点；或在最后一页没有区分"已测"和"提议"。
+- 结尾发散，加新观点；或在最后一页没有区分"已测"和"模拟"。
 
-**时长**：2:00（35 + 55 + 30）。**超时就砍**：第 13 页的关键词和例子之一；第 14 页卡片 ③ 只说一句。第 15 页三句话**不可砍**。
+**时长**：2:00（35 + 55 + 30）。**超时就砍**：第 13 页的例子；第 14 页逃离表只留两行。第 15 页三卡**不可砍**。
 
 # 4 全场时间与交接表
 
@@ -256,16 +249,16 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 
 | 汇报页 | 报告章节 | 证据类型 |
 |---|---|---|
-| 2–3 | §1、§2 | – |
-| 4 | §3.3、§4.1 | 实测 + 推导 |
-| 5 | §2.3–2.4（命题 1–4）、§4.2 | 推导 + 实测 |
-| 6 | §5.1、§8.1 | – |
-| 7 | §5.2、表 1 | 实测 |
-| 8 | §6.1、表 3 | 实测 |
-| 9 | §4 命题 1–5 | 推导 |
-| 10 | §6.2、图 2、图 4 | 模拟情境 |
-| 11 | §4.5、§6.3、图 3 | 推导 |
-| 12 | §6.4、§7、图 5 | 设计提议 + 模拟 |
-| 13 | §5.1–5.2、附录 A.3 | 实测 + 定义 |
-| 14 | §5.3–5.4、表 2、附录 A.4 | 实测 |
-| 15 | §10、§8 | – |
+| 1–3 | 摘要、§1、§2 | – |
+| 4 | §3.1–3.2 | 实测 + 推导 |
+| 5 | 命题 1–4（报告无"目标→行动"四阶段框架与决策规则） | 推导 + 实测 |
+| 6 | §4.1、§5.1 开头、§7.2 | 实测 |
+| 7 | §4.2、表 4.1–4.2 | – |
+| 8 | §5.1、表 5.1 | 实测 |
+| 9 | §3.3–3.4、命题 1–5 | 推导 + 模拟 |
+| 10 | §5.2、图 5.1、附录 B | 模拟情境 |
+| 11 | §3.5（命题 6）、§5.3、图 5.2 | 推导 |
+| 12 | §6、图 6.1（"决策规则三条教训"报告里没有） | 设计提议 |
+| 13 | §4.1、§4.2 末（案例选择）、附录 A.3 | 实测 + 定义 |
+| 14 | §4.3–4.4、表 4.3–4.4、附录 A.4 | 实测 + 模拟 |
+| 15 | §7.1、§7.5 | – |
