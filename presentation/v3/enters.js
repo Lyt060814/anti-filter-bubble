@@ -4,21 +4,20 @@ enter[1]=()=>{sil.on=true;sil.t0=performance.now();if(STATIC)drawSil(0);else req
 leave[1]=()=>{sil.on=false};
 
 /* 2: the usual topic definition, then two feeds with the same topic share; one-sided videos appear inside the topic */
-enter[2]=()=>{
-  const intro=$('#s2i');intro.classList.remove('gone');later(24.6,()=>intro.classList.add('gone'));
+enter[3]=()=>{
   const topic=[...Array(100).keys()].filter(i=>(i*37+11)%100<30);
   const pick=[topic[4],topic[17],topic[9],topic[25]];
   [['g2a',2,0],['g2b',4,.15]].forEach(([id,nr,dd])=>{
     const g=$('#'+id);g.innerHTML='';
     for(let i=0;i<100;i++){const s=document.createElement('div');s.className='zsq';s.style.width=s.style.height='34px';
       s.style.left=(i%10)*40+'px';s.style.top=Math.floor(i/10)*40+'px';g.appendChild(s);
-      if(topic.includes(i))later(32.6+dd+(i%10)*.04,()=>s.classList.add('t'));
-      const k=pick.indexOf(i);if(k>=0&&k<nr)later(36+dd+k*.3,()=>s.classList.add('r'))}
+      if(topic.includes(i))later(1+dd+(i%10)*.04,()=>s.classList.add('t'));
+      const k=pick.indexOf(i);if(k>=0&&k<nr)later(1.5+dd+k*.3,()=>s.classList.add('r'))}
   });
 };
 
 /* 4: interest (x) against skew (y) */
-enter[4]=()=>{
+enter[5]=()=>{
   const s=$('#c4');s.innerHTML='';const L=120,R=1080,T=40,B=600;
   el('line',{x1:L,x2:R+30,y1:B,y2:B,stroke:BONE,'stroke-width':2.5},s);el('line',{x1:L,x2:L,y1:B,y2:T-10,stroke:BONE,'stroke-width':2.5},s);
   el('path',{d:`M${R+14} ${B-10} L${R+34} ${B} L${R+14} ${B+10}`,stroke:BONE,'stroke-width':2.5,fill:'none'},s);
@@ -41,7 +40,7 @@ enter[4]=()=>{
 };
 
 /* 5: concentric layers */
-enter[5]=()=>{
+enter[6]=()=>{
   const svg=$('#s5s');svg.innerHTML='';const cx=470,cy=640,PA='#b0213f',IN='#0a0a0b';
   const defs=el('defs',{},svg);const pat=el('pattern',{id:'hat5',width:14,height:14,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);el('line',{x1:0,y1:0,x2:0,y2:14,stroke:'rgba(10,10,11,.22)','stroke-width':3},pat);
   el('circle',{cx,cy,r:310,fill:'url(#hat5)',stroke:IN,'stroke-width':3,'stroke-dasharray':'14 10',class:'rise',style:'--d:1.8s;transform-origin:'+cx+'px '+cy+'px'},svg);
@@ -60,7 +59,7 @@ enter[5]=()=>{
 };
 
 /* 6: four kinds of evidence */
-enter[6]=()=>{
+enter[7]=()=>{
   const w=$('#w6');
   const cards=[['READ THE LOGS','What each user was actually shown','RQ1 · RQ2'],['PROBE THE MODEL','OneRec-1.7B, trained on these logs: edit a history, see what it recommends','RQ2'],['SIMULATE','Run that response forward for months; try every way out','RQ2 · RQ4'],['COUNT','How many videos a user needs to tell a tilt from chance','RQ3']];
   w.innerHTML=cards.map(([h,t,rq],i)=>`<div class="card rise" style="--d:${1.8+i*.35}s;left:${i*420}px;top:0;width:390px;height:380px"></div>
@@ -71,7 +70,7 @@ enter[6]=()=>{
 };
 
 /* 8: prevalence, engagement, supply vs shown */
-enter[8]=()=>{
+enter[9]=()=>{
   const c=$('#c8a');
   c.innerHTML='<div class="big rose" style="font-size:118px;opacity:0" data-b>1 in 5</div><div class="dotg" style="position:relative;width:240px;height:240px;margin:22px 0 26px"></div><div class="lab" style="font-size:32px;line-height:1.2;width:480px;opacity:0" data-t>issue videos shown carry an opposing narrative<br><span class="ash mono" style="font-size:20px">18.4% of issue videos<br>issues are 7.9% of all shown</span></div>';
   const b=c.querySelector('[data-b]'),t=c.querySelector('[data-t]'),g=c.querySelector('.dotg');
@@ -102,7 +101,7 @@ enter[8]=()=>{
 };
 
 /* 9: the probe */
-enter[9]=()=>{
+enter[10]=()=>{
   const s=$('#c9a');s.innerHTML='';
   el('text',{x:10,y:30,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},s,"A REAL USER'S HISTORY");
   const swap=[2,5,7,10,13,15,18,21,24,27];
@@ -130,7 +129,7 @@ enter[9]=()=>{
 };
 
 /* 10: formation over 90 days */
-enter[10]=()=>{
+enter[11]=()=>{
   const b=$('#c10');b.innerHTML='';const L=90,R=1220,T=30,B=520;
   const X=d=>L+(R-L)*d/90,YV=v=>B-(B-T)*v/.9,YM=m=>B-(B-T)*m/.6;
   el('line',{x1:L,x2:R,y1:B,y2:B,stroke:ASH,'stroke-width':2},b);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ROSE,'stroke-width':2},b);el('line',{x1:R,x2:R,y1:T,y2:B,stroke:BONE,'stroke-width':1.5,'stroke-dasharray':'4 6'},b);
@@ -151,8 +150,8 @@ enter[10]=()=>{
 };
 
 /* 11: days to collect each sample */
-enter[11]=()=>{
-  countups($('#s11'));
+enter[12]=()=>{
+  countups($('#s12'));
   const s=$('#c11');s.innerHTML='';const L=0,R=860,X=d=>L+(R-L)*d/120;
   const bars=[['your own feed',9,ROSE,'9 days'],['a feed without personalisation',114,SEP,'114 days ≈ 4 months'],['a reference the platform publishes',6,BONE,'6 days · 310 videos']];
   bars.forEach(([lab,d,col,val],i)=>{const y=10+i*130;
@@ -164,7 +163,7 @@ enter[11]=()=>{
 };
 
 /* 12: skew removed against topic kept */
-enter[12]=()=>{
+enter[13]=()=>{
   const s=$('#c12');s.innerHTML='';const L=130,R=1040,T=30,B=580;
   const X=k=>L+(R-L)*k,Y=r=>B-(B-T)*(r+.2)/3.0;
   el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:ASH,'stroke-width':2},s);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ASH,'stroke-width':2},s);
@@ -184,7 +183,7 @@ enter[12]=()=>{
 };
 
 /* 13: during the action and after it stops */
-enter[13]=()=>{
+enter[14]=()=>{
   const s=$('#c13');s.innerHTML='';const L=110,R=1120,T=20,B=540,D0=-6,D1=38;
   const X=d=>L+(R-L)*(d-D0)/(D1-D0),Y=v=>B-(B-T)*(v+2)/3;
   el('rect',{x:X(0),y:T,width:X(16.7)-X(0),height:B-T,fill:'rgba(236,229,211,.06)'},s);
@@ -205,4 +204,4 @@ enter[13]=()=>{
     el('text',{x:X(lx),y:Y(t.V[j])+(k==='S0'?-16:k==='S2'?-16:40),fill:c,'font-size':28,'font-style':'italic','font-family':'CG',class:'fade',style:`--d:${1.4+i*.5}s`},s,lab)});
 };
 
-enter[14]=()=>{};
+enter[15]=()=>{};
