@@ -39,8 +39,8 @@ v3 是另起的一套幻灯片 [slides_v3.html](slides_v3.html)，沿用 v2 的�
 | 4 | Wang | 0:35 | Interest and skew are two different dials | 二维图：横轴兴趣、纵轴偏斜；Feed A、B 同兴趣不同偏斜；茧房自测只读横轴 | – |
 | 5 | Wang | 0:45 | Part of the tilt is everyone's. Part is yours. | 同心圆 + 三级台阶：1/24（供给 4.1%）→ 1/16（平台层 6.2%）→ 1/8（个人层 12.7%）；按钮只够到内圈 | From the logs |
 | 6 | Wang | 0:30 | Four ways into a closed recommender | 数据（160,412 用户、7,530 万曝光）→ 标注 → 四种证据（日志、探针、模拟、计数），各标对应 RQ | – |
-| 7 | Zhao | 0:40 | One model labels, two stronger ones check | 四类对立叙事各一句例句；DeepSeek + GPT 复核 1,200 条，κ 0.78；漏 21%、误报 1%，已校正 | – |
-| 8 | Zhao | 0:55 | One in five takes a side, and ranking favours them | 1 in 5（18.4%）点阵；评论 ×1.85、分享 ×1.33、"不感兴趣" ×1.74；供给 4.1% vs 展示 6.2% | From the logs |
+| 7 | Zhao | 0:45 | One model labels, two stronger ones check | 四类对立叙事各一句例句（附报告类型名）；群体标签四个条件，反驳不算；DeepSeek + GPT 复核 1,200 条，κ 0.78；漏标 21% 的群体标签、在其他视频里误标 1%，已校正 | – |
+| 8 | Zhao | 0:50 | One in five takes a side, and ranking favours them | 1 in 5（18.4%）点阵；评论 ×1.85、分享 ×1.33、"不感兴趣" ×1.74（相关，不只是认可）；五个议题域展示/供给几率 ×1.18–1.49；性别标签一行小字回指第 5 页 | From the logs |
 | 9 | Li | 0:55 | Change a history, and the recommender follows | 示意：换入 10 条 → OneRec → 下一步推荐；话题 +1.01、叙事 +0.67、随机 ≈0；框：标"不感兴趣"叙事仍 +0.29 | OneRec probe |
 | 10 | Li | 0:45 | Three months: same topic, twice the odds | 模拟曲线：话题粉几率 24 天到一半、89 天翻倍；话题占比平在 30%；随意观众几乎不动 | Simulation · 400 users |
 | 11 | Xu | 0:45 | To notice it, you need a second feed | 硬币类比；490 条/每个 feed；自己 9 天 / 无个性化参照 114 天 / 平台公布参照 6 天（310 条） | Counting bound |
@@ -64,8 +64,8 @@ v3 是另起的一套幻灯片 [slides_v3.html](slides_v3.html)，沿用 v2 的�
 - *6*："We cannot open the app, so four ways in: logs, a model trained on them, a simulation, and a counting bound. Zhao Dingcheng."
 
 **Zhao Dingcheng（7–8）**
-- *7*："One open model reads every description; two stronger models relabel twelve hundred videos; agreement kappa 0.78; we correct for the errors that remain. Either gender counts; we take no side on marriage."
-- *8*："One issue video in five takes a side. Nearly twice the comments, but also more 'not interested': attention, not approval. And ranking shows them more often than they exist: 4.1 becomes 6.2 percent. What does a user's own history add? Li Yitong."
+- *7*："One open model reads every description. A group label needs all four: a whole gender, a negative trait, all or most, in its own voice; rebuttals don't count. Two stronger models relabel twelve hundred videos; kappa 0.78; we correct for the errors that remain. Either gender counts; we take no side on marriage."
+- *8*："One issue video in five takes a side. Nearly twice the comments, but also more 'not interested': attention, not simply approval. And ranking shows them more often than they exist, in every issue area, up to one and a half times the odds. What does a user's own history add? Li Yitong."
 
 **Li Yitong（9–10）**
 - *9*："Swap ten videos into a real history and compute what OneRec recommends next. Topic +1.01, narrative two-thirds of that, chance stays at zero: the model tells the narrative apart. Remember this: mark the same videos 'not interested', and the narrative still goes up."

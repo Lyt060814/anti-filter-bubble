@@ -72,14 +72,14 @@ enter[6]=()=>{
 /* 8: prevalence, engagement, supply vs shown */
 enter[8]=()=>{
   const c=$('#c8a');
-  c.innerHTML='<div class="big rose" style="font-size:118px;opacity:0" data-b>1 in 5</div><div class="dotg" style="position:relative;width:240px;height:240px;margin:22px 0 26px"></div><div class="lab" style="font-size:32px;line-height:1.2;width:480px;opacity:0" data-t>issue videos shown carry an opposing narrative<br><span class="ash mono" style="font-size:20px">18.4% · issues are 7.9% of all that is shown</span></div>';
+  c.innerHTML='<div class="big rose" style="font-size:118px;opacity:0" data-b>1 in 5</div><div class="dotg" style="position:relative;width:240px;height:240px;margin:22px 0 26px"></div><div class="lab" style="font-size:32px;line-height:1.2;width:480px;opacity:0" data-t>issue videos shown carry an opposing narrative<br><span class="ash mono" style="font-size:20px">18.4% of issue videos<br>issues are 7.9% of all shown</span></div>';
   const b=c.querySelector('[data-b]'),t=c.querySelector('[data-t]'),g=c.querySelector('.dotg');
   tw(.9,.4,u=>{b.style.opacity=u;b.style.transform='translateY('+(30*(1-u))+'px)'});tw(.8,1.6,u=>t.style.opacity=u);
   for(let i=0;i<100;i++){const s=document.createElement('span');s.style.left=(i%10)*24+'px';s.style.top=Math.floor(i/10)*24+'px';g.appendChild(s);
     if(i<18){if(STATIC)s.classList.add('r');else later(1+i*.06,()=>s.classList.add('r'))}}
   const s=$('#c8b');s.innerHTML='';
   el('text',{x:0,y:24,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},s,'ODDS AGAINST OTHER ISSUE VIDEOS');
-  const base=150,sc=170;
+  const sc=170,base=sc; // dashed line marks 1×
   const rows=[['commented on',1.85,ROSE],['shared',1.33,BONE],['marked "not interested"',1.74,SEP]];
   el('line',{x1:base,x2:base,y1:50,y2:50+rows.length*100,stroke:ASH,'stroke-width':2,'stroke-dasharray':'4 6'},s);
   el('text',{x:base,y:50+rows.length*100+26,fill:ASH,'font-size':20,'text-anchor':'middle','font-family':'CG','font-style':'italic'},s,'1× = same as others');
@@ -87,14 +87,17 @@ enter[8]=()=>{
     el('text',{x:0,y:y+20,fill:BONE,'font-size':26,'font-style':'italic','font-family':'CG'},s,lab);
     const r=el('rect',{x:0,y:y+34,width:0,height:34,fill:col},s);const t=el('text',{x:0,y:y+62,fill:col,'font-size':30},s,'');
     tw(1.1,1.6+i*.35,u=>{const w=(1+(v-1)*u)*sc*u;r.setAttribute('width',w);t.setAttribute('x',w+12);t.textContent='×'+(1+(v-1)*u).toFixed(2)})});
+  // Amplification by issue area: odds among impressions / odds among distinct videos (report Table 3, last column)
   const q=$('#c8c');q.innerHTML='';
-  el('text',{x:0,y:24,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},q,'GENDER GROUP LABELS');
-  const bb=360,sy=34;
-  [['on offer',4.1,BONE,90],['shown',6.2,ROSE,300]].forEach(([lab,v,col,x],i)=>{
-    const r=el('rect',{x,y:bb,width:120,height:0,fill:col},q);const t=el('text',{x:x+60,y:bb-12,fill:col,'font-size':40,'text-anchor':'middle'},q,'');
-    tw(1.2,2.6+i*.5,u=>{const h=v*sy*u;r.setAttribute('y',bb-h);r.setAttribute('height',h);t.setAttribute('y',bb-h-14);t.textContent=(v*u).toFixed(1)+'%'});
-    el('text',{x:x+60,y:bb+40,fill:BONE,'font-size':28,'text-anchor':'middle','font-style':'italic'},q,lab)});
-  el('line',{x1:40,x2:500,y1:bb,y2:bb,stroke:ASH,'stroke-width':2},q);
+  el('text',{x:0,y:24,fill:ASH,'font-size':19,'font-family':'PM','letter-spacing':3},q,'SHOWN VS ON OFFER · ODDS');
+  const amp=[['Gender & marriage',1.49],['Body & appearance',1.41],['Consumption & money',1.36],['Life choices',1.27],['Family & generations',1.18]];
+  const q0=0,qs=300;
+  el('line',{x1:q0+qs,x2:q0+qs,y1:44,y2:44+amp.length*66,stroke:ASH,'stroke-width':2,'stroke-dasharray':'4 6'},q);
+  el('text',{x:q0+qs,y:44+amp.length*66+26,fill:ASH,'font-size':20,'text-anchor':'middle','font-family':'CG','font-style':'italic'},q,'1× = shown as often as offered');
+  amp.forEach(([lab,v],i)=>{const y=48+i*66,col=i===0?ROSE:BONE;
+    el('text',{x:q0,y:y+18,fill:col,'font-size':24,'font-style':'italic','font-family':'CG'},q,lab);
+    const r=el('rect',{x:q0,y:y+28,width:0,height:24,fill:col},q);const t=el('text',{x:q0,y:y+49,fill:col,'font-size':26},q,'');
+    tw(1.1,2.6+i*.25,u=>{const w=(1+(v-1)*u)*qs*u;r.setAttribute('width',w);t.setAttribute('x',q0+w+10);t.textContent='×'+(1+(v-1)*u).toFixed(2)})});
 };
 
 /* 9: the probe */
