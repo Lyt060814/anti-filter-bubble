@@ -107,12 +107,12 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 > 注：旧方案的"用户确认目标（减少/保留/探索）+ 按效果·损失·成本选操作 + 可回答'无需操作 / 没有可行方案'"框架**最终报告里没有**，已从幻灯片和本方案中删除（见 `presentation/README.md` 的对应说明）。
 
 **屏幕上**
-- 第 4 页：两张并列卡片：*Interest = how much of my feed is this topic*；*Skew = inside the topic, how much more one narrative shows up than it should*。下方案例条（*Measured* · 报告 §3.2 / §5.1）：`supply 4.1% → platform layer +0.44, 6.2%（1.55× supply，shared by everyone）→ personal layer +0.79, 12.7%（most skewed tenth of heavy viewers, 2.2× platform odds）`；底部一句 *together 3.4× supply*。
-- 第 5 页：三张命题卡（*01 · Feedback · Prop. 1: ΔV = η·c*；*02 · Topic controls · Prop. 2: ΔV = 0*；*03 · Filters · Prop. 3: ΔV = log((1−TPR)/(1−FPR))*）+ 底部整宽一句：*No user action reaches the platform layer Λ — it is added for everyone, before any personalisation (Prop. 4)*。
+- 第 4 页：两张并列卡片：*Interest = how much of my feed is this topic*；*Skew = inside the topic, how much more one narrative shows up than it should*。下方案例条（*Measured* · 报告 §3.3 / §4.1）：`supply 4.1% → platform layer +0.44, 6.2%（1.55× supply，shared by everyone）→ personal layer +0.79, 12.7%（most skewed tenth of heavy viewers, 2.2× platform odds）`；底部一句 *together 3.4× supply*。
+- 第 5 页：三张命题卡（*01 · Feedback · Prop. 1: ΔV = η·c*，可口头带一句 OneRec 实测：叙事响应约为话题响应的 2/3（§4.2）；*02 · Topic controls · Prop. 2: ΔV = 0*；*03 · Filters · Prop. 3: ΔV = log((1−TPR)/(1−FPR))*）+ 底部整宽一句：*No user action reaches the platform layer Λ — it is added for everyone, before any personalisation (Prop. 4)*。
 
 **演讲提示**（与 `slides.html` 的 NOTES 一致，以 NOTES 为准）
 - *Slide 4（55s）*："Two numbers describe a feed. Interest is how much of it is about the topic. Skew is what you see once you're inside the topic — how much more often one narrative shows up than it should. A topic lover has high interest and ordinary skew; a cocoon is high skew, whatever the interest. Our case study, measured in the logs: a gender group label is 4.1% of the marriage videos on offer. Ranking alone lifts it to 6.2% — the platform layer, 1.55 times supply, shared by everyone. The most skewed tenth of heavy viewers see 12.7% — personalisation adds 2.2 times the odds again. Together, 3.4 times supply. The platform layer belongs to everyone; the personal layer is yours — and that is the part a user can act on."
-- *Slide 5（65s）*："So what can each action actually move? Four propositions. One: any feedback moves your skew in proportion to one quantity — how sharply the recommender separates the narrative from the rest of the topic. The same quantity builds a cocoon and takes it apart. And the sign of 'not interested' is the platform's choice: in a recommender trained on logged behaviour, the button is read as interest. Two: topic-level controls — 'show less of this topic', every category-based cocoon check — hit all videos in the topic equally, so they cannot change the mix inside it; the skew only falls because the topic does. Three: a filter acts on what reaches the screen, so it is the one action that needs no cooperation from the recommender. Four: no user action reaches the platform layer — it is added for everyone, before any personalisation. Zhao Dingcheng will now show the data."
+- *Slide 5（65s）*："So what can each action actually move? Four propositions. One: any feedback moves your skew in proportion to one quantity — how sharply the recommender separates the narrative from the rest of the topic. The same quantity builds a cocoon and takes it apart. In OneRec it is measured, not assumed: the model separates the narrative about two-thirds as sharply as it separates the topic. And the sign of 'not interested' is the platform's choice: in a recommender trained on logged behaviour, the button is read as interest. Two: topic-level controls — 'show less of this topic', every category-based cocoon check — hit all videos in the topic equally, so they cannot change the mix inside it; the skew only falls because the topic does. Three: a filter acts on what reaches the screen, so it is the one action that needs no cooperation from the recommender. Four: no user action reaches the platform layer — it is added for everyone, before any personalisation. Zhao Dingcheng will now show the data."
 
 **技巧**：第 4 页用手势把两个量分左右；"platform layer / personal layer"一句话："the first is shared by everyone, the second is yours"；第 5 页按 01→02→03 讲，最后用底部那句收束（这是第 4–5 页唯一要背下来的结论）；提到 "not interested" 时强调"**它的符号是平台决定的**——在这个模型里被当成兴趣"；数字都按报告口径讲（整份报告是理想化项目、数据是构造的，如被问到如实说明）。
 
@@ -257,8 +257,8 @@ subtitle: "Keeping the Topic, Widening the View · 按新分工重排"
 | 汇报页 | 报告章节 | 证据类型 |
 |---|---|---|
 | 2–3 | §1、§2 | – |
-| 4 | §3.1–3.2、§5.1 | 实测 + 推导 |
-| 5 | §3.3（命题 1–4） | 推导 |
+| 4 | §3.3、§4.1 | 实测 + 推导 |
+| 5 | §2.3–2.4（命题 1–4）、§4.2 | 推导 + 实测 |
 | 6 | §5.1、§8.1 | – |
 | 7 | §5.2、表 1 | 实测 |
 | 8 | §6.1、表 3 | 实测 |
