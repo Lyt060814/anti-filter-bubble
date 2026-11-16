@@ -51,7 +51,7 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 
 ---
 
-## Li Yitong（第 9–11 页，约 2:15）
+## Li Yitong（第 9–11 页，约 2:10）
 
 **Slide 9 · 0:40**
 > What does your own history add? To answer that, look at what is behind the feed. *(指手机)* You scroll. Everything you do, finishing a video, skipping it, liking it, goes into your history. *(沿箭头)* A recommender reads that history and predicts the next video you are most likely to finish, and you scroll again. Swipe after swipe, it is a loop. *(指下方)* If you know ChatGPT, you know the idea: ChatGPT reads the words so far and predicts the next word; a recommender reads the videos so far and predicts the next video. We use OneRec, a recommender of exactly this kind that Kuaishou trained on these same logs. We do two things with it: one turn of the loop with the real model, our probe, and three months of turns with a copy tuned to it, our simulation.
@@ -64,9 +64,9 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 > *(指红框，放慢)* And remember this one: if the same ten videos are marked "not interested", the narrative still goes **up**. The button is read as interest.
 
 **Slide 11 · 0:45**
-> One turn is one step. To follow months of scrolling, we run the loop with a simple recommender tuned so that one turn matches OneRec. Take a topic fan who tends to finish group-label videos. *(沿红线)* After about three weeks the skew is half-way, and by three months the odds of meeting the label have doubled.
+> One turn is one step. To follow months of scrolling, we run the loop with a copy of the recommender tuned so that one turn matches OneRec. Take a topic fan who tends to finish group-label videos. *(沿红线)* After about three weeks the skew is half-way, and by three months the odds have doubled. *(指横线)* That is exactly where the logs put the most skewed tenth of heavy viewers: one in eight.
 >
-> *(指虚线)* The topic share stops growing at about thirty percent after a month, but the skew keeps climbing, so a cocoon check sees nothing new. A casual viewer with the same taste barely moves.
+> *(指虚线)* The topic share stops growing at thirty percent, but the skew keeps climbing. *(指灰线)* And a fan who finishes every side alike, same topic share, stays where they started. That is User 1 and User 2 from the start, built in three months.
 >
 > Could this fan notice? Xu Ruicong.
 

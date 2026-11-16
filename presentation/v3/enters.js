@@ -122,11 +122,13 @@ enter[11]=()=>{
   [0,30,60,90].forEach(d=>el('text',{x:X(d),y:B+40,fill:ASH,'font-size':26,'text-anchor':'middle'},b,'day '+d));
   const path=(s,key,Y)=>'M'+s.d.map((d,j)=>X(d).toFixed(1)+' '+Y(s[key][j]).toFixed(1)).join(' L');
   el('path',{d:path(FORM.fan,'m',YM),stroke:BONE,'stroke-width':3,'stroke-dasharray':'12 9',fill:'none',class:'fade',style:'--d:1.2s'},b);
-  el('path',{d:path(FORM.casual,'V',YV),stroke:ASH,'stroke-width':3,fill:'none',pathLength:1,class:'draw',style:'--d:1.6s'},b);
+  el('path',{d:path(FORM.even,'V',YV),stroke:ASH,'stroke-width':3,fill:'none',pathLength:1,class:'draw',style:'--d:1.6s'},b);
   el('path',{d:path(FORM.fan,'V',YV),stroke:ROSE,'stroke-width':7,fill:'none',pathLength:1,class:'draw',style:'--d:2s','stroke-linejoin':'round'},b);
   el('text',{x:R-12,y:YM(.30)+44,fill:BONE,'font-size':30,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.6s'},b,'topic share: stops growing at 30%');
   el('text',{x:R-12,y:YV(.79)-18,fill:ROSE,'font-size':32,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.6s'},b,'topic fan: twice the odds by day 89');
-  el('text',{x:R-12,y:YV(.09)-16,fill:ASH,'font-size':26,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.8s'},b,'casual viewer, same taste: barely moves');
+  el('text',{x:R-12,y:YV(.01)-16,fill:ASH,'font-size':26,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.8s'},b,'topic fan who finishes every side alike: stays at ×1');
+  el('line',{x1:L,x2:R,y1:YV(.79),y2:YV(.79),stroke:SEP,'stroke-width':2,'stroke-dasharray':'3 7',class:'fade',style:'--d:4.2s'},b);
+  el('text',{x:L+16,y:YV(.79)-14,fill:SEP,'font-size':26,'font-style':'italic','font-family':'CG',class:'fade',style:'--d:4.3s'},b,'in the logs: the most skewed tenth of heavy viewers (1 in 8)');
   el('circle',{cx:X(24),cy:YV(.39),r:11,fill:ROSE,class:'pop',style:'--d:3.3s;transform-origin:'+X(24)+'px '+YV(.39)+'px'},b);
   el('text',{x:X(24)-18,y:YV(.39)-16,fill:BONE,'font-size':28,'text-anchor':'end','font-style':'italic','font-family':'CG',class:'fade',style:'--d:3.4s'},b,'half-way by day 24');
 };
