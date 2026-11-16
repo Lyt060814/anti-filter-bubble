@@ -146,11 +146,18 @@ enter[12]=()=>{
   el('line',{x1:L,x2:R,y1:Y(0),y2:Y(0),stroke:ASH,'stroke-width':2},s);el('line',{x1:L,x2:L,y1:T,y2:B,stroke:ASH,'stroke-width':2},s);
   [0,1,2].forEach(r=>el('text',{x:L-14,y:Y(r)+9,fill:ASH,'font-size':26,'text-anchor':'end'},s,r.toFixed(1)));
   [0,.5,1].forEach(k=>el('text',{x:X(k),y:B+38,fill:ASH,'font-size':26,'text-anchor':'middle'},s,Math.round(k*100)+'%'));
-  el('text',{x:(L+R)/2,y:B+84,fill:BONE,'font-size':30,'text-anchor':'middle','font-style':'italic','font-family':'CG'},s,'share of the topic kept →');
-  el('text',{x:L+12,y:T+6,fill:BONE,'font-size':30,'font-style':'italic','font-family':'CG'},s,'↑ skew removed');
+  el('text',{x:(L+R)/2,y:B+84,fill:BONE,'font-size':30,'text-anchor':'middle','font-style':'italic','font-family':'CG'},s,'original topic share kept →');
+  el('text',{x:L+12,y:T+6,fill:BONE,'font-size':30,'font-style':'italic','font-family':'CG'},s,'↑ drop in personal skew');
   el('line',{x1:L,x2:R,y1:Y(.78),y2:Y(.78),stroke:SEP,'stroke-width':2,'stroke-dasharray':'8 8',class:'fade',style:'--d:1s'},s);
-  el('text',{x:X(.5),y:Y(.78)-12,fill:SEP,'font-size':24,'font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.1s'},s,'personal layer gone');
-  const lab={S8:['personalisation off',ASH,24,-24,'start'],S9:['"show less of this topic"',ASH,24,30,'start'],S1:['scroll past',BONE,-26,10,'end'],S2:['"not interested"',ROSE,-26,10,'end'],S11:['classifier filter',ROSE,-26,10,'end']};
+  el('text',{x:X(.43),y:Y(.78)+28,fill:SEP,'font-size':24,'text-anchor':'middle','font-style':'italic','font-family':'CG',class:'fade',style:'--d:1.1s'},s,'personal layer gone');
+  const keptPercent=key=>Math.round(ESC[key].kept*100)+'% kept';
+  const lab={
+    S8:['personalisation off · '+keptPercent('S8'),BONE,24,-24,'start'],
+    S9:['"show less of this topic"',ASH,24,30,'start'],
+    S1:['scroll past · '+keptPercent('S1'),BONE,-26,10,'end'],
+    S2:['scroll past + “Not interested”',ROSE,-26,10,'end'],
+    S11:['classifier filter',ROSE,-26,10,'end'],
+  };
   Object.entries(ESC).forEach(([k,e],i)=>{if(k==='S0')return;const x=X(Math.min(e.kept,1)),y=Y(-e.dV),hl=k in lab;
     const c=el('circle',{cx:x,cy:y,r:hl?14:9,fill:hl?lab[k][1]:'rgba(236,229,211,.25)',class:'pop',style:`--d:${(hl?1.4:.8)+i*.06}s;transform-origin:${x}px ${y}px`},s);
     if(hl){const [t,col,dx,dy,an]=lab[k];el('text',{x:x+dx,y:y+dy,fill:col,'font-size':30,'text-anchor':an,'font-style':'italic','font-family':'CG',class:'fade',style:`--d:${1.8+i*.06}s`},s,t)}});
