@@ -89,9 +89,9 @@ subtitle: "配合 slides_v3.html；幻灯片里按 N 看到的讲稿由本文件
 > To see a doubling, a user needs about 490 labelled issue videos from their own feed, and as many again from a feed without personalisation. *(指条形)* Their own feed fills up in nine days. The reference takes about four months. If the platform published a reference, six days would be enough.
 
 **Slide 12 · 0:55**
-> Now suppose the fan wants out but wants to keep the topic. We tried eleven ways out, each for seventeen days. *(说明坐标)* Up means skew removed; right means more of the topic kept.
+> Suppose she wants fewer of those videos but still wants to see marriage and family content. We simulated eleven strategies for about seventeen days. *(说明坐标)* Further right means more of the original topic share is kept. Higher up means a bigger drop in personal skew.
 >
-> *(左下)* Turning personalisation off, or "show less of this topic", removes the skew by removing the topic. *(右边)* Scrolling past the labels keeps the topic and works. Pressing "not interested" on the same videos works *worse* than scrolling past, because, as Li Yitong said, each press is read as interest. *(顶部)* A filter goes furthest, and it needs no help from the recommender.
+> *(先左后右)* Turning off personalisation leaves only **eight percent** of the original topic share. Scrolling past those videos keeps **ninety-three percent** and reduces personal skew more. *(指右侧两点)* Now compare two strategies where she scrolls past. In one, she also taps “Not interested.” Under the feedback we modelled, that extra tap makes the improvement smaller.
 
 **Slide 13 · 0:25**
 > And when the user stops, *(沿曲线回升)* every curve climbs back. Half the gain is gone in about a week. Escape is a habit, not a button.
